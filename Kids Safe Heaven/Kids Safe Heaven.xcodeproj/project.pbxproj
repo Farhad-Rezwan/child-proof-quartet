@@ -1,0 +1,357 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		FCB4BCC824EABC4A00531D46 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCB4BCC724EABC4A00531D46 /* AppDelegate.swift */; };
+		FCB4BCCA24EABC4A00531D46 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCB4BCC924EABC4A00531D46 /* SceneDelegate.swift */; };
+		FCB4BCCC24EABC4A00531D46 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCB4BCCB24EABC4A00531D46 /* ViewController.swift */; };
+		FCB4BCCF24EABC4A00531D46 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FCB4BCCD24EABC4A00531D46 /* Main.storyboard */; };
+		FCB4BCD124EABC4E00531D46 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FCB4BCD024EABC4E00531D46 /* Assets.xcassets */; };
+		FCB4BCD424EABC4E00531D46 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FCB4BCD224EABC4E00531D46 /* LaunchScreen.storyboard */; };
+		FCB4BCDC24EABD9F00531D46 /* LocationTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCB4BCDB24EABD9F00531D46 /* LocationTableViewController.swift */; };
+		FCB4BCDE24EABDD600531D46 /* NewLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCB4BCDD24EABDD600531D46 /* NewLocationViewController.swift */; };
+		FCB4BCE024EABE0E00531D46 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCB4BCDF24EABE0E00531D46 /* MapViewController.swift */; };
+		FCB4BCE224EABE4000531D46 /* LocationAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCB4BCE124EABE4000531D46 /* LocationAnnotation.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		FCB4BCC424EABC4A00531D46 /* Kids Safe Heaven.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Kids Safe Heaven.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		FCB4BCC724EABC4A00531D46 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		FCB4BCC924EABC4A00531D46 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		FCB4BCCB24EABC4A00531D46 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		FCB4BCCE24EABC4A00531D46 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		FCB4BCD024EABC4E00531D46 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		FCB4BCD324EABC4E00531D46 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		FCB4BCD524EABC4E00531D46 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FCB4BCDB24EABD9F00531D46 /* LocationTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationTableViewController.swift; sourceTree = "<group>"; };
+		FCB4BCDD24EABDD600531D46 /* NewLocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewLocationViewController.swift; sourceTree = "<group>"; };
+		FCB4BCDF24EABE0E00531D46 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		FCB4BCE124EABE4000531D46 /* LocationAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationAnnotation.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		FCB4BCC124EABC4A00531D46 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		FCB4BCBB24EABC4A00531D46 = {
+			isa = PBXGroup;
+			children = (
+				FCB4BCC624EABC4A00531D46 /* Kids Safe Heaven */,
+				FCB4BCC524EABC4A00531D46 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		FCB4BCC524EABC4A00531D46 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				FCB4BCC424EABC4A00531D46 /* Kids Safe Heaven.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		FCB4BCC624EABC4A00531D46 /* Kids Safe Heaven */ = {
+			isa = PBXGroup;
+			children = (
+				FCB4BCC724EABC4A00531D46 /* AppDelegate.swift */,
+				FCB4BCC924EABC4A00531D46 /* SceneDelegate.swift */,
+				FCB4BCCB24EABC4A00531D46 /* ViewController.swift */,
+				FCB4BCCD24EABC4A00531D46 /* Main.storyboard */,
+				FCB4BCD024EABC4E00531D46 /* Assets.xcassets */,
+				FCB4BCD224EABC4E00531D46 /* LaunchScreen.storyboard */,
+				FCB4BCD524EABC4E00531D46 /* Info.plist */,
+				FCB4BCDB24EABD9F00531D46 /* LocationTableViewController.swift */,
+				FCB4BCDD24EABDD600531D46 /* NewLocationViewController.swift */,
+				FCB4BCDF24EABE0E00531D46 /* MapViewController.swift */,
+				FCB4BCE124EABE4000531D46 /* LocationAnnotation.swift */,
+			);
+			path = "Kids Safe Heaven";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		FCB4BCC324EABC4A00531D46 /* Kids Safe Heaven */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FCB4BCD824EABC4E00531D46 /* Build configuration list for PBXNativeTarget "Kids Safe Heaven" */;
+			buildPhases = (
+				FCB4BCC024EABC4A00531D46 /* Sources */,
+				FCB4BCC124EABC4A00531D46 /* Frameworks */,
+				FCB4BCC224EABC4A00531D46 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Kids Safe Heaven";
+			productName = "Kids Safe Heaven";
+			productReference = FCB4BCC424EABC4A00531D46 /* Kids Safe Heaven.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		FCB4BCBC24EABC4A00531D46 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1160;
+				LastUpgradeCheck = 1160;
+				ORGANIZATIONNAME = "Farhad Ullah Rezwan";
+				TargetAttributes = {
+					FCB4BCC324EABC4A00531D46 = {
+						CreatedOnToolsVersion = 11.6;
+					};
+				};
+			};
+			buildConfigurationList = FCB4BCBF24EABC4A00531D46 /* Build configuration list for PBXProject "Kids Safe Heaven" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = FCB4BCBB24EABC4A00531D46;
+			productRefGroup = FCB4BCC524EABC4A00531D46 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				FCB4BCC324EABC4A00531D46 /* Kids Safe Heaven */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		FCB4BCC224EABC4A00531D46 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FCB4BCD424EABC4E00531D46 /* LaunchScreen.storyboard in Resources */,
+				FCB4BCD124EABC4E00531D46 /* Assets.xcassets in Resources */,
+				FCB4BCCF24EABC4A00531D46 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		FCB4BCC024EABC4A00531D46 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FCB4BCDC24EABD9F00531D46 /* LocationTableViewController.swift in Sources */,
+				FCB4BCE024EABE0E00531D46 /* MapViewController.swift in Sources */,
+				FCB4BCCC24EABC4A00531D46 /* ViewController.swift in Sources */,
+				FCB4BCC824EABC4A00531D46 /* AppDelegate.swift in Sources */,
+				FCB4BCE224EABE4000531D46 /* LocationAnnotation.swift in Sources */,
+				FCB4BCDE24EABDD600531D46 /* NewLocationViewController.swift in Sources */,
+				FCB4BCCA24EABC4A00531D46 /* SceneDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		FCB4BCCD24EABC4A00531D46 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FCB4BCCE24EABC4A00531D46 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		FCB4BCD224EABC4E00531D46 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FCB4BCD324EABC4E00531D46 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		FCB4BCD624EABC4E00531D46 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		FCB4BCD724EABC4E00531D46 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		FCB4BCD924EABC4E00531D46 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "Kids Safe Heaven/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "edu.monash.Kids-Safe-Heaven";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		FCB4BCDA24EABC4E00531D46 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "Kids Safe Heaven/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "edu.monash.Kids-Safe-Heaven";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		FCB4BCBF24EABC4A00531D46 /* Build configuration list for PBXProject "Kids Safe Heaven" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FCB4BCD624EABC4E00531D46 /* Debug */,
+				FCB4BCD724EABC4E00531D46 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FCB4BCD824EABC4E00531D46 /* Build configuration list for PBXNativeTarget "Kids Safe Heaven" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FCB4BCD924EABC4E00531D46 /* Debug */,
+				FCB4BCDA24EABC4E00531D46 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = FCB4BCBC24EABC4A00531D46 /* Project object */;
+}

@@ -2,7 +2,7 @@
 //  SceneDelegate.swift
 //  Kids Safe Heaven
 //
-//  Created by Farhad Ullah Rezwan on 17/8/20.
+//  Created by Farhad Ullah Rezwan on 18/8/20.
 //  Copyright © 2020 Farhad Ullah Rezwan. All rights reserved.
 //
 
@@ -14,22 +14,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
-        
-        let splitView = self.window!.rootViewController as! UISplitViewController
-        let navigationController = splitView.viewControllers.first as! UINavigationController
-        let mapView = splitView.viewControllers.last as! MapViewController
-        let locationView = navigationController.viewControllers.first as! LocationTableViewController
-        
-        locationView.mapViewController = mapView
-        
-        
-        
-        
-        
-        
-        
+        // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
+        // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
+        // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
         guard let _ = (scene as? UIWindowScene) else { return }
-        
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {

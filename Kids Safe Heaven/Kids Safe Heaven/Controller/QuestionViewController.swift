@@ -27,11 +27,14 @@ class QuestionViewController: UIViewController {
     var questionNumber: Int = 0
     var selectionNumber: Int = 0
     var selectedAnswer: Int = 0
+    var score: Int = 0
     
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        updateQuestion()
+        updateUI()
 
         // Do any additional setup after loading the view.
     }
@@ -42,27 +45,44 @@ class QuestionViewController: UIViewController {
         } else {
             print("FalsE")
         }
+        
+        questionNumber += 1
+        updateQuestion()
 
     }
     
     func updateQuestion() {
-        flagView.image = UIImage(named: (allQuestions.list[questionNumber].questionImage))
-        questionLabel.text = allQuestions.list[questionNumber].question
-        optionA.setTitle(allQuestions.list[questionNumber].optionA, for: .normal)
-        optionB.setTitle(allQuestions.list[questionNumber].optionB, for: .normal)
-        optionC.setTitle(allQuestions.list[questionNumber].optionC, for: .normal)
-        optionD.setTitle(allQuestions.list[questionNumber].optionD, for: .normal)
-        
-        selectedAnswer = allQuestions.list[questionNumber].corretAnswer
-        
-        questionNumber += 1
+
+        if questionNumber <= allQuestions.list.count - 1 {
+            
+            flagView.image = UIImage(named: (allQuestions.list[questionNumber].questionImage))
+            questionLabel.text = allQuestions.list[questionNumber].question
+            optionA.setTitle(allQuestions.list[questionNumber].optionA, for: .normal)
+            optionB.setTitle(allQuestions.list[questionNumber].optionB, for: .normal)
+            optionC.setTitle(allQuestions.list[questionNumber].optionC, for: .normal)
+            optionD.setTitle(allQuestions.list[questionNumber].optionD, for: .normal)
+            
+            selectedAnswer = allQuestions.list[questionNumber].corretAnswer
+        } else {
+            let alert = UIAlertController(title: "Awesome", message: "End of quiz. do you want to start over?", preferredStyle: .alert)
+            let restartAction = UIAlertAction(title: "Restart", style: .default, handler: {action in self.restartQuiz()})
+            alert.addAction(restartAction)
+            present(alert, animated: true, completion: nil)
+        }
+        updateUI()
 
     }
     func updateUI() {
+        scoreLabel.text = "Score: \(score)"
+        questionCounter.text = "\(questionNumber + 1)/\(allQuestions.list.count)"
+        // progress value
         
     }
     
     func restartQuiz() {
+        score = 0
+        questionNumber = 0
+        updateQuestion()
         
     }
 }

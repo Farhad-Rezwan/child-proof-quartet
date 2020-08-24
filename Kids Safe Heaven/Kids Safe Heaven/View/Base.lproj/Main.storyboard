@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="JLA-18-5fi">
+    <device id="retina5_5" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Others-->
+        <scene sceneID="jLC-T7-3zc">
+            <objects>
+                <viewController id="vwv-9f-Abi" customClass="QuestionViewController" customModule="Kids_Safe_Heaven" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="gCy-ft-iXn">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zsy-V8-SiB">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="63"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="xx/25" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ohw-nB-WaA">
+                                        <rect key="frame" x="26.000000000000004" y="23" width="42.333333333333343" height="20.333333333333329"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Score" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="egv-MB-OGg">
+                                        <rect key="frame" x="325.33333333333331" y="18" width="44.666666666666686" height="20.333333333333329"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstItem="ohw-nB-WaA" firstAttribute="top" secondItem="zsy-V8-SiB" secondAttribute="top" constant="23" id="0BL-D3-qAV"/>
+                                    <constraint firstItem="egv-MB-OGg" firstAttribute="top" secondItem="zsy-V8-SiB" secondAttribute="top" constant="18" id="Hi2-G0-neE"/>
+                                    <constraint firstAttribute="trailing" secondItem="egv-MB-OGg" secondAttribute="trailing" constant="44" id="MIT-HU-Utw"/>
+                                    <constraint firstAttribute="height" constant="63" id="h9X-nk-WLZ"/>
+                                    <constraint firstItem="ohw-nB-WaA" firstAttribute="leading" secondItem="zsy-V8-SiB" secondAttribute="leading" constant="26" id="pb1-T8-Pq7"/>
+                                </constraints>
+                            </view>
+                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="sRg-Vf-ahg">
+                                <rect key="frame" x="0.0" y="71" width="414" height="2"/>
+                            </progressView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="91" translatesAutoresizingMaskIntoConstraints="NO" id="KL8-tj-4zV">
+                                <rect key="frame" x="0.0" y="73" width="414" height="614"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="die-4Q-vDt">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="300"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="W3h-Wh-bdr">
+                                                <rect key="frame" x="0.0" y="0.0" width="414" height="300"/>
+                                                <subviews>
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="flag15" translatesAutoresizingMaskIntoConstraints="NO" id="Gwl-cR-yWO">
+                                                        <rect key="frame" x="106.33333333333333" y="0.0" width="201.33333333333337" height="231"/>
+                                                    </imageView>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This carabian country is hoem to Cou-Cou and flying fish. Rihana fish popular R&amp;B singer from here. Barbedos" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QbL-6q-Tkv">
+                                                        <rect key="frame" x="3.6666666666666572" y="239" width="407" height="61"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                            </stackView>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstItem="W3h-Wh-bdr" firstAttribute="leading" secondItem="die-4Q-vDt" secondAttribute="leading" id="DKF-8k-Lpo"/>
+                                            <constraint firstAttribute="bottom" secondItem="W3h-Wh-bdr" secondAttribute="bottom" id="LEH-gh-eoc"/>
+                                            <constraint firstItem="W3h-Wh-bdr" firstAttribute="top" secondItem="die-4Q-vDt" secondAttribute="top" id="f0b-44-0Mq"/>
+                                            <constraint firstAttribute="trailing" secondItem="W3h-Wh-bdr" secondAttribute="trailing" id="y9l-fN-dtn"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yG3-Xu-QC7">
+                                        <rect key="frame" x="0.0" y="391" width="414" height="223"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="p8h-BR-trC">
+                                                <rect key="frame" x="15" y="15" width="384" height="193"/>
+                                                <subviews>
+                                                    <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f19-0m-SnB">
+                                                        <rect key="frame" x="0.0" y="0.0" width="384" height="40.666666666666664"/>
+                                                        <color key="backgroundColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
+                                                        <state key="normal" title="A. Trinidad and Tobago"/>
+                                                        <connections>
+                                                            <action selector="answerPressed:" destination="vwv-9f-Abi" eventType="touchUpInside" id="Mhw-C4-L59"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y3U-BW-Iuw">
+                                                        <rect key="frame" x="0.0" y="50.666666666666629" width="384" height="41"/>
+                                                        <color key="backgroundColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
+                                                        <state key="normal" title="B. Antigue and Barbugda"/>
+                                                        <connections>
+                                                            <action selector="answerPressed:" destination="vwv-9f-Abi" eventType="touchUpInside" id="wiR-iI-eDm"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pmT-Rp-jkJ">
+                                                        <rect key="frame" x="0.0" y="101.66666666666663" width="384" height="40.666666666666657"/>
+                                                        <color key="backgroundColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
+                                                        <state key="normal" title="C. Brazil"/>
+                                                        <connections>
+                                                            <action selector="answerPressed:" destination="vwv-9f-Abi" eventType="touchUpInside" id="jkM-N1-hnX"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BGY-q9-rbL">
+                                                        <rect key="frame" x="0.0" y="152.33333333333337" width="384" height="40.666666666666657"/>
+                                                        <color key="backgroundColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
+                                                        <state key="normal" title="D. Argintina"/>
+                                                        <connections>
+                                                            <action selector="answerPressed:" destination="vwv-9f-Abi" eventType="touchUpInside" id="jCe-RH-TC9"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                <color key="tintColor" systemColor="linkColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </stackView>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemGray2Color" red="0.68235294120000001" green="0.68235294120000001" blue="0.69803921570000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstItem="p8h-BR-trC" firstAttribute="top" secondItem="yG3-Xu-QC7" secondAttribute="top" constant="15" id="00N-zn-t1x"/>
+                                            <constraint firstAttribute="bottom" secondItem="p8h-BR-trC" secondAttribute="bottom" constant="15" id="hpW-N0-DOT"/>
+                                            <constraint firstAttribute="trailing" secondItem="p8h-BR-trC" secondAttribute="trailing" constant="15" id="k4X-Ei-wXC"/>
+                                            <constraint firstItem="p8h-BR-trC" firstAttribute="leading" secondItem="yG3-Xu-QC7" secondAttribute="leading" constant="15" id="qBt-u7-6C6"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="zsy-V8-SiB" firstAttribute="top" secondItem="pOa-QJ-m0K" secondAttribute="top" id="7B6-dW-77e"/>
+                            <constraint firstItem="zsy-V8-SiB" firstAttribute="trailing" secondItem="pOa-QJ-m0K" secondAttribute="trailing" id="7QL-rv-j0X"/>
+                            <constraint firstItem="zsy-V8-SiB" firstAttribute="leading" secondItem="pOa-QJ-m0K" secondAttribute="leading" id="Izh-0h-xCr"/>
+                            <constraint firstAttribute="bottom" secondItem="zsy-V8-SiB" secondAttribute="bottom" constant="673" id="KPS-dk-u3B"/>
+                            <constraint firstItem="zsy-V8-SiB" firstAttribute="leading" secondItem="sRg-Vf-ahg" secondAttribute="leading" id="OrX-ZL-6Lc"/>
+                            <constraint firstItem="KL8-tj-4zV" firstAttribute="leading" secondItem="pOa-QJ-m0K" secondAttribute="leading" id="P0q-NJ-bNq"/>
+                            <constraint firstItem="sRg-Vf-ahg" firstAttribute="top" secondItem="zsy-V8-SiB" secondAttribute="bottom" constant="8" id="R4E-FI-hx9"/>
+                            <constraint firstItem="zsy-V8-SiB" firstAttribute="centerX" secondItem="gCy-ft-iXn" secondAttribute="centerX" id="RJ4-Io-A0A"/>
+                            <constraint firstItem="KL8-tj-4zV" firstAttribute="top" secondItem="sRg-Vf-ahg" secondAttribute="bottom" id="Y2n-6K-yXA"/>
+                            <constraint firstItem="pOa-QJ-m0K" firstAttribute="bottom" secondItem="KL8-tj-4zV" secondAttribute="bottom" id="koo-7E-pJ9"/>
+                            <constraint firstItem="KL8-tj-4zV" firstAttribute="centerX" secondItem="gCy-ft-iXn" secondAttribute="centerX" id="qmB-z9-P8f"/>
+                            <constraint firstItem="pOa-QJ-m0K" firstAttribute="trailing" secondItem="KL8-tj-4zV" secondAttribute="trailing" id="sZb-Pt-mNK"/>
+                            <constraint firstItem="zsy-V8-SiB" firstAttribute="trailing" secondItem="sRg-Vf-ahg" secondAttribute="trailing" id="uTp-zA-EK5"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="pOa-QJ-m0K"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Others" id="pCL-9h-E7z"/>
+                    <connections>
+                        <outlet property="flagView" destination="Gwl-cR-yWO" id="1hi-26-fLO"/>
+                        <outlet property="optionA" destination="f19-0m-SnB" id="Wwt-7L-Yvb"/>
+                        <outlet property="optionB" destination="Y3U-BW-Iuw" id="NeB-vZ-oYn"/>
+                        <outlet property="optionC" destination="pmT-Rp-jkJ" id="Hhm-U6-Yeo"/>
+                        <outlet property="optionD" destination="BGY-q9-rbL" id="LKL-ei-oah"/>
+                        <outlet property="progressView" destination="sRg-Vf-ahg" id="5ff-Ns-Iiq"/>
+                        <outlet property="questionCounter" destination="ohw-nB-WaA" id="9Dw-sg-PtI"/>
+                        <outlet property="questionLabel" destination="QbL-6q-Tkv" id="y7O-hr-1V0"/>
+                        <outlet property="scoreLabel" destination="egv-MB-OGg" id="ekZ-fl-JWw"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="g96-Mz-Ep6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="247.82608695652175" y="40.760869565217398"/>
+        </scene>
+        <!--Map Screen View Controller-->
+        <scene sceneID="4hK-rz-TY9">
+            <objects>
+                <viewController id="u2V-yZ-1eE" customClass="MapScreenViewController" customModule="Kids_Safe_Heaven" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="N4I-vD-f8C">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="mutedStandard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="OX4-kp-TF2">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="687"/>
+                            </mapView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="t0M-DX-eTw" firstAttribute="trailing" secondItem="OX4-kp-TF2" secondAttribute="trailing" id="F9W-qr-YZO"/>
+                            <constraint firstItem="OX4-kp-TF2" firstAttribute="leading" secondItem="t0M-DX-eTw" secondAttribute="leading" id="JvL-hO-Yk8"/>
+                            <constraint firstItem="t0M-DX-eTw" firstAttribute="bottom" secondItem="OX4-kp-TF2" secondAttribute="bottom" id="SHB-Ux-35E"/>
+                            <constraint firstItem="OX4-kp-TF2" firstAttribute="top" secondItem="N4I-vD-f8C" secondAttribute="top" id="uUF-O3-cJY"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="t0M-DX-eTw"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" badgeValue="Location" systemItem="search" id="egW-Go-mC6"/>
+                    <connections>
+                        <outlet property="mapView" destination="OX4-kp-TF2" id="ge0-Xc-0VZ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pH9-Hu-2H5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="249" y="-608"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="zsh-Xv-rBA">
+            <objects>
+                <tabBarController id="JLA-18-5fi" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="spm-fm-NSN">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="u2V-yZ-1eE" kind="relationship" relationship="viewControllers" id="mi9-jL-OT2"/>
+                        <segue destination="vwv-9f-Abi" kind="relationship" relationship="viewControllers" id="pVZ-WB-9bk"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Zn9-wT-L3p" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-668" y="-285"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="flag15" width="201.33332824707031" height="100.66666412353516"/>
+    </resources>
+</document>

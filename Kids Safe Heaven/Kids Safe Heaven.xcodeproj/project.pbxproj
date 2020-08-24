@@ -13,6 +13,9 @@
 		FC10ED4224EC13A600C11DB0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FC10ED4124EC13A600C11DB0 /* Assets.xcassets */; };
 		FC10ED4524EC13A600C11DB0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FC10ED4324EC13A600C11DB0 /* LaunchScreen.storyboard */; };
 		FC10ED4D24EC14EA00C11DB0 /* MapScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC10ED4C24EC14EA00C11DB0 /* MapScreenViewController.swift */; };
+		FC4C10FE24F3D9FC00C3A2DB /* QuestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC4C10FD24F3D9FC00C3A2DB /* QuestionViewController.swift */; };
+		FC4C110024F3DBCA00C3A2DB /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC4C10FF24F3DBCA00C3A2DB /* Question.swift */; };
+		FC4C110224F3DCD100C3A2DB /* QuestionBank.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC4C110124F3DCD100C3A2DB /* QuestionBank.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +27,9 @@
 		FC10ED4424EC13A600C11DB0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FC10ED4624EC13A600C11DB0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FC10ED4C24EC14EA00C11DB0 /* MapScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapScreenViewController.swift; sourceTree = "<group>"; };
+		FC4C10FD24F3D9FC00C3A2DB /* QuestionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionViewController.swift; sourceTree = "<group>"; };
+		FC4C10FF24F3DBCA00C3A2DB /* Question.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
+		FC4C110124F3DCD100C3A2DB /* QuestionBank.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionBank.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,15 +62,42 @@
 		FC10ED3724EC13A200C11DB0 /* Kids Safe Heaven */ = {
 			isa = PBXGroup;
 			children = (
+				FC4C10F824F3D6A200C3A2DB /* Model */,
+				FC4C10FA24F3D9AA00C3A2DB /* Controller */,
+				FC4C10F924F3D6BC00C3A2DB /* View */,
+				FC10ED4624EC13A600C11DB0 /* Info.plist */,
+			);
+			path = "Kids Safe Heaven";
+			sourceTree = "<group>";
+		};
+		FC4C10F824F3D6A200C3A2DB /* Model */ = {
+			isa = PBXGroup;
+			children = (
 				FC10ED3824EC13A200C11DB0 /* AppDelegate.swift */,
 				FC10ED3A24EC13A200C11DB0 /* SceneDelegate.swift */,
+				FC4C10FF24F3DBCA00C3A2DB /* Question.swift */,
+				FC4C110124F3DCD100C3A2DB /* QuestionBank.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		FC4C10F924F3D6BC00C3A2DB /* View */ = {
+			isa = PBXGroup;
+			children = (
 				FC10ED3E24EC13A200C11DB0 /* Main.storyboard */,
 				FC10ED4124EC13A600C11DB0 /* Assets.xcassets */,
 				FC10ED4324EC13A600C11DB0 /* LaunchScreen.storyboard */,
-				FC10ED4624EC13A600C11DB0 /* Info.plist */,
-				FC10ED4C24EC14EA00C11DB0 /* MapScreenViewController.swift */,
 			);
-			path = "Kids Safe Heaven";
+			path = View;
+			sourceTree = "<group>";
+		};
+		FC4C10FA24F3D9AA00C3A2DB /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				FC10ED4C24EC14EA00C11DB0 /* MapScreenViewController.swift */,
+				FC4C10FD24F3D9FC00C3A2DB /* QuestionViewController.swift */,
+			);
+			path = Controller;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -138,9 +171,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FC4C110024F3DBCA00C3A2DB /* Question.swift in Sources */,
 				FC10ED3924EC13A200C11DB0 /* AppDelegate.swift in Sources */,
 				FC10ED3B24EC13A200C11DB0 /* SceneDelegate.swift in Sources */,
+				FC4C10FE24F3D9FC00C3A2DB /* QuestionViewController.swift in Sources */,
 				FC10ED4D24EC14EA00C11DB0 /* MapScreenViewController.swift in Sources */,
+				FC4C110224F3DCD100C3A2DB /* QuestionBank.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

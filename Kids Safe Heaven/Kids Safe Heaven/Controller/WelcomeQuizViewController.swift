@@ -9,7 +9,10 @@
 import UIKit
 
 class WelcomeQuizViewController: UIViewController {
-
+    @IBAction func quizStartButton(_ sender: Any) {
+        performSegue(withIdentifier: "quizViewSegue", sender: nil)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 

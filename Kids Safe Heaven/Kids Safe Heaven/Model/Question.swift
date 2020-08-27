@@ -9,22 +9,20 @@
 import Foundation
 
 class Question {
-    let questionImage: String
     let question: String
     let optionA: String
     let optionB: String
-    let optionC: String
-    let optionD: String
+    let optionAImage: String
+    let optionBImage: String
     let corretAnswer: Int
     
-    init(questionImage: String, question: String, optionA: String, optionB: String, optionC: String, optionD: String, answer: Int) {
-        self.questionImage = questionImage
+    init(question: String, optionA: String, optionB: String, optionAImage: String, optionBImage: String, correctAnswer: Int) {
         self.question = question
         self.optionA = optionA
         self.optionB = optionB
-        self.optionC = optionC
-        self.optionD = optionD
-        self.corretAnswer = answer
+        self.optionAImage = optionAImage
+        self.optionBImage = optionBImage
+        self.corretAnswer = correctAnswer
     }
 
 }

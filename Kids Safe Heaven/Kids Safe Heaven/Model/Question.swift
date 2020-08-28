@@ -15,14 +15,21 @@ class Question {
     let optionAImage: String
     let optionBImage: String
     let corretAnswer: Int
+    let section: String
+    let optionATips: String
+    let optionBTips: String
     
-    init(question: String, optionA: String, optionB: String, optionAImage: String, optionBImage: String, correctAnswer: Int) {
+    init(question: String, optionA: String, optionB: String, optionAImage: String, optionBImage: String, correctAnswer: Int, section: String, optionATips: String, optionBTips: String) {
         self.question = question
         self.optionA = optionA
         self.optionB = optionB
         self.optionAImage = optionAImage
         self.optionBImage = optionBImage
+        self.optionATips = optionATips
+        self.optionBTips = optionBTips
         self.corretAnswer = correctAnswer
+        self.section = section
+        
     }
 
 }

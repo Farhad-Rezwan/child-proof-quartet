@@ -18,6 +18,7 @@
 		FC4C110024F3DBCA00C3A2DB /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC4C10FF24F3DBCA00C3A2DB /* Question.swift */; };
 		FC4C110224F3DCD100C3A2DB /* QuestionBank.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC4C110124F3DCD100C3A2DB /* QuestionBank.swift */; };
 		FC99F4AF24F66966009A1ABD /* WelcomeQuizViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC99F4AE24F66966009A1ABD /* WelcomeQuizViewController.swift */; };
+		FCB4AEA924FAFF47001603FA /* HomeScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCB4AEA824FAFF47001603FA /* HomeScreenViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,7 @@
 		FC4C10FF24F3DBCA00C3A2DB /* Question.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
 		FC4C110124F3DCD100C3A2DB /* QuestionBank.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionBank.swift; sourceTree = "<group>"; };
 		FC99F4AE24F66966009A1ABD /* WelcomeQuizViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeQuizViewController.swift; sourceTree = "<group>"; };
+		FCB4AEA824FAFF47001603FA /* HomeScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreenViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +104,7 @@
 				FC4C10FD24F3D9FC00C3A2DB /* QuestionViewController.swift */,
 				FC99F4AE24F66966009A1ABD /* WelcomeQuizViewController.swift */,
 				FC4A644A24F7E0CC00C14160 /* CreateUsersViewController.swift */,
+				FCB4AEA824FAFF47001603FA /* HomeScreenViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -182,6 +185,7 @@
 				FC10ED3924EC13A200C11DB0 /* AppDelegate.swift in Sources */,
 				FC10ED3B24EC13A200C11DB0 /* SceneDelegate.swift in Sources */,
 				FC4C10FE24F3D9FC00C3A2DB /* QuestionViewController.swift in Sources */,
+				FCB4AEA924FAFF47001603FA /* HomeScreenViewController.swift in Sources */,
 				FC10ED4D24EC14EA00C11DB0 /* MapScreenViewController.swift in Sources */,
 				FC4C110224F3DCD100C3A2DB /* QuestionBank.swift in Sources */,
 				FC4A644B24F7E0CC00C14160 /* CreateUsersViewController.swift in Sources */,

@@ -10,32 +10,31 @@ import UIKit
 
 class QuestionViewController: UIViewController {
 
-    @IBOutlet var sendBackView: UIView!
     @IBOutlet weak var questionCounter: UILabel!
     @IBOutlet weak var scoreLabel: UILabel!
     @IBOutlet weak var progressView: UIProgressView!
-   
     @IBOutlet weak var questionLabel: UILabel!
-    
-    @IBOutlet var tipsItemView: UIView!
-    @IBOutlet weak var visualEffectView: UIVisualEffectView!
-    
-    var effect:UIVisualEffect!
-    @IBAction func dismissPopUp(_ sender: Any) {
-        animateOut()
-    }
-    //    /outlet for b uttons
-
+//    @IBOutlet var tipsItemView: UIView!
     @IBOutlet weak var optionA: UIButton!
-    
     @IBOutlet weak var optionB: UIButton!
     
-
+    @IBOutlet var blurView: UIVisualEffectView!
+    @IBOutlet var popUpView: UIView!
+    
     let allQuestions = QuestionBank()
     var questionNumber: Int = 0
     var selectionNumber: Int = 0
     var selectedAnswer: Int = 0
     var score: Int = 0
+    
+//    let popUpWindow: TipsView = {
+//        
+//        let view = TipsView()
+//        view.translatesAutoresizingMaskIntoConstraints = false
+//        view.layer.cornerRadius = 5
+//        
+//        return view
+//    } ()
     
     
     
@@ -50,48 +49,32 @@ class QuestionViewController: UIViewController {
         
         updateQuestion()
         updateUI()
-        
+//        view.addSubview(popUpWindow)
+
         
 
-        // Do any additional setup after loading the view.
-    }
-    
-    
-    func animateIn() {
-        self.view.addSubview(tipsItemView)
-        tipsItemView.center = self.view.center
+        // sets the size of the blur view to the equal to ovarall
+        blurView.bounds = self.view.bounds
         
-        tipsItemView.transform = CGAffineTransform.init(scaleX: 1.3, y: 1.3)
-        tipsItemView.alpha = 0
+        popUpView.bounds = CGRect(x: 0, y: 0, width: self.view.bounds.width * 0.90, height: self.view.bounds.height * 0.60)
         
-        UIView.animate(withDuration: 0.4) {
-            self.visualEffectView.effect = self.effect
-            self.tipsItemView.alpha = 1
-            self.tipsItemView.transform = CGAffineTransform.identity
-        }
+        
     }
     
-    func animateOut() {
-        visualEffectView.sendSubviewToBack(sendBackView)
-        UIView.animate(withDuration: 0.3, animations: {
-            self.tipsItemView.transform = CGAffineTransform.init(scaleX: 1.3, y: 1.3)
-            self.tipsItemView.alpha = 0
-            
-            self.visualEffectView.effect = nil
-            
-        }, completion: { (success: Bool) in
-            self.tipsItemView.removeFromSuperview()
-        })
-    }
 
 
     @IBAction func answerPress(_ sender: UIButton) {
         if sender.tag == selectedAnswer {
-//            animateIn()
+            animateIn(desiredView: blurView)
+            animateIn(desiredView: popUpView)
             print("CorrECT")
         } else {
             print("FalsE")
+            
+            
         }
+        
+        
         
         questionNumber += 1
         updateQuestion()
@@ -135,8 +118,7 @@ class QuestionViewController: UIViewController {
     func updateUI() {
         scoreLabel.text = "Score: \(score)"
         questionCounter.text = "\(questionNumber + 1)/\(allQuestions.list.count)"
-        // progress value
-        
+
     }
     
     func restartQuiz() {
@@ -148,33 +130,72 @@ class QuestionViewController: UIViewController {
     
     
     
-    // rotate screen
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        UIDevice.current.setValue(UIInterfaceOrientation.landscapeLeft.rawValue, forKey: "orientation")
-    }
+//    // rotate screen
+//    override func viewWillAppear(_ animated: Bool) {
+//        super.viewWillAppear(animated)
+//        UIDevice.current.setValue(UIInterfaceOrientation.landscapeLeft.rawValue, forKey: "orientation")
+//    }
+//
+//    override open var shouldAutorotate: Bool {
+//        return false
+//    }
+//
+//    override open var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+//        return .landscapeLeft
+//    }
+//
+//    override open var preferredInterfaceOrientationForPresentation: UIInterfaceOrientation {
+//        return .landscapeLeft
+//
+//    }
+//
+//
+//}
+
+//extension UINavigationController {
+//    override open var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+//        return topViewController?.supportedInterfaceOrientations ?? .allButUpsideDown
+//    }
+//}
     
-    override open var shouldAutorotate: Bool {
-        return false
-    }
     
-    override open var supportedInterfaceOrientations: UIInterfaceOrientationMask {
-        return .landscapeLeft
-    }
-    
-    override open var preferredInterfaceOrientationForPresentation: UIInterfaceOrientation {
-        return .landscapeLeft
+    func animateIn(desiredView: UIView) {
+        let backgroundView = self.view!
+        
+        // attach our desired view to the screen (self?.view/backgroundView)
+        backgroundView.addSubview(desiredView)
+        
+        // 20% bigger so looks like zooming out and in
+        desiredView.transform = CGAffineTransform(scaleX: 1.2, y: 1.2)
+        desiredView.alpha = 0
+        desiredView.center = backgroundView.center
+        
+        // animate the effect
+        UIView.animate(withDuration: 0.3, animations: {
+            // after 0.3 sec this will happen
+            desiredView.transform = CGAffineTransform(scaleX: 1.0, y: 1.0)
+            desiredView.alpha = 1
+        })
         
     }
     
-    @IBAction func barBAction(_ sender: Any) {
-            animateIn()
+    // animate out a specified view
+    
+    func animateOut(desiredView: UIView) {
+        UIView.animate(withDuration: 0.3, animations: {
+            desiredView.transform = CGAffineTransform(scaleX: 1.2, y: 1.2)
+            desiredView.alpha = 0
+        }, completion: { _ in
+            desiredView.removeFromSuperview()
+        })
     }
     
-}
-
-extension UINavigationController {
-    override open var supportedInterfaceOrientations: UIInterfaceOrientationMask {
-        return topViewController?.supportedInterfaceOrientations ?? .allButUpsideDown
+    
+    
+    
+    @IBAction func tipsDoneButton(_ sender: Any) {
+        animateOut(desiredView: popUpView)
+        animateOut(desiredView: blurView)
     }
+    
 }

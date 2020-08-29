@@ -20,6 +20,7 @@ class QuestionViewController: UIViewController {
     
     @IBOutlet var blurView: UIVisualEffectView!
     @IBOutlet var popUpView: UIView!
+    @IBOutlet weak var tipsImageView: UIImageView!
     
     let allQuestions = QuestionBank()
     var questionNumber: Int = 0
@@ -64,13 +65,21 @@ class QuestionViewController: UIViewController {
 
 
     @IBAction func answerPress(_ sender: UIButton) {
-        if sender.tag == selectedAnswer {
+        if sender.tag == 1 {
             animateIn(desiredView: blurView)
             animateIn(desiredView: popUpView)
-            print("CorrECT")
-        } else {
-            print("FalsE")
-            
+            let optionATipsImageName: String = allQuestions.list[questionNumber].optionATips
+            let tipsImage = UIImage(named: optionATipsImageName)
+
+            tipsImageView.image = tipsImage
+        } else if sender.tag == 2 {
+            animateIn(desiredView: blurView)
+            animateIn(desiredView: popUpView)
+            let optionBTipsImageName: String = allQuestions.list[questionNumber].optionBTips
+            let tipsImage = UIImage(named: optionBTipsImageName)
+
+            tipsImageView.image = tipsImage
+
             
         }
         
@@ -177,6 +186,9 @@ class QuestionViewController: UIViewController {
             desiredView.alpha = 1
         })
         
+        
+
+
     }
     
     // animate out a specified view

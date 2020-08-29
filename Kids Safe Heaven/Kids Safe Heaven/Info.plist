@@ -21,13 +21,13 @@
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
-	<string>This is it</string>
+	<string>We need location to check Whether</string>
 	<key>NSLocationAlwaysUsageDescription</key>
-	<string>This is ti</string>
+	<string>We need location to check Whether</string>
 	<key>NSLocationUsageDescription</key>
-	<string>This is ti </string>
+	<string>We need location to check Whether</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>this is also required</string>
+	<string>We need location to check Whether</string>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>
@@ -66,5 +66,10 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>NSAppTransportSecurity</key>
+	<dict>
+		<key>NSAllowsArbitraryLoads</key>
+		<true/>
+	</dict>
 </dict>
 </plist>

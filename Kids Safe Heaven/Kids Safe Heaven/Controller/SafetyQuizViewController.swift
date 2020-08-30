@@ -7,27 +7,30 @@
 //
 
 import UIKit
+import AVFoundation
 
 class SafetyQuizViewController: UIViewController {
     
-        @IBOutlet weak var questionCounter: UILabel!
-        @IBOutlet weak var scoreLabel: UILabel!
-        @IBOutlet weak var progressView: UIProgressView!
-        @IBOutlet weak var questionLabel: UILabel!
-    //    @IBOutlet var tipsItemView: UIView!
-        @IBOutlet weak var optionA: UIButton!
-        @IBOutlet weak var optionB: UIButton!
-        
-        @IBOutlet var blurView: UIVisualEffectView!
-        @IBOutlet var popUpView: UIView!
-        @IBOutlet weak var tipsImageView: UIImageView!
-        
-    //    let allQuestions = QuestionBank(type: "general").list.shuffled().prefix(5)
-        var allQuestions: ArraySlice<Question>!
-        var questionNumber: Int = 0
-        var selectionNumber: Int = 0
-        var selectedAnswer: Int = 0
-        var score: Int = 0
+    var audioPlayer: AVAudioPlayer?
+    
+    @IBOutlet weak var questionCounter: UILabel!
+    @IBOutlet weak var scoreLabel: UILabel!
+    @IBOutlet weak var progressView: UIProgressView!
+    @IBOutlet weak var questionLabel: UILabel!
+//    @IBOutlet var tipsItemView: UIView!
+    @IBOutlet weak var optionA: UIButton!
+    @IBOutlet weak var optionB: UIButton!
+    
+    @IBOutlet var blurView: UIVisualEffectView!
+    @IBOutlet var popUpView: UIView!
+    @IBOutlet weak var tipsImageView: UIImageView!
+    
+//    let allQuestions = QuestionBank(type: "general").list.shuffled().prefix(5)
+    var allQuestions: ArraySlice<Question>!
+    var questionNumber: Int = 0
+    var selectionNumber: Int = 0
+    var selectedAnswer: Int = 0
+    var score: Int = 0
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -82,6 +85,25 @@ class SafetyQuizViewController: UIViewController {
         
         if sender.tag == selectedAnswer {
             score += 1
+            let pathToSound = Bundle.main.path(forResource: "correct", ofType: "mp3")!
+            let url = URL(fileURLWithPath: pathToSound)
+            do {
+                audioPlayer = try AVAudioPlayer(contentsOf: url)
+                audioPlayer!.play()
+            } catch {
+                print("error playing")
+            }
+        } else {
+            let pathToSound = Bundle.main.path(forResource: "wrong", ofType: "mp3")!
+            let url = URL(fileURLWithPath: pathToSound)
+            do {
+                audioPlayer = try AVAudioPlayer(contentsOf: url)
+                audioPlayer!.play()
+            } catch {
+                print("error playing")
+            }
+            
+            
         }
         
         

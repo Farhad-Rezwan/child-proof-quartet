@@ -7,8 +7,11 @@
 //
 
 import UIKit
+import AVFoundation
 
 class QuestionViewController: UIViewController {
+    
+    var audioPlayer: AVAudioPlayer?
 
     @IBOutlet weak var questionCounter: UILabel!
     @IBOutlet weak var scoreLabel: UILabel!
@@ -81,6 +84,25 @@ class QuestionViewController: UIViewController {
         
         if sender.tag == selectedAnswer {
             score += 1
+            let pathToSound = Bundle.main.path(forResource: "correct", ofType: "mp3")!
+            let url = URL(fileURLWithPath: pathToSound)
+            do {
+                audioPlayer = try AVAudioPlayer(contentsOf: url)
+                audioPlayer!.play()
+            } catch {
+                print("error playing")
+            }
+        } else {
+            let pathToSound = Bundle.main.path(forResource: "wrong", ofType: "mp3")!
+            let url = URL(fileURLWithPath: pathToSound)
+            do {
+                audioPlayer = try AVAudioPlayer(contentsOf: url)
+                audioPlayer!.play()
+            } catch {
+                print("error playing")
+            }
+            
+            
         }
         
         

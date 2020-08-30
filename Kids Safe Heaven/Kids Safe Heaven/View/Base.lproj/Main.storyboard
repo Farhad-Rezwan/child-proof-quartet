@@ -452,17 +452,17 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="En9-PE-KNc">
-                                        <rect key="frame" x="280" y="87" width="140" height="126.33333333333331"/>
+                                        <rect key="frame" x="289.33333333333331" y="87" width="146.33333333333331" height="126.33333333333331"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="General Safety" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3w8-Zt-czW">
-                                                <rect key="frame" x="0.0" y="0.0" width="140" height="26.333333333333332"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Weather Safety" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3w8-Zt-czW">
+                                                <rect key="frame" x="0.0" y="0.0" width="146.33333333333334" height="26.333333333333332"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.66636344179999996" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UfX-Mn-dPR">
-                                                <rect key="frame" x="20" y="26.333333333333343" width="100" height="100"/>
+                                                <rect key="frame" x="23" y="26.333333333333343" width="100" height="100"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="100" id="AIq-fU-Gqb"/>
                                                     <constraint firstAttribute="width" constant="100" id="Uas-Cq-sM5"/>
@@ -476,17 +476,17 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="mvf-HZ-cm9">
-                                        <rect key="frame" x="560" y="87" width="140" height="126.33333333333331"/>
+                                        <rect key="frame" x="584.66666666666663" y="87" width="115.33333333333337" height="126.33333333333331"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="General Safety" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fA5-Mj-nLI">
-                                                <rect key="frame" x="0.0" y="0.0" width="140" height="26.333333333333332"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Road Safety" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fA5-Mj-nLI">
+                                                <rect key="frame" x="0.0" y="0.0" width="115.33333333333333" height="26.333333333333332"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.66636344179999996" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KDf-hf-S7h">
-                                                <rect key="frame" x="20" y="26.333333333333343" width="100" height="100"/>
+                                                <rect key="frame" x="7.6666666666667425" y="26.333333333333343" width="100" height="100"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="100" id="Gk8-QO-Gza"/>
                                                     <constraint firstAttribute="width" constant="100" id="I6V-xT-Q2W"/>

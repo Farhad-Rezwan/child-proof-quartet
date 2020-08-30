@@ -22,39 +22,21 @@ class QuestionViewController: UIViewController {
     @IBOutlet var popUpView: UIView!
     @IBOutlet weak var tipsImageView: UIImageView!
     
-    let allQuestions = QuestionBank()
+//    let allQuestions = QuestionBank(type: "general").list.shuffled().prefix(5)
+    var allQuestions: ArraySlice<Question>!
     var questionNumber: Int = 0
     var selectionNumber: Int = 0
     var selectedAnswer: Int = 0
     var score: Int = 0
     
-//    let popUpWindow: TipsView = {
-//        
-//        let view = TipsView()
-//        view.translatesAutoresizingMaskIntoConstraints = false
-//        view.layer.cornerRadius = 5
-//        
-//        return view
-//    } ()
-    
-    
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        effect = visualEffectView.effect
-//        visualEffectView.effect = nil
-//        visualEffectView.sendSubviewToBack(sendBackView)
-//        tipsItemView.layer.cornerRadius = 5
-        
-        
+        progressView.progress = 0
         updateQuestion()
         updateUI()
-//        view.addSubview(popUpWindow)
-
-        
-
-        // sets the size of the blur view to the equal to ovarall
         blurView.bounds = self.view.bounds
         
         popUpView.bounds = CGRect(x: 0, y: 0, width: self.view.bounds.width * 0.90, height: self.view.bounds.height * 0.60)
@@ -62,38 +44,39 @@ class QuestionViewController: UIViewController {
         
     }
     
-
-
     @IBAction func answerPress(_ sender: UIButton) {
         if sender.tag == 1 {
             animateIn(desiredView: blurView)
             animateIn(desiredView: popUpView)
-            let optionATipsImageName: String = allQuestions.list[questionNumber].optionATips
+            let optionATipsImageName: String = allQuestions[questionNumber].optionATips
             let tipsImage = UIImage(named: optionATipsImageName)
 
             tipsImageView.image = tipsImage
         } else if sender.tag == 2 {
             animateIn(desiredView: blurView)
             animateIn(desiredView: popUpView)
-            let optionBTipsImageName: String = allQuestions.list[questionNumber].optionBTips
+            let optionBTipsImageName: String = allQuestions[questionNumber].optionBTips
             let tipsImage = UIImage(named: optionBTipsImageName)
 
             tipsImageView.image = tipsImage
-
-            
+        }
+        
+        if sender.tag == selectedAnswer {
+            score += 1
         }
         
         
         
         questionNumber += 1
-        updateQuestion()
+        
     }
     func updateQuestion() {
-        if questionNumber <= allQuestions.list.count - 1 {
+        allQuestions = QuestionBank(type: "general").list.shuffled().prefix(5)
+        if questionNumber <= allQuestions.count - 1 {
             
-            questionLabel.text = allQuestions.list[questionNumber].question
+            questionLabel.text = allQuestions[questionNumber].question
             
-            let optionAImageName: String = allQuestions.list[questionNumber].optionAImage
+            let optionAImageName: String = allQuestions[questionNumber].optionAImage
             let btnAImage = UIImage(named: optionAImageName)
 
             optionA.setImage(btnAImage, for: .normal)
@@ -101,7 +84,7 @@ class QuestionViewController: UIViewController {
             optionA.contentVerticalAlignment = .fill
             optionA.contentHorizontalAlignment = .fill
 
-            let optionBImageName: String = allQuestions.list[questionNumber].optionBImage
+            let optionBImageName: String = allQuestions[questionNumber].optionBImage
             let btnBImage = UIImage(named: optionBImageName)
             
             optionB.setImage(btnBImage, for: .normal)
@@ -113,20 +96,24 @@ class QuestionViewController: UIViewController {
             optionA.setTitle("", for: .normal)
             optionB.setTitle("", for: .normal)
             
-            selectedAnswer = allQuestions.list[questionNumber].corretAnswer
+            selectedAnswer = allQuestions[questionNumber].corretAnswer
             
         } else {
+            allQuestions = QuestionBank(type: "general").list.shuffled().prefix(5)
+            progressView.progress = 0
             let alert = UIAlertController(title: "Awesome", message: "End of quiz. do you want to start over?", preferredStyle: .alert)
             let restartAction = UIAlertAction(title: "Restart", style: .default, handler: {action in self.restartQuiz()})
+            
             alert.addAction(restartAction)
             present(alert, animated: true, completion: nil)
         }
-        updateUI()
+        
 
     }
     func updateUI() {
         scoreLabel.text = "Score: \(score)"
-        questionCounter.text = "\(questionNumber + 1)/\(allQuestions.list.count)"
+        questionCounter.text = "\(questionNumber + 1)/\(allQuestions.count)"
+        progressView.progress = progressView.progress + 0.10
 
     }
     
@@ -136,38 +123,7 @@ class QuestionViewController: UIViewController {
         updateQuestion()
         
     }
-    
-    
-    
-//    // rotate screen
-//    override func viewWillAppear(_ animated: Bool) {
-//        super.viewWillAppear(animated)
-//        UIDevice.current.setValue(UIInterfaceOrientation.landscapeLeft.rawValue, forKey: "orientation")
-//    }
-//
-//    override open var shouldAutorotate: Bool {
-//        return false
-//    }
-//
-//    override open var supportedInterfaceOrientations: UIInterfaceOrientationMask {
-//        return .landscapeLeft
-//    }
-//
-//    override open var preferredInterfaceOrientationForPresentation: UIInterfaceOrientation {
-//        return .landscapeLeft
-//
-//    }
-//
-//
-//}
 
-//extension UINavigationController {
-//    override open var supportedInterfaceOrientations: UIInterfaceOrientationMask {
-//        return topViewController?.supportedInterfaceOrientations ?? .allButUpsideDown
-//    }
-//}
-    
-    
     func animateIn(desiredView: UIView) {
         let backgroundView = self.view!
         
@@ -200,6 +156,8 @@ class QuestionViewController: UIViewController {
         }, completion: { _ in
             desiredView.removeFromSuperview()
         })
+        updateUI()
+        updateQuestion()
     }
     
     

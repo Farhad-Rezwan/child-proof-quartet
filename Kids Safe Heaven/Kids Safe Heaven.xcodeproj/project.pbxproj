@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -14,6 +14,8 @@
 		FC10ED4224EC13A600C11DB0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FC10ED4124EC13A600C11DB0 /* Assets.xcassets */; };
 		FC10ED4524EC13A600C11DB0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FC10ED4324EC13A600C11DB0 /* LaunchScreen.storyboard */; };
 		FC10ED4D24EC14EA00C11DB0 /* MapScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC10ED4C24EC14EA00C11DB0 /* MapScreenViewController.swift */; };
+		FC1F889424FC0510001C281F /* WeatherQuizViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC1F889324FC0510001C281F /* WeatherQuizViewController.swift */; };
+		FC1F889624FC09F5001C281F /* SafetyQuizViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC1F889524FC09F5001C281F /* SafetyQuizViewController.swift */; };
 		FC4A644B24F7E0CC00C14160 /* CreateUsersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC4A644A24F7E0CC00C14160 /* CreateUsersViewController.swift */; };
 		FC4C10FE24F3D9FC00C3A2DB /* QuestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC4C10FD24F3D9FC00C3A2DB /* QuestionViewController.swift */; };
 		FC4C110024F3DBCA00C3A2DB /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC4C10FF24F3DBCA00C3A2DB /* Question.swift */; };
@@ -34,6 +36,8 @@
 		FC10ED4424EC13A600C11DB0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FC10ED4624EC13A600C11DB0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FC10ED4C24EC14EA00C11DB0 /* MapScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapScreenViewController.swift; sourceTree = "<group>"; };
+		FC1F889324FC0510001C281F /* WeatherQuizViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherQuizViewController.swift; sourceTree = "<group>"; };
+		FC1F889524FC09F5001C281F /* SafetyQuizViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafetyQuizViewController.swift; sourceTree = "<group>"; };
 		FC4A644A24F7E0CC00C14160 /* CreateUsersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateUsersViewController.swift; sourceTree = "<group>"; };
 		FC4C10FD24F3D9FC00C3A2DB /* QuestionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionViewController.swift; sourceTree = "<group>"; };
 		FC4C10FF24F3DBCA00C3A2DB /* Question.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
@@ -60,7 +64,6 @@
 				909C7EBA3C83441EA9BCF45B /* Pods-Kids Safe Heaven.debug.xcconfig */,
 				CF370C0B2576C36F41464BBA /* Pods-Kids Safe Heaven.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -130,6 +133,8 @@
 				FC99F4AE24F66966009A1ABD /* WelcomeQuizViewController.swift */,
 				FC4A644A24F7E0CC00C14160 /* CreateUsersViewController.swift */,
 				FCB4AEA824FAFF47001603FA /* HomeScreenViewController.swift */,
+				FC1F889324FC0510001C281F /* WeatherQuizViewController.swift */,
+				FC1F889524FC09F5001C281F /* SafetyQuizViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -253,6 +258,8 @@
 				FC99F4AF24F66966009A1ABD /* WelcomeQuizViewController.swift in Sources */,
 				FC10ED3924EC13A200C11DB0 /* AppDelegate.swift in Sources */,
 				FC10ED3B24EC13A200C11DB0 /* SceneDelegate.swift in Sources */,
+				FC1F889624FC09F5001C281F /* SafetyQuizViewController.swift in Sources */,
+				FC1F889424FC0510001C281F /* WeatherQuizViewController.swift in Sources */,
 				FC4C10FE24F3D9FC00C3A2DB /* QuestionViewController.swift in Sources */,
 				FCB4AEA924FAFF47001603FA /* HomeScreenViewController.swift in Sources */,
 				FC10ED4D24EC14EA00C11DB0 /* MapScreenViewController.swift in Sources */,

@@ -10,9 +10,16 @@ import UIKit
 
 class WelcomeQuizViewController: UIViewController {
     @IBAction func quizStartButton(_ sender: Any) {
-        performSegue(withIdentifier: "quizViewSegue", sender: nil)
+//        performSegue(withIdentifier: "general", sender: nil)
     }
     
+    @IBAction func safetyQuizStartButton(_ sender: Any) {
+//        performSegue(withIdentifier: "safety", sender: nil)
+    }
+    @IBAction func weatherQuizStartButton(_ sender: Any) {
+//        performSegue(withIdentifier: "weather", sender: nil)
+        
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
 

@@ -7,15 +7,25 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E8E85CC4DAF9F943C7FF9D04 /* Pods_Kids_Safe_Heaven.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E49342620015402A2854FBFB /* Pods_Kids_Safe_Heaven.framework */; };
 		FC10ED3924EC13A200C11DB0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC10ED3824EC13A200C11DB0 /* AppDelegate.swift */; };
 		FC10ED3B24EC13A200C11DB0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC10ED3A24EC13A200C11DB0 /* SceneDelegate.swift */; };
 		FC10ED4024EC13A200C11DB0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FC10ED3E24EC13A200C11DB0 /* Main.storyboard */; };
 		FC10ED4224EC13A600C11DB0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FC10ED4124EC13A600C11DB0 /* Assets.xcassets */; };
 		FC10ED4524EC13A600C11DB0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FC10ED4324EC13A600C11DB0 /* LaunchScreen.storyboard */; };
 		FC10ED4D24EC14EA00C11DB0 /* MapScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC10ED4C24EC14EA00C11DB0 /* MapScreenViewController.swift */; };
+		FC4A644B24F7E0CC00C14160 /* CreateUsersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC4A644A24F7E0CC00C14160 /* CreateUsersViewController.swift */; };
+		FC4C10FE24F3D9FC00C3A2DB /* QuestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC4C10FD24F3D9FC00C3A2DB /* QuestionViewController.swift */; };
+		FC4C110024F3DBCA00C3A2DB /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC4C10FF24F3DBCA00C3A2DB /* Question.swift */; };
+		FC4C110224F3DCD100C3A2DB /* QuestionBank.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC4C110124F3DCD100C3A2DB /* QuestionBank.swift */; };
+		FC99F4AF24F66966009A1ABD /* WelcomeQuizViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC99F4AE24F66966009A1ABD /* WelcomeQuizViewController.swift */; };
+		FCB4AEA924FAFF47001603FA /* HomeScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCB4AEA824FAFF47001603FA /* HomeScreenViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		909C7EBA3C83441EA9BCF45B /* Pods-Kids Safe Heaven.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Kids Safe Heaven.debug.xcconfig"; path = "Target Support Files/Pods-Kids Safe Heaven/Pods-Kids Safe Heaven.debug.xcconfig"; sourceTree = "<group>"; };
+		CF370C0B2576C36F41464BBA /* Pods-Kids Safe Heaven.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Kids Safe Heaven.release.xcconfig"; path = "Target Support Files/Pods-Kids Safe Heaven/Pods-Kids Safe Heaven.release.xcconfig"; sourceTree = "<group>"; };
+		E49342620015402A2854FBFB /* Pods_Kids_Safe_Heaven.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Kids_Safe_Heaven.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FC10ED3524EC13A200C11DB0 /* Kids Safe Heaven.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Kids Safe Heaven.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FC10ED3824EC13A200C11DB0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FC10ED3A24EC13A200C11DB0 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -24,6 +34,12 @@
 		FC10ED4424EC13A600C11DB0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FC10ED4624EC13A600C11DB0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FC10ED4C24EC14EA00C11DB0 /* MapScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapScreenViewController.swift; sourceTree = "<group>"; };
+		FC4A644A24F7E0CC00C14160 /* CreateUsersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateUsersViewController.swift; sourceTree = "<group>"; };
+		FC4C10FD24F3D9FC00C3A2DB /* QuestionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionViewController.swift; sourceTree = "<group>"; };
+		FC4C10FF24F3DBCA00C3A2DB /* Question.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
+		FC4C110124F3DCD100C3A2DB /* QuestionBank.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionBank.swift; sourceTree = "<group>"; };
+		FC99F4AE24F66966009A1ABD /* WelcomeQuizViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeQuizViewController.swift; sourceTree = "<group>"; };
+		FCB4AEA824FAFF47001603FA /* HomeScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreenViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,17 +47,38 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E8E85CC4DAF9F943C7FF9D04 /* Pods_Kids_Safe_Heaven.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1AED42A3335AA9E5520B687E /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				909C7EBA3C83441EA9BCF45B /* Pods-Kids Safe Heaven.debug.xcconfig */,
+				CF370C0B2576C36F41464BBA /* Pods-Kids Safe Heaven.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		9966D633D3B8879DC26F8B61 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E49342620015402A2854FBFB /* Pods_Kids_Safe_Heaven.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		FC10ED2C24EC13A200C11DB0 = {
 			isa = PBXGroup;
 			children = (
 				FC10ED3724EC13A200C11DB0 /* Kids Safe Heaven */,
 				FC10ED3624EC13A200C11DB0 /* Products */,
+				1AED42A3335AA9E5520B687E /* Pods */,
+				9966D633D3B8879DC26F8B61 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -56,15 +93,45 @@
 		FC10ED3724EC13A200C11DB0 /* Kids Safe Heaven */ = {
 			isa = PBXGroup;
 			children = (
+				FC4C10F824F3D6A200C3A2DB /* Model */,
+				FC4C10FA24F3D9AA00C3A2DB /* Controller */,
+				FC4C10F924F3D6BC00C3A2DB /* View */,
+				FC10ED4624EC13A600C11DB0 /* Info.plist */,
+			);
+			path = "Kids Safe Heaven";
+			sourceTree = "<group>";
+		};
+		FC4C10F824F3D6A200C3A2DB /* Model */ = {
+			isa = PBXGroup;
+			children = (
 				FC10ED3824EC13A200C11DB0 /* AppDelegate.swift */,
 				FC10ED3A24EC13A200C11DB0 /* SceneDelegate.swift */,
+				FC4C10FF24F3DBCA00C3A2DB /* Question.swift */,
+				FC4C110124F3DCD100C3A2DB /* QuestionBank.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		FC4C10F924F3D6BC00C3A2DB /* View */ = {
+			isa = PBXGroup;
+			children = (
 				FC10ED3E24EC13A200C11DB0 /* Main.storyboard */,
 				FC10ED4124EC13A600C11DB0 /* Assets.xcassets */,
 				FC10ED4324EC13A600C11DB0 /* LaunchScreen.storyboard */,
-				FC10ED4624EC13A600C11DB0 /* Info.plist */,
-				FC10ED4C24EC14EA00C11DB0 /* MapScreenViewController.swift */,
 			);
-			path = "Kids Safe Heaven";
+			path = View;
+			sourceTree = "<group>";
+		};
+		FC4C10FA24F3D9AA00C3A2DB /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				FC10ED4C24EC14EA00C11DB0 /* MapScreenViewController.swift */,
+				FC4C10FD24F3D9FC00C3A2DB /* QuestionViewController.swift */,
+				FC99F4AE24F66966009A1ABD /* WelcomeQuizViewController.swift */,
+				FC4A644A24F7E0CC00C14160 /* CreateUsersViewController.swift */,
+				FCB4AEA824FAFF47001603FA /* HomeScreenViewController.swift */,
+			);
+			path = Controller;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -74,9 +141,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = FC10ED4924EC13A600C11DB0 /* Build configuration list for PBXNativeTarget "Kids Safe Heaven" */;
 			buildPhases = (
+				672D594ABAA0D74FF69D12E6 /* [CP] Check Pods Manifest.lock */,
 				FC10ED3124EC13A200C11DB0 /* Sources */,
 				FC10ED3224EC13A200C11DB0 /* Frameworks */,
 				FC10ED3324EC13A200C11DB0 /* Resources */,
+				574A8EA44F76521A5C6B1710 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -133,14 +202,62 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		574A8EA44F76521A5C6B1710 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Kids Safe Heaven/Pods-Kids Safe Heaven-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Kids Safe Heaven/Pods-Kids Safe Heaven-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Kids Safe Heaven/Pods-Kids Safe Heaven-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		672D594ABAA0D74FF69D12E6 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Kids Safe Heaven-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		FC10ED3124EC13A200C11DB0 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FC4C110024F3DBCA00C3A2DB /* Question.swift in Sources */,
+				FC99F4AF24F66966009A1ABD /* WelcomeQuizViewController.swift in Sources */,
 				FC10ED3924EC13A200C11DB0 /* AppDelegate.swift in Sources */,
 				FC10ED3B24EC13A200C11DB0 /* SceneDelegate.swift in Sources */,
+				FC4C10FE24F3D9FC00C3A2DB /* QuestionViewController.swift in Sources */,
+				FCB4AEA924FAFF47001603FA /* HomeScreenViewController.swift in Sources */,
 				FC10ED4D24EC14EA00C11DB0 /* MapScreenViewController.swift in Sources */,
+				FC4C110224F3DCD100C3A2DB /* QuestionBank.swift in Sources */,
+				FC4A644B24F7E0CC00C14160 /* CreateUsersViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -282,6 +399,7 @@
 		};
 		FC10ED4A24EC13A600C11DB0 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 909C7EBA3C83441EA9BCF45B /* Pods-Kids Safe Heaven.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -302,6 +420,7 @@
 		};
 		FC10ED4B24EC13A600C11DB0 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = CF370C0B2576C36F41464BBA /* Pods-Kids Safe Heaven.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";

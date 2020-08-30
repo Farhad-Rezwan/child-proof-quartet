@@ -34,6 +34,8 @@ class QuestionViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        let startButton = UIButton()
+        
         progressView.progress = 0
         updateQuestion()
         updateUI()
@@ -93,8 +95,8 @@ class QuestionViewController: UIViewController {
             optionB.contentHorizontalAlignment = .fill
 
 
-            optionA.setTitle("", for: .normal)
-            optionB.setTitle("", for: .normal)
+            optionA.setTitle(allQuestions[questionNumber].optionA, for: .normal)
+            optionB.setTitle(allQuestions[questionNumber].optionB, for: .normal)
             
             selectedAnswer = allQuestions[questionNumber].corretAnswer
             
@@ -168,4 +170,12 @@ class QuestionViewController: UIViewController {
         animateOut(desiredView: blurView)
     }
     
+}
+
+extension UIButton {
+   func createRectangleButton(buttonPositionX: Double, buttonPositionY: Double ,buttonWidth: Double, buttonHeight: Double, buttonTilte: String) {
+       let button = self // changes made here
+       button.frame = CGRect(x: buttonPositionX, y: buttonPositionY, width: buttonWidth, height: buttonHeight)
+       button.setTitle(buttonTilte, for: .normal)
+   }
 }

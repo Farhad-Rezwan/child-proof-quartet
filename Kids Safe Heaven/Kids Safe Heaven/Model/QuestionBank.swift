@@ -12,6 +12,11 @@ class QuestionBank {
     var list = [Question] ()
     
     init() {
+        
+    }
+    
+    init(type: String) {
+        
         // MARK: - 1
         list.append(Question(question: "What is more important to take before going to play park?", optionA: "First Aid Kit", optionB: "Chocolate Bar", optionAImage: "q1o1", optionBImage: "q1o2", correctAnswer: 1, section: "general" , optionATips: "q10t1", optionBTips: "q10t1"))
         
@@ -66,4 +71,5 @@ class QuestionBank {
         // MARK: - 18
         list.append(Question(question: "Which of the following signs shows that this area has CCTV monitoring?", optionA: "Sign 1", optionB: "Sign 2", optionAImage: "q18o1", optionBImage: "q18o2", correctAnswer: 1, section: "safetySigns", optionATips: "q18t1", optionBTips: "q18t2"))
     }
+
 }

@@ -23,6 +23,7 @@ class QuestionViewController: UIViewController {
     @IBOutlet weak var tipsImageView: UIImageView!
     
     let allQuestions = QuestionBank()
+    let tempQuestions: [QuestionBank] = []
     var questionNumber: Int = 0
     var selectionNumber: Int = 0
     var selectedAnswer: Int = 0
@@ -47,7 +48,7 @@ class QuestionViewController: UIViewController {
 //        visualEffectView.sendSubviewToBack(sendBackView)
 //        tipsItemView.layer.cornerRadius = 5
         
-        
+//        updateTempQuestionSession()
         updateQuestion()
         updateUI()
 //        view.addSubview(popUpWindow)
@@ -79,14 +80,19 @@ class QuestionViewController: UIViewController {
             let tipsImage = UIImage(named: optionBTipsImageName)
 
             tipsImageView.image = tipsImage
-
-            
+        }
+        
+        if sender.tag == selectedAnswer {
+            score += 1
+            print("Correct")
+        } else {
+            print("Wrong")
         }
         
         
         
         questionNumber += 1
-        updateQuestion()
+        
     }
     func updateQuestion() {
         if questionNumber <= allQuestions.list.count - 1 {
@@ -208,6 +214,26 @@ class QuestionViewController: UIViewController {
     @IBAction func tipsDoneButton(_ sender: Any) {
         animateOut(desiredView: popUpView)
         animateOut(desiredView: blurView)
+        
+        updateQuestion()
+
     }
     
+    
+//    func updateTempQuestionSession() -> [Question] {
+//        var qList = allQuestions
+//        var tempList: [Question] = []
+//
+//        print(qList.list[0].corretAnswer)
+//
+//        for item in qList.list {
+//            if item.section == "general" {
+//
+//            }
+//            tempList.append(item)
+//        }
+//
+//
+//        return tempList
+//    }
 }

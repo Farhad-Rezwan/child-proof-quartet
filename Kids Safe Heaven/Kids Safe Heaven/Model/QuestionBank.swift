@@ -14,7 +14,7 @@ class QuestionBank {
     init(type: String) {
         if type == "general" {
             // MARK: - 1
-            list.append(Question(question: "What is more important to take before going to play park?", optionA: " Flip Flops", optionB: " Shoes", optionAImage: "q1o1", optionBImage: "q1o2", correctAnswer: 1, section: "general" , optionATips: "q1t1", optionBTips: "q1t2"))
+            list.append(Question(question: "What is more important to wear before going to play park?", optionA: " Flip Flops", optionB: " Shoes", optionAImage: "q1o1", optionBImage: "q1o2", correctAnswer: 2, section: "general" , optionATips: "q1t1", optionBTips: "q1t2"))
             
             // MARK: - 2
             list.append(Question(question: "I want to go to play park because", optionA: " To be active", optionB: " I want to be lazy", optionAImage: "q2o1", optionBImage: "q2o2", correctAnswer: 1, section: "general", optionATips: "q2t1", optionBTips: "q2t2"))
@@ -28,22 +28,15 @@ class QuestionBank {
             // MARK: - 5
             list.append(Question(question: "What will you eat before going to the park for playing?", optionA: " Fruits and Veggies", optionB: " Chocolate Bar", optionAImage: "q5o1", optionBImage: "q5o2", correctAnswer: 1, section: "general", optionATips: "q5t1", optionBTips: "q5t2"))
             
-            // MARK: - 14
-            list.append(Question(question: "Which of the following signs prohibits wearing roller skates?", optionA: " Sign 1", optionB: " Sign 2", optionAImage: "q14o1", optionBImage: "q14o2", correctAnswer: 1, section: "safetySigns", optionATips: "q14t1", optionBTips: "q14t2"))
             
-            // MARK: - 15
-            list.append(Question(question: "Which of the following signs prohibits beverages?", optionA: "Sign 1", optionB: "Sign 2", optionAImage: "q15o1", optionBImage: "q15o2", correctAnswer: 1, section: "safetySigns", optionATips: "q15t1", optionBTips: "q15t2"))
             
-            // MARK: - 16
-            list.append(Question(question: "Which of the following signs prohibits cycling?", optionA: " Sign 1", optionB: " Sign 2", optionAImage: "q16o1", optionBImage: "q16o2", correctAnswer: 1, section: "safetySigns", optionATips: "q16t1", optionBTips: "q16t2"))
+//            // MARK: - 17
+//            list.append(Question(question: "Which sign shows that the ground is slippery?", optionA: "", optionB: "", optionAImage: "q17o1", optionBImage: "q17o2", correctAnswer: 1, section: "safetySigns", optionATips: "", optionBTips: ""))
+//            
+//            // MARK: - 18
+//            list.append(Question(question: "Which of the following signs shows that this area has CCTV monitoring?", optionA: " Sign 1", optionB: " Sign 2", optionAImage: "q18o1", optionBImage: "q18o2", correctAnswer: 1, section: "safetySigns", optionATips: "", optionBTips: ""))
             
-            // MARK: - 17
-            list.append(Question(question: "Which of the following signs prohibits swimming?", optionA: " Sign 1", optionB: " Sign 2", optionAImage: "q17o1", optionBImage: "q17o2", correctAnswer: 1, section: "safetySigns", optionATips: "q17t1", optionBTips: "q17t2"))
-            
-            // MARK: - 18
-            list.append(Question(question: "Which of the following signs shows that this area has CCTV monitoring?", optionA: " Sign 1", optionB: " Sign 2", optionAImage: "q18o1", optionBImage: "q18o2", correctAnswer: 1, section: "safetySigns", optionATips: "q18t1", optionBTips: "q18t2"))
-            
-        } else if type == "whether" {
+        } else if type == "weather" {
             // MARK: - 6
             list.append(Question(question: "Which is best for going out on a sunny day?", optionA: " Sun-screen lotion", optionB: " Swim suit", optionAImage: "q6o1", optionBImage: "q6o2", correctAnswer: 1, section: "whether", optionATips: "q6t1", optionBTips: "q6t2"))
             
@@ -66,9 +59,18 @@ class QuestionBank {
             list.append(Question(question: "What do you want to carry with you before going out to play in a park?", optionA: " Warm Scarf made of wool", optionB: " Umbrella", optionAImage: "q12o1", optionBImage: "q12o2", correctAnswer: 1, section: "whether", optionATips: "q12t1", optionBTips: "q12t2"))
             
             // MARK: - 13
-            list.append(Question(question: "What do you prefer?", optionA: " A bottle of Hot water", optionB: " A cold drink", optionAImage: "q13o1", optionBImage: "q13o2", correctAnswer: 1, section: "whether", optionATips: "q13t1", optionBTips: "q13t2"))
+            list.append(Question(question: "What do you prefer during winter?", optionA: " A bottle of Hot water", optionB: " A cold drink", optionAImage: "q13o1", optionBImage: "q13o2", correctAnswer: 1, section: "whether", optionATips: "q13t1", optionBTips: "q13t2"))
             
             
+        } else if type == "safety" {
+            // MARK: - 14
+            list.append(Question(question: "What would you do when go out with parents?", optionA: " Hold hand with them", optionB: " Walk alone", optionAImage: "q14o1", optionBImage: "q14o2", correctAnswer: 1, section: "safetySigns", optionATips: "q14t1", optionBTips: "q14t2"))
+            
+            // MARK: - 15
+            list.append(Question(question: "Which sign show no running in the playground?", optionA: " Sign 1", optionB: " Sign 2", optionAImage: "q15o1", optionBImage: "q15o2", correctAnswer: 2, section: "safetySigns", optionATips: "q15t1", optionBTips: "q15t2"))
+            
+            // MARK: - 16
+            list.append(Question(question: "Which of the following signs prohibits cycling?", optionA: " Sign 1", optionB: " Sign 2", optionAImage: "q16o1", optionBImage: "q16o2", correctAnswer: 2, section: "safetySigns", optionATips: "q16t1", optionBTips: "q16t2"))
         }
 
     }

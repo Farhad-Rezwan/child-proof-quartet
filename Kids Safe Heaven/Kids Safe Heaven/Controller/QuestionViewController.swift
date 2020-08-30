@@ -7,8 +7,11 @@
 //
 
 import UIKit
+import AVFoundation
 
 class QuestionViewController: UIViewController {
+    
+    var audioPlayer: AVAudioPlayer?
 
     @IBOutlet weak var questionCounter: UILabel!
     @IBOutlet weak var scoreLabel: UILabel!
@@ -34,8 +37,7 @@ class QuestionViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let startButton = UIButton()
-        
+
         progressView.progress = 0
         updateQuestion()
         updateUI()
@@ -44,6 +46,23 @@ class QuestionViewController: UIViewController {
         popUpView.bounds = CGRect(x: 0, y: 0, width: self.view.bounds.width * 0.90, height: self.view.bounds.height * 0.60)
         
         
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+
+        // Make the navigation bar background clear
+        navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        navigationController?.navigationBar.shadowImage = UIImage()
+        navigationController?.navigationBar.isTranslucent = true
+    }
+
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+
+        // Restore the navigation bar to default
+        navigationController?.navigationBar.setBackgroundImage(nil, for: .default)
+        navigationController?.navigationBar.shadowImage = nil
     }
     
     @IBAction func answerPress(_ sender: UIButton) {
@@ -65,6 +84,25 @@ class QuestionViewController: UIViewController {
         
         if sender.tag == selectedAnswer {
             score += 1
+            let pathToSound = Bundle.main.path(forResource: "correct", ofType: "mp3")!
+            let url = URL(fileURLWithPath: pathToSound)
+            do {
+                audioPlayer = try AVAudioPlayer(contentsOf: url)
+                audioPlayer!.play()
+            } catch {
+                print("error playing")
+            }
+        } else {
+            let pathToSound = Bundle.main.path(forResource: "wrong", ofType: "mp3")!
+            let url = URL(fileURLWithPath: pathToSound)
+            do {
+                audioPlayer = try AVAudioPlayer(contentsOf: url)
+                audioPlayer!.play()
+            } catch {
+                print("error playing")
+            }
+            
+            
         }
         
         
@@ -73,7 +111,7 @@ class QuestionViewController: UIViewController {
         
     }
     func updateQuestion() {
-        allQuestions = QuestionBank(type: "general").list.shuffled().prefix(5)
+        allQuestions = QuestionBank(type: "general").list.prefix(5)
         if questionNumber <= allQuestions.count - 1 {
             
             questionLabel.text = allQuestions[questionNumber].question
@@ -101,13 +139,15 @@ class QuestionViewController: UIViewController {
             selectedAnswer = allQuestions[questionNumber].corretAnswer
             
         } else {
-            allQuestions = QuestionBank(type: "general").list.shuffled().prefix(5)
+            allQuestions = QuestionBank(type: "general").list.prefix(5)
             progressView.progress = 0
             let alert = UIAlertController(title: "Awesome", message: "End of quiz. do you want to start over?", preferredStyle: .alert)
             let restartAction = UIAlertAction(title: "Restart", style: .default, handler: {action in self.restartQuiz()})
+            navigationController?.popViewController(animated: true)
             
             alert.addAction(restartAction)
             present(alert, animated: true, completion: nil)
+            
         }
         
 
@@ -170,12 +210,7 @@ class QuestionViewController: UIViewController {
         animateOut(desiredView: blurView)
     }
     
-}
-
-extension UIButton {
-   func createRectangleButton(buttonPositionX: Double, buttonPositionY: Double ,buttonWidth: Double, buttonHeight: Double, buttonTilte: String) {
-       let button = self // changes made here
-       button.frame = CGRect(x: buttonPositionX, y: buttonPositionY, width: buttonWidth, height: buttonHeight)
-       button.setTitle(buttonTilte, for: .normal)
-   }
+    @IBAction func returnTabBarFromquiz(_ sender: Any) {
+    }
+    
 }

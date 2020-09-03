@@ -39,6 +39,8 @@ class WeatherQuizViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
+        
         progressView.progress = 0
         updateQuestion()
         updateUI()
@@ -53,9 +55,15 @@ class WeatherQuizViewController: UIViewController {
         super.viewWillAppear(animated)
 
         // Make the navigation bar background clear
+        let backArrowImage = UIImage(named: "quizBack")
+        let renderedImage = backArrowImage?.withRenderingMode(.alwaysOriginal)
+        
+        // Make the navigation bar background clear
         navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
         navigationController?.navigationBar.shadowImage = UIImage()
         navigationController?.navigationBar.isTranslucent = true
+        navigationController?.navigationBar.backIndicatorImage = renderedImage
+        navigationController?.navigationBar.backIndicatorTransitionMaskImage = renderedImage
     }
 
     override func viewWillDisappear(_ animated: Bool) {

@@ -10,19 +10,27 @@ import UIKit
 
 class WelcomeQuizViewController: UIViewController {
     @IBAction func quizStartButton(_ sender: Any) {
-//        performSegue(withIdentifier: "general", sender: nil)
     }
     
     @IBAction func safetyQuizStartButton(_ sender: Any) {
-//        performSegue(withIdentifier: "safety", sender: nil)
     }
     @IBAction func weatherQuizStartButton(_ sender: Any) {
-//        performSegue(withIdentifier: "weather", sender: nil)
-        
+
     }
     override func viewDidLoad() {
         super.viewDidLoad()
+        
 
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+
+        // Make the navigation bar background clear
+        navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        navigationController?.navigationBar.shadowImage = UIImage()
+        navigationController?.navigationBar.isTranslucent = true
+    }
+
 
 }

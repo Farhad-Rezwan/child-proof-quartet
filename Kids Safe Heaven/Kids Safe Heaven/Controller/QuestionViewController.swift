@@ -38,11 +38,13 @@ class QuestionViewController: UIViewController {
         super.viewDidLoad()
         
 
+        
+
         progressView.progress = 0
         updateQuestion()
         updateUI()
         blurView.bounds = self.view.bounds
-        
+
         popUpView.bounds = CGRect(x: 0, y: 0, width: self.view.bounds.width * 0.90, height: self.view.bounds.height * 0.60)
         
         
@@ -51,10 +53,15 @@ class QuestionViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
+        let backArrowImage = UIImage(named: "quizBack")
+        let renderedImage = backArrowImage?.withRenderingMode(.alwaysOriginal)
+        
         // Make the navigation bar background clear
         navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
         navigationController?.navigationBar.shadowImage = UIImage()
         navigationController?.navigationBar.isTranslucent = true
+        navigationController?.navigationBar.backIndicatorImage = renderedImage
+        navigationController?.navigationBar.backIndicatorTransitionMaskImage = renderedImage
     }
 
     override func viewWillDisappear(_ animated: Bool) {

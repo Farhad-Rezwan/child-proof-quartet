@@ -62,7 +62,7 @@ class HomeScreenViewController: UIViewController, CLLocationManagerDelegate {
             if let responseStr = response.result.value {
                 let jsonResponse = JSON(responseStr)
                 let jsonWeather = jsonResponse["weather"].array![0]
-                let jsonTemp = jsonResponse["main"]
+//                let jsonTemp = jsonResponse["main"]
                 let iconName = jsonWeather["icon"].stringValue
                 
                 
@@ -71,41 +71,20 @@ class HomeScreenViewController: UIViewController, CLLocationManagerDelegate {
                 self.conditionImageView.image = UIImage(named: iconName)
                 let condition = jsonWeather["main"].stringValue
                 self.conditionLabel.text = condition
-                self.temperatureLabel.text = "\(Int(round(jsonTemp["temp"].doubleValue)))"
+//                self.temperatureLabel.text = "\(Int(round(jsonTemp["temp"].doubleValue)))"
                 
-                let date = Date()
+                //                _ = Date()
                 let dateFormatter = DateFormatter()
                 dateFormatter.dateFormat = "EEE"
-                self.dayLabel.text = dateFormatter.string(for: date)
+//                self.dayLabel.text = dateFormatter.string(for: date)
                 
                 
                 let suffix = iconName.suffix(1)
                 if suffix == "n" {
                     self.setGrayGradientBackground()
-                    self.tipsLabel.text = "Its night time"
+//                    self.tipsLabel.text = "Its night time"
                 } else {
                     self.setBlueGradientBackground()
-                    var tips: [String] = []
-                    if condition == "Clouds" {
-                        tips.append(contentsOf:
-                        ["Check for obvious signs of damage or decay, such as loose or broken nuts and bolts or rotting wood in equipment, gates, and fences. Check painted surfaces for chipping paint that would need a coat of primer. Check for holes in fences. ", "Check the swings for proper height and stability; make sure the ropes are properly attached and not frayed. Check the slides to make sure the protective surfaces around them have enough sand or mulch. Be sure to clean off bird droppings. ", "Check for natural hazards: Fallen tree limbs and branches are obvious, but also make sure there aren’t any damaged limbs that could fall into the playground. Water erosion can expose rocks and other objects that may be dangerous for children, and burrowing animals can leave behind dangerous holes. Finally, insects may build new nests where there were none before.", "Check for human pollution: bottles, cans, and pieces of glass.", "Check the sandbox: Make sure it’s clean and free of debris, such as twigs and glass; also make sure it hasn’t been used by cats as a litter box!"] )
-                        self.tipsLabel.text = tips.randomElement()
-                    } else if condition == "Clear" {
-                        tips.append(contentsOf: ["The sky is clear, enjoy your good time in play park"] )
-                        self.tipsLabel.text = tips.randomElement()
-                        
-                    } else if condition == "Windy" {
-                        tips.append(contentsOf: ["Weather is not suitable better to stay home"] )
-                        self.tipsLabel.text = tips.randomElement()
-                    } else if condition == "Rainy" {
-                        tips.append(contentsOf: ["It is raining and is not suitable to play outside better to stay home"] )
-                        self.tipsLabel.text = tips.randomElement()
-                        
-                    } else {
-                        tips.append(contentsOf: ["Check for obvious signs of damage or decay, such as loose or broken nuts and bolts or rotting wood in equipment, gates, and fences. Check painted surfaces for chipping paint that would need a coat of primer. Check for holes in fences. ", "Check the swings for proper height and stability; make sure the ropes are properly attached and not frayed. Check the slides to make sure the protective surfaces around them have enough sand or mulch. Be sure to clean off bird droppings. ", "Check for natural hazards: Fallen tree limbs and branches are obvious, but also make sure there aren’t any damaged limbs that could fall into the playground. Water erosion can expose rocks and other objects that may be dangerous for children, and burrowing animals can leave behind dangerous holes. Finally, insects may build new nests where there were none before.", "Check for human pollution: bottles, cans, and pieces of glass.", "Check the sandbox: Make sure it’s clean and free of debris, such as twigs and glass; also make sure it hasn’t been used by cats as a litter box!"] )
-                        self.tipsLabel.text = tips.randomElement()
-                        
-                    }
                 }
             }
         }

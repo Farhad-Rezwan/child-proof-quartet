@@ -9,22 +9,22 @@ All playground equipment will be displayed in a virtual playground space, and ea
 
 ## Home Screen
 
-![Home Screen](./mdFileAssets/home)
+![Home Screen](./mdFileAssets/home.png)
 
 ## Quiz Screen
-![Home Screen](./mdFileAssets/quizHome)
+![Home Screen](./mdFileAssets/quizHome.png)
 
 ## Sample General Quiz
-![Home Screen](./mdFileAssets/sampleGeneralTipsQuiz)
+![Home Screen](./mdFileAssets/sampleGeneralTipsQuiz.png)
 
 ## Sample General Tips Quiz Answer
-![Home Screen](./mdFileAssets/sampleGeneralTipsCorrectAnswer)
+![Home Screen](./mdFileAssets/sampleGeneralTipsCorrectAnswer.png)
 
 ## Sample Road Safety Quiz
-![Home Screen](./mdFileAssets/sampleRoadSafety)
+![Home Screen](./mdFileAssets/sampleRoadSafety.png)
 
 ## Sample Road Safety Quiz answer
-![Home Screen](./mdFileAssets/sampleRoadSafetyTipsCorrectAnswer)
+![Home Screen](./mdFileAssets/sampleRoadSafetyTipsCorrectAnswer.png)
 
 ## Sample Weathr Quiz
-![Home Screen](./mdFileAssets/sampleWeatherTips)
+![Home Screen](./mdFileAssets/sampleWeatherTips.png)

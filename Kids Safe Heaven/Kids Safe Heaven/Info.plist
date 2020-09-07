@@ -26,13 +26,13 @@
 		<true/>
 	</dict>
 	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
-	<string>We need location to check Whether</string>
+	<string>App requires location data to show weather related tips</string>
 	<key>NSLocationAlwaysUsageDescription</key>
-	<string>We need location to check Whether</string>
+	<string>App requires location data to show weather related tips</string>
 	<key>NSLocationUsageDescription</key>
-	<string>We need location to check Whether</string>
+	<string>App requires location data to show weather related tips</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>We need location to check Whether</string>
+	<string>App requires location data to show weather related tips</string>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>

@@ -10,12 +10,17 @@ import UIKit
 
 class WelcomeQuizViewController: UIViewController {
     @IBAction func quizStartButton(_ sender: Any) {
+        let generator = UISelectionFeedbackGenerator()
+        generator.selectionChanged()
     }
     
     @IBAction func safetyQuizStartButton(_ sender: Any) {
+        let generator = UISelectionFeedbackGenerator()
+        generator.selectionChanged()
     }
     @IBAction func weatherQuizStartButton(_ sender: Any) {
-
+        let generator = UISelectionFeedbackGenerator()
+        generator.selectionChanged()
     }
     override func viewDidLoad() {
         super.viewDidLoad()

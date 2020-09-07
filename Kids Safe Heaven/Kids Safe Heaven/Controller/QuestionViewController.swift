@@ -90,6 +90,12 @@ class QuestionViewController: UIViewController {
         }
         
         if sender.tag == selectedAnswer {
+            
+            /// taptic feedback
+            let generator = UINotificationFeedbackGenerator()
+            generator.notificationOccurred(.success)
+            
+            
             score += 1
             let pathToSound = Bundle.main.path(forResource: "correct", ofType: "mp3")!
             let url = URL(fileURLWithPath: pathToSound)
@@ -100,6 +106,12 @@ class QuestionViewController: UIViewController {
                 print("error playing")
             }
         } else {
+            
+            /// Taptic Feedback
+            let generator = UINotificationFeedbackGenerator()
+            generator.notificationOccurred(.error)
+            
+            
             let pathToSound = Bundle.main.path(forResource: "wrong", ofType: "mp3")!
             let url = URL(fileURLWithPath: pathToSound)
             do {
@@ -140,9 +152,7 @@ class QuestionViewController: UIViewController {
             optionB.contentHorizontalAlignment = .fill
 
 
-            optionA.setTitle(allQuestions[questionNumber].optionA, for: .normal)
-            optionB.setTitle(allQuestions[questionNumber].optionB, for: .normal)
-            
+
             selectedAnswer = allQuestions[questionNumber].corretAnswer
             
         } else {

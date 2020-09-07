@@ -17,7 +17,7 @@ class QuestionBank {
                     list.append(Question(question: "What is more important to wear before going to play park?", optionA: " Flip Flops", optionB: " Shoes", optionAImage: "q1o1", optionBImage: "q1o2", correctAnswer: 2, section: "general" , optionATips: "q1t1", optionBTips: "q1t2"))
                     
                     // MARK: - 2
-                    list.append(Question(question: "I want to go to play park because", optionA: " To be active", optionB: " I want to be lazy", optionAImage: "q2o1", optionBImage: "q2o2", correctAnswer: 1, section: "general", optionATips: "q2t1", optionBTips: "q2t2"))
+                    list.append(Question(question: "What will you do if the play equipment is busy?", optionA: "Be Patient and wait", optionB: " Fight with others", optionAImage: "q2o1", optionBImage: "q2o2", correctAnswer: 1, section: "general", optionATips: "q2t1", optionBTips: "q2t2"))
                     
                     // MARK: - 3
                     list.append(Question(question: "What should I drink more before going to play park?", optionA: " Water", optionB: " Soft Drink", optionAImage: "q3o1", optionBImage: "q3o2", correctAnswer: 1, section: "general", optionATips: "q3t1", optionBTips: "q3t2"))
@@ -38,14 +38,14 @@ class QuestionBank {
                     
                 } else if type == "weather" {
                     // MARK: - 6
-                    list.append(Question(question: "Which is best for going out on a sunny day?", optionA: "Apply Sun-screen", optionB: "Wear a swim suit", optionAImage: "q6o1", optionBImage: "q6o2", correctAnswer: 1, section: "whether", optionATips: "q6t1", optionBTips: "q6t2"))
+//                    list.append(Question(question: "Which is best for going out on a sunny day?", optionA: "Apply Sun-screen", optionB: "Wear a swim suit", optionAImage: "q6o1", optionBImage: "q6o2", correctAnswer: 1, section: "whether", optionATips: "q6t1", optionBTips: "q6t2"))
                     
                     // MARK: - 7
                     list.append(Question(question: "Which is safe and cool under the hot sun?", optionA: " Swimming Goggles", optionB: " Sun Glasses", optionAImage: "q7o1", optionBImage: "q7o2", correctAnswer: 2, section: "whether", optionATips: "q7t1", optionBTips: "q7t2"))
                     
-                    // MARK: - 8
-                    list.append(Question(question: "If it is a sunny day for play time, what should I do first?", optionA: " Drink Water", optionB: " Eat Chips", optionAImage: "q3o1", optionBImage: "q8o2", correctAnswer: 1, section: "whether", optionATips: "q8t1", optionBTips: "q8t2"))
-                    
+//                    // MARK: - 8
+//                    list.append(Question(question: "If it is a sunny day for play time, what should I do first?", optionA: " Drink Water", optionB: " Eat Chips", optionAImage: "q3o1", optionBImage: "q8o2", correctAnswer: 1, section: "whether", optionATips: "q8t1", optionBTips: "q8t2"))
+//
                     // MARK: - 9
                     list.append(Question(question: "What would I like to wear before going out to play on a sunny day?", optionA: "Empty head", optionB: " Wear a hat", optionAImage: "q9o1", optionBImage: "q9o2", correctAnswer: 2, section: "whether", optionATips: "q9t1", optionBTips: "q9t2"))
                     

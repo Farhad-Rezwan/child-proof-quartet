@@ -377,7 +377,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Zn9-wT-L3p" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="89.408866995073893" y="-285.60000000000002"/>
+            <point key="canvasLocation" x="832.36607142857144" y="-286.95652173913044"/>
         </scene>
         <!--Select User-->
         <scene sceneID="KgB-ob-uQn">
@@ -433,7 +433,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dwX-tT-hJE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-619.95073891625623" y="-287.19999999999999"/>
+            <point key="canvasLocation" x="123.21428571428571" y="-288.40579710144931"/>
         </scene>
         <!--Welcome Quiz View Controller-->
         <scene sceneID="Ndb-Ev-bkz">
@@ -513,7 +513,23 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="u2E-jj-QGA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1378.0788177339903" y="-287.19999999999999"/>
+            <point key="canvasLocation" x="-634.82142857142856" y="-288.40579710144931"/>
+        </scene>
+        <!--Playgrounds-->
+        <scene sceneID="56d-fH-7KS">
+            <objects>
+                <viewController id="ZVd-qe-bDi" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="EWT-Pn-dh1">
+                        <rect key="frame" x="0.0" y="0.0" width="896" height="414"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="XgC-XL-ELk"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Playgrounds" id="cjR-67-8Ov"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="d7Y-El-tTt" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1877" y="593"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="cwd-lc-S7Z">
@@ -528,11 +544,12 @@
                     <connections>
                         <segue destination="Ae3-9Y-Hxa" kind="relationship" relationship="viewControllers" id="hTz-Tz-BdV"/>
                         <segue destination="qje-5v-E8V" kind="relationship" relationship="viewControllers" id="tXc-yX-KpB"/>
+                        <segue destination="ZVd-qe-bDi" kind="relationship" relationship="viewControllers" id="zdz-xA-VCJ"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CpH-70-AoC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-840" y="594"/>
+            <point key="canvasLocation" x="-960" y="667"/>
         </scene>
         <!--Weather Quiz View Controller-->
         <scene sceneID="hwU-iM-9fj">

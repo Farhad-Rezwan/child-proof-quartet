@@ -77,8 +77,13 @@ WSGI_APPLICATION = 'rest_kids_heaven.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'Frez0003',
+        'USER': 'Frez0003',
+        'PASSWORD': 'child-proof-quartet',
+        'HOST': 'child-proof-quartet.c2xd7jop0ff0.ap-southeast-2.rds.amazonaws.com',
+        'PORT': '3306',
+
     }
 }
 

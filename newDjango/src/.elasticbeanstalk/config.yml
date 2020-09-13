@@ -1,0 +1,25 @@
+branch-defaults:
+  default:
+    environment: null
+    group_suffix: null
+  featureWebsite:
+    environment: restBranchEnv
+    group_suffix: null
+environment-defaults:
+  child-proof-quartet:
+    branch: null
+    repository: null
+global:
+  application_name: restBranch
+  branch: null
+  default_ec2_keyname: myNewKeyPairForEB
+  default_platform: Python 3.6 running on 64bit Amazon Linux
+  default_region: ap-southeast-2
+  include_git_submodules: true
+  instance_profile: null
+  platform_name: null
+  platform_version: null
+  profile: null
+  repository: null
+  sc: git
+  workspace_type: Application

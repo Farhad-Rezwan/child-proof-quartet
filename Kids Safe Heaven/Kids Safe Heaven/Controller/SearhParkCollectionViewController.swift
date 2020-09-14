@@ -109,6 +109,7 @@ extension SearhParkCollectionViewController: UICollectionViewDelegate, UICollect
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "eachParkCell", for: indexPath) as! ParkDataCollectionViewCell
+        
         cell.parkName.text = allParks[indexPath.row].name
         let btnAImage = parkImageArray.randomElement()
         cell.parkSetImage.image = btnAImage

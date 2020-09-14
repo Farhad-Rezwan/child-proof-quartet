@@ -32,7 +32,7 @@ struct ParkManager {
                     for anItem in object as! [Dictionary<String, AnyObject>] {
                         let name = anItem["park_name"] as! String
                         let distance = anItem["distance"] as! String
-                        var park = Park(name: name, distance: distance)
+                        let park = Park(name: name, distance: distance)
                         print("----equipments-----")
                         print(distance)
                         print("-------X--------")

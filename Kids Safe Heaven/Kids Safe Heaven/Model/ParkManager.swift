@@ -18,7 +18,6 @@ struct ParkManager {
     
     func  performFetchRequest(urlString: String) -> [Park] {
         var parkObjects: [Park] = []
-        
         // 1. create URL
         do {
             if let file = URL(string: urlString) {
@@ -28,16 +27,21 @@ struct ParkManager {
                     // json is a dictionary
                     print(object)
                 } else if let object = json as? [Any] {
+                    var max = 0
                     // json is an array
                     for anItem in object as! [Dictionary<String, AnyObject>] {
-                        let name = anItem["park_name"] as! String
-                        let distance = anItem["distance"] as! String
-                        let park = Park(name: name, distance: distance)
-                        print("----equipments-----")
-                        print(distance)
-                        print("-------X--------")
-                        parkObjects.append(park)
-                        print(name)
+                        if max < 5 {
+                            let name = anItem["park_name"] as! String
+                            let distance = anItem["distance"] as! String
+                            let park = Park(name: name, distance: distance)
+                            print("----equipments-----")
+                            print(distance)
+                            print("-------X--------")
+                            parkObjects.append(park)
+                            print(name)
+                            max = max + 1
+                        }
+                        
                     }
                 } else {
                     print("JSON is invalid")

@@ -34,6 +34,8 @@
 		FCBE4EB8250F2E1F006EF55A /* User+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCBE4EB4250F2E1F006EF55A /* User+CoreDataProperties.swift */; };
 		FCBE4EB9250F2E1F006EF55A /* Score+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCBE4EB5250F2E1F006EF55A /* Score+CoreDataClass.swift */; };
 		FCBE4EBA250F2E1F006EF55A /* Score+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCBE4EB6250F2E1F006EF55A /* Score+CoreDataProperties.swift */; };
+		FCBE4EBD250F490D006EF55A /* UserCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCBE4EBC250F490D006EF55A /* UserCollectionViewCell.swift */; };
+		FCBE4EBF250F5AD9006EF55A /* NewUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCBE4EBE250F5AD9006EF55A /* NewUserViewController.swift */; };
 		FCEF029424FC4035004345F6 /* wrong.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = FCEF029124FC4035004345F6 /* wrong.mp3 */; };
 		FCEF029524FC4035004345F6 /* correct.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = FCEF029224FC4035004345F6 /* correct.mp3 */; };
 		FCEF029624FC4035004345F6 /* gamePlay.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = FCEF029324FC4035004345F6 /* gamePlay.mp3 */; };
@@ -71,6 +73,8 @@
 		FCBE4EB4250F2E1F006EF55A /* User+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		FCBE4EB5250F2E1F006EF55A /* Score+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Score+CoreDataClass.swift"; sourceTree = "<group>"; };
 		FCBE4EB6250F2E1F006EF55A /* Score+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Score+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		FCBE4EBC250F490D006EF55A /* UserCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCollectionViewCell.swift; sourceTree = "<group>"; };
+		FCBE4EBE250F5AD9006EF55A /* NewUserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewUserViewController.swift; sourceTree = "<group>"; };
 		FCEF029124FC4035004345F6 /* wrong.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = wrong.mp3; sourceTree = "<group>"; };
 		FCEF029224FC4035004345F6 /* correct.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = correct.mp3; sourceTree = "<group>"; };
 		FCEF029324FC4035004345F6 /* gamePlay.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = gamePlay.mp3; sourceTree = "<group>"; };
@@ -160,12 +164,12 @@
 		FC4C10FA24F3D9AA00C3A2DB /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				FCBE4EBB250F48DB006EF55A /* UserRegestration */,
 				FC10ED3A24EC13A200C11DB0 /* SceneDelegate.swift */,
 				FC10ED3824EC13A200C11DB0 /* AppDelegate.swift */,
 				FC10ED4C24EC14EA00C11DB0 /* MapScreenViewController.swift */,
 				FC4C10FD24F3D9FC00C3A2DB /* QuestionViewController.swift */,
 				FC99F4AE24F66966009A1ABD /* WelcomeQuizViewController.swift */,
-				FC4A644A24F7E0CC00C14160 /* CreateUsersViewController.swift */,
 				FCB4AEA824FAFF47001603FA /* HomeScreenViewController.swift */,
 				FC1F889324FC0510001C281F /* WeatherQuizViewController.swift */,
 				FC1F889524FC09F5001C281F /* SafetyQuizViewController.swift */,
@@ -196,6 +200,16 @@
 				FC6C299C250EDE060007FEE0 /* UserDataModel.xcdatamodeld */,
 			);
 			path = DataModel;
+			sourceTree = "<group>";
+		};
+		FCBE4EBB250F48DB006EF55A /* UserRegestration */ = {
+			isa = PBXGroup;
+			children = (
+				FC4A644A24F7E0CC00C14160 /* CreateUsersViewController.swift */,
+				FCBE4EBC250F490D006EF55A /* UserCollectionViewCell.swift */,
+				FCBE4EBE250F5AD9006EF55A /* NewUserViewController.swift */,
+			);
+			path = UserRegestration;
 			sourceTree = "<group>";
 		};
 		FCEF029024FC401D004345F6 /* Sound */ = {
@@ -343,10 +357,12 @@
 				FC6C299E250EDE060007FEE0 /* UserDataModel.xcdatamodeld in Sources */,
 				FCBE4EB9250F2E1F006EF55A /* Score+CoreDataClass.swift in Sources */,
 				FCBE4EB7250F2E1F006EF55A /* User+CoreDataClass.swift in Sources */,
+				FCBE4EBF250F5AD9006EF55A /* NewUserViewController.swift in Sources */,
 				FC6C299A250EC2D50007FEE0 /* ParkManager.swift in Sources */,
 				FC4C110224F3DCD100C3A2DB /* QuestionBank.swift in Sources */,
 				FCBE4EB8250F2E1F006EF55A /* User+CoreDataProperties.swift in Sources */,
 				FC600185250EE97300C42403 /* MulticastDelegate.swift in Sources */,
+				FCBE4EBD250F490D006EF55A /* UserCollectionViewCell.swift in Sources */,
 				FC60017B250EE3C600C42403 /* DatabaseProtocol.swift in Sources */,
 				FC4A644B24F7E0CC00C14160 /* CreateUsersViewController.swift in Sources */,
 			);

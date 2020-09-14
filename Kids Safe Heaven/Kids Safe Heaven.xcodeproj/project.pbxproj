@@ -16,12 +16,24 @@
 		FC10ED4D24EC14EA00C11DB0 /* MapScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC10ED4C24EC14EA00C11DB0 /* MapScreenViewController.swift */; };
 		FC1F889424FC0510001C281F /* WeatherQuizViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC1F889324FC0510001C281F /* WeatherQuizViewController.swift */; };
 		FC1F889624FC09F5001C281F /* SafetyQuizViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC1F889524FC09F5001C281F /* SafetyQuizViewController.swift */; };
+		FC433F58250E41DC00110C97 /* SearhParkCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC433F57250E41DC00110C97 /* SearhParkCollectionViewController.swift */; };
+		FC433F5A250E4B0700110C97 /* ParkDataCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC433F59250E4B0700110C97 /* ParkDataCollectionViewCell.swift */; };
+		FC433F5C250E529600110C97 /* Park.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC433F5B250E529600110C97 /* Park.swift */; };
 		FC4A644B24F7E0CC00C14160 /* CreateUsersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC4A644A24F7E0CC00C14160 /* CreateUsersViewController.swift */; };
 		FC4C10FE24F3D9FC00C3A2DB /* QuestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC4C10FD24F3D9FC00C3A2DB /* QuestionViewController.swift */; };
 		FC4C110024F3DBCA00C3A2DB /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC4C10FF24F3DBCA00C3A2DB /* Question.swift */; };
 		FC4C110224F3DCD100C3A2DB /* QuestionBank.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC4C110124F3DCD100C3A2DB /* QuestionBank.swift */; };
+		FC60017B250EE3C600C42403 /* DatabaseProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC60017A250EE3C600C42403 /* DatabaseProtocol.swift */; };
+		FC600185250EE97300C42403 /* MulticastDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC600184250EE97300C42403 /* MulticastDelegate.swift */; };
+		FC600187250EE9E700C42403 /* CoreDataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC600186250EE9E700C42403 /* CoreDataController.swift */; };
+		FC6C299A250EC2D50007FEE0 /* ParkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC6C2999250EC2D50007FEE0 /* ParkManager.swift */; };
+		FC6C299E250EDE060007FEE0 /* UserDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FC6C299C250EDE060007FEE0 /* UserDataModel.xcdatamodeld */; };
 		FC99F4AF24F66966009A1ABD /* WelcomeQuizViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC99F4AE24F66966009A1ABD /* WelcomeQuizViewController.swift */; };
 		FCB4AEA924FAFF47001603FA /* HomeScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCB4AEA824FAFF47001603FA /* HomeScreenViewController.swift */; };
+		FCBE4EB7250F2E1F006EF55A /* User+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCBE4EB3250F2E1F006EF55A /* User+CoreDataClass.swift */; };
+		FCBE4EB8250F2E1F006EF55A /* User+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCBE4EB4250F2E1F006EF55A /* User+CoreDataProperties.swift */; };
+		FCBE4EB9250F2E1F006EF55A /* Score+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCBE4EB5250F2E1F006EF55A /* Score+CoreDataClass.swift */; };
+		FCBE4EBA250F2E1F006EF55A /* Score+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCBE4EB6250F2E1F006EF55A /* Score+CoreDataProperties.swift */; };
 		FCEF029424FC4035004345F6 /* wrong.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = FCEF029124FC4035004345F6 /* wrong.mp3 */; };
 		FCEF029524FC4035004345F6 /* correct.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = FCEF029224FC4035004345F6 /* correct.mp3 */; };
 		FCEF029624FC4035004345F6 /* gamePlay.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = FCEF029324FC4035004345F6 /* gamePlay.mp3 */; };
@@ -41,12 +53,24 @@
 		FC10ED4C24EC14EA00C11DB0 /* MapScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapScreenViewController.swift; sourceTree = "<group>"; };
 		FC1F889324FC0510001C281F /* WeatherQuizViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherQuizViewController.swift; sourceTree = "<group>"; };
 		FC1F889524FC09F5001C281F /* SafetyQuizViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafetyQuizViewController.swift; sourceTree = "<group>"; };
+		FC433F57250E41DC00110C97 /* SearhParkCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearhParkCollectionViewController.swift; sourceTree = "<group>"; };
+		FC433F59250E4B0700110C97 /* ParkDataCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParkDataCollectionViewCell.swift; sourceTree = "<group>"; };
+		FC433F5B250E529600110C97 /* Park.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Park.swift; sourceTree = "<group>"; };
 		FC4A644A24F7E0CC00C14160 /* CreateUsersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateUsersViewController.swift; sourceTree = "<group>"; };
 		FC4C10FD24F3D9FC00C3A2DB /* QuestionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionViewController.swift; sourceTree = "<group>"; };
 		FC4C10FF24F3DBCA00C3A2DB /* Question.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
 		FC4C110124F3DCD100C3A2DB /* QuestionBank.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionBank.swift; sourceTree = "<group>"; };
+		FC60017A250EE3C600C42403 /* DatabaseProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseProtocol.swift; sourceTree = "<group>"; };
+		FC600184250EE97300C42403 /* MulticastDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MulticastDelegate.swift; sourceTree = "<group>"; };
+		FC600186250EE9E700C42403 /* CoreDataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataController.swift; sourceTree = "<group>"; };
+		FC6C2999250EC2D50007FEE0 /* ParkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParkManager.swift; sourceTree = "<group>"; };
+		FC6C299D250EDE060007FEE0 /* UserDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = UserDataModel.xcdatamodel; sourceTree = "<group>"; };
 		FC99F4AE24F66966009A1ABD /* WelcomeQuizViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeQuizViewController.swift; sourceTree = "<group>"; };
 		FCB4AEA824FAFF47001603FA /* HomeScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreenViewController.swift; sourceTree = "<group>"; };
+		FCBE4EB3250F2E1F006EF55A /* User+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User+CoreDataClass.swift"; sourceTree = "<group>"; };
+		FCBE4EB4250F2E1F006EF55A /* User+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		FCBE4EB5250F2E1F006EF55A /* Score+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Score+CoreDataClass.swift"; sourceTree = "<group>"; };
+		FCBE4EB6250F2E1F006EF55A /* Score+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Score+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		FCEF029124FC4035004345F6 /* wrong.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = wrong.mp3; sourceTree = "<group>"; };
 		FCEF029224FC4035004345F6 /* correct.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = correct.mp3; sourceTree = "<group>"; };
 		FCEF029324FC4035004345F6 /* gamePlay.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = gamePlay.mp3; sourceTree = "<group>"; };
@@ -102,6 +126,7 @@
 		FC10ED3724EC13A200C11DB0 /* Kids Safe Heaven */ = {
 			isa = PBXGroup;
 			children = (
+				FC6C299B250EDCB10007FEE0 /* DataModel */,
 				FCEF029024FC401D004345F6 /* Sound */,
 				FC4C10F824F3D6A200C3A2DB /* Model */,
 				FC4C10FA24F3D9AA00C3A2DB /* Controller */,
@@ -116,6 +141,8 @@
 			children = (
 				FC4C10FF24F3DBCA00C3A2DB /* Question.swift */,
 				FC4C110124F3DCD100C3A2DB /* QuestionBank.swift */,
+				FC433F5B250E529600110C97 /* Park.swift */,
+				FC6C2999250EC2D50007FEE0 /* ParkManager.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -142,8 +169,33 @@
 				FCB4AEA824FAFF47001603FA /* HomeScreenViewController.swift */,
 				FC1F889324FC0510001C281F /* WeatherQuizViewController.swift */,
 				FC1F889524FC09F5001C281F /* SafetyQuizViewController.swift */,
+				FC433F57250E41DC00110C97 /* SearhParkCollectionViewController.swift */,
+				FC433F59250E4B0700110C97 /* ParkDataCollectionViewCell.swift */,
 			);
 			path = Controller;
+			sourceTree = "<group>";
+		};
+		FC600175250EE10600C42403 /* LocalDatabase */ = {
+			isa = PBXGroup;
+			children = (
+				FC60017A250EE3C600C42403 /* DatabaseProtocol.swift */,
+				FC600184250EE97300C42403 /* MulticastDelegate.swift */,
+				FC600186250EE9E700C42403 /* CoreDataController.swift */,
+			);
+			path = LocalDatabase;
+			sourceTree = "<group>";
+		};
+		FC6C299B250EDCB10007FEE0 /* DataModel */ = {
+			isa = PBXGroup;
+			children = (
+				FCBE4EB3250F2E1F006EF55A /* User+CoreDataClass.swift */,
+				FCBE4EB4250F2E1F006EF55A /* User+CoreDataProperties.swift */,
+				FCBE4EB5250F2E1F006EF55A /* Score+CoreDataClass.swift */,
+				FCBE4EB6250F2E1F006EF55A /* Score+CoreDataProperties.swift */,
+				FC600175250EE10600C42403 /* LocalDatabase */,
+				FC6C299C250EDE060007FEE0 /* UserDataModel.xcdatamodeld */,
+			);
+			path = DataModel;
 			sourceTree = "<group>";
 		};
 		FCEF029024FC401D004345F6 /* Sound */ = {
@@ -275,15 +327,27 @@
 			buildActionMask = 2147483647;
 			files = (
 				FC4C110024F3DBCA00C3A2DB /* Question.swift in Sources */,
+				FC433F5C250E529600110C97 /* Park.swift in Sources */,
 				FC99F4AF24F66966009A1ABD /* WelcomeQuizViewController.swift in Sources */,
+				FC433F58250E41DC00110C97 /* SearhParkCollectionViewController.swift in Sources */,
 				FC10ED3924EC13A200C11DB0 /* AppDelegate.swift in Sources */,
 				FC10ED3B24EC13A200C11DB0 /* SceneDelegate.swift in Sources */,
 				FC1F889624FC09F5001C281F /* SafetyQuizViewController.swift in Sources */,
 				FC1F889424FC0510001C281F /* WeatherQuizViewController.swift in Sources */,
+				FCBE4EBA250F2E1F006EF55A /* Score+CoreDataProperties.swift in Sources */,
+				FC600187250EE9E700C42403 /* CoreDataController.swift in Sources */,
 				FC4C10FE24F3D9FC00C3A2DB /* QuestionViewController.swift in Sources */,
+				FC433F5A250E4B0700110C97 /* ParkDataCollectionViewCell.swift in Sources */,
 				FCB4AEA924FAFF47001603FA /* HomeScreenViewController.swift in Sources */,
 				FC10ED4D24EC14EA00C11DB0 /* MapScreenViewController.swift in Sources */,
+				FC6C299E250EDE060007FEE0 /* UserDataModel.xcdatamodeld in Sources */,
+				FCBE4EB9250F2E1F006EF55A /* Score+CoreDataClass.swift in Sources */,
+				FCBE4EB7250F2E1F006EF55A /* User+CoreDataClass.swift in Sources */,
+				FC6C299A250EC2D50007FEE0 /* ParkManager.swift in Sources */,
 				FC4C110224F3DCD100C3A2DB /* QuestionBank.swift in Sources */,
+				FCBE4EB8250F2E1F006EF55A /* User+CoreDataProperties.swift in Sources */,
+				FC600185250EE97300C42403 /* MulticastDelegate.swift in Sources */,
+				FC60017B250EE3C600C42403 /* DatabaseProtocol.swift in Sources */,
 				FC4A644B24F7E0CC00C14160 /* CreateUsersViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -492,6 +556,19 @@
 			defaultConfigurationName = Debug;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		FC6C299C250EDE060007FEE0 /* UserDataModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				FC6C299D250EDE060007FEE0 /* UserDataModel.xcdatamodel */,
+			);
+			currentVersion = FC6C299D250EDE060007FEE0 /* UserDataModel.xcdatamodel */;
+			path = UserDataModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = FC10ED2D24EC13A200C11DB0 /* Project object */;
 }

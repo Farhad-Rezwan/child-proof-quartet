@@ -29,6 +29,7 @@ class SearhParkCollectionViewController: UIViewController, CLLocationManagerDele
     override func viewDidLoad() {
         super.viewDidLoad()
         
+
         
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationManager.distanceFilter = 10
@@ -65,11 +66,13 @@ class SearhParkCollectionViewController: UIViewController, CLLocationManagerDele
         
         let stringReqURL: String = "lat=\(lat ?? -37.970241)&lon=\(lon ?? 145.181688)"
         
-
-        let park: [Park] = parkManager.fetchPark(urlLastPortion: stringReqURL)
+        if allParks.count == 0 {
+            let park: [Park] = parkManager.fetchPark(urlLastPortion: stringReqURL)
+            
+            allParks.append(contentsOf: park)
+            playParksCollectionView.reloadData()
+        }
         
-        allParks.append(contentsOf: park)
-        playParksCollectionView.reloadData()
         
         // reload data
     }
@@ -110,6 +113,8 @@ class SearhParkCollectionViewController: UIViewController, CLLocationManagerDele
 }
 
 extension SearhParkCollectionViewController: UICollectionViewDelegate, UICollectionViewDataSource  {
+    
+
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return allParks.count
     }
@@ -132,10 +137,18 @@ extension SearhParkCollectionViewController: UICollectionViewDelegate, UICollect
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+//        let viewController = storyboard?.instantiateViewController(identifier: "singleParkView") as! SingleParkViewController
+//
+//        viewController.parkViewImageView.image = parkImageArray.randomElement()
+//        viewController.parkViewNameLabel.text = "This is the park"
+//        navigationController?.pushViewController(viewController, animated: true)
         let viewController = storyboard?.instantiateViewController(identifier: "singleParkView") as! SingleParkViewController
-//        viewController.plant = currentPlant[indexPath.row]
+        viewController.equipments = allParks[indexPath.row].facility
+        viewController.name = allParks[indexPath.row].name
         navigationController?.pushViewController(viewController, animated: true)
+
     }
+ 
     
     
 }

@@ -33,13 +33,16 @@ struct ParkManager {
                         if max < 5 {
                             let name = anItem["park_name"] as! String
                             let distance = anItem["distance"] as! String
-                            let park = Park(name: name, distance: distance)
+                            let facilities = anItem["park_equipment"] as! [String]
+                            let park = Park(name: name, distance: distance, facility: facilities)
                             print("----equipments-----")
-                            print(distance)
+                            print(max)
+                            print(name)
+                            print(facilities)
                             print("-------X--------")
                             parkObjects.append(park)
-                            print(name)
                             max = max + 1
+                            
                         }
                         
                     }

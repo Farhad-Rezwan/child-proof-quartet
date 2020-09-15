@@ -11,4 +11,5 @@ import Foundation
 struct Park {
     var name: String
     var distance: String
+    var facility: [String]
 }

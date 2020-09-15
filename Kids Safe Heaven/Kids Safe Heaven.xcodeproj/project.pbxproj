@@ -27,6 +27,8 @@
 		FC600185250EE97300C42403 /* MulticastDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC600184250EE97300C42403 /* MulticastDelegate.swift */; };
 		FC600187250EE9E700C42403 /* CoreDataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC600186250EE9E700C42403 /* CoreDataController.swift */; };
 		FC62FB872510258200A33D08 /* SingleParkViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC62FB862510258200A33D08 /* SingleParkViewController.swift */; };
+		FC62FB8925104B3D00A33D08 /* SafetyTipsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC62FB8825104B3D00A33D08 /* SafetyTipsViewController.swift */; };
+		FC62FB8B25107F8500A33D08 /* ParkEquipmmentCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC62FB8A25107F8500A33D08 /* ParkEquipmmentCollectionViewCell.swift */; };
 		FC6C299A250EC2D50007FEE0 /* ParkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC6C2999250EC2D50007FEE0 /* ParkManager.swift */; };
 		FC6C299E250EDE060007FEE0 /* UserDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FC6C299C250EDE060007FEE0 /* UserDataModel.xcdatamodeld */; };
 		FC99F4AF24F66966009A1ABD /* WelcomeQuizViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC99F4AE24F66966009A1ABD /* WelcomeQuizViewController.swift */; };
@@ -67,6 +69,8 @@
 		FC600184250EE97300C42403 /* MulticastDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MulticastDelegate.swift; sourceTree = "<group>"; };
 		FC600186250EE9E700C42403 /* CoreDataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataController.swift; sourceTree = "<group>"; };
 		FC62FB862510258200A33D08 /* SingleParkViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleParkViewController.swift; sourceTree = "<group>"; };
+		FC62FB8825104B3D00A33D08 /* SafetyTipsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafetyTipsViewController.swift; sourceTree = "<group>"; };
+		FC62FB8A25107F8500A33D08 /* ParkEquipmmentCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParkEquipmmentCollectionViewCell.swift; sourceTree = "<group>"; };
 		FC6C2999250EC2D50007FEE0 /* ParkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParkManager.swift; sourceTree = "<group>"; };
 		FC6C299D250EDE060007FEE0 /* UserDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = UserDataModel.xcdatamodel; sourceTree = "<group>"; };
 		FC99F4AE24F66966009A1ABD /* WelcomeQuizViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeQuizViewController.swift; sourceTree = "<group>"; };
@@ -196,6 +200,8 @@
 				FC433F57250E41DC00110C97 /* SearhParkCollectionViewController.swift */,
 				FC433F59250E4B0700110C97 /* ParkDataCollectionViewCell.swift */,
 				FC62FB862510258200A33D08 /* SingleParkViewController.swift */,
+				FC62FB8825104B3D00A33D08 /* SafetyTipsViewController.swift */,
+				FC62FB8A25107F8500A33D08 /* ParkEquipmmentCollectionViewCell.swift */,
 			);
 			path = Recommendation;
 			sourceTree = "<group>";
@@ -370,8 +376,10 @@
 				FCBE4EB9250F2E1F006EF55A /* Score+CoreDataClass.swift in Sources */,
 				FCBE4EB7250F2E1F006EF55A /* User+CoreDataClass.swift in Sources */,
 				FCBE4EBF250F5AD9006EF55A /* NewUserViewController.swift in Sources */,
+				FC62FB8B25107F8500A33D08 /* ParkEquipmmentCollectionViewCell.swift in Sources */,
 				FC6C299A250EC2D50007FEE0 /* ParkManager.swift in Sources */,
 				FC4C110224F3DCD100C3A2DB /* QuestionBank.swift in Sources */,
+				FC62FB8925104B3D00A33D08 /* SafetyTipsViewController.swift in Sources */,
 				FCBE4EB8250F2E1F006EF55A /* User+CoreDataProperties.swift in Sources */,
 				FC600185250EE97300C42403 /* MulticastDelegate.swift in Sources */,
 				FCBE4EBD250F490D006EF55A /* UserCollectionViewCell.swift in Sources */,

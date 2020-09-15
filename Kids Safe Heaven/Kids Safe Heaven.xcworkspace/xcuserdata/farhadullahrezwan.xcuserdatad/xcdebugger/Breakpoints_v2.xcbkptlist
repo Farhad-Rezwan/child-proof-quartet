@@ -52,5 +52,53 @@
             landmarkType = "0">
          </BreakpointContent>
       </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "0330B31B-91D3-40A2-9C01-9D66F65CF6A9"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Kids Safe Heaven/Controller/Recommendation/SearhParkCollectionViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "145"
+            endingLineNumber = "145"
+            landmarkName = "collectionView(_:didSelectItemAt:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "0330B31B-91D3-40A2-9C01-9D66F65CF6A9 - bd8ce95e807d3faa"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Kids_Safe_Heaven.SearhParkCollectionViewController.collectionView(_: __C.UICollectionView, didSelectItemAt: Foundation.IndexPath) -&gt; ()"
+                  moduleName = "Kids Safe Heaven"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/farhadullahrezwan/Desktop/gitHubRoot.nosync/child-proof-quartet/Kids%20Safe%20Heaven/Kids%20Safe%20Heaven/Controller/Recommendation/SearhParkCollectionViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "143"
+                  endingLineNumber = "143"
+                  offsetFromSymbolStart = "117">
+               </Location>
+               <Location
+                  uuid = "0330B31B-91D3-40A2-9C01-9D66F65CF6A9 - bd8ce95e807d3faa"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Kids_Safe_Heaven.SearhParkCollectionViewController.collectionView(_: __C.UICollectionView, didSelectItemAt: Foundation.IndexPath) -&gt; ()"
+                  moduleName = "Kids Safe Heaven"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/farhadullahrezwan/Desktop/gitHubRoot.nosync/child-proof-quartet/Kids%20Safe%20Heaven/Kids%20Safe%20Heaven/Controller/Recommendation/SearhParkCollectionViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "143"
+                  endingLineNumber = "143"
+                  offsetFromSymbolStart = "975">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
    </Breakpoints>
 </Bucket>

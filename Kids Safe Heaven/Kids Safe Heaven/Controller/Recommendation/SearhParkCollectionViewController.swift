@@ -16,6 +16,7 @@ class SearhParkCollectionViewController: UIViewController, CLLocationManagerDele
     @IBOutlet weak var numberingImageView: UIImageView!
     let parkImageArray = [#imageLiteral(resourceName: "park1Button"),#imageLiteral(resourceName: "park2Button"),#imageLiteral(resourceName: "park3Button"),#imageLiteral(resourceName: "park4Button"),#imageLiteral(resourceName: "park5Button")]
     var parkNumberingArray: [UIImage]? = [#imageLiteral(resourceName: "one"),#imageLiteral(resourceName: "two"),#imageLiteral(resourceName: "three"),#imageLiteral(resourceName: "four"),#imageLiteral(resourceName: "five")]
+    var userName: String?
     
 
     var allParks: [Park] = []
@@ -145,6 +146,7 @@ extension SearhParkCollectionViewController: UICollectionViewDelegate, UICollect
         let viewController = storyboard?.instantiateViewController(identifier: "singleParkView") as! SingleParkViewController
         viewController.equipments = allParks[indexPath.row].facility
         viewController.name = allParks[indexPath.row].name
+        viewController.userName = userName
         navigationController?.pushViewController(viewController, animated: true)
 
     }

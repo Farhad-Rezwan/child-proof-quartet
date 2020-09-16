@@ -14,9 +14,12 @@ class SingleParkViewController: UIViewController {
     @IBOutlet weak var parkViewImageView: UIImageView!
     @IBOutlet weak var equipmentCollectionView: UICollectionView!
     
+    
     var currentEquipments: [String] = []
     var equipments: [String] = []
     var name: String?
+    var equipmentsClass: [Equipment] = EquipmentBank().list
+    var userName: String?
     
 
     override func viewDidLoad() {
@@ -52,14 +55,32 @@ extension SingleParkViewController: UICollectionViewDelegate, UICollectionViewDa
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "eachEquipmentCell", for: indexPath) as! ParkEquipmmentCollectionViewCell
         cell.parkEquipmentNameLabel.text = currentEquipments[indexPath.row]
-        print("asdfasdf")
+        cell.parkEquipmentImage.image = UIImage(named: currentEquipments[indexPath.row])
+        print("the type is")
+        print(getGroupForImage(equipmentName: currentEquipments[indexPath.row]))
+        
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        print("0-----------asdfsadfasdfasdf-------------")
-        print(currentEquipments.count)
         return currentEquipments.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let viewController = storyboard?.instantiateViewController(identifier: "safetyTipsViewController") as! SafetyTipsViewController
+        viewController.eqName = currentEquipments[indexPath.row]
+        viewController.eqTips = getGroupForImage(equipmentName: currentEquipments[indexPath.row])
+        viewController.userName = userName
+        navigationController?.pushViewController(viewController, animated: true)
+    }
+    
+    func getGroupForImage(equipmentName: String) -> String {
+        for item in equipmentsClass {
+            if equipmentName == item.name {
+                return item.group
+            }
+        }
+        return " "
     }
     
     

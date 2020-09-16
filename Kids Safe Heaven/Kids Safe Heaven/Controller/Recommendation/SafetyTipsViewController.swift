@@ -7,24 +7,73 @@
 //
 
 import UIKit
+import AVFoundation
 
 class SafetyTipsViewController: UIViewController {
+    
+    
+    
+    var audioPlayer: AVAudioPlayer?
 
+    @IBOutlet weak var equipmentView: UIImageView!
+    @IBOutlet weak var equipmentName: UILabel!
+    @IBOutlet weak var tipsView: UIImageView!
+    @IBOutlet weak var tipsReadOutImage: UIButton!
+    
+    var eqName: String?
+    var eqTips: String?
+    var introMessage: String = "intr"
+    
+    var userName: String?
+    var user: User?
+
+    @IBAction func tipsReadOut(_ sender: Any) {
+        let pathToSound = Bundle.main.path(forResource: eqTips, ofType: "wav")!
+        let url = URL(fileURLWithPath: pathToSound)
+        
+        do {
+            audioPlayer = try AVAudioPlayer(contentsOf: url)
+            audioPlayer!.play()
+        } catch {
+            print("error playing")
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        equipmentView.image = UIImage(named: eqName ?? " ")
+        equipmentName.text = eqName ?? " "
+        tipsView.image = UIImage(named: eqTips ?? " ")
+        
+        
+
+        var openerStr = userName
+        openerStr!.removeLast(5)
+        openerStr?.append("Tips")
+        tipsReadOutImage.setBackgroundImage(UIImage(named: openerStr ?? " "), for: .normal)
+        
+        
+        
 
         // Do any additional setup after loading the view.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        let pathToSound = Bundle.main.path(forResource: introMessage, ofType: "wav")!
+        let url = URL(fileURLWithPath: pathToSound)
+        
+        do {
+            audioPlayer = try AVAudioPlayer(contentsOf: url)
+            audioPlayer!.play()
+        } catch {
+            print("error playing")
+        }
+        
     }
-    */
+    
+
 
 }

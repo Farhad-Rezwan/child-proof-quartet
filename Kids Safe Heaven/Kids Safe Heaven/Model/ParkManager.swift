@@ -10,13 +10,16 @@ import Foundation
 
 struct ParkManager {
     var parkAPIURL =  "http://ec2-13-236-86-189.ap-southeast-2.compute.amazonaws.com/api/park?format=json&"
+    var equipmentsClass: [Equipment] = EquipmentBank().list
+    var allEquipmentNames: [String] = []
 
     mutating func fetchPark(urlLastPortion: String) -> [Park] {
         parkAPIURL = parkAPIURL + urlLastPortion
         return performFetchRequest(urlString: parkAPIURL)
     }
     
-    func  performFetchRequest(urlString: String) -> [Park] {
+    mutating func  performFetchRequest(urlString: String) -> [Park] {
+        allEquipmentNames = self.populateAllEquipmentNamesOnce()
         var parkObjects: [Park] = []
         // 1. create URL
         do {
@@ -33,15 +36,27 @@ struct ParkManager {
                         if max < 5 {
                             let name = anItem["park_name"] as! String
                             let distance = anItem["distance"] as! String
-                            let park = Park(name: name, distance: distance)
-                            print("----equipments-----")
-                            print(distance)
-                            print("-------X--------")
+                            let facilities = anItem["park_equipment"] as! [String]
+                            var choosenFacility: [String] = []
+                            
+                            for each in facilities {
+                                if (getImageAvailable(equipmentName: each)) {
+                                    
+                                    choosenFacility.append(each)
+                                } else {
+                                    print("Not available \(each)")
+                                }
+                                
+                            }
+                            
+
+                            
+                            let park = Park(name: name, distance: distance, facility: choosenFacility)
                             parkObjects.append(park)
-                            print(name)
                             max = max + 1
+                            
                         }
-                        
+
                     }
                 } else {
                     print("JSON is invalid")
@@ -53,5 +68,22 @@ struct ParkManager {
             print(error.localizedDescription)
         }
         return parkObjects
+    }
+    
+    func populateAllEquipmentNamesOnce() -> [String] {
+        var names: [String] = []
+        for item in equipmentsClass {
+            names.append(item.name)
+        }
+        return names
+    }
+    
+    func getImageAvailable(equipmentName: String) -> Bool {
+        if allEquipmentNames.contains(equipmentName) {
+            return true
+        }
+        return false
+        
+        
     }
 }

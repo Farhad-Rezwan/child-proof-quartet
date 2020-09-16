@@ -10,13 +10,33 @@ import UIKit
 
 class SingleParkViewController: UIViewController {
 
+    @IBOutlet weak var parkViewNameLabel: UILabel!
+    @IBOutlet weak var parkViewImageView: UIImageView!
+    @IBOutlet weak var equipmentCollectionView: UICollectionView!
+    
+    
+    var currentEquipments: [String] = []
+    var equipments: [String] = []
+    var name: String?
+    var equipmentsClass: [Equipment] = EquipmentBank().list
+    var userName: String?
+    
+
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        parkViewNameLabel.text = name
+        
+        currentEquipments = equipments
+        equipmentCollectionView.dataSource = self
+        equipmentCollectionView.delegate = self
+
 
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+//        equipmentCollectionView.reloadData()
         let backArrowImage = UIImage(named: "quizBack")
         let renderedImage = backArrowImage?.withRenderingMode(.alwaysOriginal)
         
@@ -27,6 +47,42 @@ class SingleParkViewController: UIViewController {
         navigationController?.navigationBar.backIndicatorImage = renderedImage
         navigationController?.navigationBar.backIndicatorTransitionMaskImage = renderedImage
     }
+
+}
+
+extension SingleParkViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "eachEquipmentCell", for: indexPath) as! ParkEquipmmentCollectionViewCell
+        cell.parkEquipmentNameLabel.text = currentEquipments[indexPath.row]
+        cell.parkEquipmentImage.image = UIImage(named: currentEquipments[indexPath.row])
+        print("the type is")
+        print(getGroupForImage(equipmentName: currentEquipments[indexPath.row]))
+        
+        return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return currentEquipments.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let viewController = storyboard?.instantiateViewController(identifier: "safetyTipsViewController") as! SafetyTipsViewController
+        viewController.eqName = currentEquipments[indexPath.row]
+        viewController.eqTips = getGroupForImage(equipmentName: currentEquipments[indexPath.row])
+        viewController.userName = userName
+        navigationController?.pushViewController(viewController, animated: true)
+    }
+    
+    func getGroupForImage(equipmentName: String) -> String {
+        for item in equipmentsClass {
+            if equipmentName == item.name {
+                return item.group
+            }
+        }
+        return " "
+    }
+    
     
 
 }

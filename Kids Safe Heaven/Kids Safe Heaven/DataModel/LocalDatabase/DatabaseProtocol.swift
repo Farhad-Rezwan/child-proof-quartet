@@ -38,4 +38,5 @@ protocol DatabaseProtocol: AnyObject {
     func deleteScoreFromUser(score: Score, user: User)
     func addListener(listener: DatabaseListener)
     func removeListener(listener: DatabaseListener)
+    func getUser(userName: String) -> User?
 }

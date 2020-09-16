@@ -16,6 +16,7 @@ class SearhParkCollectionViewController: UIViewController, CLLocationManagerDele
     @IBOutlet weak var numberingImageView: UIImageView!
     let parkImageArray = [#imageLiteral(resourceName: "park1Button"),#imageLiteral(resourceName: "park2Button"),#imageLiteral(resourceName: "park3Button"),#imageLiteral(resourceName: "park4Button"),#imageLiteral(resourceName: "park5Button")]
     var parkNumberingArray: [UIImage]? = [#imageLiteral(resourceName: "one"),#imageLiteral(resourceName: "two"),#imageLiteral(resourceName: "three"),#imageLiteral(resourceName: "four"),#imageLiteral(resourceName: "five")]
+    var userName: String?
     
 
     var allParks: [Park] = []
@@ -29,6 +30,7 @@ class SearhParkCollectionViewController: UIViewController, CLLocationManagerDele
     override func viewDidLoad() {
         super.viewDidLoad()
         
+
         
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationManager.distanceFilter = 10
@@ -65,11 +67,13 @@ class SearhParkCollectionViewController: UIViewController, CLLocationManagerDele
         
         let stringReqURL: String = "lat=\(lat ?? -37.970241)&lon=\(lon ?? 145.181688)"
         
-
-        let park: [Park] = parkManager.fetchPark(urlLastPortion: stringReqURL)
+        if allParks.count == 0 {
+            let park: [Park] = parkManager.fetchPark(urlLastPortion: stringReqURL)
+            
+            allParks.append(contentsOf: park)
+            playParksCollectionView.reloadData()
+        }
         
-        allParks.append(contentsOf: park)
-        playParksCollectionView.reloadData()
         
         // reload data
     }
@@ -110,6 +114,8 @@ class SearhParkCollectionViewController: UIViewController, CLLocationManagerDele
 }
 
 extension SearhParkCollectionViewController: UICollectionViewDelegate, UICollectionViewDataSource  {
+    
+
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return allParks.count
     }
@@ -132,10 +138,19 @@ extension SearhParkCollectionViewController: UICollectionViewDelegate, UICollect
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+//        let viewController = storyboard?.instantiateViewController(identifier: "singleParkView") as! SingleParkViewController
+//
+//        viewController.parkViewImageView.image = parkImageArray.randomElement()
+//        viewController.parkViewNameLabel.text = "This is the park"
+//        navigationController?.pushViewController(viewController, animated: true)
         let viewController = storyboard?.instantiateViewController(identifier: "singleParkView") as! SingleParkViewController
-//        viewController.plant = currentPlant[indexPath.row]
+        viewController.equipments = allParks[indexPath.row].facility
+        viewController.name = allParks[indexPath.row].name
+        viewController.userName = userName
         navigationController?.pushViewController(viewController, animated: true)
+
     }
+ 
     
     
 }

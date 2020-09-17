@@ -11,6 +11,8 @@ import CoreData
 
 
 class CoreDataController: NSObject, NSFetchedResultsControllerDelegate, DatabaseProtocol {
+    
+    
    
     
     
@@ -31,7 +33,7 @@ class CoreDataController: NSObject, NSFetchedResultsControllerDelegate, Database
         
         
         super.init()
-        
+
         if fetchAllUser().count == 0 {
             createDefaultUsers()
         }
@@ -64,6 +66,10 @@ class CoreDataController: NSObject, NSFetchedResultsControllerDelegate, Database
     }
     
     func addUser(name: String, avatarName: String) -> User {
+        
+        
+        
+        
         let user = NSEntityDescription.insertNewObject(forEntityName: "User", into: persistentContainer.viewContext) as! User
         
         user.name = name
@@ -103,6 +109,16 @@ class CoreDataController: NSObject, NSFetchedResultsControllerDelegate, Database
             listener.onUserListChange(change: .update, users: fetchAllUser())
         }
         
+    }
+    
+    func getUser(userName: String) -> User? {
+        let users = fetchAllUser()
+        for item in users {
+            if item.name == userName {
+                return item
+            }
+        }
+        return nil
     }
     
 
@@ -174,7 +190,7 @@ class CoreDataController: NSObject, NSFetchedResultsControllerDelegate, Database
             
             let nameSortDescriptor = NSSortDescriptor(key: "name", ascending: true)
             fetchRequest.sortDescriptors = [nameSortDescriptor]
-            
+
             allUserFetchResultsController = NSFetchedResultsController<User>(fetchRequest: fetchRequest, managedObjectContext: persistentContainer.viewContext, sectionNameKeyPath: nil, cacheName: nil)
             
             allUserFetchResultsController?.delegate = self
@@ -198,39 +214,14 @@ class CoreDataController: NSObject, NSFetchedResultsControllerDelegate, Database
         let score1 = addScore(score: 3.7, quizType: "weatherQuiz")
         let score2 = addScore(score: 4.1, quizType: "weatherQuiz")
         let score3 = addScore(score: 5.1, quizType: "weatherQuiz")
-        let score4 = addScore(score: 4.2, quizType: "generalQuiz")
-        let score5 = addScore(score: 6.1, quizType: "generalQuiz")
-        let score6 = addScore(score: 5.2, quizType: "generalQuiz")
-        let score7 = addScore(score: 10.3, quizType: "safetyQuiz")
-        let score8 = addScore(score: 7.3, quizType: "safetyQuiz")
-        let score9 = addScore(score: 9.0, quizType: "safetyQuiz")
         
         var scores: [Score] = []
-        scores.append(contentsOf: [score1, score2, score3, score4, score5, score6, score7, score8, score9])
-        
-        let us1 = addUser(name: "Farhad", avatarName: "male")
-        let us2 = addUser(name: "Kishan", avatarName: "male")
-        let us3 = addUser(name: "Zac", avatarName: "male")
-        let us4 = addUser(name: "Kris", avatarName: "male")
-        
-        
+        scores.append(contentsOf: [score1, score2, score3 ]) //score4, score5, score6, score7, score8, score9
+        let us1 = addUser(name: "Kish", avatarName: "krisIntro")
         let _ = addScoreToUser(score: score1, user: us1)
         let _ = addScoreToUser(score: score2, user: us1)
         let _ = addScoreToUser(score: score3, user: us1)
-        
-        
-        let _ = addScoreToUser(score: score4, user: us2)
-        let _ = addScoreToUser(score: score5, user: us2)
-        let _ = addScoreToUser(score: score6, user: us2)
 
-        let _ = addScoreToUser(score: score7, user: us3)
-        let _ = addScoreToUser(score: score8, user: us3)
-        let _ = addScoreToUser(score: score9, user: us3)
-        
-        let _ = addScoreToUser(score: score1, user: us4)
-        let _ = addScoreToUser(score: score2, user: us4)
-        let _ = addScoreToUser(score: score3, user: us4)
-        
         saveContext()
     }
 

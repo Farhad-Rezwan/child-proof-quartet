@@ -130,6 +130,7 @@ class QuestionViewController: UIViewController {
         
     }
     func updateQuestion() {
+        // here the change
         allQuestions = QuestionBank(type: "general").list.prefix(5)
         if questionNumber <= allQuestions.count - 1 {
             

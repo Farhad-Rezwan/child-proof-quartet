@@ -51,7 +51,7 @@
          </BuildableReference>
       </BuildableProductRunnable>
       <LocationScenarioReference
-         identifier = "../../../../../Downloads/default-2.gpx"
+         identifier = "../carlton.gpx"
          referenceType = "0">
       </LocationScenarioReference>
    </LaunchAction>

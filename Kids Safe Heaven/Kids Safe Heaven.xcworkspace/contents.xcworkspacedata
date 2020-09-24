@@ -2,6 +2,15 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:carlton.gpx">
+   </FileRef>
+   <FileRef
+      location = "group:melbourneCentral.gpx">
+   </FileRef>
+   <FileRef
+      location = "group:southernCroos.gpx">
+   </FileRef>
+   <FileRef
       location = "group:../../../../Downloads/default-2.gpx">
    </FileRef>
    <FileRef

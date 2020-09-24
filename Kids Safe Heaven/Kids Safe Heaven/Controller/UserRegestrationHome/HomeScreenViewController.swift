@@ -9,10 +9,12 @@
 import UIKit
 import Alamofire
 import SwiftyJSON
+import AVFoundation
 
 class HomeScreenViewController: UIViewController, DatabaseListener{
     
-    
+    var audioPlayer: AVAudioPlayer?
+    var introMessage: String = "hi"
     
     @IBOutlet weak var openerAvater: UIImageView!
     @IBAction func quizButton(_ sender: Any) {
@@ -46,6 +48,17 @@ class HomeScreenViewController: UIViewController, DatabaseListener{
     }
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        
+        let pathToSound = Bundle.main.path(forResource: introMessage, ofType: "wav")!
+        let url = URL(fileURLWithPath: pathToSound)
+        
+        do {
+            audioPlayer = try AVAudioPlayer(contentsOf: url)
+            audioPlayer!.play()
+        } catch {
+            print("error playing")
+        }
+        
         
     }
 

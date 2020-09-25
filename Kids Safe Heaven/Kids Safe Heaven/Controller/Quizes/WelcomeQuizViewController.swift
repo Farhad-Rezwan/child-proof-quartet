@@ -9,25 +9,40 @@
 import UIKit
 
 class WelcomeQuizViewController: UIViewController {
-    @IBAction func quizStartButton(_ sender: Any) {
-        let generator = UISelectionFeedbackGenerator()
-        generator.selectionChanged()
-    }
     
-    @IBAction func safetyQuizStartButton(_ sender: Any) {
-        let generator = UISelectionFeedbackGenerator()
-        generator.selectionChanged()
-    }
-    @IBAction func weatherQuizStartButton(_ sender: Any) {
-        let generator = UISelectionFeedbackGenerator()
-        generator.selectionChanged()
-    }
     override func viewDidLoad() {
         super.viewDidLoad()
         
 
     }
+    @IBAction func quizStartButton(_ sender: Any) {
+        let generator = UISelectionFeedbackGenerator()
+        generator.selectionChanged()
+        
+        handleTransitionQuestionType(type: "general")
+    }
     
+    @IBAction func safetyQuizStartButton(_ sender: Any) {
+        let generator = UISelectionFeedbackGenerator()
+        generator.selectionChanged()
+        
+        handleTransitionQuestionType(type: "safety")
+    }
+    @IBAction func weatherQuizStartButton(_ sender: Any) {
+        let generator = UISelectionFeedbackGenerator()
+        generator.selectionChanged()
+        
+        handleTransitionQuestionType(type: "weather")
+    }
+    
+    func handleTransitionQuestionType(type: String) {
+        let viewController = storyboard?.instantiateViewController(identifier: "questionViewController") as! QuestionViewController
+        viewController.qType = type
+        
+        
+        navigationController?.pushViewController(viewController, animated: true)
+    }
+
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 

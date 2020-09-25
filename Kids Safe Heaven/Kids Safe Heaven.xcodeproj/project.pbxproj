@@ -14,8 +14,6 @@
 		FC10ED4224EC13A600C11DB0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FC10ED4124EC13A600C11DB0 /* Assets.xcassets */; };
 		FC10ED4524EC13A600C11DB0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FC10ED4324EC13A600C11DB0 /* LaunchScreen.storyboard */; };
 		FC10ED4D24EC14EA00C11DB0 /* MapScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC10ED4C24EC14EA00C11DB0 /* MapScreenViewController.swift */; };
-		FC1F889424FC0510001C281F /* WeatherQuizViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC1F889324FC0510001C281F /* WeatherQuizViewController.swift */; };
-		FC1F889624FC09F5001C281F /* SafetyQuizViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC1F889524FC09F5001C281F /* SafetyQuizViewController.swift */; };
 		FC2EB66B2512089500657F48 /* Equipments.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC2EB66A2512089500657F48 /* Equipments.swift */; };
 		FC433F58250E41DC00110C97 /* SearhParkCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC433F57250E41DC00110C97 /* SearhParkCollectionViewController.swift */; };
 		FC433F5A250E4B0700110C97 /* ParkDataCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC433F59250E4B0700110C97 /* ParkDataCollectionViewCell.swift */; };
@@ -77,8 +75,6 @@
 		FC10ED4424EC13A600C11DB0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FC10ED4624EC13A600C11DB0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FC10ED4C24EC14EA00C11DB0 /* MapScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapScreenViewController.swift; sourceTree = "<group>"; };
-		FC1F889324FC0510001C281F /* WeatherQuizViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherQuizViewController.swift; sourceTree = "<group>"; };
-		FC1F889524FC09F5001C281F /* SafetyQuizViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafetyQuizViewController.swift; sourceTree = "<group>"; };
 		FC2EB66A2512089500657F48 /* Equipments.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Equipments.swift; sourceTree = "<group>"; };
 		FC433F57250E41DC00110C97 /* SearhParkCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearhParkCollectionViewController.swift; sourceTree = "<group>"; };
 		FC433F59250E4B0700110C97 /* ParkDataCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParkDataCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -263,8 +259,6 @@
 			children = (
 				FC4C10FD24F3D9FC00C3A2DB /* QuestionViewController.swift */,
 				FC99F4AE24F66966009A1ABD /* WelcomeQuizViewController.swift */,
-				FC1F889324FC0510001C281F /* WeatherQuizViewController.swift */,
-				FC1F889524FC09F5001C281F /* SafetyQuizViewController.swift */,
 			);
 			path = Quizes;
 			sourceTree = "<group>";
@@ -454,8 +448,6 @@
 				FC433F58250E41DC00110C97 /* SearhParkCollectionViewController.swift in Sources */,
 				FC10ED3924EC13A200C11DB0 /* AppDelegate.swift in Sources */,
 				FC10ED3B24EC13A200C11DB0 /* SceneDelegate.swift in Sources */,
-				FC1F889624FC09F5001C281F /* SafetyQuizViewController.swift in Sources */,
-				FC1F889424FC0510001C281F /* WeatherQuizViewController.swift in Sources */,
 				FCBE4EBA250F2E1F006EF55A /* Score+CoreDataProperties.swift in Sources */,
 				FC600187250EE9E700C42403 /* CoreDataController.swift in Sources */,
 				FC4C10FE24F3D9FC00C3A2DB /* QuestionViewController.swift in Sources */,

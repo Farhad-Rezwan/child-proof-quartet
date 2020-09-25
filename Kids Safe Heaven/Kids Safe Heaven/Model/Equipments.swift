@@ -80,6 +80,7 @@ class EquipmentBank {
         list.append(Equipment(name:"slide and climbing features", group: "slideGroup"))
         list.append(Equipment(name:"dragon slide", group: "slideGroup"))
         list.append(Equipment(name:"swings", group: "swingGroup"))
+        list.append(Equipment(name:"1 x 5 way swing", group: "swingGroup"))
         list.append(Equipment(name:"swing", group: "swingGroup"))
         list.append(Equipment(name:"swinging hammocks", group: "swingGroup"))
         list.append(Equipment(name:"rocking swing", group: "swingGroup"))

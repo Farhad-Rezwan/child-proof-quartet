@@ -24,6 +24,7 @@ class QuestionViewController: UIViewController {
     @IBOutlet var blurView: UIVisualEffectView!
     @IBOutlet var popUpView: UIView!
     @IBOutlet weak var tipsImageView: UIImageView!
+    var qType: String?
     
 //    let allQuestions = QuestionBank(type: "general").list.shuffled().prefix(5)
     var allQuestions: ArraySlice<Question>!
@@ -130,8 +131,9 @@ class QuestionViewController: UIViewController {
         
     }
     func updateQuestion() {
+        
         // here the change
-        allQuestions = QuestionBank(type: "general").list.prefix(5)
+        allQuestions = QuestionBank(type: qType ?? "general").list.prefix(5)
         if questionNumber <= allQuestions.count - 1 {
             
             questionLabel.text = allQuestions[questionNumber].question

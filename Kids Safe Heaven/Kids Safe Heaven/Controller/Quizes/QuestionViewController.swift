@@ -37,11 +37,10 @@ class QuestionViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-
-        
 
         progressView.progress = 0
+        
+
         updateQuestion()
         updateUI()
         blurView.bounds = self.view.bounds
@@ -63,6 +62,7 @@ class QuestionViewController: UIViewController {
         navigationController?.navigationBar.isTranslucent = true
         navigationController?.navigationBar.backIndicatorImage = renderedImage
         navigationController?.navigationBar.backIndicatorTransitionMaskImage = renderedImage
+        
     }
 
     override func viewWillDisappear(_ animated: Bool) {
@@ -73,6 +73,8 @@ class QuestionViewController: UIViewController {
         navigationController?.navigationBar.shadowImage = nil
     }
     
+    /// Does, after answer pressed if correct, proper tips message is shown, with score update and haptic feedback
+    /// - Parameter sender: UIButton
     @IBAction func answerPress(_ sender: UIButton) {
         if sender.tag == 1 {
             animateIn(desiredView: blurView)
@@ -92,10 +94,9 @@ class QuestionViewController: UIViewController {
         
         if sender.tag == selectedAnswer {
             
-            /// taptic feedback
+            /// taptic feedback correct
             let generator = UINotificationFeedbackGenerator()
             generator.notificationOccurred(.success)
-            
             
             score += 1
             let pathToSound = Bundle.main.path(forResource: "correct", ofType: "mp3")!
@@ -108,7 +109,7 @@ class QuestionViewController: UIViewController {
             }
         } else {
             
-            /// Taptic Feedback
+            /// Taptic Feedback wrong
             let generator = UINotificationFeedbackGenerator()
             generator.notificationOccurred(.error)
             
@@ -121,19 +122,16 @@ class QuestionViewController: UIViewController {
             } catch {
                 print("error playing")
             }
-            
-            
+        }
+        questionNumber += 1
+    }
+    
+    func updateQuestion() {
+        if allQuestions == nil {
+            loadQuestions()
         }
         
-        
-        
-        questionNumber += 1
-        
-    }
-    func updateQuestion() {
-        
         // here the change
-        allQuestions = QuestionBank(type: qType ?? "general").list.prefix(5)
         if questionNumber <= allQuestions.count - 1 {
             
             questionLabel.text = allQuestions[questionNumber].question
@@ -159,31 +157,54 @@ class QuestionViewController: UIViewController {
             selectedAnswer = allQuestions[questionNumber].corretAnswer
             
         } else {
-            allQuestions = QuestionBank(type: "general").list.prefix(5)
-            progressView.progress = 0
-            let alert = UIAlertController(title: "Awesome", message: "End of quiz. do you want to start over?", preferredStyle: .alert)
-            let restartAction = UIAlertAction(title: "Restart", style: .default, handler: {action in self.restartQuiz()})
-            navigationController?.popViewController(animated: true)
             
+
+            let alert = UIAlertController(title: "Awesome", message: "End of quiz. do you want to start over?", preferredStyle: .alert)
+            let restartAction = UIAlertAction(title: "Restart", style: .default) { (action) in
+                self.restartQuiz()
+            }
+            let anotherAction = UIAlertAction(title: "Done", style: .default) { (action) in
+                
+                self.navigateToScorecard()
+            }
             alert.addAction(restartAction)
+            alert.addAction(anotherAction)
             present(alert, animated: true, completion: nil)
+        }
+    }
+    
+    func updateUI() {
+        
+        if questionNumber <= allQuestions.count - 1 {
+            scoreLabel.text = "Score: \(score)"
+            questionCounter.text = "\(questionNumber + 1)/\(allQuestions.count)"
+            progressView.progress = progressView.progress + 0.10
             
         }
-        
-
-    }
-    func updateUI() {
-        scoreLabel.text = "Score: \(score)"
-        questionCounter.text = "\(questionNumber + 1)/\(allQuestions.count)"
-        progressView.progress = progressView.progress + 0.10
-
     }
     
     func restartQuiz() {
-        score = 0
+        progressView.progress = 0
         questionNumber = 0
-        updateQuestion()
+        score = 0
+        updateUI()
         
+        allQuestions = nil
+        updateQuestion()
+    }
+    
+    func navigateToScorecard() {
+        let viewController = storyboard?.instantiateViewController(identifier: "scoreBoardVC") as! ScoreBoardViewController
+        viewController.score = String(score)
+        navigationController?.popViewController(animated: true)
+        navigationController?.pushViewController(viewController, animated: false)
+    }
+    
+    func loadQuestions() {
+        let exampleArray = QuestionBank(type: qType ?? "general").list
+        let newArray = exampleArray.shuffled()
+        let uniqueRandomArraySlice = Array(ArraySlice(newArray)).prefix(5)
+        allQuestions = uniqueRandomArraySlice
     }
 
     func animateIn(desiredView: UIView) {
@@ -203,14 +224,9 @@ class QuestionViewController: UIViewController {
             desiredView.transform = CGAffineTransform(scaleX: 1.0, y: 1.0)
             desiredView.alpha = 1
         })
-        
-        
-
-
     }
     
-    // animate out a specified view
-    
+
     func animateOut(desiredView: UIView) {
         UIView.animate(withDuration: 0.3, animations: {
             desiredView.transform = CGAffineTransform(scaleX: 1.2, y: 1.2)
@@ -218,16 +234,18 @@ class QuestionViewController: UIViewController {
         }, completion: { _ in
             desiredView.removeFromSuperview()
         })
-        updateUI()
-        updateQuestion()
+        
     }
     
     
     
     
     @IBAction func tipsDoneButton(_ sender: Any) {
-        animateOut(desiredView: popUpView)
+        updateUI()
+        updateQuestion()
         animateOut(desiredView: blurView)
+        animateOut(desiredView: popUpView)
+        
     }
     
     @IBAction func returnTabBarFromquiz(_ sender: Any) {

@@ -70,8 +70,24 @@ class QuestionBank {
 //                    list.append(Question(question: "Which sign show no running in the playground?", optionA: " Sign 1", optionB: " Sign 2", optionAImage: "q15o1", optionBImage: "q15o2", correctAnswer: 2, section: "safetySigns", optionATips: "q15t1", optionBTips: "q15t2"))
                     
 //                     MARK: - 16
-                        list.append(Question(question: "Which sign tells us that the floor is slippery and wet?", optionA: " Sign 1", optionB: " Sign 2", optionAImage: "q16o1", optionBImage: "q16o2", correctAnswer: 2, section: "safetySigns", optionATips: "q16t1", optionBTips: "q16t2"))
+                    list.append(Question(question: "Which sign tells us that the floor is slippery and wet?", optionA: " Sign 1", optionB: " Sign 2", optionAImage: "q16o1", optionBImage: "q16o2", correctAnswer: 2, section: "safetySigns", optionATips: "q16t1", optionBTips: "q16t2"))
+                    
+                    
+//                     MARK: - 17
+                    list.append(Question(question: "When you see empty bottles on the park road, what would you do?", optionA: " Sign 1", optionB: " Sign 2", optionAImage: "q17o1", optionBImage: "q17o2", correctAnswer: 2, section: "safetySigns", optionATips: "q16t1", optionBTips: "q16t2"))
+//                     MARK: - 18
+                    list.append(Question(question: "If you meet bad guys in the park, what would you do?", optionA: " Sign 1", optionB: " Sign 2", optionAImage: "q18o1", optionBImage: "q18o2", correctAnswer: 1, section: "safetySigns", optionATips: "q16t1", optionBTips: "q16t2"))}
+//                     MARK: - 19
+                    list.append(Question(question: "What to do when many kids use bar at same time?", optionA: " Sign 1", optionB: " Sign 2", optionAImage: "q19o1", optionBImage: "q19o2", correctAnswer: 1, section: "safetySigns", optionATips: "q16t1", optionBTips: "q16t2"))
+//                     MARK: - 20
+                    list.append(Question(question: "How could you do to use the swing?", optionA: " Sign 1", optionB: " Sign 2", optionAImage: "q20o1", optionBImage: "q20o2", correctAnswer: 1, section: "safetySigns", optionATips: "q20t1", optionBTips: "q16t2"))
+//                     MARK: - 21
+                    list.append(Question(question: "Which picture below is the correct way of biking", optionA: " Sign 1", optionB: " Sign 2", optionAImage: "q21o1", optionBImage: "q21o2", correctAnswer: 1, section: "safetySigns", optionATips: "q16t1", optionBTips: "q16t2"))
+
+
                 }
+            
+            
+            
 
     }
-}

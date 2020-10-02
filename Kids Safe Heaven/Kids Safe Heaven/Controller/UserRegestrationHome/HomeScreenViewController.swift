@@ -14,7 +14,11 @@ import AVFoundation
 class HomeScreenViewController: UIViewController, DatabaseListener{
     
     var audioPlayer: AVAudioPlayer?
-    var introMessage: String = "hi"
+    var introMessage: String = "introductionAvatarMessage"
+    weak var databaseController: DatabaseProtocol?
+    var listenerType: ListenerType = .all
+    var userName: String?
+    var user: User?
     
     @IBOutlet weak var openerAvater: UIImageView!
     @IBAction func quizButton(_ sender: Any) {
@@ -22,10 +26,7 @@ class HomeScreenViewController: UIViewController, DatabaseListener{
     @IBAction func locationButton(_ sender: Any) {
     }
     
-    weak var databaseController: DatabaseProtocol?
-    var listenerType: ListenerType = .all
-    var userName: String?
-    var user: User?
+    
     
     
 
@@ -37,17 +38,26 @@ class HomeScreenViewController: UIViewController, DatabaseListener{
         databaseController = appDelegate.databaseController
         user = databaseController?.getUser(userName: userName!)
         
+        // bug
         var openerStr = user?.avatarName
         openerStr! += "HC"
         openerAvater.image = UIImage(named: openerStr ?? " ")
         
-                let backButton = UIBarButtonItem()
-                backButton.title = "" //in your case it will be empty or you can put the title of your choice
-                self.navigationController?.navigationBar.topItem?.backBarButtonItem = backButton
+        let backButton = UIBarButtonItem()
+        backButton.title = ""
+        self.navigationController?.navigationBar.topItem?.backBarButtonItem = backButton
+        self.navigationController?.navigationBar.isHidden = true
+        
+        
 
     }
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        
+        let backButton = UIBarButtonItem()
+        backButton.title = ""
+        self.navigationController?.navigationBar.topItem?.backBarButtonItem = backButton
+        self.navigationController?.navigationBar.isHidden = true
         
         let pathToSound = Bundle.main.path(forResource: introMessage, ofType: "wav")!
         let url = URL(fileURLWithPath: pathToSound)
@@ -58,8 +68,12 @@ class HomeScreenViewController: UIViewController, DatabaseListener{
         } catch {
             print("error playing")
         }
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
         
-        
+        audioPlayer?.stop()
     }
 
     func onUserScoreChange(change: DatabaseChange, userScore: [Score]) {
@@ -73,6 +87,11 @@ class HomeScreenViewController: UIViewController, DatabaseListener{
         if segue.identifier == "toSendUserData" {
             let destination = segue.destination as! SearhParkCollectionViewController
             destination.userName = user?.avatarName
+        } else if segue.identifier == "quizSectionSegue" {
+            let destination = segue.destination as! WelcomeQuizViewController
+            destination.user = user
         }
     }
+    
+    
 }

@@ -74,8 +74,10 @@ class CoreDataController: NSObject, NSFetchedResultsControllerDelegate, Database
         
         user.name = name
         user.avatarName = avatarName
-        
+        saveContext()
         return user
+        
+        
        }
     
     func addScoreToUser(score: Score, user: User) -> Bool {

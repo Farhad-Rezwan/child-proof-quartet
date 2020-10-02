@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AVFoundation
 
 class SingleParkViewController: UIViewController {
 
@@ -20,6 +21,8 @@ class SingleParkViewController: UIViewController {
     var name: String?
     var equipmentsClass: [Equipment] = EquipmentBank().list
     var userName: String?
+    var introMessage = "selectYourFavouratePlayEquipment"
+    var audioPlayer: AVAudioPlayer?
     
 
     override func viewDidLoad() {
@@ -46,9 +49,29 @@ class SingleParkViewController: UIViewController {
         navigationController?.navigationBar.isTranslucent = true
         navigationController?.navigationBar.backIndicatorImage = renderedImage
         navigationController?.navigationBar.backIndicatorTransitionMaskImage = renderedImage
+        
+        
+        
+        // audio
+        let pathToSound = Bundle.main.path(forResource: introMessage, ofType: "wav")!
+        let url = URL(fileURLWithPath: pathToSound)
+        
+        do {
+            audioPlayer = try AVAudioPlayer(contentsOf: url)
+            audioPlayer!.play()
+        } catch {
+            print("error playing")
+        }
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        audioPlayer?.stop()
     }
 
 }
+
 
 extension SingleParkViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     

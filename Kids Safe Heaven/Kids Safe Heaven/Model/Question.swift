@@ -10,8 +10,7 @@ import Foundation
 
 class Question {
     let question: String
-    let optionA: String
-    let optionB: String
+    let questionSound: String
     let optionAImage: String
     let optionBImage: String
     let corretAnswer: Int
@@ -19,10 +18,9 @@ class Question {
     let optionATips: String
     let optionBTips: String
     
-    init(question: String, optionA: String, optionB: String, optionAImage: String, optionBImage: String, correctAnswer: Int, section: String, optionATips: String, optionBTips: String) {
+    init(question: String, questionSound: String, optionAImage: String, optionBImage: String, correctAnswer: Int, section: String, optionATips: String, optionBTips: String) {
         self.question = question
-        self.optionA = optionA
-        self.optionB = optionB
+        self.questionSound = questionSound
         self.optionAImage = optionAImage
         self.optionBImage = optionBImage
         self.optionATips = optionATips

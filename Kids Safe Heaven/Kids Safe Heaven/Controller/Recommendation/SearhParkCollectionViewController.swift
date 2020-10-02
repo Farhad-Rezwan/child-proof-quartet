@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreLocation
+import AVFoundation
 
 class SearhParkCollectionViewController: UIViewController, CLLocationManagerDelegate {
 
@@ -18,19 +19,25 @@ class SearhParkCollectionViewController: UIViewController, CLLocationManagerDele
     var parkNumberingArray: [UIImage]? = [#imageLiteral(resourceName: "one"),#imageLiteral(resourceName: "two"),#imageLiteral(resourceName: "three"),#imageLiteral(resourceName: "four"),#imageLiteral(resourceName: "five")]
     var userName: String?
     
+    var audioPlayer: AVAudioPlayer?
 
     var allParks: [Park] = []
     
     let locationManager = CLLocationManager()
     var currentLocation: CLLocationCoordinate2D?
     var parkManager = ParkManager()
+    var introMessage = "chooseYourNearbyParkToGoTo"
     // latter use
     //     weatherManager.delegate = self
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-
+        
+        let backButton = UIBarButtonItem()
+        backButton.title = ""
+        self.navigationController?.navigationBar.topItem?.backBarButtonItem = backButton
+        self.navigationController?.navigationBar.isHidden = false
         
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationManager.distanceFilter = 10
@@ -48,12 +55,24 @@ class SearhParkCollectionViewController: UIViewController, CLLocationManagerDele
         navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
         navigationController?.navigationBar.shadowImage = UIImage()
         navigationController?.navigationBar.isTranslucent = true
+        
+        
+        let pathToSound = Bundle.main.path(forResource: introMessage, ofType: "wav")!
+        let url = URL(fileURLWithPath: pathToSound)
+        
+        do {
+            audioPlayer = try AVAudioPlayer(contentsOf: url)
+            audioPlayer!.play()
+        } catch {
+            print("error playing")
+        }
 
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         locationManager.stopUpdatingLocation()
+        audioPlayer?.stop()
     }
     
     // MARK: - CLLocation Manager Delegate Methods
@@ -102,14 +121,6 @@ class SearhParkCollectionViewController: UIViewController, CLLocationManagerDele
     }
     
     func populateParks() {
-//        let park1 = Park(name: "Noble Park", distance: 20.0)
-//        let park2 = Park(name: "another Park", distance: 50.0)
-//        let park3 = Park(name: "yet an Park", distance: 20.0)
-//        let park4 = Park(name: "anotherest Park", distance: 204.0)
-//        let park5 = Park(name: "longest park in the town Park", distance: 1.0)
-        
-//        allParks.append(contentsOf: [park1, park2, park3, park4, park5])
-        
     }
 }
 
@@ -138,11 +149,6 @@ extension SearhParkCollectionViewController: UICollectionViewDelegate, UICollect
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-//        let viewController = storyboard?.instantiateViewController(identifier: "singleParkView") as! SingleParkViewController
-//
-//        viewController.parkViewImageView.image = parkImageArray.randomElement()
-//        viewController.parkViewNameLabel.text = "This is the park"
-//        navigationController?.pushViewController(viewController, animated: true)
         let viewController = storyboard?.instantiateViewController(identifier: "singleParkView") as! SingleParkViewController
         viewController.equipments = allParks[indexPath.row].facility
         viewController.name = allParks[indexPath.row].name

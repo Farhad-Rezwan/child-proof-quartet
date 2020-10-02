@@ -12,26 +12,26 @@ import AVFoundation
 class QuestionViewController: UIViewController {
     
     var audioPlayer: AVAudioPlayer?
+    var user: User?
 
     @IBOutlet weak var questionCounter: UILabel!
     @IBOutlet weak var scoreLabel: UILabel!
     @IBOutlet weak var progressView: UIProgressView!
     @IBOutlet weak var questionLabel: UILabel!
-//    @IBOutlet var tipsItemView: UIView!
     @IBOutlet weak var optionA: UIButton!
     @IBOutlet weak var optionB: UIButton!
-    
     @IBOutlet var blurView: UIVisualEffectView!
     @IBOutlet var popUpView: UIView!
     @IBOutlet weak var tipsImageView: UIImageView!
-    var qType: String?
+    @IBOutlet weak var tipsViewTipsAvatarButtonOutlet: UIButton!
     
-//    let allQuestions = QuestionBank(type: "general").list.shuffled().prefix(5)
+    var qType: String?
     var allQuestions: ArraySlice<Question>!
     var questionNumber: Int = 0
     var selectionNumber: Int = 0
     var selectedAnswer: Int = 0
     var score: Int = 0
+    var tempSoundToLoad: String?
     
 
     
@@ -39,15 +39,35 @@ class QuestionViewController: UIViewController {
         super.viewDidLoad()
 
         progressView.progress = 0
-        
 
         updateQuestion()
         updateUI()
+        
         blurView.bounds = self.view.bounds
+        popUpView.bounds = self.view.bounds
+        
+        populateAvatarOfTipsScreen()
+    }
+    
+    func populateAvatarOfTipsScreen() {
+        var tipsAvatarImage: String = (user?.avatarName)!
 
-        popUpView.bounds = CGRect(x: 0, y: 0, width: self.view.bounds.width * 0.90, height: self.view.bounds.height * 0.60)
-        
-        
+        switch tipsAvatarImage {
+        case "zacIntro":
+            tipsAvatarImage = "zacReadOut"
+            let buttonImage = UIImage(named: tipsAvatarImage)
+            tipsViewTipsAvatarButtonOutlet.setBackgroundImage(buttonImage, for: .normal)
+        case "krisIntro":
+            tipsAvatarImage = "krisReadOut"
+            let buttonImage = UIImage(named: tipsAvatarImage)
+            tipsViewTipsAvatarButtonOutlet.setBackgroundImage(buttonImage, for: .normal)
+        case "rezIntro":
+            tipsAvatarImage = "rezReadOut"
+            let buttonImage = UIImage(named: tipsAvatarImage)
+            tipsViewTipsAvatarButtonOutlet.setBackgroundImage(buttonImage, for: .normal)
+        default:
+            break
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -76,12 +96,14 @@ class QuestionViewController: UIViewController {
     /// Does, after answer pressed if correct, proper tips message is shown, with score update and haptic feedback
     /// - Parameter sender: UIButton
     @IBAction func answerPress(_ sender: UIButton) {
+        audioPlayer!.stop()
         if sender.tag == 1 {
             animateIn(desiredView: blurView)
             animateIn(desiredView: popUpView)
             let optionATipsImageName: String = allQuestions[questionNumber].optionATips
             let tipsImage = UIImage(named: optionATipsImageName)
-
+            
+            tempSoundToLoad = optionATipsImageName
             tipsImageView.image = tipsImage
         } else if sender.tag == 2 {
             animateIn(desiredView: blurView)
@@ -89,6 +111,7 @@ class QuestionViewController: UIViewController {
             let optionBTipsImageName: String = allQuestions[questionNumber].optionBTips
             let tipsImage = UIImage(named: optionBTipsImageName)
 
+            tempSoundToLoad = optionBTipsImageName
             tipsImageView.image = tipsImage
         }
         
@@ -152,9 +175,33 @@ class QuestionViewController: UIViewController {
             optionB.contentVerticalAlignment = .fill
             optionB.contentHorizontalAlignment = .fill
 
-
-
             selectedAnswer = allQuestions[questionNumber].corretAnswer
+            
+            
+            
+            
+            
+            
+            
+            
+            if let pathToSound = Bundle.main.path(forResource: allQuestions[questionNumber].questionSound, ofType: "wav") {
+                let url = URL(fileURLWithPath: pathToSound)
+                do {
+                    audioPlayer = try AVAudioPlayer(contentsOf: url)
+                    audioPlayer?.prepareToPlay()
+                    
+                } catch let error as NSError {
+                        print("error: \(error.localizedDescription)")
+                }
+                
+                let seconds = 0.5//Time To Delay
+                let when = DispatchTime.now() + seconds
+                
+                DispatchQueue.main.asyncAfter(deadline: when) {
+                    self.audioPlayer!.play()
+                }
+            }
+            
             
         } else {
             
@@ -178,7 +225,7 @@ class QuestionViewController: UIViewController {
         if questionNumber <= allQuestions.count - 1 {
             scoreLabel.text = "Score: \(score)"
             questionCounter.text = "\(questionNumber + 1)/\(allQuestions.count)"
-            progressView.progress = progressView.progress + 0.10
+            progressView.progress = progressView.progress + 0.20
             
         }
     }
@@ -196,6 +243,8 @@ class QuestionViewController: UIViewController {
     func navigateToScorecard() {
         let viewController = storyboard?.instantiateViewController(identifier: "scoreBoardVC") as! ScoreBoardViewController
         viewController.score = String(score)
+        viewController.user = user
+        viewController.questionType = qType ?? "general"
         navigationController?.popViewController(animated: true)
         navigationController?.pushViewController(viewController, animated: false)
     }
@@ -235,16 +284,32 @@ class QuestionViewController: UIViewController {
             desiredView.removeFromSuperview()
         })
         
+
     }
     
     
+    @IBAction func tipsViewTipsAvatarSpeakOutButton(_ sender: Any) {
+        
+        if let pathToSound = Bundle.main.path(forResource: tempSoundToLoad, ofType: "wav") {
+            let url = URL(fileURLWithPath: pathToSound)
+            do {
+                audioPlayer = try AVAudioPlayer(contentsOf: url)
+                audioPlayer!.play()
+            } catch {
+                print("error playing")
+            }
+        }
+        
+    }
     
     
     @IBAction func tipsDoneButton(_ sender: Any) {
         updateUI()
-        updateQuestion()
         animateOut(desiredView: blurView)
         animateOut(desiredView: popUpView)
+        
+        audioPlayer!.stop()
+        updateQuestion()
         
     }
     

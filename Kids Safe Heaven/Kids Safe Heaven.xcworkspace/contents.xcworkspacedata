@@ -11,9 +11,6 @@
       location = "group:southernCroos.gpx">
    </FileRef>
    <FileRef
-      location = "group:../../../../Downloads/default-2.gpx">
-   </FileRef>
-   <FileRef
       location = "group:Kids Safe Heaven.xcodeproj">
    </FileRef>
    <FileRef

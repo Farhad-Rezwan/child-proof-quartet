@@ -31,14 +31,6 @@ class CreateUsersViewController: UIViewController, DatabaseListener {
         
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         databaseController = appDelegate.databaseController
-        
-        
-        
-        
-
-
-        
-
     }
     
     @IBAction func addUserBarButton(_ sender: UIBarButtonItem) {
@@ -58,9 +50,6 @@ class CreateUsersViewController: UIViewController, DatabaseListener {
         navigationController?.navigationBar.backIndicatorImage = renderedImage
         navigationController?.navigationBar.backIndicatorTransitionMaskImage = renderedImage
 
-//        let backButton = UIBarButtonItem()
-//        backButton.title = "" //in your case it will be empty or you can put the title of your choice
-//        self.navigationController?.navigationBar.topItem?.backBarButtonItem = backButton
         databaseController?.addListener(listener: self)
     }
     
@@ -79,52 +68,8 @@ class CreateUsersViewController: UIViewController, DatabaseListener {
         userTableViewCell.reloadData()
     }
     
-//    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-//
-//    }
-    
-    
-    
-    
-    
 }
 
-//extension CreateUsersViewController: UICollectionViewDelegate, UICollectionViewDataSource {
-//    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-//        return users.count
-//    }
-//
-//    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-//        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "eachUserCell", for: indexPath) as! UserCollectionViewCell
-//
-//        cell.userName.text = users[indexPath.row].name
-//
-//        let userAvatarImage = users[indexPath.row].avatarName
-//
-//        if userAvatarImage == "zacIntro" {
-//
-//            let uiUserImage = userImageArry[0]
-//            cell.userAvatar.image = uiUserImage
-//
-//        } else if userAvatarImage == "krisIntro" {
-//
-//            let uiUserImage = userImageArry[1]
-//            cell.userAvatar.image = uiUserImage
-//
-//        } else if userAvatarImage == "rezIntro" {
-//
-//            let uiUserImage = userImageArry[2]
-//            cell.userAvatar.image = uiUserImage
-//        }
-//
-//
-//
-//        return cell
-//    }
-//
-//
-//
-//}
 
 extension CreateUsersViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -143,7 +88,9 @@ extension CreateUsersViewController: UITableViewDataSource, UITableViewDelegate 
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
         let viewController = storyboard?.instantiateViewController(identifier: "homeScreenVC") as! HomeScreenViewController
+        
         viewController.userName = users[indexPath.row].name
         navigationController?.pushViewController(viewController, animated: true)
     }

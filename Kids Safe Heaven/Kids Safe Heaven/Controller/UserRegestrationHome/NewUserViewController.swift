@@ -67,11 +67,12 @@ class NewUserViewController: UIViewController, UITextFieldDelegate {
 
             let _ = databaseController?.addUser(name: name, avatarName: avatarName)
             
+            
             let viewController = storyboard?.instantiateViewController(identifier: "homeScreenVC") as! HomeScreenViewController
             viewController.userName = name
+            
             navigationController?.pushViewController(viewController, animated: true)
             
-//            navigationController?.popViewController(animated: true)
             return
         }
         
@@ -108,4 +109,9 @@ class NewUserViewController: UIViewController, UITextFieldDelegate {
         navigationController?.navigationBar.backIndicatorImage = renderedImage
         navigationController?.navigationBar.backIndicatorTransitionMaskImage = renderedImage
     }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+    }
+    
 }

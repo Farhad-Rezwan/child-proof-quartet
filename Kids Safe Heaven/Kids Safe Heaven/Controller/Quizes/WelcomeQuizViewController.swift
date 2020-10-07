@@ -26,7 +26,7 @@ class WelcomeQuizViewController: UIViewController {
         self.navigationController?.navigationBar.isHidden = false
         
         let userName: String = user?.name ?? " "
-        heyLabel.text = "Hello, \(userName)!! Select One Quiz Catagory"
+        heyLabel.text = "Hello, \(userName)!! Select One Quiz Category"
         
         
         // welcome and asks for choosing quiz catagory

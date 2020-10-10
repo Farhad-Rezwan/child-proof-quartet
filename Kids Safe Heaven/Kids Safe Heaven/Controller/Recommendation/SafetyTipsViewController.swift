@@ -74,6 +74,12 @@ class SafetyTipsViewController: UIViewController {
         
     }
     
-
+    @IBAction func learnMoreVideoInstruction(_ sender: Any) {
+        
+        // navigate to video view controller
+        
+        
+    }
+    
 
 }

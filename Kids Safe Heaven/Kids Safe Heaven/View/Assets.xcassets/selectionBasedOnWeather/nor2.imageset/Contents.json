@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "homeScreenParkBtn.png",
+      "filename" : "nor2.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "homeScreenParkBtn@2x.png",
+      "filename" : "nor2@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "homeScreenParkBtn@3x.png",
+      "filename" : "nor2@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

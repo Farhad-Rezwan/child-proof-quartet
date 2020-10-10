@@ -13,7 +13,9 @@
 		FC10ED4024EC13A200C11DB0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FC10ED3E24EC13A200C11DB0 /* Main.storyboard */; };
 		FC10ED4224EC13A600C11DB0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FC10ED4124EC13A600C11DB0 /* Assets.xcassets */; };
 		FC10ED4524EC13A600C11DB0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FC10ED4324EC13A600C11DB0 /* LaunchScreen.storyboard */; };
+		FC2C232325307C92003E711B /* ThingsCarry.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC2C232225307C92003E711B /* ThingsCarry.swift */; };
 		FC2EB66B2512089500657F48 /* Equipments.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC2EB66A2512089500657F48 /* Equipments.swift */; };
+		FC40FC1A2531786700081F1F /* EachThingsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC40FC192531786700081F1F /* EachThingsCollectionViewCell.swift */; };
 		FC433F58250E41DC00110C97 /* SearhParkCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC433F57250E41DC00110C97 /* SearhParkCollectionViewController.swift */; };
 		FC433F5A250E4B0700110C97 /* ParkDataCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC433F59250E4B0700110C97 /* ParkDataCollectionViewCell.swift */; };
 		FC433F5C250E529600110C97 /* Park.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC433F5B250E529600110C97 /* Park.swift */; };
@@ -114,6 +116,10 @@
 		FCBE4EBD250F490D006EF55A /* UserCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCBE4EBC250F490D006EF55A /* UserCollectionViewCell.swift */; };
 		FCBE4EBF250F5AD9006EF55A /* NewUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCBE4EBE250F5AD9006EF55A /* NewUserViewController.swift */; };
 		FCC1416A2512E88200383C0C /* introductionAvatarMessage.wav in Resources */ = {isa = PBXBuildFile; fileRef = FCC141692512E88200383C0C /* introductionAvatarMessage.wav */; };
+		FCEA9E3F252D4EEE00E92B2B /* MainJourneyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCEA9E3E252D4EEE00E92B2B /* MainJourneyViewController.swift */; };
+		FCEA9E43252D4F4300E92B2B /* ThingsToCarryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCEA9E42252D4F4300E92B2B /* ThingsToCarryViewController.swift */; };
+		FCEA9E46252D4F7600E92B2B /* SpotTheDViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCEA9E45252D4F7600E92B2B /* SpotTheDViewController.swift */; };
+		FCEA9E4A252D525800E92B2B /* VideoInstructionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCEA9E49252D525800E92B2B /* VideoInstructionViewController.swift */; };
 		FCEF029424FC4035004345F6 /* wrong.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = FCEF029124FC4035004345F6 /* wrong.mp3 */; };
 		FCEF029524FC4035004345F6 /* correct.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = FCEF029224FC4035004345F6 /* correct.mp3 */; };
 		FCEF029624FC4035004345F6 /* gamePlay.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = FCEF029324FC4035004345F6 /* gamePlay.mp3 */; };
@@ -130,7 +136,9 @@
 		FC10ED4124EC13A600C11DB0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FC10ED4424EC13A600C11DB0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FC10ED4624EC13A600C11DB0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FC2C232225307C92003E711B /* ThingsCarry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThingsCarry.swift; sourceTree = "<group>"; };
 		FC2EB66A2512089500657F48 /* Equipments.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Equipments.swift; sourceTree = "<group>"; };
+		FC40FC192531786700081F1F /* EachThingsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EachThingsCollectionViewCell.swift; sourceTree = "<group>"; };
 		FC433F57250E41DC00110C97 /* SearhParkCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearhParkCollectionViewController.swift; sourceTree = "<group>"; };
 		FC433F59250E4B0700110C97 /* ParkDataCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParkDataCollectionViewCell.swift; sourceTree = "<group>"; };
 		FC433F5B250E529600110C97 /* Park.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Park.swift; sourceTree = "<group>"; };
@@ -231,6 +239,10 @@
 		FCBE4EBC250F490D006EF55A /* UserCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCollectionViewCell.swift; sourceTree = "<group>"; };
 		FCBE4EBE250F5AD9006EF55A /* NewUserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewUserViewController.swift; sourceTree = "<group>"; };
 		FCC141692512E88200383C0C /* introductionAvatarMessage.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = introductionAvatarMessage.wav; sourceTree = "<group>"; };
+		FCEA9E3E252D4EEE00E92B2B /* MainJourneyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainJourneyViewController.swift; sourceTree = "<group>"; };
+		FCEA9E42252D4F4300E92B2B /* ThingsToCarryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThingsToCarryViewController.swift; sourceTree = "<group>"; };
+		FCEA9E45252D4F7600E92B2B /* SpotTheDViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotTheDViewController.swift; sourceTree = "<group>"; };
+		FCEA9E49252D525800E92B2B /* VideoInstructionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoInstructionViewController.swift; sourceTree = "<group>"; };
 		FCEF029124FC4035004345F6 /* wrong.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = wrong.mp3; sourceTree = "<group>"; };
 		FCEF029224FC4035004345F6 /* correct.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = correct.mp3; sourceTree = "<group>"; };
 		FCEF029324FC4035004345F6 /* gamePlay.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = gamePlay.mp3; sourceTree = "<group>"; };
@@ -412,6 +424,7 @@
 				FC433F5B250E529600110C97 /* Park.swift */,
 				FC6C2999250EC2D50007FEE0 /* ParkManager.swift */,
 				FC2EB66A2512089500657F48 /* Equipments.swift */,
+				FC2C232225307C92003E711B /* ThingsCarry.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -431,6 +444,8 @@
 			children = (
 				FC10ED3824EC13A200C11DB0 /* AppDelegate.swift */,
 				FC10ED3A24EC13A200C11DB0 /* SceneDelegate.swift */,
+				FCEA9E48252D523800E92B2B /* VideoInstruction */,
+				FCEA9E3D252D4E9400E92B2B /* Journey */,
 				FCBE4EBB250F48DB006EF55A /* UserRegestrationHome */,
 				FCB56AC525126BDA00D61761 /* Quizes */,
 				FC62FB852510169200A33D08 /* Recommendation */,
@@ -501,6 +516,25 @@
 				FCB56AC62512B80500D61761 /* NewExistingViewController.swift */,
 			);
 			path = UserRegestrationHome;
+			sourceTree = "<group>";
+		};
+		FCEA9E3D252D4E9400E92B2B /* Journey */ = {
+			isa = PBXGroup;
+			children = (
+				FCEA9E3E252D4EEE00E92B2B /* MainJourneyViewController.swift */,
+				FCEA9E42252D4F4300E92B2B /* ThingsToCarryViewController.swift */,
+				FCEA9E45252D4F7600E92B2B /* SpotTheDViewController.swift */,
+				FC40FC192531786700081F1F /* EachThingsCollectionViewCell.swift */,
+			);
+			path = Journey;
+			sourceTree = "<group>";
+		};
+		FCEA9E48252D523800E92B2B /* VideoInstruction */ = {
+			isa = PBXGroup;
+			children = (
+				FCEA9E49252D525800E92B2B /* VideoInstructionViewController.swift */,
+			);
+			path = VideoInstruction;
 			sourceTree = "<group>";
 		};
 		FCEF029024FC401D004345F6 /* Sound */ = {
@@ -713,13 +747,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FC2C232325307C92003E711B /* ThingsCarry.swift in Sources */,
 				FC62FB872510258200A33D08 /* SingleParkViewController.swift in Sources */,
 				FC4C110024F3DBCA00C3A2DB /* Question.swift in Sources */,
 				FC433F5C250E529600110C97 /* Park.swift in Sources */,
 				FC99F4AF24F66966009A1ABD /* WelcomeQuizViewController.swift in Sources */,
 				FC433F58250E41DC00110C97 /* SearhParkCollectionViewController.swift in Sources */,
 				FC10ED3924EC13A200C11DB0 /* AppDelegate.swift in Sources */,
+				FCEA9E43252D4F4300E92B2B /* ThingsToCarryViewController.swift in Sources */,
+				FCEA9E4A252D525800E92B2B /* VideoInstructionViewController.swift in Sources */,
 				FC10ED3B24EC13A200C11DB0 /* SceneDelegate.swift in Sources */,
+				FC40FC1A2531786700081F1F /* EachThingsCollectionViewCell.swift in Sources */,
 				FCBE4EBA250F2E1F006EF55A /* Score+CoreDataProperties.swift in Sources */,
 				FC600187250EE9E700C42403 /* CoreDataController.swift in Sources */,
 				FC4C10FE24F3D9FC00C3A2DB /* QuestionViewController.swift in Sources */,
@@ -734,7 +772,9 @@
 				FC4C110224F3DCD100C3A2DB /* QuestionBank.swift in Sources */,
 				FC62FB8925104B3D00A33D08 /* SafetyTipsViewController.swift in Sources */,
 				FC4C5B0C25206F6400D6B87D /* ScoreBoardViewController.swift in Sources */,
+				FCEA9E46252D4F7600E92B2B /* SpotTheDViewController.swift in Sources */,
 				FC2EB66B2512089500657F48 /* Equipments.swift in Sources */,
+				FCEA9E3F252D4EEE00E92B2B /* MainJourneyViewController.swift in Sources */,
 				FCBE4EB8250F2E1F006EF55A /* User+CoreDataProperties.swift in Sources */,
 				FC600185250EE97300C42403 /* MulticastDelegate.swift in Sources */,
 				FCB56AC72512B80500D61761 /* NewExistingViewController.swift in Sources */,

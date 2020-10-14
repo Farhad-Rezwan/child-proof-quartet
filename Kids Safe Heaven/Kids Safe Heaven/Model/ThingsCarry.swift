@@ -9,7 +9,11 @@
 import Foundation
 
 
-class ThingsCarry {
+class ThingsCarry: Equatable {
+    static func == (lhs: ThingsCarry, rhs: ThingsCarry) -> Bool {
+        return lhs.itemName == rhs.itemName
+    }
+    
     let itemName: String
     let itemImage: String
     let itemSafetyTips: String

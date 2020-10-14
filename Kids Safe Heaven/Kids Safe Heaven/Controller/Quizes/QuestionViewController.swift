@@ -47,6 +47,13 @@ class QuestionViewController: UIViewController {
         popUpView.bounds = self.view.bounds
         
         populateAvatarOfTipsScreen()
+        
+        optionA.layer.cornerRadius = 30
+        optionA.layer.borderWidth = 4.0
+        optionA.layer.borderColor = UIColor.systemGroupedBackground.cgColor
+        optionB.layer.cornerRadius = 30
+        optionB.layer.borderWidth = 4.0
+        optionB.layer.borderColor = UIColor.systemGroupedBackground.cgColor
     }
     
     func populateAvatarOfTipsScreen() {
@@ -121,6 +128,9 @@ class QuestionViewController: UIViewController {
             let generator = UINotificationFeedbackGenerator()
             generator.notificationOccurred(.success)
             
+            /// highlight button feedback
+            optionA.showsTouchWhenHighlighted = true
+            
             score += 1
             let pathToSound = Bundle.main.path(forResource: "correct", ofType: "mp3")!
             let url = URL(fileURLWithPath: pathToSound)
@@ -136,6 +146,8 @@ class QuestionViewController: UIViewController {
             let generator = UINotificationFeedbackGenerator()
             generator.notificationOccurred(.error)
             
+            /// highlight button feedback
+            optionB.showsTouchWhenHighlighted = true
             
             let pathToSound = Bundle.main.path(forResource: "wrong", ofType: "mp3")!
             let url = URL(fileURLWithPath: pathToSound)

@@ -14,11 +14,11 @@ class ThingsCarry: Equatable {
         return lhs.itemName == rhs.itemName
     }
     
-    let itemName: String
-    let itemImage: String
-    let itemSafetyTips: String
-    let itemValidity: Bool
-    let itemSelected: Bool
+    var itemName: String
+    var itemImage: String
+    var itemSafetyTips: String
+    var itemValidity: Bool
+    var itemSelected: Bool
  
     init(itemName: String, itemImage: String, itemSafetyTips: String, itemValidity: Bool) {
         self.itemName = itemName
@@ -43,10 +43,10 @@ class ThingsToCarryBank {
         list.append(ThingsCarry(itemName: "Chocolate", itemImage: "nor5", itemSafetyTips: "It will give you energy while playing", itemValidity: true))
         
         // MARK: - Cold Weather
-        list.append(ThingsCarry(itemName: "Winter jacket", itemImage: "win1", itemSafetyTips: "Wearing winter jacket keeps you warm and safe", itemValidity: true))
-        list.append(ThingsCarry(itemName: "Winter scarf", itemImage: "win2", itemSafetyTips: "Wearing scarf keeps you warmer and allows you to play outside longer", itemValidity: true))
-        list.append(ThingsCarry(itemName: "Winter gloves", itemImage: "win3", itemSafetyTips: "A pair of winter gloves can slow down the flow of heat and make you feel warm on a cold day", itemValidity: true))
-        list.append(ThingsCarry(itemName: "Warm water bottle", itemImage: "win4", itemSafetyTips: "Nothing like warm drinks to warm your insides", itemValidity: true))
-        list.append(ThingsCarry(itemName: "Winter cream", itemImage: "win5", itemSafetyTips: "Moisturising Cream can protect your skin from cracking in winter", itemValidity: true))
+        list.append(ThingsCarry(itemName: "Winter jacket", itemImage: "win1", itemSafetyTips: "Wearing winter jacket keeps you warm and safe", itemValidity: false))
+        list.append(ThingsCarry(itemName: "Winter scarf", itemImage: "win2", itemSafetyTips: "Wearing scarf keeps you warmer and allows you to play outside longer", itemValidity: false))
+        list.append(ThingsCarry(itemName: "Winter gloves", itemImage: "win3", itemSafetyTips: "A pair of winter gloves can slow down the flow of heat and make you feel warm on a cold day", itemValidity: false))
+        list.append(ThingsCarry(itemName: "Warm water bottle", itemImage: "win4", itemSafetyTips: "Nothing like warm drinks to warm your insides", itemValidity: false))
+        list.append(ThingsCarry(itemName: "Winter cream", itemImage: "win5", itemSafetyTips: "Moisturising Cream can protect your skin from cracking in winter", itemValidity: false))
    }
 }

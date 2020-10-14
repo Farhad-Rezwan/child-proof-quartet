@@ -170,8 +170,9 @@
                     </view>
                     <blurEffect style="regular"/>
                 </visualEffectView>
-                <view contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="dKI-6J-Epa">
+                <view contentMode="scaleAspectFit" id="dKI-6J-Epa">
                     <rect key="frame" x="0.0" y="0.0" width="534" height="320"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
                         <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="atp-j7-YHj">
                             <rect key="frame" x="0.0" y="0.0" width="534" height="320"/>
@@ -622,8 +623,97 @@
                     <navigationItem key="navigationItem" id="HEL-cf-3eQ"/>
                     <connections>
                         <outlet property="thingsToCarryCollectionView" destination="uO1-3E-GWE" id="7zA-LM-OCx"/>
+                        <outlet property="tipsView" destination="Qef-Fw-XlP" id="Vc5-Nn-1kf"/>
+                        <outlet property="visualAffectView" destination="8QU-2c-ZMl" id="lDh-db-P7U"/>
                     </connections>
                 </viewController>
+                <visualEffectView opaque="NO" contentMode="scaleToFill" id="8QU-2c-ZMl">
+                    <rect key="frame" x="0.0" y="0.0" width="288" height="128"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="2fu-ch-att">
+                        <rect key="frame" x="0.0" y="0.0" width="288" height="128"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                    </view>
+                    <blurEffect style="regular"/>
+                </visualEffectView>
+                <view contentMode="scaleAspectFit" id="Qef-Fw-XlP">
+                    <rect key="frame" x="0.0" y="0.0" width="534" height="320"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <subviews>
+                        <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="Vej-IG-WPV">
+                            <rect key="frame" x="0.0" y="0.0" width="534" height="320"/>
+                            <subviews>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tC9-C9-gLG">
+                                    <rect key="frame" x="0.0" y="0.0" width="49.333333333333336" height="320"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="20" id="49X-Bi-xbp"/>
+                                    </constraints>
+                                </view>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hdX-W0-kJz">
+                                    <rect key="frame" x="54.333333333333343" y="10" width="124" height="300"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="300" id="wKJ-Fl-bcS"/>
+                                    </constraints>
+                                    <state key="normal" backgroundImage="kris"/>
+                                </button>
+                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="ufQ-V0-fDE">
+                                    <rect key="frame" x="183.33333333333334" y="0.0" width="296.66666666666663" height="320"/>
+                                    <subviews>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Q7l-ik-zev">
+                                            <rect key="frame" x="0.0" y="0.0" width="296.66666666666669" height="160"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </view>
+                                        <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="jdM-5L-xAq">
+                                            <rect key="frame" x="0.0" y="160" width="296.66666666666669" height="160"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tipNo1" translatesAutoresizingMaskIntoConstraints="NO" id="qda-01-2UR">
+                                                    <rect key="frame" x="0.0" y="42.666666666666664" width="272.66666666666669" height="74.666666666666686"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="300" id="gdy-SX-0LO"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z04-Vh-aK2">
+                                                    <rect key="frame" x="276.66666666666663" y="70" width="20" height="20"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="20" id="Yyb-AL-svj"/>
+                                                        <constraint firstAttribute="width" constant="20" id="cNk-fs-Pqm"/>
+                                                    </constraints>
+                                                    <state key="normal" backgroundImage="quizNextButtonForHere">
+                                                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    </state>
+                                                    <connections>
+                                                        <action selector="tipsReadDone:" destination="cwu-5p-WyB" eventType="touchUpInside" id="qSm-uU-ASp"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                        </stackView>
+                                    </subviews>
+                                </stackView>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hgo-qM-Hvr">
+                                    <rect key="frame" x="485" y="0.0" width="49" height="320"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="20" id="hIS-zu-n0k"/>
+                                    </constraints>
+                                </view>
+                            </subviews>
+                            <constraints>
+                                <constraint firstItem="ufQ-V0-fDE" firstAttribute="top" secondItem="Vej-IG-WPV" secondAttribute="top" id="Ens-yn-2lO"/>
+                                <constraint firstAttribute="bottom" secondItem="tC9-C9-gLG" secondAttribute="bottom" id="LpU-S2-hyp"/>
+                                <constraint firstItem="tC9-C9-gLG" firstAttribute="top" secondItem="Vej-IG-WPV" secondAttribute="top" id="YgZ-Do-Dqe"/>
+                                <constraint firstAttribute="bottom" secondItem="ufQ-V0-fDE" secondAttribute="bottom" id="aOe-8R-O3G"/>
+                            </constraints>
+                        </stackView>
+                    </subviews>
+                    <viewLayoutGuide key="safeArea" id="JbI-zW-12r"/>
+                    <constraints>
+                        <constraint firstAttribute="trailing" secondItem="Vej-IG-WPV" secondAttribute="trailing" id="5Rt-Fm-WKg"/>
+                        <constraint firstItem="Vej-IG-WPV" firstAttribute="leading" secondItem="Qef-Fw-XlP" secondAttribute="leading" id="CqA-Zt-27W"/>
+                        <constraint firstAttribute="bottom" secondItem="Vej-IG-WPV" secondAttribute="bottom" id="WQS-Ed-DNp"/>
+                        <constraint firstItem="Vej-IG-WPV" firstAttribute="top" secondItem="JbI-zW-12r" secondAttribute="top" id="heA-kI-6gT"/>
+                    </constraints>
+                </view>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uNg-40-cmv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1240.1785714285713" y="5131.884057971015"/>
@@ -1292,6 +1382,7 @@
         <image name="iteration1Button" width="222" height="81.333335876464844"/>
         <image name="iteration2Button" width="222" height="81.333335876464844"/>
         <image name="iteration3Button" width="222.66667175292969" height="81.333335876464844"/>
+        <image name="kris" width="125.66666412353516" height="158.66667175292969"/>
         <image name="krisIntro" width="150" height="159.33332824707031"/>
         <image name="krisScoreTipsDone" width="244" height="242.66667175292969"/>
         <image name="krisTips" width="116.66666412353516" height="194.66667175292969"/>
@@ -1312,6 +1403,7 @@
         <image name="secondHalf2" width="180" height="336"/>
         <image name="secondHalf3" width="170" height="336"/>
         <image name="secondHalf4" width="162" height="336"/>
+        <image name="tipNo1" width="233.33332824707031" height="74.666664123535156"/>
         <image name="wholeBackground" width="221.33332824707031" height="187.66667175292969"/>
         <image name="zacIntro" width="157.33332824707031" height="151.33332824707031"/>
         <systemColor name="secondarySystemBackgroundColor">

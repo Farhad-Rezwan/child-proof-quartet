@@ -15,6 +15,7 @@
 		FC10ED4524EC13A600C11DB0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FC10ED4324EC13A600C11DB0 /* LaunchScreen.storyboard */; };
 		FC2C232325307C92003E711B /* ThingsCarry.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC2C232225307C92003E711B /* ThingsCarry.swift */; };
 		FC2EB66B2512089500657F48 /* Equipments.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC2EB66A2512089500657F48 /* Equipments.swift */; };
+		FC40063C253AA977009AB157 /* YoutubeInstructionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC40063B253AA977009AB157 /* YoutubeInstructionViewController.swift */; };
 		FC40FC1A2531786700081F1F /* EachThingsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC40FC192531786700081F1F /* EachThingsCollectionViewCell.swift */; };
 		FC433F58250E41DC00110C97 /* SearhParkCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC433F57250E41DC00110C97 /* SearhParkCollectionViewController.swift */; };
 		FC433F5A250E4B0700110C97 /* ParkDataCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC433F59250E4B0700110C97 /* ParkDataCollectionViewCell.swift */; };
@@ -175,6 +176,7 @@
 		FC10ED4624EC13A600C11DB0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FC2C232225307C92003E711B /* ThingsCarry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThingsCarry.swift; sourceTree = "<group>"; };
 		FC2EB66A2512089500657F48 /* Equipments.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Equipments.swift; sourceTree = "<group>"; };
+		FC40063B253AA977009AB157 /* YoutubeInstructionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YoutubeInstructionViewController.swift; sourceTree = "<group>"; };
 		FC40FC192531786700081F1F /* EachThingsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EachThingsCollectionViewCell.swift; sourceTree = "<group>"; };
 		FC433F57250E41DC00110C97 /* SearhParkCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearhParkCollectionViewController.swift; sourceTree = "<group>"; };
 		FC433F59250E4B0700110C97 /* ParkDataCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParkDataCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -613,6 +615,7 @@
 				FC62FB862510258200A33D08 /* SingleParkViewController.swift */,
 				FC62FB8825104B3D00A33D08 /* SafetyTipsViewController.swift */,
 				FC62FB8A25107F8500A33D08 /* ParkEquipmmentCollectionViewCell.swift */,
+				FC40063B253AA977009AB157 /* YoutubeInstructionViewController.swift */,
 			);
 			path = Recommendation;
 			sourceTree = "<group>";
@@ -933,6 +936,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FC40063C253AA977009AB157 /* YoutubeInstructionViewController.swift in Sources */,
 				FC2C232325307C92003E711B /* ThingsCarry.swift in Sources */,
 				FC62FB872510258200A33D08 /* SingleParkViewController.swift in Sources */,
 				FC4C110024F3DBCA00C3A2DB /* Question.swift in Sources */,
@@ -1134,7 +1138,7 @@
 		};
 		FC10ED4B24EC13A600C11DB0 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 909C7EBA3C83441EA9BCF45B /* Pods-Kids Safe Heaven.debug.xcconfig */;
+			baseConfigurationReference = CF370C0B2576C36F41464BBA /* Pods-Kids Safe Heaven.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";

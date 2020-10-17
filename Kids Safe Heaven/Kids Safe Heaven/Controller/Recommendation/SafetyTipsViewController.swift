@@ -23,6 +23,7 @@ class SafetyTipsViewController: UIViewController {
     var introMessage: String = "intr"
     var userName: String?
     var user: User?
+    var eqVideo: String?
 
     @IBAction func tipsReadOut(_ sender: Any) {
         let pathToSound = Bundle.main.path(forResource: eqTips, ofType: "wav")!
@@ -70,10 +71,25 @@ class SafetyTipsViewController: UIViewController {
             print("error playing")
         }
         
+        let backArrowImage = UIImage(named: "quizBack")
+        let renderedImage = backArrowImage?.withRenderingMode(.alwaysOriginal)
+        
+        // Make the navigation bar background clear
+        navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        navigationController?.navigationBar.shadowImage = UIImage()
+        navigationController?.navigationBar.isTranslucent = true
+        navigationController?.navigationBar.backIndicatorImage = renderedImage
+        navigationController?.navigationBar.backIndicatorTransitionMaskImage = renderedImage
+        
     }
     
     @IBAction func learnMoreVideoInstruction(_ sender: Any) {
         // navigate to video view controller
 
+        let viewController = storyboard?.instantiateViewController(identifier: "youtubeVideo") as! YoutubeInstructionViewController
+        
+        viewController.headerName = "\(eqName ?? " ") instruction video"
+        viewController.youtubeVideoLink = eqVideo ?? " "
+        navigationController?.pushViewController(viewController, animated: true)
     }
 }

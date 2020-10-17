@@ -14,9 +14,7 @@ class EachThingsCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var itemImageView: UIImageView!
     @IBOutlet weak var itemLabel: UILabel!
-    
-    
-    
+
     override init(frame: CGRect) {
         super.init(frame: frame)
 

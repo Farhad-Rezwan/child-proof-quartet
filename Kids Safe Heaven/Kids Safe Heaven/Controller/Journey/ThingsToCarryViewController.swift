@@ -18,68 +18,135 @@ class ThingsToCarryViewController: UIViewController, CLLocationManagerDelegate {
     
     @IBOutlet var tipsView: UIView!
     @IBOutlet var visualAffectView: UIVisualEffectView!
+    @IBOutlet weak var mascotImageToBeHiddenIfPass: UIImageView!
+    @IBOutlet weak var buttonToBeHiddenUnlessPass: UIButton!
     @IBOutlet weak var thingsToCarryCollectionView: UICollectionView!
+    @IBOutlet weak var tipsImageView: UIImageView!
     
     var audioPlayer: AVAudioPlayer?
     let gradientLayer = CAGradientLayer()
     let APIKEY = "8ee001a3144d114f170986b983bd0f9c"
-    var lat = 11.21231231
-    var lon = 13.12121212
+    var lat: Double = 0
+    var lon: Double = 0
     var activityIndicator: NVActivityIndicatorView!
     let locationManager = CLLocationManager()
     var thingsListShuffeled: [ThingsCarry] = []
-    var thingsList: [ThingsCarry] = ThingsToCarryBank().list
-    
+
     var arrSelectedIndex = [IndexPath]() // This is selected cell Index array
     var arrSelectedData = [ThingsCarry]() // This is selected cell data array
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        thingsListShuffeled = thingsList.shuffled()
         thingsToCarryCollectionView.dataSource = self
         thingsToCarryCollectionView.delegate = self
         tipsView.bounds = self.view.bounds
         visualAffectView.bounds = self.view.bounds
+        
+        // making button hidden unless 5 items are selected
+        buttonToBeHiddenUnlessPass.isHidden = true
+        mascotImageToBeHiddenIfPass.isHidden = false
+        
+        // indicator for loading the weather
+        let indicatorSize: CGFloat = 70
+        let indicatorFrame = CGRect(x: (view.frame.width-indicatorSize)/2, y: (view.frame.height-indicatorSize)/2, width: indicatorSize, height: indicatorSize)
+        activityIndicator = NVActivityIndicatorView(frame: indicatorFrame,type: .lineScale, color: UIColor.white, padding: 20.0)
+        activityIndicator.backgroundColor = UIColor.black
+        view.addSubview(activityIndicator)
 
-            let indicatorSize: CGFloat = 70
-            let indicatorFrame = CGRect(x: (view.frame.width-indicatorSize)/2, y: (view.frame.height-indicatorSize)/2, width: indicatorSize, height: indicatorSize)
-            activityIndicator = NVActivityIndicatorView(frame: indicatorFrame,type: .lineScale, color: UIColor.white, padding: 20.0)
-            activityIndicator.backgroundColor = UIColor.black
-            view.addSubview(activityIndicator)
-            
-    //        activityIndicator.startAnimating()
-            locationManager.requestWhenInUseAuthorization()
-            
-            activityIndicator.startAnimating()
-            
-            if(CLLocationManager.locationServicesEnabled()) {
-                locationManager.delegate = self
-                locationManager.desiredAccuracy = kCLLocationAccuracyBest
-                locationManager.startUpdatingLocation()
-            }
+        locationManager.requestWhenInUseAuthorization()
+        activityIndicator.startAnimating()
+
+        if(CLLocationManager.locationServicesEnabled()) {
+            locationManager.delegate = self
+            locationManager.desiredAccuracy = kCLLocationAccuracyBest
+            locationManager.startUpdatingLocation()
+        }
+        
+        
+        // making the back text in the back button dissappear
+        let backButton = UIBarButtonItem()
+        backButton.title = ""
+        self.navigationController?.navigationBar.topItem?.backBarButtonItem = backButton
+        self.navigationController?.navigationBar.isHidden = false
     
     }
+    
+    func loadSelection(type: String) {
+        print("loading \(type) weather")
+        let thingsList: [ThingsCarry] = ThingsToCarryBank(type: type).list
+        thingsListShuffeled = thingsList.shuffled()
+        thingsToCarryCollectionView.reloadData()
+        
+    }
+    
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         let location = locations[0]
         lat = location.coordinate.latitude
         lon = location.coordinate.longitude
+        print(lat,lon)
         
         Alamofire.request("http://api.openweathermap.org/data/2.5/weather?lat=\(lat)&lon=\(lon)&appid=\(APIKEY)&units=metric").responseJSON { (response) in
-        self.activityIndicator.stopAnimating()
-        if let responseStr = response.result.value {
-            let jsonResponse = JSON(responseStr)
-            let jsonWeather = jsonResponse["weather"].array![0]
-            let weatherType = jsonWeather["main"].stringValue
-//            self.weatherType.text = weatherType
+            self.activityIndicator.stopAnimating()
+            if let responseStr = response.result.value {
+                let jsonResponse = JSON(responseStr)
+                let jsonWeather = jsonResponse["weather"].array![0]
+                let jsonTemp = jsonResponse["main"]
+
+                
+                
+                let condition = jsonWeather["main"].stringValue
+                let tempDegree = Int(round(jsonTemp["temp"].doubleValue))
+                    
+                print(tempDegree)
+                if condition == "Rainy" {
+                    
+                } else {
+                    switch tempDegree {
+                    case ...15 :
+                        print("cold")
+                        self.loadSelection(type: "winter")
+                        break
+                    case 16...24 :
+                        print("normal")
+                        self.loadSelection(type: "normal")
+                        break
+                    case 25... :
+                        print("summer")
+                        self.loadSelection(type: "summer")
+                        break
+                    default:
+                        print("normal")
+                        self.loadSelection(type: "normal")
+                        break
+                    }
+                }
             }
-        self.locationManager.stopUpdatingLocation()
         }
+        activityIndicator.stopAnimating()
+        
     }
+
+
+    @IBAction func nextStageButton(_ sender: Any) {
+        nevigateToNewStage()
+    }
+    
+    func nevigateToNewStage() {
+        let viewController = storyboard?.instantiateViewController(identifier: "spotDiffViewController") as! SpotTheDViewController
+        navigationController?.popViewController(animated: true)
+        navigationController?.pushViewController(viewController, animated: false)
+    }
+    
+    
+    
     @IBAction func tipsReadDone(_ sender: Any) {
         animateOut(desiredView: visualAffectView)
         animateOut(desiredView: tipsView)
     }
     
+    
+    /// Animates uiView with a predefined duration of 0.3 sec
+    /// - Parameter desiredView: desired image view
     func animateIn(desiredView: UIView) {
         let backgroundView = self.view!
         
@@ -99,7 +166,8 @@ class ThingsToCarryViewController: UIViewController, CLLocationManagerDelegate {
         })
     }
     
-
+    /// Animate outs uiView with a predefined duration of 0.3 sec
+    /// - Parameter desiredView: desired image view
     func animateOut(desiredView: UIView) {
         UIView.animate(withDuration: 0.3, animations: {
             desiredView.transform = CGAffineTransform(scaleX: 1.2, y: 1.2)
@@ -107,20 +175,23 @@ class ThingsToCarryViewController: UIViewController, CLLocationManagerDelegate {
         }, completion: { _ in
             desiredView.removeFromSuperview()
         })
-        
-
     }
     
     
     func setImageForTipView(element: ThingsCarry){
-        
         // tips view design here
-        
+        tipsImageView.image = UIImage(named: element.itemSafetyTips)
         
     }
     
-    
-    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        //  Make the navigation bar background clear
+        navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        navigationController?.navigationBar.shadowImage = UIImage()
+        navigationController?.navigationBar.isTranslucent = true
+    }
 }
 
 extension ThingsToCarryViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
@@ -192,35 +263,17 @@ extension ThingsToCarryViewController: UICollectionViewDataSource, UICollectionV
             collectionView.reloadData()
         } else {
 
-            visualAffectView.effect = UIBlurEffect(style: .dark)
+            visualAffectView.effect = UIBlurEffect(style: .light)
                 
             /// if the option is correct the blur view will be green or the blur view will become red
             if strData.itemValidity {
-                visualAffectView.backgroundColor = UIColor.init(red: 0.0, green: 0.5, blue: 0.0, alpha: 0.5)
+                visualAffectView.backgroundColor = UIColor.init(red: 0.0, green: 0.5, blue: 0.0, alpha: 0.3)
                 
                 // can do sound effect for the right and wrong here
                 print("correct")
-                let pathToSound = Bundle.main.path(forResource: "correct", ofType: "mp3")!
-                let url = URL(fileURLWithPath: pathToSound)
-                do {
-                    audioPlayer = try AVAudioPlayer(contentsOf: url)
-                    audioPlayer!.play()
-                } catch {
-                    print("error playing")
-                }
             } else {
-                visualAffectView.backgroundColor = UIColor.init(red: 0.5, green: 0.5, blue: 0.0, alpha: 0.5)
+                visualAffectView.backgroundColor = UIColor.init(red: 0.5, green: 0.0, blue: 0.0, alpha: 0.3)
                 
-                // can do sound effect for the right and wrong here
-                print("wrong")
-                let pathToSound = Bundle.main.path(forResource: "wrong", ofType: "mp3")!
-                let url = URL(fileURLWithPath: pathToSound)
-                do {
-                    audioPlayer = try AVAudioPlayer(contentsOf: url)
-                    audioPlayer!.play()
-                } catch {
-                    print("error playing")
-                }
             }
             
             /// animates in depending on the selection of the user
@@ -230,6 +283,17 @@ extension ThingsToCarryViewController: UICollectionViewDataSource, UICollectionV
             /// reloads the data afther the selection is done, helps to make selected things appear green or red
             collectionView.reloadData()
             strData.itemSelected = true
+            
+            /// tip sound
+            let pathToSound = Bundle.main.path(forResource: strData.itemSafetyTips, ofType: "wav")!
+            let url = URL(fileURLWithPath: pathToSound)
+            do {
+                audioPlayer = try AVAudioPlayer(contentsOf: url)
+                audioPlayer!.play()
+            } catch {
+                print("error playing")
+            }
+            
             
         }
     }

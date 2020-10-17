@@ -33,12 +33,6 @@ class SearhParkCollectionViewController: UIViewController, CLLocationManagerDele
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
-        let backButton = UIBarButtonItem()
-        backButton.title = ""
-        self.navigationController?.navigationBar.topItem?.backBarButtonItem = backButton
-        self.navigationController?.navigationBar.isHidden = false
-        
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationManager.distanceFilter = 10
         locationManager.delegate = self
@@ -47,11 +41,21 @@ class SearhParkCollectionViewController: UIViewController, CLLocationManagerDele
         playParksCollectionView.delegate = self
         playParksCollectionView.dataSource = self
         populateParks()
+        
+        // removng the back text form the navigation bar
+        let backButton = UIBarButtonItem()
+        backButton.title = ""
+        self.navigationController?.navigationBar.topItem?.backBarButtonItem = backButton
+        self.navigationController?.navigationBar.isHidden = false
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
         locationManager.startUpdatingLocation()
+        
+        // making the navigation bar appear
         navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
         navigationController?.navigationBar.shadowImage = UIImage()
         navigationController?.navigationBar.isTranslucent = true

@@ -10,9 +10,7 @@ import UIKit
 import AVFoundation
 
 class SafetyTipsViewController: UIViewController {
-    
-    
-    
+
     var audioPlayer: AVAudioPlayer?
 
     @IBOutlet weak var equipmentView: UIImageView!
@@ -23,7 +21,6 @@ class SafetyTipsViewController: UIViewController {
     var eqName: String?
     var eqTips: String?
     var introMessage: String = "intr"
-    
     var userName: String?
     var user: User?
 
@@ -46,17 +43,18 @@ class SafetyTipsViewController: UIViewController {
         equipmentName.text = eqName ?? " "
         tipsView.image = UIImage(named: eqTips ?? " ")
         
-        
-
         var openerStr = userName
         openerStr!.removeLast(5)
         openerStr?.append("Tips")
         tipsReadOutImage.setBackgroundImage(UIImage(named: openerStr ?? " "), for: .normal)
         
         
-        
-
         // Do any additional setup after loading the view.
+        /// removed the back text form the nevigation bar
+        let backButton = UIBarButtonItem()
+        backButton.title = ""
+        self.navigationController?.navigationBar.topItem?.backBarButtonItem = backButton
+        self.navigationController?.navigationBar.isHidden = false
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -75,11 +73,7 @@ class SafetyTipsViewController: UIViewController {
     }
     
     @IBAction func learnMoreVideoInstruction(_ sender: Any) {
-        
         // navigate to video view controller
-        
-        
-    }
-    
 
+    }
 }

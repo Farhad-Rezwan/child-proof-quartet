@@ -34,7 +34,11 @@ class SingleParkViewController: UIViewController {
         equipmentCollectionView.dataSource = self
         equipmentCollectionView.delegate = self
 
-
+        // removng the back text form the navigation bar
+        let backButton = UIBarButtonItem()
+        backButton.title = ""
+        self.navigationController?.navigationBar.topItem?.backBarButtonItem = backButton
+        self.navigationController?.navigationBar.isHidden = false
     }
     
     override func viewDidAppear(_ animated: Bool) {

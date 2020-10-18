@@ -47,6 +47,19 @@ class QuestionViewController: UIViewController {
         popUpView.bounds = self.view.bounds
         
         populateAvatarOfTipsScreen()
+        
+        optionA.layer.cornerRadius = 30
+        optionA.layer.borderWidth = 4.0
+        optionA.layer.borderColor = UIColor.systemGroupedBackground.cgColor
+        optionB.layer.cornerRadius = 30
+        optionB.layer.borderWidth = 4.0
+        optionB.layer.borderColor = UIColor.systemGroupedBackground.cgColor
+        
+        
+        let backButton = UIBarButtonItem()
+        backButton.title = ""
+        self.navigationController?.navigationBar.topItem?.backBarButtonItem = backButton
+        self.navigationController?.navigationBar.isHidden = false
     }
     
     func populateAvatarOfTipsScreen() {
@@ -73,16 +86,11 @@ class QuestionViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
-        let backArrowImage = UIImage(named: "quizBack")
-        let renderedImage = backArrowImage?.withRenderingMode(.alwaysOriginal)
-        
         // Make the navigation bar background clear
         navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
         navigationController?.navigationBar.shadowImage = UIImage()
         navigationController?.navigationBar.isTranslucent = true
-        navigationController?.navigationBar.backIndicatorImage = renderedImage
-        navigationController?.navigationBar.backIndicatorTransitionMaskImage = renderedImage
-        
+
     }
 
     override func viewWillDisappear(_ animated: Bool) {
@@ -121,6 +129,9 @@ class QuestionViewController: UIViewController {
             let generator = UINotificationFeedbackGenerator()
             generator.notificationOccurred(.success)
             
+            /// highlight button feedback
+            optionA.showsTouchWhenHighlighted = true
+            
             score += 1
             let pathToSound = Bundle.main.path(forResource: "correct", ofType: "mp3")!
             let url = URL(fileURLWithPath: pathToSound)
@@ -136,6 +147,8 @@ class QuestionViewController: UIViewController {
             let generator = UINotificationFeedbackGenerator()
             generator.notificationOccurred(.error)
             
+            /// highlight button feedback
+            optionB.showsTouchWhenHighlighted = true
             
             let pathToSound = Bundle.main.path(forResource: "wrong", ofType: "mp3")!
             let url = URL(fileURLWithPath: pathToSound)
@@ -176,14 +189,7 @@ class QuestionViewController: UIViewController {
             optionB.contentHorizontalAlignment = .fill
 
             selectedAnswer = allQuestions[questionNumber].corretAnswer
-            
-            
-            
-            
-            
-            
-            
-            
+
             if let pathToSound = Bundle.main.path(forResource: allQuestions[questionNumber].questionSound, ofType: "wav") {
                 let url = URL(fileURLWithPath: pathToSound)
                 do {
@@ -205,7 +211,6 @@ class QuestionViewController: UIViewController {
             
         } else {
             
-
             let alert = UIAlertController(title: "Awesome", message: "End of quiz. do you want to start over?", preferredStyle: .alert)
             let restartAction = UIAlertAction(title: "Restart", style: .default) { (action) in
                 self.restartQuiz()

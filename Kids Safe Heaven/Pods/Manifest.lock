@@ -4,23 +4,27 @@ PODS:
     - NVActivityIndicatorView/Base (= 5.0.1)
   - NVActivityIndicatorView/Base (5.0.1)
   - SwiftyJSON (4.3.0)
+  - YoutubePlayer-in-WKWebView (0.3.4)
 
 DEPENDENCIES:
   - Alamofire (~> 4.7)
   - NVActivityIndicatorView
   - SwiftyJSON (~> 4.0)
+  - YoutubePlayer-in-WKWebView
 
 SPEC REPOS:
   trunk:
     - Alamofire
     - NVActivityIndicatorView
     - SwiftyJSON
+    - YoutubePlayer-in-WKWebView
 
 SPEC CHECKSUMS:
   Alamofire: 85e8a02c69d6020a0d734f6054870d7ecb75cf18
   NVActivityIndicatorView: 738e843cb8924e9e4fc3e559d0728031624bf860
   SwiftyJSON: 6faa0040f8b59dead0ee07436cbf76b73c08fd08
+  YoutubePlayer-in-WKWebView: af2f5929fc78882d94bfdfeea999b661b78d9717
 
-PODFILE CHECKSUM: 2a0f3d1a9e44f54dfb17b35b90e33c96b9c9a289
+PODFILE CHECKSUM: 99b8d7c0220567a26546e22d88a8e9a8dd226e27
 
 COCOAPODS: 1.9.3

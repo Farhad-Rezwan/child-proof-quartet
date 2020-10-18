@@ -90,6 +90,9 @@ class HomeScreenViewController: UIViewController, DatabaseListener{
         } else if segue.identifier == "quizSectionSegue" {
             let destination = segue.destination as! WelcomeQuizViewController
             destination.user = user
+        } else if segue.identifier == "thirdIterationHomeJourney" {
+            let destination = segue.destination as! MainJourneyViewController
+            destination.userName = user?.avatarName
         }
     }
     

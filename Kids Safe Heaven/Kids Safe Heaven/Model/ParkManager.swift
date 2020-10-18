@@ -37,6 +37,7 @@ struct ParkManager {
                             let name = anItem["park_name"] as! String
                             let distance = anItem["distance"] as! String
                             let facilities = anItem["park_equipment"] as! [String]
+                            let ranking = (anItem["park_score"] as! NSString).doubleValue
                             var choosenFacility: [String] = []
                             
                             for each in facilities {
@@ -51,7 +52,7 @@ struct ParkManager {
                             
 
                             
-                            let park = Park(name: name, distance: distance, facility: choosenFacility)
+                            let park = Park(name: name, distance: distance, facility: choosenFacility, ranking: ranking)
                             parkObjects.append(park)
                             max = max + 1
                             

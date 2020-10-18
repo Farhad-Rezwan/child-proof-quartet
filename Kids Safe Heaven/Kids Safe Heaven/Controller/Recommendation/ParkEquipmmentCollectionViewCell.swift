@@ -33,6 +33,15 @@ class ParkEquipmmentCollectionViewCell: UICollectionViewCell {
     override func prepareForReuse() {
         super.prepareForReuse()
     }
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        
+        let blueView = UIView(frame: bounds)
+        blueView.layer.cornerRadius = 15
+        blueView.backgroundColor = .systemBlue
+        self.selectedBackgroundView = blueView
+    }
 }
 
 

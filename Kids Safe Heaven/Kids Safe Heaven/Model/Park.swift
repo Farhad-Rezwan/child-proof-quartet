@@ -12,4 +12,5 @@ struct Park {
     var name: String
     var distance: String
     var facility: [String]
+    var ranking: Double
 }

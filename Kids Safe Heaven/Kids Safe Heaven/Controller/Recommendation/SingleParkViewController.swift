@@ -34,7 +34,11 @@ class SingleParkViewController: UIViewController {
         equipmentCollectionView.dataSource = self
         equipmentCollectionView.delegate = self
 
-
+        // removng the back text form the navigation bar
+        let backButton = UIBarButtonItem()
+        backButton.title = ""
+        self.navigationController?.navigationBar.topItem?.backBarButtonItem = backButton
+        self.navigationController?.navigationBar.isHidden = false
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -94,6 +98,7 @@ extension SingleParkViewController: UICollectionViewDelegate, UICollectionViewDa
         viewController.eqName = currentEquipments[indexPath.row]
         viewController.eqTips = getGroupForImage(equipmentName: currentEquipments[indexPath.row])
         viewController.userName = userName
+        viewController.eqVideo = getVideoLinkForYPl(equipmentName: currentEquipments[indexPath.row])
         navigationController?.pushViewController(viewController, animated: true)
     }
     
@@ -101,6 +106,15 @@ extension SingleParkViewController: UICollectionViewDelegate, UICollectionViewDa
         for item in equipmentsClass {
             if equipmentName == item.name {
                 return item.group
+            }
+        }
+        return " "
+    }
+    
+    func getVideoLinkForYPl(equipmentName: String) -> String {
+        for item in equipmentsClass {
+            if equipmentName == item.name {
+                return item.instrVideoLink
             }
         }
         return " "

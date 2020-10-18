@@ -19,12 +19,6 @@ class WelcomeQuizViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
-        let backButton = UIBarButtonItem()
-        backButton.title = ""
-        self.navigationController?.navigationBar.topItem?.backBarButtonItem = backButton
-        self.navigationController?.navigationBar.isHidden = false
-        
         let userName: String = user?.name ?? " "
         heyLabel.text = "Hello, \(userName)!! Select One Quiz Category"
         
@@ -39,6 +33,12 @@ class WelcomeQuizViewController: UIViewController {
         } catch {
             print("error playing")
         }
+        
+        // removng the back text form the navigation bar
+        let backButton = UIBarButtonItem()
+        backButton.title = ""
+        self.navigationController?.navigationBar.topItem?.backBarButtonItem = backButton
+        self.navigationController?.navigationBar.isHidden = false
 
     }
     @IBAction func quizStartButton(_ sender: Any) {
@@ -73,8 +73,8 @@ class WelcomeQuizViewController: UIViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-
-        // Make the navigation bar background clear
+        
+//         Make the navigation bar background clear
         navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
         navigationController?.navigationBar.shadowImage = UIImage()
         navigationController?.navigationBar.isTranslucent = true

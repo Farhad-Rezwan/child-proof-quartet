@@ -15,7 +15,6 @@ class ItemFoundCollectionViewCell: UICollectionViewCell {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        
         itemFoundImage.image = UIImage(named: "spotTheDHintChoosen")
     }
 

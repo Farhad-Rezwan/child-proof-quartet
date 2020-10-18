@@ -52,7 +52,7 @@ class ThingsToCarryBank {
             list.append(ThingsCarry(itemName: "Winter Jacket", itemImage: "win1", itemSafetyTips: "winS1", itemValidity: true, itemType: "winter"))
             list.append(ThingsCarry(itemName: "Scarf", itemImage: "win2", itemSafetyTips: "winS2", itemValidity: true, itemType: "winter"))
             list.append(ThingsCarry(itemName: "Glove", itemImage: "win3", itemSafetyTips: "winS3", itemValidity: true, itemType: "winter"))
-            list.append(ThingsCarry(itemName: "Bottle with warm water", itemImage: "win4", itemSafetyTips: "winS4", itemValidity: true, itemType: "winter"))
+            list.append(ThingsCarry(itemName: "Warm water", itemImage: "win4", itemSafetyTips: "winS4", itemValidity: true, itemType: "winter"))
             list.append(ThingsCarry(itemName: "Moisturising Cream", itemImage: "win5", itemSafetyTips: "winS5", itemValidity: true, itemType: "winter"))
             list.append(ThingsCarry(itemName: "T-shirt", itemImage: "win6", itemSafetyTips: "winS6", itemValidity: false, itemType: "winter"))
             list.append(ThingsCarry(itemName: "Handhold Fan", itemImage: "win7", itemSafetyTips: "winS7", itemValidity: false, itemType: "winter"))

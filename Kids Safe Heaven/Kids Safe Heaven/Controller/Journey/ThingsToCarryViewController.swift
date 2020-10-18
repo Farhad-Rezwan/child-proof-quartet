@@ -22,6 +22,7 @@ class ThingsToCarryViewController: UIViewController, CLLocationManagerDelegate {
     @IBOutlet weak var buttonToBeHiddenUnlessPass: UIButton!
     @IBOutlet weak var thingsToCarryCollectionView: UICollectionView!
     @IBOutlet weak var tipsImageView: UIImageView!
+    @IBOutlet weak var countLabel: UILabel!
     
     var audioPlayer: AVAudioPlayer?
     let gradientLayer = CAGradientLayer()
@@ -42,10 +43,13 @@ class ThingsToCarryViewController: UIViewController, CLLocationManagerDelegate {
         tipsView.bounds = self.view.bounds
         visualAffectView.bounds = self.view.bounds
         
-        // making button hidden unless 5 items are selected
-        buttonToBeHiddenUnlessPass.isHidden = true
-        mascotImageToBeHiddenIfPass.isHidden = false
+        countLabel.text = "You have selected 0 out of 5 correct items"
         
+        
+        // making button hidden unless 5 items are selected // quizNextButtonBlack // quizNextButtonBlack // quizNextButtonForHere
+        let origImage = UIImage(named: "quizNextButtonBlack")
+        buttonToBeHiddenUnlessPass.setBackgroundImage(origImage, for: .normal)
+
         // indicator for loading the weather
         let indicatorSize: CGFloat = 70
         let indicatorFrame = CGRect(x: (view.frame.width-indicatorSize)/2, y: (view.frame.height-indicatorSize)/2, width: indicatorSize, height: indicatorSize)
@@ -128,11 +132,35 @@ class ThingsToCarryViewController: UIViewController, CLLocationManagerDelegate {
 
 
     @IBAction func nextStageButton(_ sender: Any) {
-        nevigateToNewStage()
+        /// wont nevigate to next stage as per IM feedback
+        //nevigateToNewStage()
+        if !arrayHas5CorrectAnswer() {
+            let alert = UIAlertController(title: "Awesome", message: "Do you want to close the game?", preferredStyle: .alert)
+            let yes = UIAlertAction(title: "YES", style: .default) { (action) in
+                self.navigationController?.popViewController(animated: true)
+            }
+            let no = UIAlertAction(title: "NO", style: .default) { (action) in
+                alert.dismiss(animated: true, completion: nil)
+            }
+            alert.addAction(yes)
+            alert.addAction(no)
+            present(alert, animated: true, completion: nil)
+        } else {
+            nevigateToNewStage()
+        }
     }
     
     func nevigateToNewStage() {
-        let viewController = storyboard?.instantiateViewController(identifier: "spotDiffViewController") as! SpotTheDViewController
+        let viewController = storyboard?.instantiateViewController(identifier: "journeyScoreboradVC") as! JourneyScoreboardViewController
+        var onlyCorrect: [ThingsCarry] = []
+        
+        for i in self.thingsListShuffeled {
+            if i.itemValidity {
+                onlyCorrect.append(i)
+            }
+        }
+        viewController.thingsToCarryItems.append(contentsOf: onlyCorrect)
+        viewController.nextStageID = "spotDiffViewController"
         navigationController?.popViewController(animated: true)
         navigationController?.pushViewController(viewController, animated: false)
     }
@@ -142,6 +170,7 @@ class ThingsToCarryViewController: UIViewController, CLLocationManagerDelegate {
     @IBAction func tipsReadDone(_ sender: Any) {
         animateOut(desiredView: visualAffectView)
         animateOut(desiredView: tipsView)
+        audioPlayer?.stop()
     }
     
     
@@ -217,11 +246,15 @@ extension ThingsToCarryViewController: UICollectionViewDataSource, UICollectionV
             cell.itemImageView.backgroundColor = .none
         }
         
+        
+        
         cell.itemImageView.image = UIImage(named: thingsListShuffeled[indexPath.row].itemImage)
         cell.itemImageView.layer.cornerRadius = 20
         cell.itemLabel.text = thingsListShuffeled[indexPath.row].itemName
         return cell
     }
+    
+    
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let yourWidth = collectionView.bounds.width/3.0
@@ -296,5 +329,28 @@ extension ThingsToCarryViewController: UICollectionViewDataSource, UICollectionV
             
             
         }
+        if arrayHas5CorrectAnswer() {
+            let origImage = UIImage(named: "quizNextButtonForHere")
+            buttonToBeHiddenUnlessPass.setBackgroundImage(origImage, for: .normal)
+        }
+    }
+    func arrayHas5CorrectAnswer() -> Bool {
+        var has5Correct = false
+        var count = 0
+        for i in arrSelectedData {
+            if i.itemValidity {
+                count = count + 1
+            }
+        }
+        
+        if count == 5 {
+            countLabel.text = "You have correctly selected all items, Press next to see summary"
+            has5Correct = true
+        } else {
+            let correctNumber = count + 1
+            countLabel.text = "You have selected " + String(count) + " out of 5 correct items"
+        }
+        
+        return has5Correct
     }
 }

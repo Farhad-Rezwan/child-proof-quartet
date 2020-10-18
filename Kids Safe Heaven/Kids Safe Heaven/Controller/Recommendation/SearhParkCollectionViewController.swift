@@ -13,6 +13,7 @@ import AVFoundation
 class SearhParkCollectionViewController: UIViewController, CLLocationManagerDelegate {
 
     @IBOutlet weak var playParksCollectionView: UICollectionView!
+    @IBOutlet weak var mySegment: UISegmentedControl!
     
     @IBOutlet weak var numberingImageView: UIImageView!
     let parkImageArray = [#imageLiteral(resourceName: "park1Button"),#imageLiteral(resourceName: "park2Button"),#imageLiteral(resourceName: "park3Button"),#imageLiteral(resourceName: "park4Button"),#imageLiteral(resourceName: "park5Button")]
@@ -27,6 +28,7 @@ class SearhParkCollectionViewController: UIViewController, CLLocationManagerDele
     var currentLocation: CLLocationCoordinate2D?
     var parkManager = ParkManager()
     var introMessage = "chooseYourNearbyParkToGoTo"
+    var stringReqURL = " "
     // latter use
     //     weatherManager.delegate = self
     
@@ -88,16 +90,31 @@ class SearhParkCollectionViewController: UIViewController, CLLocationManagerDele
         let lat = currentLocation?.latitude
         let lon = currentLocation?.longitude
         
-        let stringReqURL: String = "lat=\(lat ?? -37.970241)&lon=\(lon ?? 145.181688)"
+        stringReqURL = "lat=\(lat ?? -37.970241)&lon=\(lon ?? 145.181688)"
         
+        allParks.removeAll()
         if allParks.count == 0 {
-            let park: [Park] = parkManager.fetchPark(urlLastPortion: stringReqURL)
-            
-            allParks.append(contentsOf: park)
-            playParksCollectionView.reloadData()
+            switch mySegment.selectedSegmentIndex {
+                case 0:
+                    let park: [Park] = parkManager.fetchPark(urlLastPortion: stringReqURL)
+                    allParks.append(contentsOf: park)
+                    print("first segment loaded")
+                    break
+                case 1:
+                    let unsorted: [Park] = parkManager.fetchPark(urlLastPortion: stringReqURL)
+                    let sorted = unsorted.sorted(by: {$0.ranking > $1.ranking})
+                    print(sorted)
+                    allParks.append(contentsOf: sorted)
+                    print("second segment loaded")
+                    break
+                default:
+                    let park: [Park] = parkManager.fetchPark(urlLastPortion: stringReqURL)
+                    allParks.append(contentsOf: park)
+                    print("default first segment loaded")
+                    break;
+            }
         }
-        
-        
+        playParksCollectionView.reloadData()
         // reload data
     }
     
@@ -126,11 +143,38 @@ class SearhParkCollectionViewController: UIViewController, CLLocationManagerDele
     
     func populateParks() {
     }
+    
+    @IBAction func segmentControll(_ sender: UISegmentedControl) {
+        switch mySegment.selectedSegmentIndex{
+                case 0:
+                    let park: [Park] = parkManager.fetchPark(urlLastPortion: stringReqURL)
+                    allParks.removeAll()
+                    allParks.append(contentsOf: park)
+                    playParksCollectionView.reloadData()
+                    print("first segment loaded")
+                    break
+                case 1:
+                    let unsorted: [Park] = parkManager.fetchPark(urlLastPortion: stringReqURL)
+                    let sorted = unsorted.sorted(by: {$0.ranking > $1.ranking})
+                    print(sorted)
+                    allParks.removeAll()
+                    allParks.append(contentsOf: sorted)
+                    playParksCollectionView.reloadData()
+                    print("second segment loaded")
+                    break
+                default:
+                    let park: [Park] = parkManager.fetchPark(urlLastPortion: stringReqURL)
+                    allParks.removeAll()
+                    allParks.append(contentsOf: park)
+                    playParksCollectionView.reloadData()
+                    print("first segment loaded")
+                    break;
+            }
+        print(stringReqURL)
+    }
 }
 
 extension SearhParkCollectionViewController: UICollectionViewDelegate, UICollectionViewDataSource  {
-    
-
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return allParks.count
     }
@@ -139,17 +183,12 @@ extension SearhParkCollectionViewController: UICollectionViewDelegate, UICollect
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "eachParkCell", for: indexPath) as! ParkDataCollectionViewCell
         
         cell.parkName.text = allParks[indexPath.row].name
-
         if indexPath.row > -1 && indexPath.row < 5 {
             let btnAImage = parkImageArray[indexPath.row]
             cell.parkSetImage.image = btnAImage
             cell.numberingImageView.image = parkNumberingArray?[indexPath.row]
         }
-
-        
-
         return cell
-        
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
@@ -158,9 +197,5 @@ extension SearhParkCollectionViewController: UICollectionViewDelegate, UICollect
         viewController.name = allParks[indexPath.row].name
         viewController.userName = userName
         navigationController?.pushViewController(viewController, animated: true)
-
     }
- 
-    
-    
 }

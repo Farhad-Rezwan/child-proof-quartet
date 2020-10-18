@@ -93,11 +93,7 @@ class SpotTheDViewController: UIViewController {
         
     }
 
-    func nevigateToScoreBoardVC() {
-        let viewController = storyboard?.instantiateViewController(identifier: "journeyScoreboradVC") as! JourneyScoreboardViewController
-        navigationController?.popViewController(animated: true)
-        navigationController?.pushViewController(viewController, animated: false)
-    }
+    
     
     
     @IBAction func spotTheDAction(_ sender: UIButton) {
@@ -205,12 +201,21 @@ class SpotTheDViewController: UIViewController {
     @IBAction func backToSpotDVC(_ sender: Any) {
         if dangerItems == [] {
             print("allSelected")
-            navigationController?.popViewController(animated: true)
+            nevigateToScoreBoardVC()
             return
         }
         
         animateOut(desiredView: spotTheDangerVisualEffect)
         animateOut(desiredView: spotTheDangerTipsView)
+    }
+    
+    func nevigateToScoreBoardVC() {
+        let viewController = storyboard?.instantiateViewController(identifier: "journeyScoreboradVC") as! JourneyScoreboardViewController
+        
+        viewController.dangerItems.append(contentsOf: SpotTheDangerBank.init().list)
+        viewController.nextStageID = "thingsCarryVC"
+        navigationController?.popViewController(animated: true)
+        navigationController?.pushViewController(viewController, animated: false)
     }
     
     /// Animates uiView with a predefined duration of 0.3 sec

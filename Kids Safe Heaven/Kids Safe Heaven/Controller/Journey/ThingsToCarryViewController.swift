@@ -58,14 +58,14 @@ class ThingsToCarryViewController: UIViewController, CLLocationManagerDelegate {
         view.addSubview(activityIndicator)
 
         locationManager.requestWhenInUseAuthorization()
-        activityIndicator.startAnimating()
+//        activityIndicator.startAnimating()
 
         if(CLLocationManager.locationServicesEnabled()) {
             locationManager.delegate = self
             locationManager.desiredAccuracy = kCLLocationAccuracyBest
             locationManager.startUpdatingLocation()
         }
-        
+
         
         // making the back text in the back button dissappear
         let backButton = UIBarButtonItem()
@@ -88,7 +88,7 @@ class ThingsToCarryViewController: UIViewController, CLLocationManagerDelegate {
         lat = location.coordinate.latitude
         lon = location.coordinate.longitude
         print(lat,lon)
-        
+
         Alamofire.request("http://api.openweathermap.org/data/2.5/weather?lat=\(lat)&lon=\(lon)&appid=\(APIKEY)&units=metric").responseJSON { [self] (response) in
             self.activityIndicator.stopAnimating()
             if let responseStr = response.result.value {

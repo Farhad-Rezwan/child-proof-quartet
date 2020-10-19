@@ -91,7 +91,6 @@ class SearhParkCollectionViewController: UIViewController, CLLocationManagerDele
         let lon = currentLocation?.longitude
         
         stringReqURL = "lat=\(lat ?? -37.970241)&lon=\(lon ?? 145.181688)"
-        
         allParks.removeAll()
         if allParks.count == 0 {
             switch mySegment.selectedSegmentIndex {

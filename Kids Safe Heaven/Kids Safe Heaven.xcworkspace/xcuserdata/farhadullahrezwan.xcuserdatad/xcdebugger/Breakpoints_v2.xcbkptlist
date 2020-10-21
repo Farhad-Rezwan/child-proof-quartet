@@ -71,22 +71,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "D3B8B755-CB72-4124-88F4-DF78ACDB6170"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Kids Safe Heaven/Controller/UserRegestrationHome/NewUserViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "95"
-            endingLineNumber = "95"
-            landmarkName = "displayMessage(title:message:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "8C31310D-BA5F-4A44-B190-0F1F7187C669"
             shouldBeEnabled = "No"
             ignoreCount = "0"
@@ -94,58 +78,10 @@
             filePath = "Kids Safe Heaven/Controller/Recommendation/SearhParkCollectionViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "195"
-            endingLineNumber = "195"
+            startingLineNumber = "199"
+            endingLineNumber = "199"
             landmarkName = "collectionView(_:didSelectItemAt:)"
             landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "33AAF809-0FEA-4355-840A-4524CE2A2F7C"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Kids Safe Heaven/Controller/UserRegestrationHome/CreateUsersViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "92"
-            endingLineNumber = "92"
-            landmarkName = "tableView(_:didSelectRowAt:)"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "33AAF809-0FEA-4355-840A-4524CE2A2F7C - 683e12a0d6c49bd"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Kids_Safe_Heaven.CreateUsersViewController.tableView(_: __C.UITableView, didSelectRowAt: Foundation.IndexPath) -&gt; ()"
-                  moduleName = "Kids Safe Heaven"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/farhadullahrezwan/Desktop/gitHubRoot.nosync/child-proof-quartet/Kids%20Safe%20Heaven/Kids%20Safe%20Heaven/Controller/UserRegestrationHome/CreateUsersViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "138"
-                  endingLineNumber = "138"
-                  offsetFromSymbolStart = "117">
-               </Location>
-               <Location
-                  uuid = "33AAF809-0FEA-4355-840A-4524CE2A2F7C - 683e12a0d6c49bd"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Kids_Safe_Heaven.CreateUsersViewController.tableView(_: __C.UITableView, didSelectRowAt: Foundation.IndexPath) -&gt; ()"
-                  moduleName = "Kids Safe Heaven"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/farhadullahrezwan/Desktop/gitHubRoot.nosync/child-proof-quartet/Kids%20Safe%20Heaven/Kids%20Safe%20Heaven/Controller/UserRegestrationHome/CreateUsersViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "138"
-                  endingLineNumber = "138"
-                  offsetFromSymbolStart = "1152">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -158,8 +94,8 @@
             filePath = "Kids Safe Heaven/Controller/Quizes/QuestionViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "213"
-            endingLineNumber = "213"
+            startingLineNumber = "222"
+            endingLineNumber = "222"
             landmarkName = "updateQuestion()"
             landmarkType = "7">
          </BreakpointContent>
@@ -174,8 +110,8 @@
             filePath = "Kids Safe Heaven/Controller/Quizes/QuestionViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "171"
-            endingLineNumber = "171"
+            startingLineNumber = "176"
+            endingLineNumber = "176"
             landmarkName = "updateQuestion()"
             landmarkType = "7">
          </BreakpointContent>
@@ -190,25 +126,9 @@
             filePath = "Kids Safe Heaven/Controller/Quizes/QuestionViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "258"
-            endingLineNumber = "258"
+            startingLineNumber = "274"
+            endingLineNumber = "274"
             landmarkName = "loadQuestions()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "B6702F87-DA1A-46AD-AE30-DCC1A3ED64A4"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Kids Safe Heaven/Controller/UserRegestrationHome/NewUserViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "68"
-            endingLineNumber = "68"
-            landmarkName = "mascotChoosen(_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -222,8 +142,8 @@
             filePath = "Kids Safe Heaven/Controller/UserRegestrationHome/NewUserViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "71"
-            endingLineNumber = "71"
+            startingLineNumber = "86"
+            endingLineNumber = "86"
             landmarkName = "mascotChoosen(_:)"
             landmarkType = "7">
             <Locations>
@@ -270,8 +190,8 @@
             filePath = "Kids Safe Heaven/Controller/Quizes/QuestionViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "193"
-            endingLineNumber = "193"
+            startingLineNumber = "202"
+            endingLineNumber = "202"
             landmarkName = "updateQuestion()"
             landmarkType = "7">
          </BreakpointContent>
@@ -286,8 +206,8 @@
             filePath = "Kids Safe Heaven/Controller/Quizes/QuestionViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "194"
-            endingLineNumber = "194"
+            startingLineNumber = "203"
+            endingLineNumber = "203"
             landmarkName = "updateQuestion()"
             landmarkType = "7">
          </BreakpointContent>
@@ -302,8 +222,8 @@
             filePath = "Kids Safe Heaven/Controller/Journey/ThingsToCarryViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "317"
-            endingLineNumber = "317"
+            startingLineNumber = "318"
+            endingLineNumber = "318"
             landmarkName = "collectionView(_:cellForItemAt:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -318,8 +238,8 @@
             filePath = "Kids Safe Heaven/Controller/Journey/ThingsToCarryViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "63"
-            endingLineNumber = "63"
+            startingLineNumber = "66"
+            endingLineNumber = "66"
             landmarkName = "viewDidLoad()"
             landmarkType = "7">
          </BreakpointContent>
@@ -334,8 +254,8 @@
             filePath = "Kids Safe Heaven/Controller/Journey/SpotTheDViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "282"
-            endingLineNumber = "282"
+            startingLineNumber = "293"
+            endingLineNumber = "293"
             landmarkName = "collectionView(_:cellForItemAt:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -350,8 +270,8 @@
             filePath = "Kids Safe Heaven/Controller/Journey/SpotTheDViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "40"
-            endingLineNumber = "40"
+            startingLineNumber = "45"
+            endingLineNumber = "45"
             landmarkName = "viewDidLoad()"
             landmarkType = "7">
          </BreakpointContent>
@@ -366,8 +286,8 @@
             filePath = "Kids Safe Heaven/Controller/Journey/SpotTheDViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "76"
-            endingLineNumber = "76"
+            startingLineNumber = "75"
+            endingLineNumber = "75"
             landmarkName = "createImageArray(total:imagePrefix:)"
             landmarkType = "7">
          </BreakpointContent>

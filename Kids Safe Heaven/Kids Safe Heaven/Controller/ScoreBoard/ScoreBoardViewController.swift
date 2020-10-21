@@ -20,7 +20,7 @@ class ScoreBoardViewController: UIViewController {
     var score: String?
     var questionType: String?
     var audioPlayer: AVAudioPlayer?
-    var introMessage: String = "hereIsYourFinalScore"
+    var introMessage: String = Constants.Sound.scoreBooardVCMessage
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,28 +33,11 @@ class ScoreBoardViewController: UIViewController {
         scoreBoardScore.text = score
         showUserName.text = user?.name
         
-        var scoreAvatarImage: String = (user?.avatarName)!
-
-        switch scoreAvatarImage {
-        case "zacIntro":
-            scoreAvatarImage = "zacScore"
-            let buttonImage = UIImage(named: scoreAvatarImage)
+        if let scoreAvatarImage: String = (user?.avatarName) {
+            let buttonImage = UIImage(named: scoreAvatarImage + "Score")
             tipsButtonPicture.setBackgroundImage(buttonImage, for: .normal)
-        case "krisIntro":
-            scoreAvatarImage = "krisScore"
-            let buttonImage = UIImage(named: scoreAvatarImage)
-            tipsButtonPicture.setBackgroundImage(buttonImage, for: .normal)
-        case "rezIntro":
-            scoreAvatarImage = "rezScore"
-            let buttonImage = UIImage(named: scoreAvatarImage)
-            tipsButtonPicture.setBackgroundImage(buttonImage, for: .normal)
-        default:
-            break
         }
         
-        
-        
-
         switch questionType {
         case "general":
             questionTypeTVLabel.text = "General Safety"
@@ -74,29 +57,29 @@ class ScoreBoardViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
         
+        /// stops readout message
+        audioPlayer?.stop()
+    }
+    
+
+    @IBAction func tipsButtonAction(_ sender: Any) {
+        /// stops readout message when avatar is pressed
+        audioPlayer?.stop()
+        
+        /// plays the readout message
         let pathToSound = Bundle.main.path(forResource: introMessage, ofType: "wav")!
         let url = URL(fileURLWithPath: pathToSound)
-        
         do {
             audioPlayer = try AVAudioPlayer(contentsOf: url)
             audioPlayer!.play()
         } catch {
             print("error playing")
         }
-
-        
-    }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        
-        audioPlayer?.stop()
-    }
-    
-
-    @IBAction func tipsButtonAction(_ sender: Any) {
-        
     }
     
 }

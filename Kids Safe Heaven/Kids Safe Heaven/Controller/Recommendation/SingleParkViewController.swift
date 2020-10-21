@@ -21,18 +21,22 @@ class SingleParkViewController: UIViewController {
     var name: String?
     var equipmentsClass: [Equipment] = EquipmentBank().list
     var userName: String?
-    var introMessage = "selectYourFavouratePlayEquipment"
+    var introMessage = Constants.Sound.singleParkWelcomeMessage
     var audioPlayer: AVAudioPlayer?
     
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        parkViewNameLabel.text = name
-        
-        currentEquipments = equipments
+        /// assigning delegates
         equipmentCollectionView.dataSource = self
         equipmentCollectionView.delegate = self
+        
+        /// decorating the view for user
+        parkViewNameLabel.text = name
+        
+        /// current equipments to show
+        currentEquipments = equipments
 
         // removng the back text form the navigation bar
         let backButton = UIBarButtonItem()
@@ -43,7 +47,6 @@ class SingleParkViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-//        equipmentCollectionView.reloadData()
         let backArrowImage = UIImage(named: "quizBack")
         let renderedImage = backArrowImage?.withRenderingMode(.alwaysOriginal)
         
@@ -56,7 +59,7 @@ class SingleParkViewController: UIViewController {
         
         
         
-        // audio
+        // audio message to welcome user and asks for choosing a equipment
         let pathToSound = Bundle.main.path(forResource: introMessage, ofType: "wav")!
         let url = URL(fileURLWithPath: pathToSound)
         
@@ -71,6 +74,7 @@ class SingleParkViewController: UIViewController {
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         
+        /// stops the player when user moves to another screen
         audioPlayer?.stop()
     }
 
@@ -79,22 +83,24 @@ class SingleParkViewController: UIViewController {
 
 extension SingleParkViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     
+    /// populates and designs each cell
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "eachEquipmentCell", for: indexPath) as! ParkEquipmmentCollectionViewCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Constants.Identifier.eachEquipmentCell, for: indexPath) as! ParkEquipmmentCollectionViewCell
         cell.parkEquipmentNameLabel.text = currentEquipments[indexPath.row]
         cell.parkEquipmentImage.image = UIImage(named: currentEquipments[indexPath.row])
-        print("the type is")
         print(getGroupForImage(equipmentName: currentEquipments[indexPath.row]))
         
         return cell
     }
     
+    /// determines number of equipments to show
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return currentEquipments.count
     }
     
+    /// handles when user selects any of the equipment
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let viewController = storyboard?.instantiateViewController(identifier: "safetyTipsViewController") as! SafetyTipsViewController
+        let viewController = storyboard?.instantiateViewController(identifier: Constants.Identifier.safetyTipsVC) as! SafetyTipsViewController
         viewController.eqName = currentEquipments[indexPath.row]
         viewController.eqTips = getGroupForImage(equipmentName: currentEquipments[indexPath.row])
         viewController.userName = userName
@@ -102,6 +108,9 @@ extension SingleParkViewController: UICollectionViewDelegate, UICollectionViewDa
         navigationController?.pushViewController(viewController, animated: true)
     }
     
+    /// Finds out the equipment safety tips group image
+    /// - Parameter equipmentName: takes equipment name as parameter
+    /// - Returns: returns equipment safety tips group image
     func getGroupForImage(equipmentName: String) -> String {
         for item in equipmentsClass {
             if equipmentName == item.name {
@@ -111,6 +120,9 @@ extension SingleParkViewController: UICollectionViewDelegate, UICollectionViewDa
         return " "
     }
     
+    /// Method to get equipment youtube video link
+    /// - Parameter equipmentName: takes equipment name as parameter
+    /// - Returns: returns equipment safety tips video
     func getVideoLinkForYPl(equipmentName: String) -> String {
         for item in equipmentsClass {
             if equipmentName == item.name {
@@ -119,7 +131,4 @@ extension SingleParkViewController: UICollectionViewDelegate, UICollectionViewDa
         }
         return " "
     }
-    
-    
-
 }

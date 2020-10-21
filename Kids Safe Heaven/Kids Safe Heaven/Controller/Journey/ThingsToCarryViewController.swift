@@ -38,14 +38,17 @@ class ThingsToCarryViewController: UIViewController, CLLocationManagerDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        /// adding delegates
         thingsToCarryCollectionView.dataSource = self
         thingsToCarryCollectionView.delegate = self
+        
+        /// adding boundary to tips view and visual affect view
         tipsView.bounds = self.view.bounds
         visualAffectView.bounds = self.view.bounds
         
         countLabel.text = "You have selected 0 out of 5 correct items"
-        
-        
+
         // making button hidden unless 5 items are selected // quizNextButtonBlack // quizNextButtonBlack // quizNextButtonForHere
         let origImage = UIImage(named: "quizNextButtonBlack")
         buttonToBeHiddenUnlessPass.setBackgroundImage(origImage, for: .normal)
@@ -58,7 +61,7 @@ class ThingsToCarryViewController: UIViewController, CLLocationManagerDelegate {
         view.addSubview(activityIndicator)
 
         locationManager.requestWhenInUseAuthorization()
-//        activityIndicator.startAnimating()
+        activityIndicator.startAnimating()
 
         if(CLLocationManager.locationServicesEnabled()) {
             locationManager.delegate = self
@@ -96,13 +99,8 @@ class ThingsToCarryViewController: UIViewController, CLLocationManagerDelegate {
                 let jsonWeather = jsonResponse["weather"].array![0]
                 let jsonTemp = jsonResponse["main"]
 
-                
                 var weatherDependentAvatar: String = userName ?? "zacIntro"
 
-                
-                
-                
-                
                 let condition = jsonWeather["main"].stringValue
                 let tempDegree = Int(round(jsonTemp["temp"].doubleValue))
                     
@@ -223,7 +221,7 @@ class ThingsToCarryViewController: UIViewController, CLLocationManagerDelegate {
     }
     
     func nevigateToNewStage() {
-        let viewController = storyboard?.instantiateViewController(identifier: "journeyScoreboradVC") as! JourneyScoreboardViewController
+        let viewController = storyboard?.instantiateViewController(identifier: Constants.Identifier.journeyScooreBoardVC) as! JourneyScoreboardViewController
         var onlyCorrect: [ThingsCarry] = []
         
         for i in self.thingsListShuffeled {
@@ -295,15 +293,17 @@ class ThingsToCarryViewController: UIViewController, CLLocationManagerDelegate {
 }
 
 extension ThingsToCarryViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
+    /// number of things to carry item right and wrong = 9
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return thingsListShuffeled.count
     }
     
+    /// defining each cell
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "thingsToCarryItems", for: indexPath) as! EachThingsCollectionViewCell
         
+        /// You need to check wether selected index array contain current index if yes then change the color
         if arrSelectedIndex.contains(indexPath) {
-            // You need to check wether selected index array contain current index if yes then change the color
             let data = thingsListShuffeled[indexPath.item]
 
             if data.itemValidity {
@@ -314,11 +314,11 @@ extension ThingsToCarryViewController: UICollectionViewDataSource, UICollectionV
                 cell.itemImageView.backgroundColor = UIColor.red
             }
         } else {
+            // wighout any backgound color for cell
             cell.itemImageView.backgroundColor = .none
         }
-        
-        
-        
+
+        /// defining other assets.
         cell.itemImageView.image = UIImage(named: thingsListShuffeled[indexPath.row].itemImage)
         cell.itemImageView.layer.cornerRadius = 20
         cell.itemLabel.text = thingsListShuffeled[indexPath.row].itemName
@@ -326,7 +326,7 @@ extension ThingsToCarryViewController: UICollectionViewDataSource, UICollectionV
     }
     
     
-    
+    /// defining the size of cell
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let yourWidth = collectionView.bounds.width/3.0
         let yourHeight = yourWidth
@@ -334,18 +334,22 @@ extension ThingsToCarryViewController: UICollectionViewDataSource, UICollectionV
         return CGSize(width: yourWidth, height: yourHeight)
     }
     
+    /// adding mergins = zero
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         return UIEdgeInsets.zero
     }
 
+    /// spacing between item
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
         return 0
     }
 
+    /// spacing between rows or collumns
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return 0
     }
     
+    /// when user selects any of the cell
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
         let strData = thingsListShuffeled[indexPath.item]
@@ -405,6 +409,9 @@ extension ThingsToCarryViewController: UICollectionViewDataSource, UICollectionV
             buttonToBeHiddenUnlessPass.setBackgroundImage(origImage, for: .normal)
         }
     }
+    
+    /// Checks whether all the correct answer is clicked or not
+    /// - Returns: returns the boolean value for all correct answer is selected or not
     func arrayHas5CorrectAnswer() -> Bool {
         var has5Correct = false
         var count = 0
@@ -418,7 +425,6 @@ extension ThingsToCarryViewController: UICollectionViewDataSource, UICollectionV
             countLabel.text = "You have correctly selected all items, Press next to see summary"
             has5Correct = true
         } else {
-            let correctNumber = count + 1
             countLabel.text = "You have selected " + String(count) + " out of 5 correct items"
         }
         

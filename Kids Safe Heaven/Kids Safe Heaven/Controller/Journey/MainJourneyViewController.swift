@@ -11,34 +11,18 @@ import AVFoundation
 
 class MainJourneyViewController: UIViewController {
 
-    var introMessage = "it3SoundIntroduction"
+    @IBOutlet weak var iteration3Avatar: UIImageView!
+    
     var audioPlayer: AVAudioPlayer?
     var userName: String?
-    @IBOutlet weak var iteration3Avatar: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        
-        var it3Avatar: String = userName ?? "zacIntro"
-
-        switch it3Avatar {
-        case "zacIntro":
-            it3Avatar = "IT3Zac"
-            iteration3Avatar.image = UIImage(named: it3Avatar)
-        case "krisIntro":
-            it3Avatar = "IT3Kris"
-            iteration3Avatar.image = UIImage(named: it3Avatar)
-        case "rezIntro":
-            it3Avatar = "IT3Rez"
-            iteration3Avatar.image = UIImage(named: it3Avatar)
-        default:
-            iteration3Avatar.image = UIImage(named: it3Avatar)
-            break
+        if let screenAvatar: String = userName {
+            iteration3Avatar.image = UIImage(named: screenAvatar + "Journey")
         }
-        
-        
-        
+
         let backButton = UIBarButtonItem()
         backButton.title = ""
         self.navigationController?.navigationBar.topItem?.backBarButtonItem = backButton
@@ -53,8 +37,8 @@ class MainJourneyViewController: UIViewController {
         navigationController?.navigationBar.shadowImage = UIImage()
         navigationController?.navigationBar.isTranslucent = true
         
-        // audio
-        let pathToSound = Bundle.main.path(forResource: introMessage, ofType: "wav")!
+        // audio to welcome main journey
+        let pathToSound = Bundle.main.path(forResource: Constants.Sound.mainJourneyWelcomeMessage, ofType: "wav")!
         let url = URL(fileURLWithPath: pathToSound)
         
         do {
@@ -67,11 +51,14 @@ class MainJourneyViewController: UIViewController {
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
+        
+        /// stopw the welcome message when user moves to another screen
         audioPlayer?.stop()
     }
     
+    /// sends user name of user.
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "userNamePass" {
+        if segue.identifier == Constants.Segue.journeyToThingCarry {
             let destination = segue.destination as! ThingsToCarryViewController
             destination.userName = userName
         }

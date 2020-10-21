@@ -9,22 +9,22 @@
 import UIKit
 
 class CreateUsersViewController: UIViewController, DatabaseListener {
-    
-    
-    
-    let userImageArry = [#imageLiteral(resourceName: "zacIntro"),#imageLiteral(resourceName: "krisIntro"),#imageLiteral(resourceName: "rezIntro")]
 
 
-//    @IBOutlet weak var userCollectionView: UICollectionView!
     @IBOutlet weak var userTableViewCell: UITableView!
     
-    var users: [User] = []
     weak var databaseController: DatabaseProtocol?
+    let userImageArry = [#imageLiteral(resourceName: "zac"),#imageLiteral(resourceName: "kris"),#imageLiteral(resourceName: "rez")]
+    var users: [User] = []
     var listenerType: ListenerType = .user
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        /// prints out the database location
         print(NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).last! as String)
+        
+        /// assigning table view delegates
         userTableViewCell.dataSource = self
         userTableViewCell.delegate = self
         
@@ -72,25 +72,33 @@ class CreateUsersViewController: UIViewController, DatabaseListener {
 
 
 extension CreateUsersViewController: UITableViewDataSource, UITableViewDelegate {
+    
+    /// Returns number of users as cell
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return users.count
     }
     
+    /// populating the cell with users information
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "userCell", for: indexPath)
+        
         cell.textLabel?.text = users[indexPath.row].name
         cell.textLabel?.textAlignment = .center
         cell.textLabel?.highlightedTextColor = .black
         cell.textLabel?.font = .boldSystemFont(ofSize: 25)
-        cell.imageView?.image = UIImage(named: users[indexPath.row].avatarName ?? "avatarBoy")
-
+        
+        if let mascotImage = users[indexPath.row].avatarName {
+            
+            /// making sure proper mascot is shown
+            let mascotToShow = mascotImage + "Intro"
+            cell.imageView?.image = UIImage(named:  mascotToShow)
+        }
         return cell
     }
     
+    /// user selection is proceed to Home Screen View Controller
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
         let viewController = storyboard?.instantiateViewController(identifier: "homeScreenVC") as! HomeScreenViewController
-        
         viewController.userName = users[indexPath.row].name
         navigationController?.pushViewController(viewController, animated: true)
     }

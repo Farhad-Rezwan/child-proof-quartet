@@ -14,19 +14,20 @@ class WelcomeQuizViewController: UIViewController {
     @IBOutlet weak var heyLabel: UILabel!
     var user: User?
     var audioPlayer: AVAudioPlayer?
-    var introMessage: String = "selectOneQuizCatagory"
+    var introMessage: String = Constants.Sound.welcomeQuizWelcomeMessage
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        /// assigns user name to the weleome string
         let userName: String = user?.name ?? " "
         heyLabel.text = "Hello, \(userName)!! Select One Quiz Category"
         
-        
         // welcome and asks for choosing quiz catagory
+        /// plays introduction message
         let pathToSound = Bundle.main.path(forResource: introMessage, ofType: "wav")!
         let url = URL(fileURLWithPath: pathToSound)
-
+        
         do {
             audioPlayer = try AVAudioPlayer(contentsOf: url)
             audioPlayer!.play()
@@ -41,40 +42,43 @@ class WelcomeQuizViewController: UIViewController {
         self.navigationController?.navigationBar.isHidden = false
 
     }
-    @IBAction func quizStartButton(_ sender: Any) {
+    
+    /// user selects any of the quiz button
+    @IBAction func anyQuizCatagoryChoosen(_ sender: UIButton) {
+        
+        /// gives user with selection haptic feedback
         let generator = UISelectionFeedbackGenerator()
         generator.selectionChanged()
         
-        handleTransitionQuestionType(type: "general")
+        
+        /// depending on the user selection pushes new view controller of quiz question = Q
+        switch sender.tag {
+        case 0:
+            handleTransitionQuestionType(type: "general")
+            break
+        case 1:
+            handleTransitionQuestionType(type: "safetySigns")
+            break
+        case 2:
+            handleTransitionQuestionType(type: "weather")
+            break
+        default:
+            break
+        }
     }
     
-    @IBAction func safetyQuizStartButton(_ sender: Any) {
-        let generator = UISelectionFeedbackGenerator()
-        generator.selectionChanged()
-        
-        handleTransitionQuestionType(type: "safetySigns")
-    }
-    @IBAction func weatherQuizStartButton(_ sender: Any) {
-        let generator = UISelectionFeedbackGenerator()
-        generator.selectionChanged()
-        
-        handleTransitionQuestionType(type: "weather")
-    }
-    
+    /// Assigns and pushes new view controller
+    /// - Parameter type: type of question user choosen
     func handleTransitionQuestionType(type: String) {
         let viewController = storyboard?.instantiateViewController(identifier: "questionViewController") as! QuestionViewController
         viewController.qType = type
         viewController.user = user
-        
-
-        
         navigationController?.pushViewController(viewController, animated: true)
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-//         Make the navigation bar background clear
         navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
         navigationController?.navigationBar.shadowImage = UIImage()
         navigationController?.navigationBar.isTranslucent = true
@@ -84,6 +88,7 @@ class WelcomeQuizViewController: UIViewController {
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         
+        /// stops audio when user moves to the other screen
         audioPlayer?.stop()
     }
 

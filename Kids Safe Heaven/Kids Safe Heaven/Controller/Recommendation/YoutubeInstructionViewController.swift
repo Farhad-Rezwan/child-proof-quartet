@@ -19,14 +19,16 @@ class YoutubeInstructionViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        /// Header of the VC
         videoInstructionHeader.text = headerName
         
+        /// adding border at the player
         player.layer.cornerRadius = 10
         player.layer.borderWidth = 6.0
         player.layer.borderColor = UIColor.black.cgColor
         player.load(withVideoId: youtubeVideoLink)
 
-        // Do any additional setup after loading the view.
+        /// Do any additional setup after loading the view.
         /// removed the back text form the nevigation bar
         let backButton = UIBarButtonItem()
         backButton.title = ""

@@ -22,21 +22,13 @@ class MainJourneyViewController: UIViewController {
         if let screenAvatar: String = userName {
             iteration3Avatar.image = UIImage(named: screenAvatar + "Journey")
         }
-
-        let backButton = UIBarButtonItem()
-        backButton.title = ""
-        self.navigationController?.navigationBar.topItem?.backBarButtonItem = backButton
+        
         self.navigationController?.navigationBar.isHidden = false
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
-        //  Make the navigation bar background clear
-        navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
-        navigationController?.navigationBar.shadowImage = UIImage()
-        navigationController?.navigationBar.isTranslucent = true
-        
+
         // audio to welcome main journey
         let pathToSound = Bundle.main.path(forResource: Constants.Sound.mainJourneyWelcomeMessage, ofType: "wav")!
         let url = URL(fileURLWithPath: pathToSound)

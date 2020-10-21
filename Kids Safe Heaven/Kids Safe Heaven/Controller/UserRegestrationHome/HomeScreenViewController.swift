@@ -29,6 +29,7 @@ class HomeScreenViewController: UIViewController, DatabaseListener{
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationController?.navigationBar.isHidden = true
         
         /// database delegate
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
@@ -45,24 +46,12 @@ class HomeScreenViewController: UIViewController, DatabaseListener{
             
             return
         }
-        
-        /// removeing the title for the home screen navigation bar
-        title = ""
-        
-        /// handle user not found with UIAlert in rare cases
-
-        let backButton = UIBarButtonItem()
-        backButton.title = ""
-        self.navigationController?.navigationBar.topItem?.backBarButtonItem = backButton
         self.navigationController?.navigationBar.isHidden = true
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        let backButton = UIBarButtonItem()
-        backButton.title = ""
-        self.navigationController?.navigationBar.topItem?.backBarButtonItem = backButton
         self.navigationController?.navigationBar.isHidden = true
         
         /// playing introduction sound

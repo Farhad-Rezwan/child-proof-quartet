@@ -24,10 +24,10 @@ class ScoreBoardViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         showInformation()
     }
-
+    
+    /// Defines the view controller design and populates information, depending on question type
     func showInformation() {
         
         scoreBoardScore.text = score
@@ -55,19 +55,15 @@ class ScoreBoardViewController: UIViewController {
 
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-    }
-    
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        
         /// stops readout message
         audioPlayer?.stop()
     }
     
 
     @IBAction func tipsButtonAction(_ sender: Any) {
+        
         /// stops readout message when avatar is pressed
         audioPlayer?.stop()
         

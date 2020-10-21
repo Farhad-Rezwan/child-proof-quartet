@@ -16,18 +16,6 @@ class ParkDataCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var parkName: UILabel!
     @IBOutlet weak var parkSetImage: UIImageView!
     
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-    }
-
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-    }
-
-    override func prepareForReuse() {
-        super.prepareForReuse()
-    }
-    
     override func awakeFromNib() {
         super.awakeFromNib()
         
@@ -37,5 +25,10 @@ class ParkDataCollectionViewCell: UICollectionViewCell {
         blueView.backgroundColor = .systemBlue
         self.selectedBackgroundView = blueView
     }
+    
+    override init(frame: CGRect) { super.init(frame: frame) }
+    required init?(coder aDecoder: NSCoder) { super.init(coder: aDecoder) }
+    override func prepareForReuse() { super.prepareForReuse() }
+    
 
 }

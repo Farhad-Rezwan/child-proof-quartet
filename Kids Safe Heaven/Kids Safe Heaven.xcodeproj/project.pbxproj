@@ -99,6 +99,7 @@
 		FC7FA4D92539C714006AD3EE /* hint-2.png in Resources */ = {isa = PBXBuildFile; fileRef = FC7FA4D22539C714006AD3EE /* hint-2.png */; };
 		FC7FA4DA2539C714006AD3EE /* hint-7.png in Resources */ = {isa = PBXBuildFile; fileRef = FC7FA4D32539C714006AD3EE /* hint-7.png */; };
 		FC7FA4DD2539C7CA006AD3EE /* hint-0.png in Resources */ = {isa = PBXBuildFile; fileRef = FC7FA4DC2539C7CA006AD3EE /* hint-0.png */; };
+		FC88A7782540E3BC00188BC4 /* CustomNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC88A7772540E3BC00188BC4 /* CustomNavigationController.swift */; };
 		FC99F4AF24F66966009A1ABD /* WelcomeQuizViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC99F4AE24F66966009A1ABD /* WelcomeQuizViewController.swift */; };
 		FCB4AEA924FAFF47001603FA /* HomeScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCB4AEA824FAFF47001603FA /* HomeScreenViewController.swift */; };
 		FCB56AB32512580800D61761 /* trackGroup.wav in Resources */ = {isa = PBXBuildFile; fileRef = FCB56AA12512580600D61761 /* trackGroup.wav */; };
@@ -129,7 +130,6 @@
 		FCBE4EB8250F2E1F006EF55A /* User+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCBE4EB4250F2E1F006EF55A /* User+CoreDataProperties.swift */; };
 		FCBE4EB9250F2E1F006EF55A /* Score+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCBE4EB5250F2E1F006EF55A /* Score+CoreDataClass.swift */; };
 		FCBE4EBA250F2E1F006EF55A /* Score+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCBE4EB6250F2E1F006EF55A /* Score+CoreDataProperties.swift */; };
-		FCBE4EBD250F490D006EF55A /* UserCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCBE4EBC250F490D006EF55A /* UserCollectionViewCell.swift */; };
 		FCBE4EBF250F5AD9006EF55A /* NewUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCBE4EBE250F5AD9006EF55A /* NewUserViewController.swift */; };
 		FCC1416A2512E88200383C0C /* introductionAvatarMessage.wav in Resources */ = {isa = PBXBuildFile; fileRef = FCC141692512E88200383C0C /* introductionAvatarMessage.wav */; };
 		FCC8B68E253C17E200B29D01 /* winS3.wav in Resources */ = {isa = PBXBuildFile; fileRef = FCC8B685253C17E100B29D01 /* winS3.wav */; };
@@ -274,6 +274,7 @@
 		FC7FA4D22539C714006AD3EE /* hint-2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "hint-2.png"; sourceTree = "<group>"; };
 		FC7FA4D32539C714006AD3EE /* hint-7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "hint-7.png"; sourceTree = "<group>"; };
 		FC7FA4DC2539C7CA006AD3EE /* hint-0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "hint-0.png"; sourceTree = "<group>"; };
+		FC88A7772540E3BC00188BC4 /* CustomNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavigationController.swift; sourceTree = "<group>"; };
 		FC99F4AE24F66966009A1ABD /* WelcomeQuizViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeQuizViewController.swift; sourceTree = "<group>"; };
 		FCB4AEA824FAFF47001603FA /* HomeScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreenViewController.swift; sourceTree = "<group>"; };
 		FCB56AA12512580600D61761 /* trackGroup.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = trackGroup.wav; sourceTree = "<group>"; };
@@ -304,7 +305,6 @@
 		FCBE4EB4250F2E1F006EF55A /* User+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		FCBE4EB5250F2E1F006EF55A /* Score+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Score+CoreDataClass.swift"; sourceTree = "<group>"; };
 		FCBE4EB6250F2E1F006EF55A /* Score+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Score+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		FCBE4EBC250F490D006EF55A /* UserCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCollectionViewCell.swift; sourceTree = "<group>"; };
 		FCBE4EBE250F5AD9006EF55A /* NewUserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewUserViewController.swift; sourceTree = "<group>"; };
 		FCC141692512E88200383C0C /* introductionAvatarMessage.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = introductionAvatarMessage.wav; sourceTree = "<group>"; };
 		FCC8B685253C17E100B29D01 /* winS3.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = winS3.wav; sourceTree = "<group>"; };
@@ -619,6 +619,7 @@
 				FC62FB852510169200A33D08 /* Recommendation */,
 				FC4C5B0E25206F6C00D6B87D /* ScoreBoard */,
 				FCFC3507254008A6004BB4A3 /* Constants.swift */,
+				FC88A7772540E3BC00188BC4 /* CustomNavigationController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -695,7 +696,6 @@
 			isa = PBXGroup;
 			children = (
 				FC4A644A24F7E0CC00C14160 /* CreateUsersViewController.swift */,
-				FCBE4EBC250F490D006EF55A /* UserCollectionViewCell.swift */,
 				FCBE4EBE250F5AD9006EF55A /* NewUserViewController.swift */,
 				FCB4AEA824FAFF47001603FA /* HomeScreenViewController.swift */,
 				FCB56AC62512B80500D61761 /* NewExistingViewController.swift */,
@@ -1011,6 +1011,7 @@
 				FC10ED3924EC13A200C11DB0 /* AppDelegate.swift in Sources */,
 				FCEA9E43252D4F4300E92B2B /* ThingsToCarryViewController.swift in Sources */,
 				FC10ED3B24EC13A200C11DB0 /* SceneDelegate.swift in Sources */,
+				FC88A7782540E3BC00188BC4 /* CustomNavigationController.swift in Sources */,
 				FC40FC1A2531786700081F1F /* EachThingsCollectionViewCell.swift in Sources */,
 				FCBE4EBA250F2E1F006EF55A /* Score+CoreDataProperties.swift in Sources */,
 				FC600187250EE9E700C42403 /* CoreDataController.swift in Sources */,
@@ -1034,7 +1035,6 @@
 				FCBE4EB8250F2E1F006EF55A /* User+CoreDataProperties.swift in Sources */,
 				FC600185250EE97300C42403 /* MulticastDelegate.swift in Sources */,
 				FCB56AC72512B80500D61761 /* NewExistingViewController.swift in Sources */,
-				FCBE4EBD250F490D006EF55A /* UserCollectionViewCell.swift in Sources */,
 				FC60017B250EE3C600C42403 /* DatabaseProtocol.swift in Sources */,
 				FC4A644B24F7E0CC00C14160 /* CreateUsersViewController.swift in Sources */,
 			);

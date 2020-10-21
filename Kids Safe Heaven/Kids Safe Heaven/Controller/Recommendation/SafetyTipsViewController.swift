@@ -78,17 +78,6 @@ class SafetyTipsViewController: UIViewController {
         } catch {
             print("error playing")
         }
-        
-        let backArrowImage = UIImage(named: "quizBack")
-        let renderedImage = backArrowImage?.withRenderingMode(.alwaysOriginal)
-        
-        // Make the navigation bar background clear
-        navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
-        navigationController?.navigationBar.shadowImage = UIImage()
-        navigationController?.navigationBar.isTranslucent = true
-        navigationController?.navigationBar.backIndicatorImage = renderedImage
-        navigationController?.navigationBar.backIndicatorTransitionMaskImage = renderedImage
-        
     }
     
     @IBAction func learnMoreVideoInstruction(_ sender: Any) {

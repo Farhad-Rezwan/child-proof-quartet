@@ -37,28 +37,11 @@ class SingleParkViewController: UIViewController {
         
         /// current equipments to show
         currentEquipments = equipments
-
-        // removng the back text form the navigation bar
-        let backButton = UIBarButtonItem()
-        backButton.title = ""
-        self.navigationController?.navigationBar.topItem?.backBarButtonItem = backButton
-        self.navigationController?.navigationBar.isHidden = false
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        let backArrowImage = UIImage(named: "quizBack")
-        let renderedImage = backArrowImage?.withRenderingMode(.alwaysOriginal)
-        
-        // Make the navigation bar background clear
-        navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
-        navigationController?.navigationBar.shadowImage = UIImage()
-        navigationController?.navigationBar.isTranslucent = true
-        navigationController?.navigationBar.backIndicatorImage = renderedImage
-        navigationController?.navigationBar.backIndicatorTransitionMaskImage = renderedImage
-        
-        
-        
+
         // audio message to welcome user and asks for choosing a equipment
         let pathToSound = Bundle.main.path(forResource: introMessage, ofType: "wav")!
         let url = URL(fileURLWithPath: pathToSound)

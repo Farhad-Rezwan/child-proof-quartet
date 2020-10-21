@@ -78,24 +78,6 @@ class QuestionViewController: UIViewController {
 
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-
-        // Make the navigation bar background clear
-        navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
-        navigationController?.navigationBar.shadowImage = UIImage()
-        navigationController?.navigationBar.isTranslucent = true
-
-    }
-
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-
-        // Restore the navigation bar to default
-        navigationController?.navigationBar.setBackgroundImage(nil, for: .default)
-        navigationController?.navigationBar.shadowImage = nil
-    }
-    
     /// Does, after answer pressed if correct, proper tips message is shown, with score update and haptic feedback
     /// - Parameter sender: UIButton
     @IBAction func answerPress(_ sender: UIButton) {

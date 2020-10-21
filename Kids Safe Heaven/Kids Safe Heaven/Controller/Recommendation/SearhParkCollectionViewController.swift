@@ -37,31 +37,19 @@ class SearhParkCollectionViewController: UIViewController, CLLocationManagerDele
         /// defining desired accuracy to best
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationManager.distanceFilter = 10
-
-        // removng the back text form the navigation bar
-        let backButton = UIBarButtonItem()
-        backButton.title = ""
-        self.navigationController?.navigationBar.topItem?.backBarButtonItem = backButton
-        self.navigationController?.navigationBar.isHidden = false
         
+        self.navigationController?.navigationBar.isHidden = false
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
         /// location update starts
         locationManager.startUpdatingLocation()
-        
-        // making the navigation bar appear
-        navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
-        navigationController?.navigationBar.shadowImage = UIImage()
-        navigationController?.navigationBar.isTranslucent = true
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         locationManager.stopUpdatingLocation()
-        
         /// stops player when user moves to different screen
         audioPlayer?.stop()
     }

@@ -27,12 +27,5 @@ class YoutubeInstructionViewController: UIViewController {
         player.layer.borderWidth = 6.0
         player.layer.borderColor = UIColor.black.cgColor
         player.load(withVideoId: youtubeVideoLink)
-
-        /// Do any additional setup after loading the view.
-        /// removed the back text form the nevigation bar
-        let backButton = UIBarButtonItem()
-        backButton.title = ""
-        self.navigationController?.navigationBar.topItem?.backBarButtonItem = backButton
-        self.navigationController?.navigationBar.isHidden = false
     }
 }

@@ -34,13 +34,8 @@ class WelcomeQuizViewController: UIViewController {
         } catch {
             print("error playing")
         }
-        
-        // removng the back text form the navigation bar
-        let backButton = UIBarButtonItem()
-        backButton.title = ""
-        self.navigationController?.navigationBar.topItem?.backBarButtonItem = backButton
         self.navigationController?.navigationBar.isHidden = false
-
+        
     }
     
     /// user selects any of the quiz button
@@ -49,8 +44,7 @@ class WelcomeQuizViewController: UIViewController {
         /// gives user with selection haptic feedback
         let generator = UISelectionFeedbackGenerator()
         generator.selectionChanged()
-        
-        
+
         /// depending on the user selection pushes new view controller of quiz question = Q
         switch sender.tag {
         case 0:
@@ -74,15 +68,6 @@ class WelcomeQuizViewController: UIViewController {
         viewController.qType = type
         viewController.user = user
         navigationController?.pushViewController(viewController, animated: true)
-    }
-
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
-        navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
-        navigationController?.navigationBar.shadowImage = UIImage()
-        navigationController?.navigationBar.isTranslucent = true
-        
     }
 
     override func viewWillDisappear(_ animated: Bool) {

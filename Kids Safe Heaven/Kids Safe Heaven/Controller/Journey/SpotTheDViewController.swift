@@ -46,21 +46,6 @@ class SpotTheDViewController: UIViewController {
 
         // unless all the objects are detected, the button for next screen wont appear
         spotTheDifferenceButtonHiddenUnlessPass.isHidden = true
-        
-        // making the back text in the back button dissappear
-        let backButton = UIBarButtonItem()
-        backButton.title = ""
-        self.navigationController?.navigationBar.topItem?.backBarButtonItem = backButton
-        self.navigationController?.navigationBar.isHidden = false
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
-        //  Make the navigation bar background clear
-        navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
-        navigationController?.navigationBar.shadowImage = UIImage()
-        navigationController?.navigationBar.isTranslucent = true
     }
 
     /// https://www.youtube.com/watch?v=oe8kJYLR-qQ

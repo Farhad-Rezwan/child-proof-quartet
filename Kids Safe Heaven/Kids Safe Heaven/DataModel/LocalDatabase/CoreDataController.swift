@@ -26,9 +26,9 @@ class CoreDataController: NSObject, NSFetchedResultsControllerDelegate, Database
             }
         }
         super.init()
-        if fetchAllUser().count == 0 {
-            createDefaultUsers()
-        }
+//        if fetchAllUser().count == 0 {
+////            createDefaultUsers()
+//        }
     }
     
     func saveContext() {
@@ -195,20 +195,20 @@ class CoreDataController: NSObject, NSFetchedResultsControllerDelegate, Database
         return users
     }
     
-    /// sample user with score populated
-    func createDefaultUsers() {
-        let score1 = addScore(score: 3.7, quizType: "weatherQuiz")
-        let score2 = addScore(score: 4.1, quizType: "weatherQuiz")
-        let score3 = addScore(score: 5.1, quizType: "weatherQuiz")
-        
-        var scores: [Score] = []
-        scores.append(contentsOf: [score1, score2, score3 ]) //score4, score5, score6, score7, score8, score9
-        let us1 = addUser(name: "Kish", avatarName: "kris")
-        let _ = addScoreToUser(score: score1, user: us1)
-        let _ = addScoreToUser(score: score2, user: us1)
-        let _ = addScoreToUser(score: score3, user: us1)
-
-        saveContext()
-    }
+//    /// sample user with score populated
+//    func createDefaultUsers() {
+//        let score1 = addScore(score: 3.7, quizType: "weatherQuiz")
+//        let score2 = addScore(score: 4.1, quizType: "weatherQuiz")
+//        let score3 = addScore(score: 5.1, quizType: "weatherQuiz")
+//
+//        var scores: [Score] = []
+//        scores.append(contentsOf: [score1, score2, score3 ]) //score4, score5, score6, score7, score8, score9
+//        let us1 = addUser(name: "Kish", avatarName: "kris")
+//        let _ = addScoreToUser(score: score1, user: us1)
+//        let _ = addScoreToUser(score: score2, user: us1)
+//        let _ = addScoreToUser(score: score3, user: us1)
+//
+//        saveContext()
+//    }
 
 }

@@ -17,7 +17,6 @@ class HomeScreenViewController: UIViewController, DatabaseListener{
     weak var databaseController: DatabaseProtocol?
     
     var listenerType: ListenerType = .all
-    var userName: String?
     var user: User?
     
     @IBOutlet weak var openerAvater: UIImageView!
@@ -34,12 +33,7 @@ class HomeScreenViewController: UIViewController, DatabaseListener{
         /// database delegate
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         databaseController = appDelegate.databaseController
-        
-        if let userName = userName {
-            /// look into database for named user
-            user = databaseController?.getUser(userName: userName)
-        }
-        
+
         if let user = user {
             let openerStr = (user.avatarName)! + "IntroHC"
             openerAvater.image = UIImage(named: openerStr)
@@ -76,12 +70,9 @@ class HomeScreenViewController: UIViewController, DatabaseListener{
         if segue.identifier == Constants.Segue.homeToSearchPark {
             let destination = segue.destination as! SearhParkCollectionViewController
             destination.userName = user?.avatarName
-        } else if segue.identifier == Constants.Segue.homeToQuiz {
-            let destination = segue.destination as! WelcomeQuizViewController
-            destination.user = user
         } else if segue.identifier == Constants.Segue.homeToGame {
             let destination = segue.destination as! MainJourneyViewController
-            destination.userName = user?.avatarName
+            destination.user = user
         }
     }
     
@@ -89,5 +80,4 @@ class HomeScreenViewController: UIViewController, DatabaseListener{
     /// do nothing
     func onUserScoreChange(change: DatabaseChange, userScore: [Score]) {}
     func onUserListChange(change: DatabaseChange, users: [User]) {}
-    
 }

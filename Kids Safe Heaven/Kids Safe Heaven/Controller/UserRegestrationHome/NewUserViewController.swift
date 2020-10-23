@@ -12,6 +12,7 @@ class NewUserViewController: UIViewController, UITextFieldDelegate {
     
     /// avatar images male
     let userImageArry = [#imageLiteral(resourceName: "zacIntro"),#imageLiteral(resourceName: "krisIntro"),#imageLiteral(resourceName: "rezIntro")]
+    var user: User?
     
     @IBOutlet weak var option1ButtonImage: UIButton!
     @IBOutlet weak var option2ButtonImage: UIButton!
@@ -65,7 +66,8 @@ class NewUserViewController: UIViewController, UITextFieldDelegate {
         
         /// making sure user name has no spaces, also validates user name, if empty provides message
         let trimmed = userName.text?.trimmingCharacters(in: .whitespacesAndNewlines)
-        if trimmed != "" && selected != nil {
+        let userContains = databaseController?.getUser(userName: trimmed ?? " ")
+        if trimmed != "" && selected != nil && userContains == nil {
             let name = userName.text!
             var avatarName = ""
             
@@ -84,7 +86,11 @@ class NewUserViewController: UIViewController, UITextFieldDelegate {
             
             /// navigating to the home screen view controller
             let viewController = storyboard?.instantiateViewController(identifier: "homeScreenVC") as! HomeScreenViewController
-            viewController.userName = name
+            if let userName = userName.text {
+                /// look into database for named user
+                self.user = databaseController?.getUser(userName: userName)
+            }
+            viewController.user = user
             navigationController?.pushViewController(viewController, animated: true)
             
             return
@@ -92,6 +98,11 @@ class NewUserViewController: UIViewController, UITextFieldDelegate {
         
         /// error handling message
         var errorMessage = ""
+        
+        if userContains != nil {
+            errorMessage += "- user named \(userName?.text ?? "this") already exist"
+        }
+        
         if trimmed == "" {
             errorMessage += "-Please Enter Name\n"
         }

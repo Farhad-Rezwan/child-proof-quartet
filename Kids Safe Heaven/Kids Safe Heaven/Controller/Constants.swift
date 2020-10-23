@@ -10,16 +10,19 @@ struct Constants {
     static var appName = "Kids Safe Heaven"
     
     struct Segue {
-        static var homeToQuiz = "homeToQuizWelcomeQuizVC"
         static var homeToSearchPark = "homeToSearchParkCV"
         static var homeToGame = "homeToMainJourneyVC"
-        static var journeyToThingCarry = "mainJourneyToThingsToCarry"
+        static var journeyToThingsToCarry = "mainJourneyToThingsToCarrySegue"
+        static var journeyToQuiz = "mainJourneyToQuizSegue"
+        static var journeyToSpotTheD = "mainJourneyToSpotTheDSegue"
     }
     
     struct Design {
         static var navigationBack = "navigationBack"
         static var navigationBackTitle = ""
         static var spotTheDangerCorrectIcon = "spotTheDCorrectChoosen"
+        static var navigationIconMenu = "navbarMenu"
+        static var navigationLogoutIcon = "logoutMenu"
     }
     
     struct Mascot {
@@ -45,9 +48,10 @@ struct Constants {
         static var thingsToCarryCollVC = "thingsToCarryItems"
         static var youtubeInstructionVC = "youtubeVideoViewController"
         static var safetyTipsVC = "safetyTipsViewController"
-        static var journeyScooreBoardVC = "journeyScoreboradVC"
         static var itemFoundCollVC = "itemFoundCell"
-        
+        static var menuViewController = "menuViewController"
+        static var journeyScooreBoardVC = "journeyScoreboradVC"
+
     }
     
     

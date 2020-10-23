@@ -14,12 +14,12 @@ class MainJourneyViewController: UIViewController {
     @IBOutlet weak var iteration3Avatar: UIImageView!
     
     var audioPlayer: AVAudioPlayer?
-    var userName: String?
-    
+    var user: User?
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        if let screenAvatar: String = userName {
+        if let screenAvatar: String = user?.avatarName {
             iteration3Avatar.image = UIImage(named: screenAvatar + "Journey")
         }
         
@@ -50,9 +50,9 @@ class MainJourneyViewController: UIViewController {
     
     /// sends user name of user.
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == Constants.Segue.journeyToThingCarry {
+        if segue.identifier == Constants.Segue.journeyToThingsToCarry {
             let destination = segue.destination as! ThingsToCarryViewController
-            destination.userName = userName
+            destination.user = user
         }
     }
 }

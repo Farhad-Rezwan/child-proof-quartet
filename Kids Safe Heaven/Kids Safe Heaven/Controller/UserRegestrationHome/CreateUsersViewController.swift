@@ -88,7 +88,7 @@ extension CreateUsersViewController: UITableViewDataSource, UITableViewDelegate 
     /// user selection is proceed to Home Screen View Controller
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let viewController = storyboard?.instantiateViewController(identifier: "homeScreenVC") as! HomeScreenViewController
-        viewController.userName = users[indexPath.row].name
+        viewController.user = users[indexPath.row]
         navigationController?.pushViewController(viewController, animated: true)
     }
     

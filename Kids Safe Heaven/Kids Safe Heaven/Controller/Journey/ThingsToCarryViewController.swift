@@ -32,7 +32,7 @@ class ThingsToCarryViewController: UIViewController, CLLocationManagerDelegate {
     var activityIndicator: NVActivityIndicatorView!
     let locationManager = CLLocationManager()
     var thingsListShuffeled: [ThingsCarry] = []
-    var userName: String?
+    var user: User?
     var arrSelectedIndex = [IndexPath]() // This is selected cell Index array
     var arrSelectedData = [ThingsCarry]() // This is selected cell data array
     
@@ -53,6 +53,11 @@ class ThingsToCarryViewController: UIViewController, CLLocationManagerDelegate {
         let origImage = UIImage(named: "quizNextButtonBlack")
         buttonToBeHiddenUnlessPass.setBackgroundImage(origImage, for: .normal)
 
+        /// temp image for avatar
+        if let tempAvatarShow : String = user?.avatarName {
+            mascotImageToBeHiddenIfPass.image = UIImage(named: tempAvatarShow + "Cold")
+        }
+        
         // indicator for loading the weather
         let indicatorSize: CGFloat = 70
         let indicatorFrame = CGRect(x: (view.frame.width-indicatorSize)/2, y: (view.frame.height-indicatorSize)/2, width: indicatorSize, height: indicatorSize)
@@ -91,7 +96,7 @@ class ThingsToCarryViewController: UIViewController, CLLocationManagerDelegate {
                 let jsonWeather = jsonResponse["weather"].array![0]
                 let jsonTemp = jsonResponse["main"]
 
-                var weatherDependentAvatar: String = userName ?? "zacIntro"
+                let weatherDependentAvatar: String = user?.avatarName ?? "zac"
 
                 let condition = jsonWeather["main"].stringValue
                 let tempDegree = Int(round(jsonTemp["temp"].doubleValue))
@@ -104,86 +109,23 @@ class ThingsToCarryViewController: UIViewController, CLLocationManagerDelegate {
                     case ...15 :
                         print("cold")
                         self.loadSelection(type: "winter")
-                        
-                        switch weatherDependentAvatar {
-                        case "zacIntro":
-                            weatherDependentAvatar = "coldZac"
-                            self.mascotImageToBeHiddenIfPass.image = UIImage(named: weatherDependentAvatar)
-                        case "krisIntro":
-                            weatherDependentAvatar = "coldKris"
-                            self.mascotImageToBeHiddenIfPass.image = UIImage(named: weatherDependentAvatar)
-                        case "rezIntro":
-                            weatherDependentAvatar = "coldRez"
-                            self.mascotImageToBeHiddenIfPass.image = UIImage(named: weatherDependentAvatar)
-                        default:
-                            self.mascotImageToBeHiddenIfPass.image = UIImage(named: weatherDependentAvatar)
-                            break
-                        }
-                        
+                        self.mascotImageToBeHiddenIfPass.image = UIImage(named: weatherDependentAvatar + "Cold")
                         break
                     case 16...24 :
                         print("normal")
                         self.loadSelection(type: "normal")
-                        
-                        switch weatherDependentAvatar {
-                        case "zacIntro":
-                            weatherDependentAvatar = "norZac"
-                            self.mascotImageToBeHiddenIfPass.image = UIImage(named: weatherDependentAvatar)
-                        case "krisIntro":
-                            weatherDependentAvatar = "norKris"
-                            self.mascotImageToBeHiddenIfPass.image = UIImage(named: weatherDependentAvatar)
-                        case "rezIntro":
-                            weatherDependentAvatar = "norRez"
-                            self.mascotImageToBeHiddenIfPass.image = UIImage(named: weatherDependentAvatar)
-                        default:
-                            self.mascotImageToBeHiddenIfPass.image = UIImage(named: weatherDependentAvatar)
-                            break
-                        }
-                        
-                        
+                        self.mascotImageToBeHiddenIfPass.image = UIImage(named: weatherDependentAvatar + "Nor")
                         break
                     case 25... :
                         print("summer")
                         self.loadSelection(type: "summer")
-                        
-                        
-                        switch weatherDependentAvatar {
-                        case "zacIntro":
-                            weatherDependentAvatar = "hotZac"
-                            self.mascotImageToBeHiddenIfPass.image = UIImage(named: weatherDependentAvatar)
-                        case "krisIntro":
-                            weatherDependentAvatar = "hotKris"
-                            self.mascotImageToBeHiddenIfPass.image = UIImage(named: weatherDependentAvatar)
-                        case "rezIntro":
-                            weatherDependentAvatar = "hotRez"
-                            self.mascotImageToBeHiddenIfPass.image = UIImage(named: weatherDependentAvatar)
-                        default:
-                            self.mascotImageToBeHiddenIfPass.image = UIImage(named: weatherDependentAvatar)
-                            break
-                        }
-                        
+                        self.mascotImageToBeHiddenIfPass.image = UIImage(named: weatherDependentAvatar + "Hot")
                         break
                     default:
-                        print("normal")
-                        self.loadSelection(type: "normal")
-                        
-                        switch weatherDependentAvatar {
-                        case "zacIntro":
-                            weatherDependentAvatar = "norZac"
-                            self.mascotImageToBeHiddenIfPass.image = UIImage(named: weatherDependentAvatar)
-                        case "krisIntro":
-                            weatherDependentAvatar = "norKris"
-                            self.mascotImageToBeHiddenIfPass.image = UIImage(named: weatherDependentAvatar)
-                        case "rezIntro":
-                            weatherDependentAvatar = "norRez"
-                            self.mascotImageToBeHiddenIfPass.image = UIImage(named: weatherDependentAvatar)
-                        default:
-                            self.mascotImageToBeHiddenIfPass.image = UIImage(named: weatherDependentAvatar)
-                            break
-                        }
-                        
-                        
+                        self.loadSelection(type: "summer")
+                        self.mascotImageToBeHiddenIfPass.image = UIImage(named: weatherDependentAvatar + "Hot")
                         break
+                        
                     }
                 }
             }
@@ -223,7 +165,7 @@ class ThingsToCarryViewController: UIViewController, CLLocationManagerDelegate {
         }
         viewController.thingsToCarryItems.append(contentsOf: onlyCorrect)
         navigationController?.popViewController(animated: true)
-        navigationController?.pushViewController(viewController, animated: false)
+        navigationController?.pushViewController(viewController, animated: true)
     }
     
     

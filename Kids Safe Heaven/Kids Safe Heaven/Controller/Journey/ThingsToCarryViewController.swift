@@ -153,7 +153,8 @@ class ThingsToCarryViewController: UIViewController {
             }
         }
         viewController.thingsToCarryItems.append(contentsOf: onlyCorrect)
-        navigationController?.pushViewController(viewController, animated: true)
+        navigationController?.popViewController(animated: true)
+        navigationController?.pushViewController(viewController, animated: false)
     }
     
     
@@ -323,6 +324,9 @@ extension ThingsToCarryViewController: UICollectionViewDataSource, UICollectionV
         }
         if arrayHas5CorrectAnswer() {
             let origImage = UIImage(named: "quizNextButtonForHere")
+            buttonToBeHiddenUnlessPass.setBackgroundImage(origImage, for: .normal)
+        } else {
+            let origImage = UIImage(named: "quizNextButtonBlack")
             buttonToBeHiddenUnlessPass.setBackgroundImage(origImage, for: .normal)
         }
     }

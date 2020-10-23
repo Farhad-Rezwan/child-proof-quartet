@@ -30,7 +30,7 @@ class SpotTheDangerBank {
     init() {
         list.append(SpotTheDanger(dangerName: "Crack on the slide", dangerImage: "danImg2", dangerTips: "danTip2"))
         list.append(SpotTheDanger(dangerName: "Broken Glass Bottle", dangerImage: "danImg1", dangerTips: "danTip1"))
-        list.append(SpotTheDanger(dangerName: "Small Sharp rocks", dangerImage: "danImg4", dangerTips: "danTip3"))
+        list.append(SpotTheDanger(dangerName: "Small Sharp rocks", dangerImage: "danImg3", dangerTips: "danTip3"))
         list.append(SpotTheDanger(dangerName: "Water Sprinklers", dangerImage: "danImg7", dangerTips: "danTip7"))
         list.append(SpotTheDanger(dangerName: "Water Puddle", dangerImage: "danImg5", dangerTips: "danTip5"))
         list.append(SpotTheDanger(dangerName: "A hole in the play equipment", dangerImage: "danImg6", dangerTips: "danTip6"))

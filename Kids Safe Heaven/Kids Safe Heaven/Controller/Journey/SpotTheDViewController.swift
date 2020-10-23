@@ -213,7 +213,23 @@ class SpotTheDViewController: UIViewController {
         audioPlayer?.stop()
         if dangerItems == [] {
             print("allSelected")
-            nevigateToScoreBoardVC()
+            /// if there is not quiz question left
+            let alert = UIAlertController(title: "Awesome", message: "You have correctly selected all items, Press next to see summary", preferredStyle: .alert)
+            
+            /// setting allart with restart and done action
+            let restartAction = UIAlertAction(title: "Play Again", style: .default) { [self] (action) in
+                self.animateOut(desiredView: self.spotTheDangerVisualEffect)
+                self.animateOut(desiredView: self.spotTheDangerTipsView)
+                self.restartsTheSpotTheD()
+            }
+            alert.addAction(restartAction)
+            let anotherAction = UIAlertAction(title: "Next", style: .default) { (action) in
+                self.nevigateToScoreBoardVC()
+            }
+            alert.addAction(anotherAction)
+            
+            /// present the alert
+            present(alert, animated: true, completion: nil)
             return
         }
         
@@ -229,6 +245,22 @@ class SpotTheDViewController: UIViewController {
         viewController.dangerItems.append(contentsOf: SpotTheDangerBank.init().list)
         navigationController?.popViewController(animated: true)
         navigationController?.pushViewController(viewController, animated: false)
+    }
+    
+    /// Restarts the game as user choosen to play agin
+    func restartsTheSpotTheD() {
+        dangerItems = [0,1,2,3,4,5,6]
+        spotTheDangerCollectionView.reloadData()
+        hintShownFor = []
+        
+        brockenSlideSpottedImageView.image = nil
+        brockenGlassSpottedImageView.image = nil
+        sharpRockSpottedImageView.image = nil
+        waterSprinklerSpottedImageView.image = nil
+        waterPuddleSpottedImageView.image = nil
+        holeInEquipmentImageView.image = nil
+        brockenSwingSpottedImageView.image = nil
+
     }
     
     /// Animates uiView with a predefined duration of 0.3 sec

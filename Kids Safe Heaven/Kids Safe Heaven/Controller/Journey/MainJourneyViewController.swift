@@ -30,12 +30,6 @@ class MainJourneyViewController: UIViewController {
             iteration3Avatar.image = UIImage(named: screenAvatar + "Journey")
         }
         
-        self.navigationController?.navigationBar.isHidden = false
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-
         // audio to welcome main journey
         let pathToSound = Bundle.main.path(forResource: Constants.Sound.mainJourneyWelcomeMessage, ofType: "wav")!
         let url = URL(fileURLWithPath: pathToSound)
@@ -47,6 +41,13 @@ class MainJourneyViewController: UIViewController {
             print("error playing")
         }
         
+        self.navigationController?.navigationBar.isHidden = false
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+
+
         /// check for location is found, if found enable the thingsToCarrry button
         enableThingsToCarry()
     }

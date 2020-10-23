@@ -359,13 +359,12 @@
                                         <rect key="frame" x="0.0" y="0.0" width="353.66666666666669" height="407"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="RDR-8o-VRE">
-                                                <rect key="frame" x="65.333333333333329" y="122.33333333333333" width="222.66666666666669" height="162.66666666666669"/>
+                                                <rect key="frame" x="65.333333333333329" y="81.666666666666686" width="222.66666666666669" height="244"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wnC-6c-Z90">
                                                         <rect key="frame" x="0.33333333333334281" y="0.0" width="222" height="81.333333333333329"/>
                                                         <state key="normal" backgroundImage="iteration2Button"/>
                                                         <connections>
-                                                            <action selector="locationButton:" destination="Ae3-9Y-Hxa" eventType="touchUpInside" id="wkM-SO-Hlb"/>
                                                             <segue destination="ZVd-qe-bDi" kind="show" identifier="homeToSearchParkCV" id="vD1-eG-wsu"/>
                                                         </connections>
                                                     </button>
@@ -375,6 +374,14 @@
                                                         <state key="normal" backgroundImage="iteration3Button"/>
                                                         <connections>
                                                             <segue destination="g0x-z7-wGA" kind="show" identifier="homeToMainJourneyVC" id="C2S-Dd-bud"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F5G-9N-dUe">
+                                                        <rect key="frame" x="2" y="162.66666666666669" width="219" height="81.333333333333314"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="32"/>
+                                                        <state key="normal" title="enable Location"/>
+                                                        <connections>
+                                                            <action selector="locationAsksButton:" destination="Ae3-9Y-Hxa" eventType="touchUpInside" id="ToZ-L1-8PY"/>
                                                         </connections>
                                                     </button>
                                                 </subviews>
@@ -406,6 +413,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="MUY-AH-GUo"/>
                     <connections>
+                        <outlet property="locationButton" destination="wnC-6c-Z90" id="lht-Zo-OtU"/>
                         <outlet property="openerAvater" destination="RH0-LR-w5j" id="SWy-os-mFf"/>
                     </connections>
                 </viewController>
@@ -445,6 +453,7 @@
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <state key="normal" backgroundImage="thingsCarryButton"/>
                                                 <connections>
+                                                    <action selector="thingsToCarryClicked:" destination="g0x-z7-wGA" eventType="touchUpInside" id="90f-JP-uuU"/>
                                                     <segue destination="cwu-5p-WyB" kind="show" identifier="mainJourneyToThingsToCarrySegue" id="PtC-c8-Abj"/>
                                                 </connections>
                                             </button>
@@ -497,6 +506,7 @@
                     <navigationItem key="navigationItem" id="jVN-JO-YGH"/>
                     <connections>
                         <outlet property="iteration3Avatar" destination="AqT-12-Vcb" id="GGB-l7-yAF"/>
+                        <outlet property="thingsToCarryButton" destination="nT7-0W-X86" id="NDz-Z0-Otm"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="K0p-oK-HTW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1857,10 +1867,10 @@
             </objects>
             <point key="canvasLocation" x="-25" y="826"/>
         </scene>
-        <!--Searh Park Collection View Controller-->
+        <!--Recommended Park Home View Controller-->
         <scene sceneID="56d-fH-7KS">
             <objects>
-                <viewController id="ZVd-qe-bDi" customClass="SearhParkCollectionViewController" customModule="Kids_Safe_Heaven" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="ZVd-qe-bDi" customClass="RecommendedParkHomeViewController" customModule="Kids_Safe_Heaven" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="EWT-Pn-dh1">
                         <rect key="frame" x="0.0" y="0.0" width="926" height="428"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

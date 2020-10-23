@@ -17,7 +17,7 @@
 		FC2EB66B2512089500657F48 /* Equipments.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC2EB66A2512089500657F48 /* Equipments.swift */; };
 		FC40063C253AA977009AB157 /* YoutubeInstructionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC40063B253AA977009AB157 /* YoutubeInstructionViewController.swift */; };
 		FC40FC1A2531786700081F1F /* EachThingsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC40FC192531786700081F1F /* EachThingsCollectionViewCell.swift */; };
-		FC433F58250E41DC00110C97 /* SearhParkCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC433F57250E41DC00110C97 /* SearhParkCollectionViewController.swift */; };
+		FC433F58250E41DC00110C97 /* RecommendedParkHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC433F57250E41DC00110C97 /* RecommendedParkHomeViewController.swift */; };
 		FC433F5A250E4B0700110C97 /* ParkDataCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC433F59250E4B0700110C97 /* ParkDataCollectionViewCell.swift */; };
 		FC433F5C250E529600110C97 /* Park.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC433F5B250E529600110C97 /* Park.swift */; };
 		FC4371FB253B34B400430EB2 /* SpotTheDanger.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC4371FA253B34B400430EB2 /* SpotTheDanger.swift */; };
@@ -193,7 +193,7 @@
 		FC2EB66A2512089500657F48 /* Equipments.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Equipments.swift; sourceTree = "<group>"; };
 		FC40063B253AA977009AB157 /* YoutubeInstructionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YoutubeInstructionViewController.swift; sourceTree = "<group>"; };
 		FC40FC192531786700081F1F /* EachThingsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EachThingsCollectionViewCell.swift; sourceTree = "<group>"; };
-		FC433F57250E41DC00110C97 /* SearhParkCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearhParkCollectionViewController.swift; sourceTree = "<group>"; };
+		FC433F57250E41DC00110C97 /* RecommendedParkHomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendedParkHomeViewController.swift; sourceTree = "<group>"; };
 		FC433F59250E4B0700110C97 /* ParkDataCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParkDataCollectionViewCell.swift; sourceTree = "<group>"; };
 		FC433F5B250E529600110C97 /* Park.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Park.swift; sourceTree = "<group>"; };
 		FC4371FA253B34B400430EB2 /* SpotTheDanger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotTheDanger.swift; sourceTree = "<group>"; };
@@ -648,7 +648,7 @@
 		FC62FB852510169200A33D08 /* Recommendation */ = {
 			isa = PBXGroup;
 			children = (
-				FC433F57250E41DC00110C97 /* SearhParkCollectionViewController.swift */,
+				FC433F57250E41DC00110C97 /* RecommendedParkHomeViewController.swift */,
 				FC433F59250E4B0700110C97 /* ParkDataCollectionViewCell.swift */,
 				FC62FB862510258200A33D08 /* SingleParkViewController.swift */,
 				FC62FB8825104B3D00A33D08 /* SafetyTipsViewController.swift */,
@@ -1008,7 +1008,7 @@
 				FC4C110024F3DBCA00C3A2DB /* Question.swift in Sources */,
 				FC433F5C250E529600110C97 /* Park.swift in Sources */,
 				FC99F4AF24F66966009A1ABD /* WelcomeQuizViewController.swift in Sources */,
-				FC433F58250E41DC00110C97 /* SearhParkCollectionViewController.swift in Sources */,
+				FC433F58250E41DC00110C97 /* RecommendedParkHomeViewController.swift in Sources */,
 				FC48B185253967D000F2D6F3 /* ItemFoundCollectionViewCell.swift in Sources */,
 				FC4371FB253B34B400430EB2 /* SpotTheDanger.swift in Sources */,
 				FC10ED3924EC13A200C11DB0 /* AppDelegate.swift in Sources */,

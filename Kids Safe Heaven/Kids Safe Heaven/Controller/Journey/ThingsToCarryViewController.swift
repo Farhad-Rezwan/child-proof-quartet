@@ -10,11 +10,11 @@ import UIKit
 import Alamofire
 import SwiftyJSON
 import NVActivityIndicatorView
-import CoreLocation
 import Foundation
 import AVFoundation
+import CoreLocation
 
-class ThingsToCarryViewController: UIViewController, CLLocationManagerDelegate {
+class ThingsToCarryViewController: UIViewController {
     
     @IBOutlet var tipsView: UIView!
     @IBOutlet var visualAffectView: UIVisualEffectView!
@@ -27,15 +27,13 @@ class ThingsToCarryViewController: UIViewController, CLLocationManagerDelegate {
     var audioPlayer: AVAudioPlayer?
     let gradientLayer = CAGradientLayer()
     let APIKEY = "8ee001a3144d114f170986b983bd0f9c"
-    var lat: Double = 0
-    var lon: Double = 0
     var activityIndicator: NVActivityIndicatorView!
-    let locationManager = CLLocationManager()
     var thingsListShuffeled: [ThingsCarry] = []
     var user: User?
     var arrSelectedIndex = [IndexPath]() // This is selected cell Index array
     var arrSelectedData = [ThingsCarry]() // This is selected cell data array
-    
+    var currentLocation: CLLocationCoordinate2D?
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -64,15 +62,10 @@ class ThingsToCarryViewController: UIViewController, CLLocationManagerDelegate {
         activityIndicator = NVActivityIndicatorView(frame: indicatorFrame,type: .lineScale, color: UIColor.white, padding: 20.0)
         activityIndicator.backgroundColor = UIColor.black
         view.addSubview(activityIndicator)
-
-        locationManager.requestWhenInUseAuthorization()
+        
         activityIndicator.startAnimating()
+        requestToBackend()
 
-        if(CLLocationManager.locationServicesEnabled()) {
-            locationManager.delegate = self
-            locationManager.desiredAccuracy = kCLLocationAccuracyBest
-            locationManager.startUpdatingLocation()
-        }
     }
     
     func loadSelection(type: String) {
@@ -83,55 +76,51 @@ class ThingsToCarryViewController: UIViewController, CLLocationManagerDelegate {
         
     }
     
-    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        let location = locations[0]
-        lat = location.coordinate.latitude
-        lon = location.coordinate.longitude
-        print(lat,lon)
+    func requestToBackend() {
+        if let lat: Double = currentLocation?.latitude, let lon: Double = currentLocation?.longitude {
+            Alamofire.request("http://api.openweathermap.org/data/2.5/weather?lat=\(lat)&lon=\(lon)&appid=\(APIKEY)&units=metric").responseJSON { [self] (response) in
+                if let responseStr = response.result.value {
+                    let jsonResponse = JSON(responseStr)
+                    let jsonWeather = jsonResponse["weather"].array![0]
+                    let jsonTemp = jsonResponse["main"]
 
-        Alamofire.request("http://api.openweathermap.org/data/2.5/weather?lat=\(lat)&lon=\(lon)&appid=\(APIKEY)&units=metric").responseJSON { [self] (response) in
-            self.activityIndicator.stopAnimating()
-            if let responseStr = response.result.value {
-                let jsonResponse = JSON(responseStr)
-                let jsonWeather = jsonResponse["weather"].array![0]
-                let jsonTemp = jsonResponse["main"]
+                    let weatherDependentAvatar: String = user?.avatarName ?? "zac"
 
-                let weatherDependentAvatar: String = user?.avatarName ?? "zac"
-
-                let condition = jsonWeather["main"].stringValue
-                let tempDegree = Int(round(jsonTemp["temp"].doubleValue))
-                    
-                print(tempDegree)
-                if condition == "Rainy" {
-                    
-                } else {
-                    switch tempDegree {
-                    case ...15 :
-                        print("cold")
-                        self.loadSelection(type: "winter")
-                        self.mascotImageToBeHiddenIfPass.image = UIImage(named: weatherDependentAvatar + "Cold")
-                        break
-                    case 16...24 :
-                        print("normal")
-                        self.loadSelection(type: "normal")
-                        self.mascotImageToBeHiddenIfPass.image = UIImage(named: weatherDependentAvatar + "Nor")
-                        break
-                    case 25... :
-                        print("summer")
-                        self.loadSelection(type: "summer")
-                        self.mascotImageToBeHiddenIfPass.image = UIImage(named: weatherDependentAvatar + "Hot")
-                        break
-                    default:
-                        self.loadSelection(type: "summer")
-                        self.mascotImageToBeHiddenIfPass.image = UIImage(named: weatherDependentAvatar + "Hot")
-                        break
+                    let condition = jsonWeather["main"].stringValue
+                    let tempDegree = Int(round(jsonTemp["temp"].doubleValue))
                         
+                    print(tempDegree)
+                    if condition == "Rainy" {
+                        
+                    } else {
+                        switch tempDegree {
+                        case ...15 :
+                            print("cold")
+                            self.loadSelection(type: "winter")
+                            self.mascotImageToBeHiddenIfPass.image = UIImage(named: weatherDependentAvatar + "Cold")
+                            break
+                        case 16...24 :
+                            print("normal")
+                            self.loadSelection(type: "normal")
+                            self.mascotImageToBeHiddenIfPass.image = UIImage(named: weatherDependentAvatar + "Nor")
+                            break
+                        case 25... :
+                            print("summer")
+                            self.loadSelection(type: "summer")
+                            self.mascotImageToBeHiddenIfPass.image = UIImage(named: weatherDependentAvatar + "Hot")
+                            break
+                        default:
+                            self.loadSelection(type: "summer")
+                            self.mascotImageToBeHiddenIfPass.image = UIImage(named: weatherDependentAvatar + "Hot")
+                            break
+                            
+                        }
                     }
+                    activityIndicator.stopAnimating()
                 }
             }
         }
-        activityIndicator.stopAnimating()
-        
+
     }
 
 
@@ -164,7 +153,6 @@ class ThingsToCarryViewController: UIViewController, CLLocationManagerDelegate {
             }
         }
         viewController.thingsToCarryItems.append(contentsOf: onlyCorrect)
-        navigationController?.popViewController(animated: true)
         navigationController?.pushViewController(viewController, animated: true)
     }
     

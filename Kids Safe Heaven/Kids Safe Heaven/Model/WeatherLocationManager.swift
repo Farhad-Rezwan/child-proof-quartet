@@ -11,6 +11,4 @@ import Foundation
 struct WeatherLocation {
     var latitude: Double?
     var longitude: Double?
-    var condition: String
-    var weather: Int
 }

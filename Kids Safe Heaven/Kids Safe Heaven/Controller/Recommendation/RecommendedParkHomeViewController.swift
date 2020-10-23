@@ -7,21 +7,20 @@
 //
 
 import UIKit
-import CoreLocation
 import AVFoundation
+import CoreLocation
 
-class SearhParkCollectionViewController: UIViewController, CLLocationManagerDelegate {
+class RecommendedParkHomeViewController: UIViewController {
 
     @IBOutlet weak var playParksCollectionView: UICollectionView!
     @IBOutlet weak var mySegment: UISegmentedControl!
-
+    
+    var currentLocation: CLLocationCoordinate2D?
     let parkImageArray = [#imageLiteral(resourceName: "park1Button"),#imageLiteral(resourceName: "park2Button"),#imageLiteral(resourceName: "park3Button"),#imageLiteral(resourceName: "park4Button"),#imageLiteral(resourceName: "park5Button")]
     var parkNumberingArray: [UIImage]? = [#imageLiteral(resourceName: "one"),#imageLiteral(resourceName: "two"),#imageLiteral(resourceName: "three"),#imageLiteral(resourceName: "four"),#imageLiteral(resourceName: "five")]
-    var userName: String?
+    var user: User?
     var audioPlayer: AVAudioPlayer?
     var allParks: [Park] = []
-    let locationManager = CLLocationManager()
-    var currentLocation: CLLocationCoordinate2D?
     var parkManager = ParkManager()
     var introMessage = Constants.Sound.searchLocationWelcomeMessage
     var stringReqURL = " "
@@ -30,37 +29,26 @@ class SearhParkCollectionViewController: UIViewController, CLLocationManagerDele
         super.viewDidLoad()
         
         /// assigning delegates
-        locationManager.delegate = self
         playParksCollectionView.delegate = self
         playParksCollectionView.dataSource = self
-        
-        /// defining desired accuracy to best
-        locationManager.desiredAccuracy = kCLLocationAccuracyBest
-        locationManager.distanceFilter = 10
-        
         self.navigationController?.navigationBar.isHidden = false
+        fetchFromBackend()
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        /// location update starts
-        locationManager.startUpdatingLocation()
-    }
-    
+
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        locationManager.stopUpdatingLocation()
         /// stops player when user moves to different screen
         audioPlayer?.stop()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+    }
+    
 
     // MARK: - CLLocation Manager Delegate Methods
-    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        if let location = locations.last {
-            currentLocation = location.coordinate
-        }
-        
+    func fetchFromBackend() {
         if let lat = currentLocation?.latitude, let lon = currentLocation?.longitude {
             stringReqURL = "lat=\(lat)&lon=\(lon)"
             allParks.removeAll()
@@ -85,38 +73,13 @@ class SearhParkCollectionViewController: UIViewController, CLLocationManagerDele
                         break;
                 }
             }
-            playParksCollectionView.reloadData()
-            // reload data
+            
         }
-        
+        playParksCollectionView.reloadData()
+
     }
     
-    /// authorization change
-    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
-        checkLocationServiceAvailableOrNot()
-    }
-    
-    /// Checks authorization status and act accordingly
-    func checkLocationServiceAvailableOrNot() {
-        switch CLLocationManager.authorizationStatus() {
-        case .notDetermined:
-            locationManager.requestWhenInUseAuthorization()
-            break
-        case .restricted:
-            break
-        case .denied:
-            break
-        case .authorizedAlways:
-            populateParksSound()
-            break
-        case .authorizedWhenInUse:
-            populateParksSound()
-            break
-        @unknown default:
-            break
-        }
-    }
-    
+
     /// Welcome sound when user visit this view controller
     func populateParksSound() {
         let pathToSound = Bundle.main.path(forResource: introMessage, ofType: "wav")!
@@ -162,7 +125,7 @@ class SearhParkCollectionViewController: UIViewController, CLLocationManagerDele
     }
 }
 
-extension SearhParkCollectionViewController: UICollectionViewDelegate, UICollectionViewDataSource  {
+extension RecommendedParkHomeViewController: UICollectionViewDelegate, UICollectionViewDataSource  {
     /// handle number of park to show, here always will be 5
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return allParks.count
@@ -186,7 +149,7 @@ extension SearhParkCollectionViewController: UICollectionViewDelegate, UICollect
         let viewController = storyboard?.instantiateViewController(identifier: "singleParkView") as! SingleParkViewController
         viewController.equipments = allParks[indexPath.row].facility
         viewController.name = allParks[indexPath.row].name
-        viewController.userName = userName
+        viewController.user = user
         navigationController?.pushViewController(viewController, animated: true)
     }
     

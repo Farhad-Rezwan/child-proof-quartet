@@ -20,7 +20,7 @@ class SingleParkViewController: UIViewController {
     var equipments: [String] = []
     var name: String?
     var equipmentsClass: [Equipment] = EquipmentBank().list
-    var userName: String?
+    var user: User?
     var introMessage = Constants.Sound.singleParkWelcomeMessage
     var audioPlayer: AVAudioPlayer?
     
@@ -86,7 +86,7 @@ extension SingleParkViewController: UICollectionViewDelegate, UICollectionViewDa
         let viewController = storyboard?.instantiateViewController(identifier: Constants.Identifier.safetyTipsVC) as! SafetyTipsViewController
         viewController.eqName = currentEquipments[indexPath.row]
         viewController.eqTips = getGroupForImage(equipmentName: currentEquipments[indexPath.row])
-        viewController.userName = userName
+        viewController.user = user
         viewController.eqVideo = getVideoLinkForYPl(equipmentName: currentEquipments[indexPath.row])
         navigationController?.pushViewController(viewController, animated: true)
     }

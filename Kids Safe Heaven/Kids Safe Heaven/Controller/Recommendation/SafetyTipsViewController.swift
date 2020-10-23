@@ -21,7 +21,6 @@ class SafetyTipsViewController: UIViewController {
     
     var eqName: String?
     var eqTips: String?
-    var userName: String?
     var user: User?
     var eqVideo: String?
 
@@ -42,7 +41,7 @@ class SafetyTipsViewController: UIViewController {
         tipsView.image = UIImage(named: eqTips ?? " ")
         
         /// assigns avatar for the mascot read out button
-        if let openerStr = userName {
+        if let openerStr = user?.avatarName {
             tipsReadOutImage.setBackgroundImage(UIImage(named: openerStr + "Tips" ), for: .normal)
         }
 

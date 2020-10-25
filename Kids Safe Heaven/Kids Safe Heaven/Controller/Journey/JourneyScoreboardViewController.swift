@@ -28,7 +28,6 @@ class JourneyScoreboardViewController: UIViewController {
     
     /// navigates to Journey home
     @IBAction func navigateToHome(_ sender: Any) {
-        let viewController = UIViewController()
         navigationController?.popViewController(animated: true)
 
     }

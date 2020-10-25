@@ -12,7 +12,6 @@ import CoreLocation
 
 class MainJourneyViewController: UIViewController {
 
-    @IBOutlet weak var iteration3Avatar: UIImageView!
     @IBOutlet weak var thingsToCarryButton: UIButton!
     
     var audioPlayer: AVAudioPlayer?
@@ -25,10 +24,6 @@ class MainJourneyViewController: UIViewController {
         ///disabling the things to carry section when the location is not found
         thingsToCarryButton.isEnabled = false
         enableThingsToCarry()
-
-        if let screenAvatar: String = user?.avatarName {
-            iteration3Avatar.image = UIImage(named: screenAvatar + "Journey")
-        }
         
         // audio to welcome main journey
         let pathToSound = Bundle.main.path(forResource: Constants.Sound.mainJourneyWelcomeMessage, ofType: "wav")!
@@ -71,6 +66,9 @@ class MainJourneyViewController: UIViewController {
         if segue.identifier == Constants.Segue.journeyToThingsToCarry {
             let destination = segue.destination as! ThingsToCarryViewController
             destination.currentLocation = currentLocation
+            destination.user = user
+        } else if segue.identifier == Constants.Segue.journeyToQuiz {
+            let destination = segue.destination as! WelcomeQuizViewController
             destination.user = user
         }
     }

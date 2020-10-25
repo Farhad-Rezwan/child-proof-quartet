@@ -11,13 +11,14 @@ import UIKit
 class NewUserViewController: UIViewController, UITextFieldDelegate {
     
     /// avatar images male
-    let userImageArry = [#imageLiteral(resourceName: "zacIntro"),#imageLiteral(resourceName: "krisIntro"),#imageLiteral(resourceName: "rezIntro")]
+    let userImageArry = [#imageLiteral(resourceName: "zacIntro"),#imageLiteral(resourceName: "krisIntro"),#imageLiteral(resourceName: "rezIntro"), #imageLiteral(resourceName: "miaIntro"), #imageLiteral(resourceName: "emmaIntro")]
     var user: User?
     
     @IBOutlet weak var option1ButtonImage: UIButton!
     @IBOutlet weak var option2ButtonImage: UIButton!
     @IBOutlet weak var option3ButtonImage: UIButton!
     @IBOutlet weak var userName: UITextField!
+    @IBOutlet weak var genderSegment: UISegmentedControl!
     weak var databaseController: DatabaseProtocol?
     
     /// Integer that defines which avatar in the userImageArray user selected
@@ -57,11 +58,19 @@ class NewUserViewController: UIViewController, UITextFieldDelegate {
     /// - Parameter sender: UIButton is used as parameter so that we can use the tag
     @IBAction func mascotChoosen(_ sender: UIButton) {
         if sender.tag == 0 {
-            selected = 0
+            if genderSegment.selectedSegmentIndex == 0 {
+                selected = 0
+            } else {
+                selected = 3
+            }
         } else if sender.tag == 1 {
             selected = 1
         } else if sender.tag == 2 {
-            selected = 2
+            if genderSegment.selectedSegmentIndex == 0 {
+                selected = 2
+            } else {
+                selected = 4
+            }
         }
         
         /// making sure user name has no spaces, also validates user name, if empty provides message
@@ -78,6 +87,10 @@ class NewUserViewController: UIViewController, UITextFieldDelegate {
                 avatarName = Constants.Mascot.saveMascotKris
             } else if selected == 2 {
                 avatarName = Constants.Mascot.saveMascotRez
+            } else if selected == 3 {
+                avatarName = Constants.Mascot.saveMascotMia
+            } else if selected == 4 {
+                avatarName =  Constants.Mascot.saveMascotEmma
             }
             
             /// saving users information in the database, users name and avatar name
@@ -113,6 +126,32 @@ class NewUserViewController: UIViewController, UITextFieldDelegate {
         
         displayMessage(title: "Not all fields filled", message: errorMessage)
     }
+    
+
+    @IBAction func segmentButtonPressed(_ sender: UISegmentedControl) {
+        switch genderSegment.selectedSegmentIndex {
+        case 0:
+            print("MaleSelected")
+            option2ButtonImage.isHidden = false
+            option2ButtonImage.isEnabled = true
+            option1ButtonImage.setBackgroundImage(userImageArry[0], for: .normal)
+            option2ButtonImage.setBackgroundImage(userImageArry[1], for: .normal)
+            option3ButtonImage.setBackgroundImage(userImageArry[2], for: .normal)
+            break
+        case 1:
+            option1ButtonImage.setBackgroundImage(userImageArry[3], for: .normal)
+            option2ButtonImage.setBackgroundImage(nil, for: .normal)
+            option2ButtonImage.isHidden = true
+            option2ButtonImage.isEnabled = false
+            option3ButtonImage.setBackgroundImage(userImageArry[4], for: .normal)
+            print("female")
+            break
+        default:
+            break
+        }
+    }
+    
+    
     
     
     /// Diaplay error handling mesasge using Alert Controller

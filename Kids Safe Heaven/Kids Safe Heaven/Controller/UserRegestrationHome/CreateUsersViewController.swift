@@ -31,6 +31,8 @@ class CreateUsersViewController: UIViewController, DatabaseListener {
         
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         databaseController = appDelegate.databaseController
+        /// when view controller appear again the navigation bar is hidden also
+        self.navigationController?.navigationBar.isHidden = false
     }
     
     @IBAction func addUserBarButton(_ sender: UIBarButtonItem) {

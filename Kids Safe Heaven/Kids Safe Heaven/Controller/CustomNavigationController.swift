@@ -38,12 +38,35 @@ class CustomNavigationController: UINavigationController, UINavigationController
         
         let rightIcoonImage = UIImage(named: Constants.Design.navigationLogoutIcon)
         let rendImage = rightIcoonImage?.withRenderingMode(.alwaysOriginal)
+//
+//        viewController.navigationItem.rightBarButtonItem?.image = rendImage
+//
+//
+//        let add = UIBarButtonItem(title: "logout", style: .plain, target: self, action: #selector(addTapped))
+//
+//        add.image = rendImage
+//        viewController.navigationItem.rightBarButtonItem?.tintColor = .black
+//        viewController.navigationItem.rightBarButtonItem = add
         
-        viewController.navigationItem.rightBarButtonItem?.image = rendImage
-        
-        let add = UIBarButtonItem(title: "logout", style: .plain, target: self, action: #selector(addTapped))
-        add.image = rendImage
-        viewController.navigationItem.rightBarButtonItems = [add]
+        let button = UIButton(type: .system)
+        button.setImage(rendImage, for: .normal)
+        button.setTitle("Log Out", for: .normal)
+        button.titleLabel?.backgroundColor = .systemYellow
+        button.tintColor = .black
+        button.titleLabel?.font = .monospacedSystemFont(ofSize: 10, weight: .black)
+        button.largeContentTitle = "Log out"
+        button.sizeToFit()
+        button.addTarget(self, action: #selector(addTapped), for: .touchUpInside)
+        let logoutToAvoid = [ "hideLogoutFromCreateuser", "hideLogoutFromNewExisting", "hideLogoutFromNewUser" ]
+        if let restorationIdentifier = viewController.restorationIdentifier {
+            if !logoutToAvoid.contains(restorationIdentifier) {
+                viewController.navigationItem.rightBarButtonItem = UIBarButtonItem(customView: button)
+                return
+            }
+            return
+        }
+        viewController.navigationItem.rightBarButtonItem = UIBarButtonItem(customView: button)
+
     }
     
     @objc func addTapped() {
@@ -59,19 +82,4 @@ class CustomNavigationController: UINavigationController, UINavigationController
         alert.addAction(no)
         present(alert, animated: true, completion: nil)
     }
-    
-    func popToViewController(ofClass: AnyClass, animated: Bool = true) {
-        if let vc = viewControllers.filter({$0.isKind(of: ofClass)}).last {
-            popToViewController(vc, animated: animated)
-        }
-    }
-    
-    func popViewControllers(viewsToPop: Int, animated: Bool = true) {
-        if viewControllers.count > viewsToPop {
-            let vc = viewControllers[viewControllers.count - viewsToPop - 1]
-            popToViewController(vc, animated: animated)
-        }
-    }
-
-
 }

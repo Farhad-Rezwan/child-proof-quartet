@@ -29,6 +29,8 @@ struct Constants {
         static var saveMascotZac = "zac"
         static var saveMascotKris = "kris"
         static var saveMascotRez = "rez"
+        static var saveMascotMia = "mia"
+        static var saveMascotEmma = "emma"
     }
     
     struct Sound {
@@ -52,6 +54,14 @@ struct Constants {
         static var menuViewController = "menuViewController"
         static var journeyScooreBoardVC = "journeyScoreboradVC"
 
+    }
+    
+    struct JourneyQuizLocked {
+        static var quizTime = "quizTimeButton"
+        static var thingsToCarry = "thingsToCarryButton"
+        static var thingsToCarryLocked = "thingsToCarryButtonLocked"
+        static var knowTheDangerLocied = "knowTheDangerButtonLocked"
+        static var knowTheDanger = "knowTheDangerButton"
     }
     
     

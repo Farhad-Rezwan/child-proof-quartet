@@ -13,7 +13,7 @@
         <!--Question View Controller-->
         <scene sceneID="jLC-T7-3zc">
             <objects>
-                <viewController storyboardIdentifier="questionViewController" id="vwv-9f-Abi" customClass="QuestionViewController" customModule="Kids_Safe_Heaven" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController restorationIdentifier="journeyResID3" storyboardIdentifier="questionViewController" id="vwv-9f-Abi" customClass="QuestionViewController" customModule="Kids_Safe_Heaven" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="gCy-ft-iXn">
                         <rect key="frame" x="0.0" y="0.0" width="926" height="428"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -223,7 +223,7 @@
         <!--Score Board View Controller-->
         <scene sceneID="OB7-7a-uC6">
             <objects>
-                <viewController storyboardIdentifier="scoreBoardVC" id="b1l-JT-f8c" customClass="ScoreBoardViewController" customModule="Kids_Safe_Heaven" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController restorationIdentifier="scoreBoardResID3" storyboardIdentifier="scoreBoardVC" id="b1l-JT-f8c" customClass="ScoreBoardViewController" customModule="Kids_Safe_Heaven" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="91v-lf-VJb">
                         <rect key="frame" x="0.0" y="0.0" width="926" height="428"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -437,7 +437,7 @@
         <!--Main Journey View Controller-->
         <scene sceneID="w74-cc-9iL">
             <objects>
-                <viewController id="g0x-z7-wGA" customClass="MainJourneyViewController" customModule="Kids_Safe_Heaven" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController restorationIdentifier="journeyResID1" id="g0x-z7-wGA" customClass="MainJourneyViewController" customModule="Kids_Safe_Heaven" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5wi-ik-7YO">
                         <rect key="frame" x="0.0" y="0.0" width="926" height="428"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -521,7 +521,7 @@
         <!--Journey Scoreboard View Controller-->
         <scene sceneID="YKQ-Gi-Qs1">
             <objects>
-                <viewController storyboardIdentifier="journeyScoreboradVC" id="BAc-xH-dZz" customClass="JourneyScoreboardViewController" customModule="Kids_Safe_Heaven" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController restorationIdentifier="journeyScoreBoardResID2" storyboardIdentifier="journeyScoreboradVC" id="BAc-xH-dZz" customClass="JourneyScoreboardViewController" customModule="Kids_Safe_Heaven" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="vbD-4R-nXr">
                         <rect key="frame" x="0.0" y="0.0" width="926" height="428"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -608,7 +608,7 @@
         <!--Spot TheD View Controller-->
         <scene sceneID="Z2V-Kc-cuJ">
             <objects>
-                <viewController storyboardIdentifier="spotDiffViewController" id="9gG-xg-D4i" customClass="SpotTheDViewController" customModule="Kids_Safe_Heaven" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController restorationIdentifier="spottTheDResID2" storyboardIdentifier="spotDiffViewController" id="9gG-xg-D4i" customClass="SpotTheDViewController" customModule="Kids_Safe_Heaven" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="yRR-4F-Ohw">
                         <rect key="frame" x="0.0" y="0.0" width="926" height="428"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -923,7 +923,7 @@
         <!--Things To Carry View Controller-->
         <scene sceneID="KUF-h0-pDE">
             <objects>
-                <viewController storyboardIdentifier="thingsCarryVC" id="cwu-5p-WyB" customClass="ThingsToCarryViewController" customModule="Kids_Safe_Heaven" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController restorationIdentifier="ttcResID2" storyboardIdentifier="thingsCarryVC" id="cwu-5p-WyB" customClass="ThingsToCarryViewController" customModule="Kids_Safe_Heaven" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="qsI-nI-79l">
                         <rect key="frame" x="0.0" y="0.0" width="926" height="428"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1116,7 +1116,7 @@
         <!--New User View Controller-->
         <scene sceneID="YHi-VN-xqA">
             <objects>
-                <viewController restorationIdentifier="hideLogoutFromNewUser" storyboardIdentifier="newUserVC" id="3de-Fe-Bkw" customClass="NewUserViewController" customModule="Kids_Safe_Heaven" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController restorationIdentifier="createNewResID-0" storyboardIdentifier="newUserVC" id="3de-Fe-Bkw" customClass="NewUserViewController" customModule="Kids_Safe_Heaven" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="4Ma-Bp-c29">
                         <rect key="frame" x="0.0" y="0.0" width="926" height="428"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1251,7 +1251,7 @@
         <!--You can select from the list of users below-->
         <scene sceneID="KgB-ob-uQn">
             <objects>
-                <viewController restorationIdentifier="hideLogoutFromCreateuser" id="SDP-le-oE8" customClass="CreateUsersViewController" customModule="Kids_Safe_Heaven" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController restorationIdentifier="existingUserID-0" id="SDP-le-oE8" customClass="ChooseUserViewController" customModule="Kids_Safe_Heaven" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Wst-iG-QgH">
                         <rect key="frame" x="0.0" y="0.0" width="926" height="428"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1313,7 +1313,7 @@
         <!--Welcome Quiz View Controller-->
         <scene sceneID="Ndb-Ev-bkz">
             <objects>
-                <viewController storyboardIdentifier="quizView" id="Sei-KY-3rk" customClass="WelcomeQuizViewController" customModule="Kids_Safe_Heaven" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController restorationIdentifier="journeyResID2" storyboardIdentifier="quizView" id="Sei-KY-3rk" customClass="WelcomeQuizViewController" customModule="Kids_Safe_Heaven" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="pjE-4P-psO">
                         <rect key="frame" x="0.0" y="0.0" width="926" height="428"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1383,7 +1383,7 @@
         <!--New Existing View Controller-->
         <scene sceneID="sDG-LF-2Qa">
             <objects>
-                <viewController restorationIdentifier="hideLogoutFromNewExisting" id="vCC-Ol-1dQ" customClass="NewExistingViewController" customModule="Kids_Safe_Heaven" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController restorationIdentifier="newExistingResID-1" id="vCC-Ol-1dQ" customClass="NewExistingViewController" customModule="Kids_Safe_Heaven" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="LzW-ew-faw">
                         <rect key="frame" x="0.0" y="0.0" width="926" height="428"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1450,7 +1450,7 @@
         <!--Safety Tips View Controller-->
         <scene sceneID="uf4-Xg-DCu">
             <objects>
-                <viewController storyboardIdentifier="safetyTipsViewController" id="xy2-Zw-DFT" customClass="SafetyTipsViewController" customModule="Kids_Safe_Heaven" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController restorationIdentifier="recommendationResID3" storyboardIdentifier="safetyTipsViewController" id="xy2-Zw-DFT" customClass="SafetyTipsViewController" customModule="Kids_Safe_Heaven" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="y2K-iZ-zvo">
                         <rect key="frame" x="0.0" y="0.0" width="926" height="428"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1530,7 +1530,7 @@
         <!--Youtube Instruction View Controller-->
         <scene sceneID="D1n-eq-vuL">
             <objects>
-                <viewController storyboardIdentifier="youtubeVideoViewController" id="fBu-D2-PEa" customClass="YoutubeInstructionViewController" customModule="Kids_Safe_Heaven" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController restorationIdentifier="recommendationResID4" storyboardIdentifier="youtubeVideoViewController" id="fBu-D2-PEa" customClass="YoutubeInstructionViewController" customModule="Kids_Safe_Heaven" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="9Xd-Xz-6PO">
                         <rect key="frame" x="0.0" y="0.0" width="926" height="428"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1582,7 +1582,7 @@
         <!--Single Park View Controller-->
         <scene sceneID="3wg-WG-RIR">
             <objects>
-                <viewController storyboardIdentifier="singleParkView" id="FxX-HA-LOU" customClass="SingleParkViewController" customModule="Kids_Safe_Heaven" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController restorationIdentifier="recommendationResID2" storyboardIdentifier="singleParkView" id="FxX-HA-LOU" customClass="SingleParkViewController" customModule="Kids_Safe_Heaven" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Qfg-Eq-VtV">
                         <rect key="frame" x="0.0" y="0.0" width="926" height="428"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1706,7 +1706,7 @@
         <!--Recommended Park Home View Controller-->
         <scene sceneID="56d-fH-7KS">
             <objects>
-                <viewController id="ZVd-qe-bDi" customClass="RecommendedParkHomeViewController" customModule="Kids_Safe_Heaven" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController restorationIdentifier="recommendationResID1" id="ZVd-qe-bDi" customClass="RecommendedParkHomeViewController" customModule="Kids_Safe_Heaven" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="EWT-Pn-dh1">
                         <rect key="frame" x="0.0" y="0.0" width="926" height="428"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

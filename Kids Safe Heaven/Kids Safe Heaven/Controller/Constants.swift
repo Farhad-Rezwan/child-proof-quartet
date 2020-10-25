@@ -23,6 +23,7 @@ struct Constants {
         static var spotTheDangerCorrectIcon = "spotTheDCorrectChoosen"
         static var navigationIconMenu = "navbarMenu"
         static var navigationLogoutIcon = "logoutMenu"
+        static var navigationHomeIcon = "homeMenu"
     }
     
     struct Mascot {
@@ -62,6 +63,27 @@ struct Constants {
         static var thingsToCarryLocked = "thingsToCarryButtonLocked"
         static var knowTheDangerLocied = "knowTheDangerButtonLocked"
         static var knowTheDanger = "knowTheDangerButton"
+    }
+    
+     struct RestorationID {
+        static var youtubeViewController = "recommendationResID4"
+        static var safetyTipsViewController = "recommendationResID3"
+        static var singleParkViewController = "recommendationResID2"
+        
+        static var recommendedParkViewController = "recommendationResID1"
+        static var journeyViewController = "journeyResID1"
+        
+        static var thingsToCarryViewController = "ttcResID2"
+        static var quizHomeViewController = "journeyResID2"
+        static var spotTheDViewController = "spottTheDResID2"
+        static var journeyScoreboardVC = "journeyScoreBoardResID2"
+        
+        static var questionViewController = "journeyResID3"
+        static var scoreBoardViewController = "scoreBoardResID3"
+        
+        static var newExistingViewController = "newExistingResID-1"
+        static var createUserViewController = "createNewResID-0"
+        static var existingUserViewController = "existingUserID-0"
     }
     
     

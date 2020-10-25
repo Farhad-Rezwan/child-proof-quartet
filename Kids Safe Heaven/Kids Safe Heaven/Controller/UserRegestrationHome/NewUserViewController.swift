@@ -41,6 +41,8 @@ class NewUserViewController: UIViewController, UITextFieldDelegate {
         option2ButtonImage.setBackgroundImage(userImageArry[1], for: .normal)
         option3ButtonImage.setBackgroundImage(userImageArry[2], for: .normal)
         
+        /// add back button 
+        self.navigationController?.navigationBar.isHidden = false
     }
     /// making the text field return button close the keyboard
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {

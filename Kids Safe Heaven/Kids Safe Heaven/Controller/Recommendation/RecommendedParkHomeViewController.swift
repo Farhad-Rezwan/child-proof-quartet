@@ -9,6 +9,7 @@
 import UIKit
 import AVFoundation
 import CoreLocation
+import NVActivityIndicatorView
 
 class RecommendedParkHomeViewController: UIViewController {
 
@@ -24,6 +25,7 @@ class RecommendedParkHomeViewController: UIViewController {
     var parkManager = ParkManager()
     var introMessage = Constants.Sound.searchLocationWelcomeMessage
     var stringReqURL = " "
+    var activityIndicator: NVActivityIndicatorView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,6 +34,15 @@ class RecommendedParkHomeViewController: UIViewController {
         playParksCollectionView.delegate = self
         playParksCollectionView.dataSource = self
         self.navigationController?.navigationBar.isHidden = false
+        
+        /// indicator for loading the weather
+        let indicatorSize: CGFloat = 70
+        let indicatorFrame = CGRect(x: (view.frame.width-indicatorSize)/2, y: (view.frame.height-indicatorSize)/2, width: indicatorSize, height: indicatorSize)
+        activityIndicator = NVActivityIndicatorView(frame: indicatorFrame,type: .lineScale, color: UIColor.white, padding: 20.0)
+        activityIndicator.backgroundColor = UIColor.black
+        view.addSubview(activityIndicator)
+        activityIndicator.startAnimating()
+        
         fetchFromBackend()
     }
     
@@ -44,6 +55,7 @@ class RecommendedParkHomeViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        populateParksSound()
     }
     
 
@@ -51,6 +63,7 @@ class RecommendedParkHomeViewController: UIViewController {
     func fetchFromBackend() {
         if let lat = currentLocation?.latitude, let lon = currentLocation?.longitude {
             stringReqURL = "lat=\(lat)&lon=\(lon)"
+            print(stringReqURL)
             allParks.removeAll()
             if allParks.count == 0 {
                 switch mySegment.selectedSegmentIndex {
@@ -72,11 +85,15 @@ class RecommendedParkHomeViewController: UIViewController {
                         print("default first segment loaded")
                         break;
                 }
+                if allParks.count != 0 {
+                    activityIndicator.stopAnimating()
+                }
             }
-            
+
         }
         playParksCollectionView.reloadData()
-
+        populateParksSound()
+        
     }
     
 
@@ -141,6 +158,7 @@ extension RecommendedParkHomeViewController: UICollectionViewDelegate, UICollect
             cell.parkSetImage.image = btnAImage
             cell.numberingImageView.image = parkNumberingArray?[indexPath.row]
         }
+        
         return cell
     }
     

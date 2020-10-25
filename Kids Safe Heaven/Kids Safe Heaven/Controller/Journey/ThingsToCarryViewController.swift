@@ -64,6 +64,7 @@ class ThingsToCarryViewController: UIViewController {
         view.addSubview(activityIndicator)
         
         activityIndicator.startAnimating()
+        
         requestToBackend()
 
     }

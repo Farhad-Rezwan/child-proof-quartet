@@ -93,5 +93,9 @@ extension ChooseUserViewController: UITableViewDataSource, UITableViewDelegate {
         navigationController?.pushViewController(viewController, animated: true)
     }
     
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        self.databaseController!.deleteUser(user: users[indexPath.row])
+    }
+    
     
 }

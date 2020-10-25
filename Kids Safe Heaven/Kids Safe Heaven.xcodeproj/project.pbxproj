@@ -78,7 +78,7 @@
 		FC4668432527597E00386213 /* q13sound.wav in Resources */ = {isa = PBXBuildFile; fileRef = FC4668322527597E00386213 /* q13sound.wav */; };
 		FC4668442527597E00386213 /* q2sound.wav in Resources */ = {isa = PBXBuildFile; fileRef = FC4668332527597E00386213 /* q2sound.wav */; };
 		FC48B185253967D000F2D6F3 /* ItemFoundCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC48B184253967D000F2D6F3 /* ItemFoundCollectionViewCell.swift */; };
-		FC4A644B24F7E0CC00C14160 /* CreateUsersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC4A644A24F7E0CC00C14160 /* CreateUsersViewController.swift */; };
+		FC4A644B24F7E0CC00C14160 /* ChooseUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC4A644A24F7E0CC00C14160 /* ChooseUserViewController.swift */; };
 		FC4C10FE24F3D9FC00C3A2DB /* QuestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC4C10FD24F3D9FC00C3A2DB /* QuestionViewController.swift */; };
 		FC4C110024F3DBCA00C3A2DB /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC4C10FF24F3DBCA00C3A2DB /* Question.swift */; };
 		FC4C110224F3DCD100C3A2DB /* QuestionBank.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC4C110124F3DCD100C3A2DB /* QuestionBank.swift */; };
@@ -254,7 +254,7 @@
 		FC4668322527597E00386213 /* q13sound.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = q13sound.wav; sourceTree = "<group>"; };
 		FC4668332527597E00386213 /* q2sound.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = q2sound.wav; sourceTree = "<group>"; };
 		FC48B184253967D000F2D6F3 /* ItemFoundCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemFoundCollectionViewCell.swift; sourceTree = "<group>"; };
-		FC4A644A24F7E0CC00C14160 /* CreateUsersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateUsersViewController.swift; sourceTree = "<group>"; };
+		FC4A644A24F7E0CC00C14160 /* ChooseUserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseUserViewController.swift; sourceTree = "<group>"; };
 		FC4C10FD24F3D9FC00C3A2DB /* QuestionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionViewController.swift; sourceTree = "<group>"; };
 		FC4C10FF24F3DBCA00C3A2DB /* Question.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
 		FC4C110124F3DCD100C3A2DB /* QuestionBank.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionBank.swift; sourceTree = "<group>"; };
@@ -699,7 +699,7 @@
 		FCBE4EBB250F48DB006EF55A /* UserRegestrationHome */ = {
 			isa = PBXGroup;
 			children = (
-				FC4A644A24F7E0CC00C14160 /* CreateUsersViewController.swift */,
+				FC4A644A24F7E0CC00C14160 /* ChooseUserViewController.swift */,
 				FCBE4EBE250F5AD9006EF55A /* NewUserViewController.swift */,
 				FCB56AC62512B80500D61761 /* NewExistingViewController.swift */,
 			);
@@ -1040,7 +1040,7 @@
 				FC600185250EE97300C42403 /* MulticastDelegate.swift in Sources */,
 				FCB56AC72512B80500D61761 /* NewExistingViewController.swift in Sources */,
 				FC60017B250EE3C600C42403 /* DatabaseProtocol.swift in Sources */,
-				FC4A644B24F7E0CC00C14160 /* CreateUsersViewController.swift in Sources */,
+				FC4A644B24F7E0CC00C14160 /* ChooseUserViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

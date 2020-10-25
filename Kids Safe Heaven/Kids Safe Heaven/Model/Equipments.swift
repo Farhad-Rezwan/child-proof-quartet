@@ -34,8 +34,8 @@ class EquipmentBank {
         list.append(Equipment(name:"monkey bars", group: "barGroup", instrVideoLink: "l0UVw1tD9PY"))
         // MARK: - basketBallGroup
         list.append(Equipment(name:"basketball court", group: "basketBallGroup", instrVideoLink: "CeN_bLSiU5k"))
-        list.append(Equipment(name:"play court space with basketball backboard only", group: "CeN_bLSiU5k", instrVideoLink: "CeN_bLSiU5k"))
-        list.append(Equipment(name:"temporary basketball court with backboard and ring", group: "CeN_bLSiU5k", instrVideoLink: "CeN_bLSiU5k"))
+        list.append(Equipment(name:"play court space with basketball backboard only", group: "basketBallGroup", instrVideoLink: "CeN_bLSiU5k"))
+        list.append(Equipment(name:"temporary basketball court with backboard and ring", group: "basketBallGroup", instrVideoLink: "CeN_bLSiU5k"))
         list.append(Equipment(name:"basketball rings", group: "basketBallGroup", instrVideoLink: "CeN_bLSiU5k"))
         // MARK: - carouselGroup
         list.append(Equipment(name:"carousels", group: "carouselGroup", instrVideoLink: ""))
@@ -87,7 +87,7 @@ class EquipmentBank {
         list.append(Equipment(name:"carousel and slide", group: "slideGroup", instrVideoLink: "8QLjyaAJlZM"))
         list.append(Equipment(name:"toddler playspace - slide", group: "slideGroup", instrVideoLink: "8QLjyaAJlZM"))
         list.append(Equipment(name:"slides", group: "slideGroup", instrVideoLink: "8QLjyaAJlZM"))
-        list.append(Equipment(name:"slide and climbing features", group: "8QLjyaAJlZM", instrVideoLink: "8QLjyaAJlZM"))
+        list.append(Equipment(name:"slide and climbing features", group: "slideGroup", instrVideoLink: "8QLjyaAJlZM"))
         list.append(Equipment(name:"dragon slide", group: "slideGroup", instrVideoLink: "8QLjyaAJlZM"))
         // MARK: - swingGroup
         list.append(Equipment(name:"swings", group: "swingGroup", instrVideoLink: "vX1mRCnIT3o"))

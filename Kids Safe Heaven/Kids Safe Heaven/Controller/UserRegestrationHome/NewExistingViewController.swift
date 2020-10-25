@@ -8,24 +8,31 @@
 
 import UIKit
 
-class NewExistingViewController: UIViewController {
 
+
+class NewExistingViewController: UIViewController {
+    
+    var presentTransition: UIViewControllerAnimatedTransitioning?
+    var dismissTransition: UIViewControllerAnimatedTransitioning?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        let backArrowImage = UIImage(named: "quizBack")
-        let renderedImage = backArrowImage?.withRenderingMode(.alwaysOriginal)
-        
-        // Make the navigation bar background clear
-        navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
-        navigationController?.navigationBar.shadowImage = UIImage()
-        navigationController?.navigationBar.isTranslucent = true
-        navigationController?.navigationBar.backIndicatorImage = renderedImage
-        navigationController?.navigationBar.backIndicatorTransitionMaskImage = renderedImage
-        
-        let backButton = UIBarButtonItem()
-        backButton.title = "" //in your case it will be empty or you can put the title of your choice
-        self.navigationController?.navigationBar.topItem?.backBarButtonItem = backButton
+        /// to hide the navigation bar once user is in the home screen
+        self.navigationController?.navigationBar.isHidden = true
     }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        /// when view controller appear again the navigation bar is hidden also
+        self.navigationController?.navigationBar.isHidden = true
+    }
+}
+extension NewExistingViewController: UIViewControllerTransitioningDelegate {
+    func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+            return presentTransition
+        }
 
+        func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+            return dismissTransition
+    }
 }

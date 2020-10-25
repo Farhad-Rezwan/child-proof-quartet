@@ -8,53 +8,25 @@
 
 import UIKit
 import AVFoundation
+import CoreLocation
 
 class MainJourneyViewController: UIViewController {
 
-    var introMessage = "it3SoundIntroduction"
-    var audioPlayer: AVAudioPlayer?
-    var userName: String?
-    @IBOutlet weak var iteration3Avatar: UIImageView!
+    @IBOutlet weak var thingsToCarryButton: UIButton!
     
+    var audioPlayer: AVAudioPlayer?
+    var user: User?
+    var currentLocation: CLLocationCoordinate2D?
+
     override func viewDidLoad() {
         super.viewDidLoad()
-
         
-        var it3Avatar: String = userName ?? "zacIntro"
-
-        switch it3Avatar {
-        case "zacIntro":
-            it3Avatar = "IT3Zac"
-            iteration3Avatar.image = UIImage(named: it3Avatar)
-        case "krisIntro":
-            it3Avatar = "IT3Kris"
-            iteration3Avatar.image = UIImage(named: it3Avatar)
-        case "rezIntro":
-            it3Avatar = "IT3Rez"
-            iteration3Avatar.image = UIImage(named: it3Avatar)
-        default:
-            iteration3Avatar.image = UIImage(named: it3Avatar)
-            break
-        }
+        ///disabling the things to carry section when the location is not found
+        thingsToCarryButton.isEnabled = false
+        enableThingsToCarry()
         
-        
-        
-        let backButton = UIBarButtonItem()
-        backButton.title = ""
-        self.navigationController?.navigationBar.topItem?.backBarButtonItem = backButton
-        self.navigationController?.navigationBar.isHidden = false
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
-        //  Make the navigation bar background clear
-        navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
-        navigationController?.navigationBar.shadowImage = UIImage()
-        navigationController?.navigationBar.isTranslucent = true
-        
-        // audio
-        let pathToSound = Bundle.main.path(forResource: introMessage, ofType: "wav")!
+        // audio to welcome main journey
+        let pathToSound = Bundle.main.path(forResource: Constants.Sound.mainJourneyWelcomeMessage, ofType: "wav")!
         let url = URL(fileURLWithPath: pathToSound)
         
         do {
@@ -63,17 +35,47 @@ class MainJourneyViewController: UIViewController {
         } catch {
             print("error playing")
         }
+        
+        self.navigationController?.navigationBar.isHidden = false
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+
+
+        /// check for location is found, if found enable the thingsToCarrry button
+        enableThingsToCarry()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
+        
+        /// stopw the welcome message when user moves to another screen
         audioPlayer?.stop()
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "userNamePass" {
-            let destination = segue.destination as! ThingsToCarryViewController
-            destination.userName = userName
+    func enableThingsToCarry() {
+        if currentLocation?.latitude != nil && currentLocation?.latitude != 0 {
+            thingsToCarryButton.isEnabled = true
+            
         }
     }
+    
+    /// sends user name of user.
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == Constants.Segue.journeyToThingsToCarry {
+            let destination = segue.destination as! ThingsToCarryViewController
+            destination.currentLocation = currentLocation
+            destination.user = user
+        } else if segue.identifier == Constants.Segue.journeyToQuiz {
+            let destination = segue.destination as! WelcomeQuizViewController
+            destination.user = user
+        }
+    }
+    
+    @IBAction func thingsToCarryClicked(_ sender: Any) {
+        print("disabled but clicked")
+    }
+    
+    
 }

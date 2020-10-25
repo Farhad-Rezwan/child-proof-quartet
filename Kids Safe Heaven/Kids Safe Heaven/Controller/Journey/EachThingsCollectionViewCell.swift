@@ -10,15 +10,13 @@ import UIKit
 
 class EachThingsCollectionViewCell: UICollectionViewCell {
     
-    static var identifier: String = "thingsToCarryItems"
+    static var identifier: String = Constants.Identifier.thingsToCarryCollVC
     
     @IBOutlet weak var itemImageView: UIImageView!
     @IBOutlet weak var itemLabel: UILabel!
 
     override init(frame: CGRect) {
         super.init(frame: frame)
-
-        self.itemLabel.text = "This is the text"
     }
 
     required init?(coder aDecoder: NSCoder) {

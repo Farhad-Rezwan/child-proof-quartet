@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.3" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
     <device id="retina6_5" orientation="landscape" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -15,23 +17,23 @@
                         <rect key="frame" x="0.0" y="0.0" width="896" height="414"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="wholeBackground" translatesAutoresizingMaskIntoConstraints="NO" id="aNb-85-AgH">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="wholeBackground" translatesAutoresizingMaskIntoConstraints="NO" id="41U-gd-wpD">
                                 <rect key="frame" x="0.0" y="0.0" width="896" height="414"/>
                             </imageView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Child-Proff Quartet-7" translatesAutoresizingMaskIntoConstraints="NO" id="Px7-4u-tgV">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="teamLogoCPQ" translatesAutoresizingMaskIntoConstraints="NO" id="Pbk-p3-Ghw">
                                 <rect key="frame" x="198" y="-43" width="500" height="500"/>
                             </imageView>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <constraints>
-                            <constraint firstAttribute="trailing" secondItem="aNb-85-AgH" secondAttribute="trailing" id="MIw-h8-39h"/>
-                            <constraint firstItem="aNb-85-AgH" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="alF-dW-y4F"/>
-                            <constraint firstItem="Px7-4u-tgV" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="clc-BT-eJv"/>
-                            <constraint firstItem="aNb-85-AgH" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="fne-Zs-ir5"/>
-                            <constraint firstItem="Px7-4u-tgV" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="sfo-gt-hA1"/>
-                            <constraint firstAttribute="bottom" secondItem="aNb-85-AgH" secondAttribute="bottom" id="xD7-IB-QhZ"/>
-                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Pbk-p3-Ghw" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="46J-sQ-rPY"/>
+                            <constraint firstItem="41U-gd-wpD" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="6OH-UI-brE"/>
+                            <constraint firstItem="Pbk-p3-Ghw" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="AtK-kN-kaC"/>
+                            <constraint firstItem="41U-gd-wpD" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="DDd-kc-x6g"/>
+                            <constraint firstAttribute="bottom" secondItem="41U-gd-wpD" secondAttribute="bottom" id="J1w-Zi-UIm"/>
+                            <constraint firstAttribute="trailing" secondItem="41U-gd-wpD" secondAttribute="trailing" id="nql-fC-cbo"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -40,7 +42,10 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Child-Proff Quartet-7" width="500" height="500"/>
+        <image name="teamLogoCPQ" width="500" height="500"/>
         <image name="wholeBackground" width="221.33332824707031" height="187.66667175292969"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
     </resources>
 </document>

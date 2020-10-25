@@ -9,33 +9,26 @@
 import UIKit
 
 class ParkDataCollectionViewCell: UICollectionViewCell {
-    static var identifier: String = "eachParkCell"
+    
+    static var identifier: String = Constants.Identifier.eachParkCell
 
     @IBOutlet weak var numberingImageView: UIImageView!
     @IBOutlet weak var parkName: UILabel!
     @IBOutlet weak var parkSetImage: UIImageView!
     
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-
-        self.parkName.text = "This is the text"
-    }
-
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-    }
-
-    override func prepareForReuse() {
-        super.prepareForReuse()
-    }
-    
     override func awakeFromNib() {
         super.awakeFromNib()
         
+        /// Adds Blue view when user selects a park from the collection view
         let blueView = UIView(frame: bounds)
         blueView.layer.cornerRadius = 30
         blueView.backgroundColor = .systemBlue
         self.selectedBackgroundView = blueView
     }
+    
+    override init(frame: CGRect) { super.init(frame: frame) }
+    required init?(coder aDecoder: NSCoder) { super.init(coder: aDecoder) }
+    override func prepareForReuse() { super.prepareForReuse() }
+    
 
 }

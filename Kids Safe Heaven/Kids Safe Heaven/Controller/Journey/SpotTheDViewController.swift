@@ -34,54 +34,40 @@ class SpotTheDViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        /// assigning delegates
         spotTheDangerCollectionView.dataSource = self
         spotTheDangerCollectionView.delegate = self
-        
-        hintImage = createImageArray(total: 8, imagePrefix: "hint")
-        
+        /// defining boundary for the Tips View and Visual Effect view
         spotTheDangerTipsView.bounds = self.view.bounds
         spotTheDangerVisualEffect.bounds = self.view.bounds
         
+        /// hint image animation load
+        hintImage = createImageArray(total: 8, imagePrefix: "hint")
+
         // unless all the objects are detected, the button for next screen wont appear
         spotTheDifferenceButtonHiddenUnlessPass.isHidden = true
-        // making the back text in the back button dissappear
-        let backButton = UIBarButtonItem()
-        backButton.title = ""
-        self.navigationController?.navigationBar.topItem?.backBarButtonItem = backButton
-        self.navigationController?.navigationBar.isHidden = false
     }
-    
-    
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
-        //  Make the navigation bar background clear
-        navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
-        navigationController?.navigationBar.shadowImage = UIImage()
-        navigationController?.navigationBar.isTranslucent = true
-    }
-    @IBAction func doneWithDangerIdentification(_ sender: Any) {
-        nevigateToScoreBoardVC()
-    }
-    
-    
-    /// animate image tutorial
+
     /// https://www.youtube.com/watch?v=oe8kJYLR-qQ
+    ///  helps to return collection of UIImage so that those can be use to animate
+    /// - Parameters:
+    ///   - total: total number of image to add
+    ///   - imagePrefix: prefix of the image.
+    /// - Returns: returns collection of UIImages
     func createImageArray(total: Int, imagePrefix: String) -> [UIImage] {
-        
         var imageArray: [UIImage] = []
-        
         for imageCount in 0..<total {
             let imageName = "\(imagePrefix)-\(imageCount).png"
             let image = UIImage(named: imageName)!
-            
             imageArray.append(image)
         }
-        
         return imageArray
     }
     
+    /// animate the image view
+    /// - Parameters:
+    ///   - imageView: Image view to animate
+    ///   - images: Collection of images
     func animate(imageView: UIImageView, images: [UIImage]) {
         globalImageView = imageView
         globalImageView.image = UIImage(named: "spotTheDHintChoosen")
@@ -93,13 +79,12 @@ class SpotTheDViewController: UIViewController {
         
     }
 
-    
-    
-    
     @IBAction func spotTheDAction(_ sender: UIButton) {
+        /// stops audio player of hint once user selects any of the correct object
         audioPlayer?.stop()
         
         let dangItem: SpotTheDanger = SpotTheDangerBank.init().list[sender.tag]
+        let correctIcon = Constants.Design.spotTheDangerCorrectIcon
         
         dangerItems.removeAll(where: { $0 == sender.tag })
         
@@ -107,42 +92,41 @@ class SpotTheDViewController: UIViewController {
         case 0:
             // tag 0 = brocken slide
             print("brocken slide seleted")
-            brockenSlideSpottedImageView.image = UIImage(named: "spotTheDCorrectChoosen")
+            brockenSlideSpottedImageView.image = UIImage(named: correctIcon)
             break
         case 1:
             // tag 1 = brocken glass
             print("brocken glaas seleted")
-            brockenGlassSpottedImageView.image = UIImage(named: "spotTheDCorrectChoosen")
+            brockenGlassSpottedImageView.image = UIImage(named: correctIcon)
             break
         case 2:
             // tag 2 = sharp rock
             print("sharp rock seleted")
-            sharpRockSpottedImageView.image = UIImage(named: "spotTheDCorrectChoosen")
+            sharpRockSpottedImageView.image = UIImage(named: correctIcon)
             break
         case 3:
             // tag 3 = water sprinklers
             print("water sprinklers seleted")
-            waterSprinklerSpottedImageView.image = UIImage(named: "spotTheDCorrectChoosen")
+            waterSprinklerSpottedImageView.image = UIImage(named: correctIcon)
             break
         case 4:
             // tag 4 = water puddle
             print("water puddle seleted")
-            waterPuddleSpottedImageView.image = UIImage(named: "spotTheDCorrectChoosen")
+            waterPuddleSpottedImageView.image = UIImage(named: correctIcon)
             break
         case 5:
             // tag 5 = hole in equipment
             print("hile in equipment seleted")
-            holeInEquipmentImageView.image = UIImage(named: "spotTheDCorrectChoosen")
+            holeInEquipmentImageView.image = UIImage(named: correctIcon)
             break
         default:
             // tag 6 = brocken swing
             print("brocken swing seleted")
-            brockenSwingSpottedImageView.image = UIImage(named: "spotTheDCorrectChoosen")
+            brockenSwingSpottedImageView.image = UIImage(named: correctIcon)
             break
         }
-        
-        
-        /// play danger sound
+
+        /// play danger tips sound
         let pathToSound = Bundle.main.path(forResource: dangItem.dangerTips, ofType: "wav")!
         let url = URL(fileURLWithPath: pathToSound)
         do {
@@ -166,13 +150,18 @@ class SpotTheDViewController: UIViewController {
     
 
     @IBAction func hintButtonPressed(_ sender: Any) {
+        /// if hint button is pressed twice helps to reduce the redundency of sound
         audioPlayer?.stop()
+        /// plays hint sound
         playHintSound()
         
         let randomUnselected = dangerItems.randomElement()
+        /// makes sure that random element is not nill
         guard randomUnselected != nil else {
             return
         }
+        
+        /// if the random unselected is not nill
         hintShownFor.append(randomUnselected!)
         // play hint sound
 
@@ -207,8 +196,9 @@ class SpotTheDViewController: UIViewController {
         
     }
     
+    /// Plays hint sound
     func playHintSound() {
-        let pathToSound = Bundle.main.path(forResource: "hintButtonPressed", ofType: "wav")!
+        let pathToSound = Bundle.main.path(forResource: Constants.Sound.hintButtonSound, ofType: "wav")!
         let url = URL(fileURLWithPath: pathToSound)
         do {
             audioPlayer = try AVAudioPlayer(contentsOf: url)
@@ -217,26 +207,60 @@ class SpotTheDViewController: UIViewController {
             print("error playing")
         }
     }
-    
-    
+
+    /// button to get back from the tips view
     @IBAction func backToSpotDVC(_ sender: Any) {
         audioPlayer?.stop()
         if dangerItems == [] {
             print("allSelected")
-            nevigateToScoreBoardVC()
+            /// if there is not quiz question left
+            let alert = UIAlertController(title: "Awesome", message: "You have correctly selected all items, Press next to see summary", preferredStyle: .alert)
+            
+            /// setting allart with restart and done action
+            let restartAction = UIAlertAction(title: "Play Again", style: .default) { [self] (action) in
+                self.animateOut(desiredView: self.spotTheDangerVisualEffect)
+                self.animateOut(desiredView: self.spotTheDangerTipsView)
+                self.restartsTheSpotTheD()
+            }
+            alert.addAction(restartAction)
+            let anotherAction = UIAlertAction(title: "Next", style: .default) { (action) in
+                self.nevigateToScoreBoardVC()
+            }
+            alert.addAction(anotherAction)
+            
+            /// present the alert
+            present(alert, animated: true, completion: nil)
             return
         }
         
+        /// animate out the tips view and visual effect view
         animateOut(desiredView: spotTheDangerVisualEffect)
         animateOut(desiredView: spotTheDangerTipsView)
     }
     
+    /// helps to navigate to score board view controller
     func nevigateToScoreBoardVC() {
-        let viewController = storyboard?.instantiateViewController(identifier: "journeyScoreboradVC") as! JourneyScoreboardViewController
+        let viewController = storyboard?.instantiateViewController(identifier: Constants.Identifier.journeyScooreBoardVC) as! JourneyScoreboardViewController
         
         viewController.dangerItems.append(contentsOf: SpotTheDangerBank.init().list)
         navigationController?.popViewController(animated: true)
         navigationController?.pushViewController(viewController, animated: false)
+    }
+    
+    /// Restarts the game as user choosen to play agin
+    func restartsTheSpotTheD() {
+        dangerItems = [0,1,2,3,4,5,6]
+        spotTheDangerCollectionView.reloadData()
+        hintShownFor = []
+        
+        brockenSlideSpottedImageView.image = nil
+        brockenGlassSpottedImageView.image = nil
+        sharpRockSpottedImageView.image = nil
+        waterSprinklerSpottedImageView.image = nil
+        waterPuddleSpottedImageView.image = nil
+        holeInEquipmentImageView.image = nil
+        brockenSwingSpottedImageView.image = nil
+
     }
     
     /// Animates uiView with a predefined duration of 0.3 sec
@@ -275,16 +299,16 @@ class SpotTheDViewController: UIViewController {
 
 
 extension SpotTheDViewController: UICollectionViewDataSource, UICollectionViewDelegate {
+    
+    /// helps to show the number of "!" icon at the top, depecting how many item user needs to choose
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return dangerItems.count
     }
     
+    /// difining the cell for number of item user need to choose, Shows "!"
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "itemFoundCell", for: indexPath) as! ItemFoundCollectionViewCell
-        cell.itemFoundImage.image = UIImage(named: "spotTheDCorrectChoosen")
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Constants.Identifier.itemFoundCollVC, for: indexPath) as! ItemFoundCollectionViewCell
+        cell.itemFoundImage.image = UIImage(named: Constants.Design.spotTheDangerCorrectIcon)
         return cell
     }
-    
-
-    
 }

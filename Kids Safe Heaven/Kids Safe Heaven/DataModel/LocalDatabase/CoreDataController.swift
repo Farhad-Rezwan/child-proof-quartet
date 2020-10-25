@@ -12,14 +12,9 @@ import CoreData
 
 class CoreDataController: NSObject, NSFetchedResultsControllerDelegate, DatabaseProtocol {
     
-    
-   
-    
-    
     var DEFAULT_USER_NAME = "Default User"
     var listeners = MulticastDelegate<DatabaseListener>()
     var persistentContainer: NSPersistentContainer
-   
     var allScoresOfUserResultsController: NSFetchedResultsController<Score>?
     var allUserFetchResultsController: NSFetchedResultsController<User>?
     
@@ -30,13 +25,10 @@ class CoreDataController: NSObject, NSFetchedResultsControllerDelegate, Database
                 fatalError("Failed to load Core data stack: \(error)")
             }
         }
-        
-        
         super.init()
-
-        if fetchAllUser().count == 0 {
-            createDefaultUsers()
-        }
+//        if fetchAllUser().count == 0 {
+////            createDefaultUsers()
+//        }
     }
     
     func saveContext() {
@@ -67,21 +59,15 @@ class CoreDataController: NSObject, NSFetchedResultsControllerDelegate, Database
     
     func addUser(name: String, avatarName: String) -> User {
         
-        
-        
-        
         let user = NSEntityDescription.insertNewObject(forEntityName: "User", into: persistentContainer.viewContext) as! User
         
         user.name = name
         user.avatarName = avatarName
         saveContext()
         return user
-        
-        
        }
     
     func addScoreToUser(score: Score, user: User) -> Bool {
-        
         // can do validation here
         user.addToScores(score)
         
@@ -122,10 +108,7 @@ class CoreDataController: NSObject, NSFetchedResultsControllerDelegate, Database
         }
         return nil
     }
-    
 
-    
-    
     func removeListener(listener: DatabaseListener) {
         saveContext()
         listeners.removeDelegate(listener)
@@ -212,19 +195,20 @@ class CoreDataController: NSObject, NSFetchedResultsControllerDelegate, Database
         return users
     }
     
-    func createDefaultUsers() {
-        let score1 = addScore(score: 3.7, quizType: "weatherQuiz")
-        let score2 = addScore(score: 4.1, quizType: "weatherQuiz")
-        let score3 = addScore(score: 5.1, quizType: "weatherQuiz")
-        
-        var scores: [Score] = []
-        scores.append(contentsOf: [score1, score2, score3 ]) //score4, score5, score6, score7, score8, score9
-        let us1 = addUser(name: "Kish", avatarName: "krisIntro")
-        let _ = addScoreToUser(score: score1, user: us1)
-        let _ = addScoreToUser(score: score2, user: us1)
-        let _ = addScoreToUser(score: score3, user: us1)
-
-        saveContext()
-    }
+//    /// sample user with score populated
+//    func createDefaultUsers() {
+//        let score1 = addScore(score: 3.7, quizType: "weatherQuiz")
+//        let score2 = addScore(score: 4.1, quizType: "weatherQuiz")
+//        let score3 = addScore(score: 5.1, quizType: "weatherQuiz")
+//
+//        var scores: [Score] = []
+//        scores.append(contentsOf: [score1, score2, score3 ]) //score4, score5, score6, score7, score8, score9
+//        let us1 = addUser(name: "Kish", avatarName: "kris")
+//        let _ = addScoreToUser(score: score1, user: us1)
+//        let _ = addScoreToUser(score: score2, user: us1)
+//        let _ = addScoreToUser(score: score3, user: us1)
+//
+//        saveContext()
+//    }
 
 }

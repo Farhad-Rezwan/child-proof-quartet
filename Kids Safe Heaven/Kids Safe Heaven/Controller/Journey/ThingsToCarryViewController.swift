@@ -10,11 +10,11 @@ import UIKit
 import Alamofire
 import SwiftyJSON
 import NVActivityIndicatorView
-import CoreLocation
 import Foundation
 import AVFoundation
+import CoreLocation
 
-class ThingsToCarryViewController: UIViewController, CLLocationManagerDelegate {
+class ThingsToCarryViewController: UIViewController {
     
     @IBOutlet var tipsView: UIView!
     @IBOutlet var visualAffectView: UIVisualEffectView!
@@ -27,52 +27,46 @@ class ThingsToCarryViewController: UIViewController, CLLocationManagerDelegate {
     var audioPlayer: AVAudioPlayer?
     let gradientLayer = CAGradientLayer()
     let APIKEY = "8ee001a3144d114f170986b983bd0f9c"
-    var lat: Double = 0
-    var lon: Double = 0
     var activityIndicator: NVActivityIndicatorView!
-    let locationManager = CLLocationManager()
     var thingsListShuffeled: [ThingsCarry] = []
-    var userName: String?
+    var user: User?
     var arrSelectedIndex = [IndexPath]() // This is selected cell Index array
     var arrSelectedData = [ThingsCarry]() // This is selected cell data array
-    
+    var currentLocation: CLLocationCoordinate2D?
+
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        /// adding delegates
         thingsToCarryCollectionView.dataSource = self
         thingsToCarryCollectionView.delegate = self
+        
+        /// adding boundary to tips view and visual affect view
         tipsView.bounds = self.view.bounds
         visualAffectView.bounds = self.view.bounds
         
         countLabel.text = "You have selected 0 out of 5 correct items"
-        
-        
+
         // making button hidden unless 5 items are selected // quizNextButtonBlack // quizNextButtonBlack // quizNextButtonForHere
         let origImage = UIImage(named: "quizNextButtonBlack")
         buttonToBeHiddenUnlessPass.setBackgroundImage(origImage, for: .normal)
 
+        /// temp image for avatar
+        if let tempAvatarShow : String = user?.avatarName {
+            mascotImageToBeHiddenIfPass.image = UIImage(named: tempAvatarShow + "Cold")
+        }
+        
         // indicator for loading the weather
         let indicatorSize: CGFloat = 70
         let indicatorFrame = CGRect(x: (view.frame.width-indicatorSize)/2, y: (view.frame.height-indicatorSize)/2, width: indicatorSize, height: indicatorSize)
         activityIndicator = NVActivityIndicatorView(frame: indicatorFrame,type: .lineScale, color: UIColor.white, padding: 20.0)
         activityIndicator.backgroundColor = UIColor.black
         view.addSubview(activityIndicator)
-
-        locationManager.requestWhenInUseAuthorization()
-//        activityIndicator.startAnimating()
-
-        if(CLLocationManager.locationServicesEnabled()) {
-            locationManager.delegate = self
-            locationManager.desiredAccuracy = kCLLocationAccuracyBest
-            locationManager.startUpdatingLocation()
-        }
-
         
-        // making the back text in the back button dissappear
-        let backButton = UIBarButtonItem()
-        backButton.title = ""
-        self.navigationController?.navigationBar.topItem?.backBarButtonItem = backButton
-        self.navigationController?.navigationBar.isHidden = false
-    
+        activityIndicator.startAnimating()
+        
+        requestToBackend()
+
     }
     
     func loadSelection(type: String) {
@@ -83,123 +77,51 @@ class ThingsToCarryViewController: UIViewController, CLLocationManagerDelegate {
         
     }
     
-    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        let location = locations[0]
-        lat = location.coordinate.latitude
-        lon = location.coordinate.longitude
-        print(lat,lon)
+    func requestToBackend() {
+        if let lat: Double = currentLocation?.latitude, let lon: Double = currentLocation?.longitude {
+            Alamofire.request("http://api.openweathermap.org/data/2.5/weather?lat=\(lat)&lon=\(lon)&appid=\(APIKEY)&units=metric").responseJSON { [self] (response) in
+                if let responseStr = response.result.value {
+                    let jsonResponse = JSON(responseStr)
+                    let jsonWeather = jsonResponse["weather"].array![0]
+                    let jsonTemp = jsonResponse["main"]
 
-        Alamofire.request("http://api.openweathermap.org/data/2.5/weather?lat=\(lat)&lon=\(lon)&appid=\(APIKEY)&units=metric").responseJSON { [self] (response) in
-            self.activityIndicator.stopAnimating()
-            if let responseStr = response.result.value {
-                let jsonResponse = JSON(responseStr)
-                let jsonWeather = jsonResponse["weather"].array![0]
-                let jsonTemp = jsonResponse["main"]
+                    let weatherDependentAvatar: String = user?.avatarName ?? "zac"
 
-                
-                var weatherDependentAvatar: String = userName ?? "zacIntro"
-
-                
-                
-                
-                
-                let condition = jsonWeather["main"].stringValue
-                let tempDegree = Int(round(jsonTemp["temp"].doubleValue))
-                    
-                print(tempDegree)
-                if condition == "Rainy" {
-                    
-                } else {
-                    switch tempDegree {
-                    case ...15 :
-                        print("cold")
-                        self.loadSelection(type: "winter")
+                    let condition = jsonWeather["main"].stringValue
+                    let tempDegree = Int(round(jsonTemp["temp"].doubleValue))
                         
-                        switch weatherDependentAvatar {
-                        case "zacIntro":
-                            weatherDependentAvatar = "coldZac"
-                            self.mascotImageToBeHiddenIfPass.image = UIImage(named: weatherDependentAvatar)
-                        case "krisIntro":
-                            weatherDependentAvatar = "coldKris"
-                            self.mascotImageToBeHiddenIfPass.image = UIImage(named: weatherDependentAvatar)
-                        case "rezIntro":
-                            weatherDependentAvatar = "coldRez"
-                            self.mascotImageToBeHiddenIfPass.image = UIImage(named: weatherDependentAvatar)
-                        default:
-                            self.mascotImageToBeHiddenIfPass.image = UIImage(named: weatherDependentAvatar)
+                    print(tempDegree)
+                    if condition == "Rainy" {
+                        
+                    } else {
+                        switch tempDegree {
+                        case ...15 :
+                            print("cold")
+                            self.loadSelection(type: "winter")
+                            self.mascotImageToBeHiddenIfPass.image = UIImage(named: weatherDependentAvatar + "Cold")
                             break
-                        }
-                        
-                        break
-                    case 16...24 :
-                        print("normal")
-                        self.loadSelection(type: "normal")
-                        
-                        switch weatherDependentAvatar {
-                        case "zacIntro":
-                            weatherDependentAvatar = "norZac"
-                            self.mascotImageToBeHiddenIfPass.image = UIImage(named: weatherDependentAvatar)
-                        case "krisIntro":
-                            weatherDependentAvatar = "norKris"
-                            self.mascotImageToBeHiddenIfPass.image = UIImage(named: weatherDependentAvatar)
-                        case "rezIntro":
-                            weatherDependentAvatar = "norRez"
-                            self.mascotImageToBeHiddenIfPass.image = UIImage(named: weatherDependentAvatar)
-                        default:
-                            self.mascotImageToBeHiddenIfPass.image = UIImage(named: weatherDependentAvatar)
+                        case 16...24 :
+                            print("normal")
+                            self.loadSelection(type: "normal")
+                            self.mascotImageToBeHiddenIfPass.image = UIImage(named: weatherDependentAvatar + "Nor")
                             break
-                        }
-                        
-                        
-                        break
-                    case 25... :
-                        print("summer")
-                        self.loadSelection(type: "summer")
-                        
-                        
-                        switch weatherDependentAvatar {
-                        case "zacIntro":
-                            weatherDependentAvatar = "hotZac"
-                            self.mascotImageToBeHiddenIfPass.image = UIImage(named: weatherDependentAvatar)
-                        case "krisIntro":
-                            weatherDependentAvatar = "hotKris"
-                            self.mascotImageToBeHiddenIfPass.image = UIImage(named: weatherDependentAvatar)
-                        case "rezIntro":
-                            weatherDependentAvatar = "hotRez"
-                            self.mascotImageToBeHiddenIfPass.image = UIImage(named: weatherDependentAvatar)
-                        default:
-                            self.mascotImageToBeHiddenIfPass.image = UIImage(named: weatherDependentAvatar)
+                        case 25... :
+                            print("summer")
+                            self.loadSelection(type: "summer")
+                            self.mascotImageToBeHiddenIfPass.image = UIImage(named: weatherDependentAvatar + "Hot")
                             break
-                        }
-                        
-                        break
-                    default:
-                        print("normal")
-                        self.loadSelection(type: "normal")
-                        
-                        switch weatherDependentAvatar {
-                        case "zacIntro":
-                            weatherDependentAvatar = "norZac"
-                            self.mascotImageToBeHiddenIfPass.image = UIImage(named: weatherDependentAvatar)
-                        case "krisIntro":
-                            weatherDependentAvatar = "norKris"
-                            self.mascotImageToBeHiddenIfPass.image = UIImage(named: weatherDependentAvatar)
-                        case "rezIntro":
-                            weatherDependentAvatar = "norRez"
-                            self.mascotImageToBeHiddenIfPass.image = UIImage(named: weatherDependentAvatar)
                         default:
-                            self.mascotImageToBeHiddenIfPass.image = UIImage(named: weatherDependentAvatar)
+                            self.loadSelection(type: "summer")
+                            self.mascotImageToBeHiddenIfPass.image = UIImage(named: weatherDependentAvatar + "Hot")
                             break
+                            
                         }
-                        
-                        
-                        break
                     }
+                    activityIndicator.stopAnimating()
                 }
             }
         }
-        activityIndicator.stopAnimating()
-        
+
     }
 
 
@@ -223,7 +145,7 @@ class ThingsToCarryViewController: UIViewController, CLLocationManagerDelegate {
     }
     
     func nevigateToNewStage() {
-        let viewController = storyboard?.instantiateViewController(identifier: "journeyScoreboradVC") as! JourneyScoreboardViewController
+        let viewController = storyboard?.instantiateViewController(identifier: Constants.Identifier.journeyScooreBoardVC) as! JourneyScoreboardViewController
         var onlyCorrect: [ThingsCarry] = []
         
         for i in self.thingsListShuffeled {
@@ -286,24 +208,21 @@ class ThingsToCarryViewController: UIViewController, CLLocationManagerDelegate {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
-        //  Make the navigation bar background clear
-        navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
-        navigationController?.navigationBar.shadowImage = UIImage()
-        navigationController?.navigationBar.isTranslucent = true
     }
 }
 
 extension ThingsToCarryViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
+    /// number of things to carry item right and wrong = 9
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return thingsListShuffeled.count
     }
     
+    /// defining each cell
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "thingsToCarryItems", for: indexPath) as! EachThingsCollectionViewCell
         
+        /// You need to check wether selected index array contain current index if yes then change the color
         if arrSelectedIndex.contains(indexPath) {
-            // You need to check wether selected index array contain current index if yes then change the color
             let data = thingsListShuffeled[indexPath.item]
 
             if data.itemValidity {
@@ -314,11 +233,11 @@ extension ThingsToCarryViewController: UICollectionViewDataSource, UICollectionV
                 cell.itemImageView.backgroundColor = UIColor.red
             }
         } else {
+            // wighout any backgound color for cell
             cell.itemImageView.backgroundColor = .none
         }
-        
-        
-        
+
+        /// defining other assets.
         cell.itemImageView.image = UIImage(named: thingsListShuffeled[indexPath.row].itemImage)
         cell.itemImageView.layer.cornerRadius = 20
         cell.itemLabel.text = thingsListShuffeled[indexPath.row].itemName
@@ -326,7 +245,7 @@ extension ThingsToCarryViewController: UICollectionViewDataSource, UICollectionV
     }
     
     
-    
+    /// defining the size of cell
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let yourWidth = collectionView.bounds.width/3.0
         let yourHeight = yourWidth
@@ -334,18 +253,22 @@ extension ThingsToCarryViewController: UICollectionViewDataSource, UICollectionV
         return CGSize(width: yourWidth, height: yourHeight)
     }
     
+    /// adding mergins = zero
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         return UIEdgeInsets.zero
     }
 
+    /// spacing between item
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
         return 0
     }
 
+    /// spacing between rows or collumns
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return 0
     }
     
+    /// when user selects any of the cell
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
         let strData = thingsListShuffeled[indexPath.item]
@@ -403,8 +326,14 @@ extension ThingsToCarryViewController: UICollectionViewDataSource, UICollectionV
         if arrayHas5CorrectAnswer() {
             let origImage = UIImage(named: "quizNextButtonForHere")
             buttonToBeHiddenUnlessPass.setBackgroundImage(origImage, for: .normal)
+        } else {
+            let origImage = UIImage(named: "quizNextButtonBlack")
+            buttonToBeHiddenUnlessPass.setBackgroundImage(origImage, for: .normal)
         }
     }
+    
+    /// Checks whether all the correct answer is clicked or not
+    /// - Returns: returns the boolean value for all correct answer is selected or not
     func arrayHas5CorrectAnswer() -> Bool {
         var has5Correct = false
         var count = 0
@@ -418,7 +347,6 @@ extension ThingsToCarryViewController: UICollectionViewDataSource, UICollectionV
             countLabel.text = "You have correctly selected all items, Press next to see summary"
             has5Correct = true
         } else {
-            let correctNumber = count + 1
             countLabel.text = "You have selected " + String(count) + " out of 5 correct items"
         }
         

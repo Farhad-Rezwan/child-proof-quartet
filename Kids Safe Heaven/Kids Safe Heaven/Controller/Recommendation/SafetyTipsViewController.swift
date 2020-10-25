@@ -21,42 +21,30 @@ class SafetyTipsViewController: UIViewController {
     
     var eqName: String?
     var eqTips: String?
-    var introMessage: String = "intr"
-    var userName: String?
     var user: User?
     var eqVideo: String?
 
-    @IBAction func tipsReadOut(_ sender: Any) {
-        let pathToSound = Bundle.main.path(forResource: eqTips, ofType: "wav")!
-        let url = URL(fileURLWithPath: pathToSound)
-        
-        do {
-            audioPlayer = try AVAudioPlayer(contentsOf: url)
-            audioPlayer!.play()
-        } catch {
-            print("error playing")
-        }
-    }
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        /// checks if the video instruction for the equipment is there or not, if not hids the learn more button
         if eqVideo != "" {
             hideTheLearnMoreButton.isHidden = false
         } else {
             hideTheLearnMoreButton.isHidden = true
         }
         
+        /// decorates the view controller
         equipmentView.image = UIImage(named: eqName ?? " ")
         equipmentName.text = eqName ?? " "
         tipsView.image = UIImage(named: eqTips ?? " ")
         
-        var openerStr = userName
-        openerStr!.removeLast(5)
-        openerStr?.append("Tips")
-        tipsReadOutImage.setBackgroundImage(UIImage(named: openerStr ?? " "), for: .normal)
-        
-        
+        /// assigns avatar for the mascot read out button
+        if let openerStr = user?.avatarName {
+            tipsReadOutImage.setBackgroundImage(UIImage(named: openerStr + "Tips" ), for: .normal)
+        }
+
         // Do any additional setup after loading the view.
         /// removed the back text form the nevigation bar
         let backButton = UIBarButtonItem()
@@ -65,10 +53,22 @@ class SafetyTipsViewController: UIViewController {
         self.navigationController?.navigationBar.isHidden = false
     }
     
+    /// reads out the sound of tips by mascot
+    @IBAction func tipsReadOut(_ sender: Any) {
+        
+        let pathToSound = Bundle.main.path(forResource: eqTips, ofType: "wav")!
+        let url = URL(fileURLWithPath: pathToSound)
+        do {
+            audioPlayer = try AVAudioPlayer(contentsOf: url)
+            audioPlayer!.play()
+        } catch {
+            print("error playing")
+        }
+    }
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        let pathToSound = Bundle.main.path(forResource: introMessage, ofType: "wav")!
+        let pathToSound = Bundle.main.path(forResource: Constants.Sound.safetyTipsWelcomeMessage, ofType: "wav")!
         let url = URL(fileURLWithPath: pathToSound)
         
         do {
@@ -77,25 +77,14 @@ class SafetyTipsViewController: UIViewController {
         } catch {
             print("error playing")
         }
-        
-        let backArrowImage = UIImage(named: "quizBack")
-        let renderedImage = backArrowImage?.withRenderingMode(.alwaysOriginal)
-        
-        // Make the navigation bar background clear
-        navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
-        navigationController?.navigationBar.shadowImage = UIImage()
-        navigationController?.navigationBar.isTranslucent = true
-        navigationController?.navigationBar.backIndicatorImage = renderedImage
-        navigationController?.navigationBar.backIndicatorTransitionMaskImage = renderedImage
-        
     }
     
     @IBAction func learnMoreVideoInstruction(_ sender: Any) {
+        /// stops the intro sound
         audioPlayer?.stop()
-        // navigate to video view controller
 
-        let viewController = storyboard?.instantiateViewController(identifier: "youtubeVideo") as! YoutubeInstructionViewController
-        
+        // navigate to video view controller
+        let viewController = storyboard?.instantiateViewController(identifier: Constants.Identifier.youtubeInstructionVC) as! YoutubeInstructionViewController
         viewController.headerName = "\(eqName ?? " ") instruction video"
         viewController.youtubeVideoLink = eqVideo ?? " "
         navigationController?.pushViewController(viewController, animated: true)

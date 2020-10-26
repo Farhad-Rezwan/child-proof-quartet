@@ -94,7 +94,7 @@ class HomeScreenViewController: UIViewController, DatabaseListener {
     }
     @IBAction func locationAsksButton(_ sender: Any) {
         locationManager.requestWhenInUseAuthorization()
-        createSettingsAlertController(title: "hi", message: "hello" )
+        createSettingsAlertController(title: "You need to enable location settings", message: "- Settings > Privacy > Location Services" )
     }
     func createSettingsAlertController(title: String, message: String) {
 

@@ -12,6 +12,7 @@ class ChooseUserViewController: UIViewController, DatabaseListener {
 
 
     @IBOutlet weak var userTableViewCell: UITableView!
+    @IBOutlet weak var addUserButton: UIButton!
     
     weak var databaseController: DatabaseProtocol?
     var users: [User] = []
@@ -32,15 +33,29 @@ class ChooseUserViewController: UIViewController, DatabaseListener {
         databaseController = appDelegate.databaseController
         /// when view controller appear again the navigation bar is hidden also
         self.navigationController?.navigationBar.isHidden = false
+        addUserButton.isHidden = true
+        /// validating if the user is empty
+        self.title = "You can select from the list of users below"
+        if users.count == 0 {
+            self.title = "User list empty, click add user button below"
+            addUserButton.isHidden = false
+        }
     }
     
-    @IBAction func addUserBarButton(_ sender: UIBarButtonItem) {
 
-    }
-    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
+        /// validating if the user is empty
         databaseController?.addListener(listener: self)
+        
+        self.title = "You can select from the list of users below"
+        addUserButton.isHidden = true
+        if users.count == 0 {
+            self.title = "User list is empty, click on \"add user\" button below"
+            addUserButton.isHidden = false
+        }
+        
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -58,6 +73,11 @@ class ChooseUserViewController: UIViewController, DatabaseListener {
         userTableViewCell.reloadData()
     }
     
+    @IBAction func addUserbuttonAction(_ sender: Any) {
+        let viewController = storyboard?.instantiateViewController(identifier: Constants.Identifier.newUserViewController) as! NewUserViewController
+        navigationController?.popViewController(animated: true)
+        navigationController?.pushViewController(viewController, animated: true)
+    }
 }
 
 

@@ -15,6 +15,7 @@ class WelcomeQuizViewController: UIViewController {
     var user: User?
     var audioPlayer: AVAudioPlayer?
     var introMessage: String = Constants.Sound.welcomeQuizWelcomeMessage
+    weak var databaseController: DatabaseProtocol?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,6 +36,9 @@ class WelcomeQuizViewController: UIViewController {
             print("error playing")
         }
         self.navigationController?.navigationBar.isHidden = false
+        
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        databaseController = appDelegate.databaseController
         
     }
     
@@ -75,6 +79,12 @@ class WelcomeQuizViewController: UIViewController {
         
         /// stops audio when user moves to the other screen
         audioPlayer?.stop()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        
     }
 
 

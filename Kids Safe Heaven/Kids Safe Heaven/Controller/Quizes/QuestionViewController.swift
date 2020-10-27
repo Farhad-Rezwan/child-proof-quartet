@@ -243,7 +243,7 @@ class QuestionViewController: UIViewController {
     
     /// when done in the alert option is pressed, user is sent to score ciew controller
     func navigateToScorecard() {
-        let viewController = storyboard?.instantiateViewController(identifier: "scoreBoardVC") as! ScoreBoardViewController
+        let viewController = storyboard?.instantiateViewController(identifier: Constants.Identifier.quizScoreBoardViewC) as! ScoreBoardViewController
         viewController.score = String(score)
         viewController.user = user
         viewController.questionType = qType ?? "general"

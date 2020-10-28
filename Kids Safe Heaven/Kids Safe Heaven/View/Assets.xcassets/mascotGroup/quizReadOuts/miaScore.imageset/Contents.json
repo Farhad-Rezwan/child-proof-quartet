@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "miaReadOut.png",
+      "filename" : "miaScore.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "miaReadOut@2x.png",
+      "filename" : "miaScore@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "miaReadOut@3x.png",
+      "filename" : "miaScore@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

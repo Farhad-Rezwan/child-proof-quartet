@@ -33,6 +33,7 @@ class ThingsToCarryViewController: UIViewController {
     var arrSelectedIndex = [IndexPath]() // This is selected cell Index array
     var arrSelectedData = [ThingsCarry]() // This is selected cell data array
     var currentLocation: CLLocationCoordinate2D?
+    weak var databaseController: DatabaseProtocol?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,6 +41,11 @@ class ThingsToCarryViewController: UIViewController {
         /// adding delegates
         thingsToCarryCollectionView.dataSource = self
         thingsToCarryCollectionView.delegate = self
+        
+        /// Database delegate
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        databaseController = appDelegate.databaseController
+        
         
         /// adding boundary to tips view and visual affect view
         tipsView.bounds = self.view.bounds
@@ -63,10 +69,49 @@ class ThingsToCarryViewController: UIViewController {
         activityIndicator.backgroundColor = UIColor.black
         view.addSubview(activityIndicator)
         
-        activityIndicator.startAnimating()
+        ifWeatherEnabledRequestBackend()
         
-        requestToBackend()
-
+    }
+    
+    /// checks if the whether is enabled or not, if enabled than fetches particular weather from backend
+    func ifWeatherEnabledRequestBackend() {
+        if currentLocation?.latitude != nil && currentLocation?.latitude != 0 {
+            activityIndicator.startAnimating()
+            requestWeatherApi()
+        } else {
+            showPopUpToMakeUserChoose()
+        }
+    }
+    
+    func showPopUpToMakeUserChoose() {
+        let weatherDependentAvatar: String = user?.avatarName ?? "zac"
+        /// alert
+        let alert = UIAlertController(title: "Location service is disabled", message: "You can choose any of the suitable weather type", preferredStyle: .alert)
+        
+        /// setting allart with restart and done action
+        let coldAction = UIAlertAction(title: "Winter", style: .default) { (action) in
+            print("cold")
+            self.loadSelection(type: "winter")
+            self.mascotImageToBeHiddenIfPass.image = UIImage(named: weatherDependentAvatar + "Cold")
+        }
+        alert.addAction(coldAction)
+        let norAction = UIAlertAction(title: "Normal", style: .default) { (action) in
+            print("normal")
+            self.loadSelection(type: "normal")
+            self.mascotImageToBeHiddenIfPass.image = UIImage(named: weatherDependentAvatar + "Nor")
+        }
+        alert.addAction(norAction)
+        let summerAction = UIAlertAction(title: "Summer", style: .default) { (action) in
+            print("summer")
+            self.loadSelection(type: "summer")
+            self.mascotImageToBeHiddenIfPass.image = UIImage(named: weatherDependentAvatar + "Hot")
+        }
+        alert.addAction(summerAction)
+        let cancelAction = UIAlertAction(title: NSLocalizedString("Cancel", comment: ""), style: .cancel, handler: nil)
+        alert.addAction(cancelAction)
+        
+        /// present the alert
+        present(alert, animated: true, completion: nil)
     }
     
     func loadSelection(type: String) {
@@ -77,7 +122,7 @@ class ThingsToCarryViewController: UIViewController {
         
     }
     
-    func requestToBackend() {
+    func requestWeatherApi() {
         if let lat: Double = currentLocation?.latitude, let lon: Double = currentLocation?.longitude {
             Alamofire.request("http://api.openweathermap.org/data/2.5/weather?lat=\(lat)&lon=\(lon)&appid=\(APIKEY)&units=metric").responseJSON { [self] (response) in
                 if let responseStr = response.result.value {
@@ -140,6 +185,8 @@ class ThingsToCarryViewController: UIViewController {
             alert.addAction(no)
             present(alert, animated: true, completion: nil)
         } else {
+            user?.thingsDone = true
+            databaseController?.cleanup()
             nevigateToNewStage()
         }
     }

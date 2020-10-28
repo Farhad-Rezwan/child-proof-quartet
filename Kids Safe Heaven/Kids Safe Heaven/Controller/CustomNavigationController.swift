@@ -19,6 +19,12 @@ class CustomNavigationController: UINavigationController, UINavigationController
         super.viewDidLoad()
         /// assigning delegates
         self.delegate = self
+        
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
     }
     
     func navigationController(_ navigationController: UINavigationController, willShow viewController: UIViewController, animated: Bool) {
@@ -32,6 +38,13 @@ class CustomNavigationController: UINavigationController, UINavigationController
         setupRightBarButton(buttonImage: Constants.Design.navigationLogoutIcon, buttonName: logutBottonName)
         setupRightBarButton(buttonImage: Constants.Design.navigationHomeIcon, buttonName: homeButtonName)
         vController?.navigationItem.rightBarButtonItems = navBarButtonItems
+        
+        /// removeing navigation item when user is in create user or existing user.
+        if vController?.restorationIdentifier == Constants.RestorationID.newExistingViewController ||
+            vController?.restorationIdentifier == Constants.RestorationID.createUserViewController ||
+            vController?.restorationIdentifier == Constants.RestorationID.existingUserViewController{
+            navBarButtonItems.removeAll()
+        }
     }
     
     private func setupBackButton() {

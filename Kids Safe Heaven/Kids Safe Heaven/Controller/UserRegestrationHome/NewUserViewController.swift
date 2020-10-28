@@ -113,8 +113,9 @@ class NewUserViewController: UIViewController, UITextFieldDelegate {
         
         /// error handling message
         var errorMessage = ""
-        
+        var errorTitle = "Not all fields fille"
         if userContains != nil {
+            errorTitle = "Unable to create user"
             errorMessage += "- user named \(userName?.text ?? "this") already exist"
         }
         
@@ -126,7 +127,7 @@ class NewUserViewController: UIViewController, UITextFieldDelegate {
             errorMessage += "-must must choose Mascot"
         }
         
-        displayMessage(title: "Not all fields filled", message: errorMessage)
+        displayMessage(title: errorTitle, message: errorMessage)
     }
     
 

@@ -12,6 +12,11 @@ import AVFoundation
 class WelcomeQuizViewController: UIViewController {
     
     @IBOutlet weak var heyLabel: UILabel!
+    @IBOutlet weak var roadSafetyButton: UIButton!
+    @IBOutlet weak var weatherSafetyButton: UIButton!
+    
+    
+    
     var user: User?
     var audioPlayer: AVAudioPlayer?
     var introMessage: String = Constants.Sound.welcomeQuizWelcomeMessage
@@ -39,7 +44,28 @@ class WelcomeQuizViewController: UIViewController {
         
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         databaseController = appDelegate.databaseController
+        lockFunctionality()
         
+        
+    }
+    
+    func lockFunctionality() {
+        if user?.generalDone == false {
+            roadSafetyButton.setBackgroundImage(UIImage(named: "secondHalf3_"), for: .normal)
+            roadSafetyButton.isEnabled = false
+            weatherSafetyButton.setBackgroundImage(UIImage(named: "secondHalf4_"), for: .normal)
+            weatherSafetyButton.isEnabled = false
+        } else if user?.roadSafetyDone == false {
+            roadSafetyButton.setBackgroundImage(UIImage(named: "secondHalf3"), for: .normal)
+            weatherSafetyButton.setBackgroundImage(UIImage(named: "secondHalf4_"), for: .normal)
+            weatherSafetyButton.isEnabled = false
+            roadSafetyButton.isEnabled = true
+        } else {
+            roadSafetyButton.setBackgroundImage(UIImage(named: "secondHalf3"), for: .normal)
+            weatherSafetyButton.setBackgroundImage(UIImage(named: "secondHalf4"), for: .normal)
+            weatherSafetyButton.isEnabled = true
+            roadSafetyButton.isEnabled = true
+        }
     }
     
     /// user selects any of the quiz button
@@ -83,7 +109,7 @@ class WelcomeQuizViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
+        lockFunctionality()
         
     }
 

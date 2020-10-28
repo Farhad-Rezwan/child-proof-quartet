@@ -13,6 +13,8 @@ import CoreLocation
 class MainJourneyViewController: UIViewController {
 
     @IBOutlet weak var thingsToCarryButton: UIButton!
+    @IBOutlet weak var knowTheDangerButton: UIButton!
+    @IBOutlet weak var textMessage: UILabel!
     
     var audioPlayer: AVAudioPlayer?
     var user: User?
@@ -37,11 +39,12 @@ class MainJourneyViewController: UIViewController {
         }
         
         self.navigationController?.navigationBar.isHidden = false
+        lockFunctionality()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-
+        lockFunctionality()
 
         /// check for location is found, if found enable the thingsToCarrry button
         enableThingsToCarry()
@@ -54,9 +57,29 @@ class MainJourneyViewController: UIViewController {
         audioPlayer?.stop()
     }
     
+    func lockFunctionality() {
+        if user?.generalDone == false {
+            thingsToCarryButton.setBackgroundImage(UIImage(named: "thingsToCarryButtonLocked"), for: .normal)
+            thingsToCarryButton.isEnabled = false
+            knowTheDangerButton.setBackgroundImage(UIImage(named: "knowTheDangerButtonLocked"), for: .normal)
+            knowTheDangerButton.isEnabled = false
+        } else if user?.thingsDone == false {
+            thingsToCarryButton.setBackgroundImage(UIImage(named: "thingsToCarryButton"), for: .normal)
+            knowTheDangerButton.setBackgroundImage(UIImage(named: "knowTheDangerButtonLocked"), for: .normal)
+            knowTheDangerButton.isEnabled = false
+            thingsToCarryButton.isEnabled = true
+        } else {
+            thingsToCarryButton.setBackgroundImage(UIImage(named: "thingsToCarryButton"), for: .normal)
+            knowTheDangerButton.setBackgroundImage(UIImage(named: "knowTheDangerButton"), for: .normal)
+            knowTheDangerButton.isEnabled = true
+            thingsToCarryButton.isEnabled = true
+            textMessage.text = "Let's begin your Journey by learning"
+        }
+    }
+    
     func enableThingsToCarry() {
         if currentLocation?.latitude != nil && currentLocation?.latitude != 0 {
-            thingsToCarryButton.isEnabled = true
+//            thingsToCarryButton.isEnabled = true
             
         }
     }
@@ -74,7 +97,9 @@ class MainJourneyViewController: UIViewController {
     }
     
     @IBAction func thingsToCarryClicked(_ sender: Any) {
-        print("disabled but clicked")
+        /// gives user with selection haptic feedback
+        let generator = UISelectionFeedbackGenerator()
+        generator.selectionChanged()
     }
     
     

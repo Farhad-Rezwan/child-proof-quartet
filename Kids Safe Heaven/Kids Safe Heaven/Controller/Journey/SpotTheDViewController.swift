@@ -140,7 +140,7 @@ class SpotTheDViewController: UIViewController {
         
         /// animates in depending on the selection of the user
         spotTheDangerVisualEffect.effect = UIBlurEffect(style: .light)
-        spotTheDangerVisualEffect.backgroundColor = UIColor.init(red: 0.5, green: 0.0, blue: 0.0, alpha: 0.5)
+        spotTheDangerVisualEffect.backgroundColor = UIColor.init(red: 0.0, green: 0.5, blue: 0.0, alpha: 0.5)
         animateIn(desiredView: spotTheDangerVisualEffect)
         animateIn(desiredView: spotTheDangerTipsView)
         
@@ -308,7 +308,7 @@ extension SpotTheDViewController: UICollectionViewDataSource, UICollectionViewDe
     /// difining the cell for number of item user need to choose, Shows "!"
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Constants.Identifier.itemFoundCollVC, for: indexPath) as! ItemFoundCollectionViewCell
-        cell.itemFoundImage.image = UIImage(named: Constants.Design.spotTheDangerCorrectIcon)
+        cell.itemFoundImage.image = UIImage(named: Constants.Design.spotTheDangerCorrectIcon + "_")
         return cell
     }
 }

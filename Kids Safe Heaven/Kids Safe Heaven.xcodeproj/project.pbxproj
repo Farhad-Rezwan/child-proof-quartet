@@ -8,6 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		8F50B495E291246FEE91BF4F /* Pods_Kids_Safe_Heaven.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56C119D106DF637D27F76702 /* Pods_Kids_Safe_Heaven.framework */; };
+		E474D0B9254965B8002805B2 /* mainJourneyIntroductionSound.wav in Resources */ = {isa = PBXBuildFile; fileRef = E474D0B8254965B8002805B2 /* mainJourneyIntroductionSound.wav */; };
+		E474D0BD2549690B002805B2 /* FirstScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E474D0BC2549690B002805B2 /* FirstScreenViewController.swift */; };
+		E474D0C025496989002805B2 /* backgroundMusic.wav in Resources */ = {isa = PBXBuildFile; fileRef = E474D0BF25496988002805B2 /* backgroundMusic.wav */; };
+		E4CA501225486A460020358F /* User+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4CA500E25486A460020358F /* User+CoreDataClass.swift */; };
+		E4CA501325486A460020358F /* User+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4CA500F25486A460020358F /* User+CoreDataProperties.swift */; };
+		E4CA501425486A460020358F /* Score+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4CA501025486A460020358F /* Score+CoreDataClass.swift */; };
+		E4CA501525486A460020358F /* Score+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4CA501125486A460020358F /* Score+CoreDataProperties.swift */; };
 		FC10ED3924EC13A200C11DB0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC10ED3824EC13A200C11DB0 /* AppDelegate.swift */; };
 		FC10ED3B24EC13A200C11DB0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC10ED3A24EC13A200C11DB0 /* SceneDelegate.swift */; };
 		FC10ED4024EC13A200C11DB0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FC10ED3E24EC13A200C11DB0 /* Main.storyboard */; };
@@ -122,15 +129,10 @@
 		FCB56AC32512580800D61761 /* tunnelsAndBarrelsGroup.wav in Resources */ = {isa = PBXBuildFile; fileRef = FCB56AB12512580800D61761 /* tunnelsAndBarrelsGroup.wav */; };
 		FCB56AC42512580800D61761 /* skateGroup.wav in Resources */ = {isa = PBXBuildFile; fileRef = FCB56AB22512580800D61761 /* skateGroup.wav */; };
 		FCB56AC72512B80500D61761 /* NewExistingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCB56AC62512B80500D61761 /* NewExistingViewController.swift */; };
-		FCB889CA253C8ACE007289C7 /* mainJourneyIntroductionSound.wav in Resources */ = {isa = PBXBuildFile; fileRef = FCB889C9253C8ACE007289C7 /* mainJourneyIntroductionSound.wav */; };
 		FCB889D1253C94DA007289C7 /* speaking-tubesGroup.wav in Resources */ = {isa = PBXBuildFile; fileRef = FCB889CD253C94DA007289C7 /* speaking-tubesGroup.wav */; };
 		FCB889D2253C94DA007289C7 /* abacasGroup.wav in Resources */ = {isa = PBXBuildFile; fileRef = FCB889CE253C94DA007289C7 /* abacasGroup.wav */; };
 		FCB889D3253C94DA007289C7 /* tic-tac-toeGroup.wav in Resources */ = {isa = PBXBuildFile; fileRef = FCB889CF253C94DA007289C7 /* tic-tac-toeGroup.wav */; };
 		FCB889D4253C94DA007289C7 /* chalkboardGroup.wav in Resources */ = {isa = PBXBuildFile; fileRef = FCB889D0253C94DA007289C7 /* chalkboardGroup.wav */; };
-		FCBE4EB7250F2E1F006EF55A /* User+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCBE4EB3250F2E1F006EF55A /* User+CoreDataClass.swift */; };
-		FCBE4EB8250F2E1F006EF55A /* User+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCBE4EB4250F2E1F006EF55A /* User+CoreDataProperties.swift */; };
-		FCBE4EB9250F2E1F006EF55A /* Score+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCBE4EB5250F2E1F006EF55A /* Score+CoreDataClass.swift */; };
-		FCBE4EBA250F2E1F006EF55A /* Score+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCBE4EB6250F2E1F006EF55A /* Score+CoreDataProperties.swift */; };
 		FCBE4EBF250F5AD9006EF55A /* NewUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCBE4EBE250F5AD9006EF55A /* NewUserViewController.swift */; };
 		FCC1416A2512E88200383C0C /* introductionAvatarMessage.wav in Resources */ = {isa = PBXBuildFile; fileRef = FCC141692512E88200383C0C /* introductionAvatarMessage.wav */; };
 		FCC8B68E253C17E200B29D01 /* winS3.wav in Resources */ = {isa = PBXBuildFile; fileRef = FCC8B685253C17E100B29D01 /* winS3.wav */; };
@@ -182,6 +184,13 @@
 		56C119D106DF637D27F76702 /* Pods_Kids_Safe_Heaven.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Kids_Safe_Heaven.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9C71109B66AA796D1F136F93 /* Pods-Kids Safe Heaven.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Kids Safe Heaven.release.xcconfig"; path = "Target Support Files/Pods-Kids Safe Heaven/Pods-Kids Safe Heaven.release.xcconfig"; sourceTree = "<group>"; };
 		B0915657F41B648283662861 /* Pods-Kids Safe Heaven.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Kids Safe Heaven.debug.xcconfig"; path = "Target Support Files/Pods-Kids Safe Heaven/Pods-Kids Safe Heaven.debug.xcconfig"; sourceTree = "<group>"; };
+		E474D0B8254965B8002805B2 /* mainJourneyIntroductionSound.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = mainJourneyIntroductionSound.wav; sourceTree = "<group>"; };
+		E474D0BC2549690B002805B2 /* FirstScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstScreenViewController.swift; sourceTree = "<group>"; };
+		E474D0BF25496988002805B2 /* backgroundMusic.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = backgroundMusic.wav; sourceTree = "<group>"; };
+		E4CA500E25486A460020358F /* User+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User+CoreDataClass.swift"; sourceTree = "<group>"; };
+		E4CA500F25486A460020358F /* User+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		E4CA501025486A460020358F /* Score+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Score+CoreDataClass.swift"; sourceTree = "<group>"; };
+		E4CA501125486A460020358F /* Score+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Score+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		FC10ED3524EC13A200C11DB0 /* Kids Safe Heaven.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Kids Safe Heaven.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FC10ED3824EC13A200C11DB0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FC10ED3A24EC13A200C11DB0 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -298,15 +307,10 @@
 		FCB56AB12512580800D61761 /* tunnelsAndBarrelsGroup.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = tunnelsAndBarrelsGroup.wav; sourceTree = "<group>"; };
 		FCB56AB22512580800D61761 /* skateGroup.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = skateGroup.wav; sourceTree = "<group>"; };
 		FCB56AC62512B80500D61761 /* NewExistingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewExistingViewController.swift; sourceTree = "<group>"; };
-		FCB889C9253C8ACE007289C7 /* mainJourneyIntroductionSound.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = mainJourneyIntroductionSound.wav; sourceTree = "<group>"; };
 		FCB889CD253C94DA007289C7 /* speaking-tubesGroup.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "speaking-tubesGroup.wav"; sourceTree = "<group>"; };
 		FCB889CE253C94DA007289C7 /* abacasGroup.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = abacasGroup.wav; sourceTree = "<group>"; };
 		FCB889CF253C94DA007289C7 /* tic-tac-toeGroup.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "tic-tac-toeGroup.wav"; sourceTree = "<group>"; };
 		FCB889D0253C94DA007289C7 /* chalkboardGroup.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = chalkboardGroup.wav; sourceTree = "<group>"; };
-		FCBE4EB3250F2E1F006EF55A /* User+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User+CoreDataClass.swift"; sourceTree = "<group>"; };
-		FCBE4EB4250F2E1F006EF55A /* User+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		FCBE4EB5250F2E1F006EF55A /* Score+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Score+CoreDataClass.swift"; sourceTree = "<group>"; };
-		FCBE4EB6250F2E1F006EF55A /* Score+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Score+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		FCBE4EBE250F5AD9006EF55A /* NewUserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewUserViewController.swift; sourceTree = "<group>"; };
 		FCC141692512E88200383C0C /* introductionAvatarMessage.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = introductionAvatarMessage.wav; sourceTree = "<group>"; };
 		FCC8B685253C17E100B29D01 /* winS3.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = winS3.wav; sourceTree = "<group>"; };
@@ -624,6 +628,7 @@
 				FC4C5B0E25206F6C00D6B87D /* ScoreBoard */,
 				FCFC3507254008A6004BB4A3 /* Constants.swift */,
 				FC88A7772540E3BC00188BC4 /* CustomNavigationController.swift */,
+				E474D0BC2549690B002805B2 /* FirstScreenViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -662,10 +667,10 @@
 		FC6C299B250EDCB10007FEE0 /* DataModel */ = {
 			isa = PBXGroup;
 			children = (
-				FCBE4EB3250F2E1F006EF55A /* User+CoreDataClass.swift */,
-				FCBE4EB4250F2E1F006EF55A /* User+CoreDataProperties.swift */,
-				FCBE4EB5250F2E1F006EF55A /* Score+CoreDataClass.swift */,
-				FCBE4EB6250F2E1F006EF55A /* Score+CoreDataProperties.swift */,
+				E4CA500E25486A460020358F /* User+CoreDataClass.swift */,
+				E4CA500F25486A460020358F /* User+CoreDataProperties.swift */,
+				E4CA501025486A460020358F /* Score+CoreDataClass.swift */,
+				E4CA501125486A460020358F /* Score+CoreDataProperties.swift */,
 				FC600175250EE10600C42403 /* LocalDatabase */,
 				FC6C299C250EDE060007FEE0 /* UserDataModel.xcdatamodeld */,
 			);
@@ -737,14 +742,15 @@
 		FCEF029024FC401D004345F6 /* Sound */ = {
 			isa = PBXGroup;
 			children = (
+				E474D0BF25496988002805B2 /* backgroundMusic.wav */,
 				FCD34E3B253BF4E30024A9BD /* DanTips */,
 				FC4657E72537C1C1004B9E9D /* ThingsToCarry */,
 				FCFC351125401B09004BB4A3 /* QuizSection */,
 				FC4667CC2527281100386213 /* RecommendedSystem */,
 				FC4667C92527132000386213 /* GroupsOfEquipments */,
 				FCC141692512E88200383C0C /* introductionAvatarMessage.wav */,
-				FCB889C9253C8ACE007289C7 /* mainJourneyIntroductionSound.wav */,
 				FCEF029224FC4035004345F6 /* correct.mp3 */,
+				E474D0B8254965B8002805B2 /* mainJourneyIntroductionSound.wav */,
 				FCEF029324FC4035004345F6 /* gamePlay.mp3 */,
 				FCEF029124FC4035004345F6 /* wrong.mp3 */,
 			);
@@ -847,8 +853,8 @@
 				FCC8B68F253C17E200B29D01 /* winS8.wav in Resources */,
 				FC10ED4524EC13A600C11DB0 /* LaunchScreen.storyboard in Resources */,
 				FCC8B68E253C17E200B29D01 /* winS3.wav in Resources */,
+				E474D0C025496989002805B2 /* backgroundMusic.wav in Resources */,
 				FCC8B6A5253C18A800B29D01 /* sumS2.wav in Resources */,
-				FCB889CA253C8ACE007289C7 /* mainJourneyIntroductionSound.wav in Resources */,
 				FC7FA4D52539C714006AD3EE /* hint-1.png in Resources */,
 				FC4668372527597E00386213 /* q11sound.wav in Resources */,
 				FC46680F2527372900386213 /* q11t2.wav in Resources */,
@@ -923,6 +929,7 @@
 				FC4668002527372900386213 /* q10t2.wav in Resources */,
 				FC46683A2527597E00386213 /* q4sound.wav in Resources */,
 				FCB889D2253C94DA007289C7 /* abacasGroup.wav in Resources */,
+				E474D0B9254965B8002805B2 /* mainJourneyIntroductionSound.wav in Resources */,
 				FC10ED4024EC13A200C11DB0 /* Main.storyboard in Resources */,
 				FCC8B692253C17E200B29D01 /* winS9.wav in Resources */,
 				FCC8B6A6253C18A800B29D01 /* sumS9.wav in Resources */,
@@ -1006,9 +1013,12 @@
 				FC2C232325307C92003E711B /* ThingsCarry.swift in Sources */,
 				FC62FB872510258200A33D08 /* SingleParkViewController.swift in Sources */,
 				FC4C110024F3DBCA00C3A2DB /* Question.swift in Sources */,
+				E4CA501425486A460020358F /* Score+CoreDataClass.swift in Sources */,
 				FC433F5C250E529600110C97 /* Park.swift in Sources */,
 				FC99F4AF24F66966009A1ABD /* WelcomeQuizViewController.swift in Sources */,
+				E4CA501525486A460020358F /* Score+CoreDataProperties.swift in Sources */,
 				FC433F58250E41DC00110C97 /* RecommendedParkHomeViewController.swift in Sources */,
+				E474D0BD2549690B002805B2 /* FirstScreenViewController.swift in Sources */,
 				FC48B185253967D000F2D6F3 /* ItemFoundCollectionViewCell.swift in Sources */,
 				FC4371FB253B34B400430EB2 /* SpotTheDanger.swift in Sources */,
 				FC10ED3924EC13A200C11DB0 /* AppDelegate.swift in Sources */,
@@ -1016,16 +1026,15 @@
 				FC10ED3B24EC13A200C11DB0 /* SceneDelegate.swift in Sources */,
 				FC88A7782540E3BC00188BC4 /* CustomNavigationController.swift in Sources */,
 				FC40FC1A2531786700081F1F /* EachThingsCollectionViewCell.swift in Sources */,
-				FCBE4EBA250F2E1F006EF55A /* Score+CoreDataProperties.swift in Sources */,
+				E4CA501225486A460020358F /* User+CoreDataClass.swift in Sources */,
 				FC600187250EE9E700C42403 /* CoreDataController.swift in Sources */,
 				FC4C10FE24F3D9FC00C3A2DB /* QuestionViewController.swift in Sources */,
 				FC433F5A250E4B0700110C97 /* ParkDataCollectionViewCell.swift in Sources */,
 				FCB4AEA924FAFF47001603FA /* HomeScreenViewController.swift in Sources */,
 				FC6C299E250EDE060007FEE0 /* UserDataModel.xcdatamodeld in Sources */,
 				FCFC3508254008A6004BB4A3 /* Constants.swift in Sources */,
+				E4CA501325486A460020358F /* User+CoreDataProperties.swift in Sources */,
 				FC9A8A0725430BF8003373FE /* WeatherLocationManager.swift in Sources */,
-				FCBE4EB9250F2E1F006EF55A /* Score+CoreDataClass.swift in Sources */,
-				FCBE4EB7250F2E1F006EF55A /* User+CoreDataClass.swift in Sources */,
 				FCBE4EBF250F5AD9006EF55A /* NewUserViewController.swift in Sources */,
 				FC62FB8B25107F8500A33D08 /* ParkEquipmmentCollectionViewCell.swift in Sources */,
 				FC6C299A250EC2D50007FEE0 /* ParkManager.swift in Sources */,
@@ -1036,7 +1045,6 @@
 				FCEA9E46252D4F7600E92B2B /* SpotTheDViewController.swift in Sources */,
 				FC2EB66B2512089500657F48 /* Equipments.swift in Sources */,
 				FCEA9E3F252D4EEE00E92B2B /* MainJourneyViewController.swift in Sources */,
-				FCBE4EB8250F2E1F006EF55A /* User+CoreDataProperties.swift in Sources */,
 				FC600185250EE97300C42403 /* MulticastDelegate.swift in Sources */,
 				FCB56AC72512B80500D61761 /* NewExistingViewController.swift in Sources */,
 				FC60017B250EE3C600C42403 /* DatabaseProtocol.swift in Sources */,

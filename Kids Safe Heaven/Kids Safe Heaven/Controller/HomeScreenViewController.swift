@@ -17,6 +17,7 @@ class HomeScreenViewController: UIViewController, DatabaseListener {
     @IBOutlet weak var openerAvater: UIImageView!
     @IBOutlet weak var locationButton: UIButton!
     @IBOutlet weak var locationAskButtonOutlet: UIButton!
+    @IBOutlet weak var logoutUserButtonUI: UIButton!
     
     let locationManager = CLLocationManager()
     var currentLocation: CLLocationCoordinate2D?
@@ -50,13 +51,21 @@ class HomeScreenViewController: UIViewController, DatabaseListener {
         locationManager.startUpdatingLocation()
         
         /// when view controller appear again the navigation bar is hidden also
-        self.navigationController?.navigationBar.isHidden = false
-
+        self.navigationController?.navigationBar.isHidden = true
+        
+        
+        /// designing seperate logout button
+        logoutUserButtonUI.titleLabel?.backgroundColor = .systemYellow
+        logoutUserButtonUI.titleLabel?.font = .monospacedSystemFont(ofSize: 10, weight: .black)
+        logoutUserButtonUI.titleLabel?.text = "Log Out"
 
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        
+        /// when view controller appear again the navigation bar is hidden also
+        self.navigationController?.navigationBar.isHidden = true
 
         /// location update starts
         locationManager.startUpdatingLocation()
@@ -94,7 +103,7 @@ class HomeScreenViewController: UIViewController, DatabaseListener {
     }
     @IBAction func locationAsksButton(_ sender: Any) {
         locationManager.requestWhenInUseAuthorization()
-        createSettingsAlertController(title: "You need to enable location settings", message: "- Settings > Privacy > Location Services" )
+        createSettingsAlertController(title: "Enable Location", message: "You need to enable location service to see amazing parks \n Please go - Settings > Privacy > Location Services" )
     }
     func createSettingsAlertController(title: String, message: String) {
 
@@ -110,6 +119,14 @@ class HomeScreenViewController: UIViewController, DatabaseListener {
           self.present(alertController, animated: true, completion: nil)
 
        }
+    
+    @IBAction func logoutUserbutton(_ sender: Any) {
+        /// poping nav controller twice so that user is navigated to the new user existing user screen
+        self.navigationItem.rightBarButtonItems?.removeAll()
+        navigationController?.popToRootViewController(animated: true)
+    }
+    
+    
     
     /// Database Delegate Methods
     /// do nothing

@@ -21,6 +21,7 @@ class ScoreBoardViewController: UIViewController {
     var questionType: String?
     var audioPlayer: AVAudioPlayer?
     var introMessage: String = Constants.Sound.scoreBooardVCMessage
+    var unlockType: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,13 +41,13 @@ class ScoreBoardViewController: UIViewController {
         
         switch questionType {
         case "general":
-            questionTypeTVLabel.text = "General Safety"
+            questionTypeTVLabel.text = "Congratulations! You have successfully \n completed \"General Safety\" quiz"
             break
         case "safetySigns":
-            questionTypeTVLabel.text = "Road Safety"
+            questionTypeTVLabel.text = "Congratulations! You have successfully \n completed \"Road Safety\" quiz"
             break
         case "weather":
-            questionTypeTVLabel.text = "Weather Safety"
+            questionTypeTVLabel.text = "Congratulations! You have successfully \n completed \"Weather Safety\" quiz"
             break
         default:
             questionTypeTVLabel.text = " "
@@ -76,6 +77,11 @@ class ScoreBoardViewController: UIViewController {
         } catch {
             print("error playing")
         }
+    }
+    
+    
+    @IBAction func nextScreenButtonAction(_ sender: Any) {
+        navigationController?.popViewController(animated: true)
     }
     
 }

@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "iteration3Button.png",
+      "filename" : "iterationa.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "iteration3Button@2x.png",
+      "filename" : "iterationa@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "iteration3Button@3x.png",
+      "filename" : "iterationa@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

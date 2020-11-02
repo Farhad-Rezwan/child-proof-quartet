@@ -46,6 +46,7 @@ struct Constants {
     }
     
     struct Identifier {
+        static var newUserViewController = "newUserVC"
         static var eachParkCell = "eachParkCell"
         static var eachEquipmentCell = "eachEquipmentCell"
         static var thingsToCarryCollVC = "thingsToCarryItems"
@@ -54,6 +55,7 @@ struct Constants {
         static var itemFoundCollVC = "itemFoundCell"
         static var menuViewController = "menuViewController"
         static var journeyScooreBoardVC = "journeyScoreboradVC"
+        static var quizScoreBoardViewC = "scoreBoardVC"
 
     }
     

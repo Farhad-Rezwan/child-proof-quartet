@@ -22,13 +22,15 @@ class SpotTheDViewController: UIViewController {
     @IBOutlet weak var brockenSwingSpottedImageView: UIImageView!
     @IBOutlet var spotTheDangerVisualEffect: UIVisualEffectView!
     @IBOutlet var spotTheDangerTipsView: UIView!
+    @IBOutlet weak var spotTheDTipsMascot: UIButton!
     @IBOutlet weak var dangerTipImageView: UIImageView!
-    
+
     var dangerItems: [Int] = [0,1,2,3,4,5,6]
     var hintShownFor: [Int] = []
     var hintImage: [UIImage] = []
     var globalImageView = UIImageView()
     var audioPlayer: AVAudioPlayer?
+    var user: User?
     
 
     
@@ -41,6 +43,7 @@ class SpotTheDViewController: UIViewController {
         spotTheDangerTipsView.bounds = self.view.bounds
         spotTheDangerVisualEffect.bounds = self.view.bounds
         
+
         /// hint image animation load
         hintImage = createImageArray(total: 8, imagePrefix: "hint")
 
@@ -76,7 +79,11 @@ class SpotTheDViewController: UIViewController {
         // to animate 4 times put 4 here
         imageView.animationRepeatCount = 1
         imageView.startAnimating()
-        
+
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        spotTheDTipsMascot.setBackgroundImage(UIImage(systemName: user?.avatarName ?? "zac"), for: .normal)
     }
 
     @IBAction func spotTheDAction(_ sender: UIButton) {
@@ -140,7 +147,7 @@ class SpotTheDViewController: UIViewController {
         
         /// animates in depending on the selection of the user
         spotTheDangerVisualEffect.effect = UIBlurEffect(style: .light)
-        spotTheDangerVisualEffect.backgroundColor = UIColor.init(red: 0.5, green: 0.0, blue: 0.0, alpha: 0.5)
+        spotTheDangerVisualEffect.backgroundColor = UIColor.init(red: 0.0, green: 0.5, blue: 0.0, alpha: 0.5)
         animateIn(desiredView: spotTheDangerVisualEffect)
         animateIn(desiredView: spotTheDangerTipsView)
         
@@ -308,7 +315,7 @@ extension SpotTheDViewController: UICollectionViewDataSource, UICollectionViewDe
     /// difining the cell for number of item user need to choose, Shows "!"
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Constants.Identifier.itemFoundCollVC, for: indexPath) as! ItemFoundCollectionViewCell
-        cell.itemFoundImage.image = UIImage(named: Constants.Design.spotTheDangerCorrectIcon)
+        cell.itemFoundImage.image = UIImage(named: Constants.Design.spotTheDangerCorrectIcon + "_")
         return cell
     }
 }

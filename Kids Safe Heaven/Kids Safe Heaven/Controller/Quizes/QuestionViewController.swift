@@ -13,6 +13,7 @@ class QuestionViewController: UIViewController {
     
     var audioPlayer: AVAudioPlayer?
     var user: User?
+    
 
     @IBOutlet weak var questionCounter: UILabel!
     @IBOutlet weak var scoreLabel: UILabel!
@@ -28,7 +29,7 @@ class QuestionViewController: UIViewController {
     var qType: String?
     var allQuestions: ArraySlice<Question>!
     var tempSoundToLoad: String?
-    
+    weak var databaseController: DatabaseProtocol?
     /// Variables for displaying and handling proper question to the user
     var questionNumber: Int = 0
     var selectionNumber: Int = 0
@@ -50,7 +51,10 @@ class QuestionViewController: UIViewController {
         updateUI()
         populateAvatarOfTipsScreen()
         addCornerAndBorderToOptions()
-
+        
+        /// Database delegate
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        databaseController = appDelegate.databaseController
         
         let backButton = UIBarButtonItem()
         backButton.title = ""
@@ -243,7 +247,22 @@ class QuestionViewController: UIViewController {
     
     /// when done in the alert option is pressed, user is sent to score ciew controller
     func navigateToScorecard() {
-        let viewController = storyboard?.instantiateViewController(identifier: "scoreBoardVC") as! ScoreBoardViewController
+        if qType == "general" {
+            print(user?.generalDone ?? true)
+            if user?.generalDone == false {
+                user?.generalDone = true
+                databaseController?.cleanup()
+            }
+        } else if qType == "safetySigns" {
+            print(user?.roadSafetyDone ?? true)
+            if user?.roadSafetyDone == false {
+                user?.roadSafetyDone = true
+                databaseController?.cleanup()
+            }
+        }
+        print(user?.generalDone ?? false)
+
+        let viewController = storyboard?.instantiateViewController(identifier: Constants.Identifier.quizScoreBoardViewC) as! ScoreBoardViewController
         viewController.score = String(score)
         viewController.user = user
         viewController.questionType = qType ?? "general"

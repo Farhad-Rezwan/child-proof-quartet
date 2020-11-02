@@ -2,7 +2,7 @@
 //  User+CoreDataProperties.swift
 //  Kids Safe Heaven
 //
-//  Created by Farhad Ullah Rezwan on 14/9/20.
+//  Created by Farhad Ullah Rezwan on 28/10/20.
 //  Copyright © 2020 Farhad Ullah Rezwan. All rights reserved.
 //
 //
@@ -19,6 +19,9 @@ extension User {
 
     @NSManaged public var avatarName: String?
     @NSManaged public var name: String?
+    @NSManaged public var generalDone: Bool
+    @NSManaged public var thingsDone: Bool
+    @NSManaged public var roadSafetyDone: Bool
     @NSManaged public var scores: NSSet?
 
 }
@@ -37,5 +40,9 @@ extension User {
 
     @objc(removeScores:)
     @NSManaged public func removeFromScores(_ values: NSSet)
+
+}
+
+extension User : Identifiable {
 
 }

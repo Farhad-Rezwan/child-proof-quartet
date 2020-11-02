@@ -25,8 +25,6 @@ class HomeScreenViewController: UIViewController, DatabaseListener {
     weak var databaseController: DatabaseProtocol?
     var listenerType: ListenerType = .all
     var user: User?
-    var lat: Double?
-    var lon: Double?
 
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -10,7 +10,6 @@
 		8F50B495E291246FEE91BF4F /* Pods_Kids_Safe_Heaven.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56C119D106DF637D27F76702 /* Pods_Kids_Safe_Heaven.framework */; };
 		E474D0B9254965B8002805B2 /* mainJourneyIntroductionSound.wav in Resources */ = {isa = PBXBuildFile; fileRef = E474D0B8254965B8002805B2 /* mainJourneyIntroductionSound.wav */; };
 		E474D0BD2549690B002805B2 /* FirstScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E474D0BC2549690B002805B2 /* FirstScreenViewController.swift */; };
-		E474D0C025496989002805B2 /* backgroundMusic.wav in Resources */ = {isa = PBXBuildFile; fileRef = E474D0BF25496988002805B2 /* backgroundMusic.wav */; };
 		E4CA501225486A460020358F /* User+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4CA500E25486A460020358F /* User+CoreDataClass.swift */; };
 		E4CA501325486A460020358F /* User+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4CA500F25486A460020358F /* User+CoreDataProperties.swift */; };
 		E4CA501425486A460020358F /* Score+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4CA501025486A460020358F /* Score+CoreDataClass.swift */; };
@@ -186,7 +185,6 @@
 		B0915657F41B648283662861 /* Pods-Kids Safe Heaven.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Kids Safe Heaven.debug.xcconfig"; path = "Target Support Files/Pods-Kids Safe Heaven/Pods-Kids Safe Heaven.debug.xcconfig"; sourceTree = "<group>"; };
 		E474D0B8254965B8002805B2 /* mainJourneyIntroductionSound.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = mainJourneyIntroductionSound.wav; sourceTree = "<group>"; };
 		E474D0BC2549690B002805B2 /* FirstScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstScreenViewController.swift; sourceTree = "<group>"; };
-		E474D0BF25496988002805B2 /* backgroundMusic.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = backgroundMusic.wav; sourceTree = "<group>"; };
 		E4CA500E25486A460020358F /* User+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User+CoreDataClass.swift"; sourceTree = "<group>"; };
 		E4CA500F25486A460020358F /* User+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		E4CA501025486A460020358F /* Score+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Score+CoreDataClass.swift"; sourceTree = "<group>"; };
@@ -742,7 +740,6 @@
 		FCEF029024FC401D004345F6 /* Sound */ = {
 			isa = PBXGroup;
 			children = (
-				E474D0BF25496988002805B2 /* backgroundMusic.wav */,
 				FCD34E3B253BF4E30024A9BD /* DanTips */,
 				FC4657E72537C1C1004B9E9D /* ThingsToCarry */,
 				FCFC351125401B09004BB4A3 /* QuizSection */,
@@ -853,7 +850,6 @@
 				FCC8B68F253C17E200B29D01 /* winS8.wav in Resources */,
 				FC10ED4524EC13A600C11DB0 /* LaunchScreen.storyboard in Resources */,
 				FCC8B68E253C17E200B29D01 /* winS3.wav in Resources */,
-				E474D0C025496989002805B2 /* backgroundMusic.wav in Resources */,
 				FCC8B6A5253C18A800B29D01 /* sumS2.wav in Resources */,
 				FC7FA4D52539C714006AD3EE /* hint-1.png in Resources */,
 				FC4668372527597E00386213 /* q11sound.wav in Resources */,

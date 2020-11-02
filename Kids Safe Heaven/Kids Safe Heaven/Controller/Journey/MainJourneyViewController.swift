@@ -93,6 +93,9 @@ class MainJourneyViewController: UIViewController {
         } else if segue.identifier == Constants.Segue.journeyToQuiz {
             let destination = segue.destination as! WelcomeQuizViewController
             destination.user = user
+        } else if segue.identifier == Constants.Segue.journeyToSpotTheD {
+            let destination = segue.destination as! SpotTheDViewController
+            destination.user = user
         }
     }
     

@@ -11,6 +11,7 @@ import UIKit
 class ChooseUserViewController: UIViewController, DatabaseListener {
 
 
+    @IBOutlet weak var makeCircleForAddUser: UIView!
     @IBOutlet weak var userTableViewCell: UITableView!
     @IBOutlet weak var addUserButton: UIButton!
     
@@ -36,10 +37,6 @@ class ChooseUserViewController: UIViewController, DatabaseListener {
         addUserButton.isHidden = true
         /// validating if the user is empty
         self.title = "You can select from the list of users below"
-        if users.count == 0 {
-            self.title = "User list empty, click add user button below"
-            addUserButton.isHidden = false
-        }
     }
     
 
@@ -50,8 +47,15 @@ class ChooseUserViewController: UIViewController, DatabaseListener {
         databaseController?.addListener(listener: self)
         
         self.title = "You can select from the list of users below"
-        addUserButton.isHidden = true
+
+        
         if users.count == 0 {
+            /// making corner radious
+            addUserButton.isHidden = true
+            makeCircleForAddUser.layer.cornerRadius = makeCircleForAddUser.frame.width / 10;
+            makeCircleForAddUser.layer.masksToBounds = true
+            
+            userTableViewCell.isHidden = true
             self.title = "User list is empty, click on \"add user\" button below"
             addUserButton.isHidden = false
         }

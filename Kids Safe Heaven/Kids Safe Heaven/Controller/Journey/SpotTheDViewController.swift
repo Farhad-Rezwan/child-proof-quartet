@@ -22,13 +22,15 @@ class SpotTheDViewController: UIViewController {
     @IBOutlet weak var brockenSwingSpottedImageView: UIImageView!
     @IBOutlet var spotTheDangerVisualEffect: UIVisualEffectView!
     @IBOutlet var spotTheDangerTipsView: UIView!
+    @IBOutlet weak var spotTheDTipsMascot: UIButton!
     @IBOutlet weak var dangerTipImageView: UIImageView!
-    
+
     var dangerItems: [Int] = [0,1,2,3,4,5,6]
     var hintShownFor: [Int] = []
     var hintImage: [UIImage] = []
     var globalImageView = UIImageView()
     var audioPlayer: AVAudioPlayer?
+    var user: User?
     
 
     
@@ -41,6 +43,7 @@ class SpotTheDViewController: UIViewController {
         spotTheDangerTipsView.bounds = self.view.bounds
         spotTheDangerVisualEffect.bounds = self.view.bounds
         
+
         /// hint image animation load
         hintImage = createImageArray(total: 8, imagePrefix: "hint")
 
@@ -76,7 +79,11 @@ class SpotTheDViewController: UIViewController {
         // to animate 4 times put 4 here
         imageView.animationRepeatCount = 1
         imageView.startAnimating()
-        
+
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        spotTheDTipsMascot.setBackgroundImage(UIImage(systemName: user?.avatarName ?? "zac"), for: .normal)
     }
 
     @IBAction func spotTheDAction(_ sender: UIButton) {

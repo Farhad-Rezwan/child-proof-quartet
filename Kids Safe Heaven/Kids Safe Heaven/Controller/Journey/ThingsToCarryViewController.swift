@@ -17,6 +17,7 @@ import CoreLocation
 class ThingsToCarryViewController: UIViewController {
     
     @IBOutlet var tipsView: UIView!
+    @IBOutlet weak var tipsViewMascot: UIButton!
     @IBOutlet var visualAffectView: UIVisualEffectView!
     @IBOutlet weak var mascotImageToBeHiddenIfPass: UIImageView!
     @IBOutlet weak var buttonToBeHiddenUnlessPass: UIButton!
@@ -50,6 +51,7 @@ class ThingsToCarryViewController: UIViewController {
         /// adding boundary to tips view and visual affect view
         tipsView.bounds = self.view.bounds
         visualAffectView.bounds = self.view.bounds
+        tipsViewMascot.setBackgroundImage(UIImage(named: user?.avatarName ?? "kris"), for: .normal)
         
         countLabel.text = "You have selected 0 out of 5 correct items"
 

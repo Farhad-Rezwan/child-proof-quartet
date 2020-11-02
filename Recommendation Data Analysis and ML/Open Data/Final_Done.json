@@ -1,0 +1,110 @@
+{
+    "balance": [
+        "COME UP WITH PROPER BALANCE IMAGE",
+        "rope bridge",
+        "balance beam" 
+    ],
+    "bar": [
+        "chin up bar", 
+        "chin up bars", 
+        "parallel bars", 
+        "monkey bars"
+    ],
+    "basketBall": [
+        "basketball court",
+        "play court space with basketball backboard only",
+        "temporary basketball court with backboard and ring",
+        "basketball rings"
+    ],
+    "carousel": [
+        "carousels"
+    ],
+    "climb": [
+        "climbers",
+        "rock and rope climbing features",
+        "climbing frame",
+        "rock wall"
+    ],
+    "greenSafeArea": [
+        "COME UP WITH PROPER GREEN SAFE AREA AND SAFETY TIPS",
+        "grassed areas",
+        "sports field"
+    ],
+    "integrated": [
+        "combination unit",
+        "multi-level play structure",
+        "pirate ship play structure",
+        "combination units",
+        "cubby with slide",
+        "fort",
+        "wooden tower"
+    ],
+    "mini-game": [
+        "COME UP WITH PROPER IMAGE AND LITTLE SAFETY OR ANYTHING INNOVATIVE as for tips",
+        "tic-tac-toe",
+        "abacus",
+        "chalkboard",
+        "musical wall",
+        "bells",
+        "speaking tubes"
+    ],
+	"Spinners": [
+        "spinner",
+        "spinners"
+    ],
+    "rocker": [
+        "COME UP WITH PROEPR ROCKER image and tips THAT REPRESETNS ALL",
+		"spring rocker",
+        "rockers",
+        "rocker",
+        "rocking table",
+        "spring rider",
+        "spring riders"
+    ],
+    "sand": [
+        "sandplay toy",
+        "sandpits",
+        "sandpit with diggers",
+        "sandpit"
+    ],
+    "see-saw": [
+        "see-saw", 
+        "see saw", 
+        "see saws"
+    ],
+    "skate": [
+        "COME UP WITH PROPER SKATE IAMGE ANS SAFETY TIPS",
+        "concrete skate ramp",
+        "skate park",
+        "bmx track"
+    ],
+    "slide": [
+        "cubby-like structures with climbing and sliding challenges",
+        "slide",
+        "double slide",
+        "spiral slide",
+        "carousel and slide",
+        "toddler playspace - slide",
+        "slides",
+        "cubby with slide",
+        "slide and climbing features",
+        "dragon slide",
+        "cubby-like structures with climbing and sliding challenges"
+    ],
+    "swing": [
+        "swings",
+        "swing",
+        "swinging hammocks",
+        "rocking swing",
+        "giraffe swing"
+    ],
+    "track": [
+        "COME UP WITH POPER TRACK IMAGE AND SAFETY TIPS",
+        "boardwalk",
+        "fitness track"
+    ],
+    "tunnelsAndBarrels": [
+        "tunnels and barrels",
+        "tunnels"
+    ]
+}

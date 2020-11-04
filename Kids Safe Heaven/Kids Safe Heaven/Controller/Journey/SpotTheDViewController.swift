@@ -42,6 +42,7 @@ class SpotTheDViewController: UIViewController {
         /// defining boundary for the Tips View and Visual Effect view
         spotTheDangerTipsView.bounds = self.view.bounds
         spotTheDangerVisualEffect.bounds = self.view.bounds
+        spotTheDTipsMascot.setBackgroundImage(UIImage(named: user?.avatarName ?? "zac"), for: .normal)
         
 
         /// hint image animation load
@@ -83,7 +84,6 @@ class SpotTheDViewController: UIViewController {
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        spotTheDTipsMascot.setBackgroundImage(UIImage(systemName: user?.avatarName ?? "zac"), for: .normal)
     }
 
     @IBAction func spotTheDAction(_ sender: UIButton) {
@@ -222,7 +222,7 @@ class SpotTheDViewController: UIViewController {
             print("allSelected")
             /// if there is not quiz question left
             let alert = UIAlertController(title: "Awesome", message: "You have correctly selected all items, Press next to see summary", preferredStyle: .alert)
-            
+
             /// setting allart with restart and done action
             let restartAction = UIAlertAction(title: "Play Again", style: .default) { [self] (action) in
                 self.animateOut(desiredView: self.spotTheDangerVisualEffect)

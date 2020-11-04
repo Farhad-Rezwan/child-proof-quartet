@@ -1,0 +1,12 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhistcnt =5
+let g:netrw_dirhist_5='/Users/rezwan/Desktop/gitHub.nosync/Plant-Baby-Monitor-iOS-Repo/Plant Baby Monitor'
+let g:netrw_dirhist_4='/Users/rezwan/Desktop/gitHub.nosync/child-proof-quartet/Recommendation Data Analysis and ML/Open Data'
+let g:netrw_dirhist_3='/Users/rezwan/Desktop/gitHub.nosync/jobHunt/aws'
+let g:netrw_dirhist_2='/Users/rezwan/Desktop'
+let g:netrw_dirhist_1='/Users/rezwan/Desktop/gitHub.nosync/LearningDataStructureAndAlgorithm/section3BigO'
+let g:netrw_dirhist_0='/Users/rezwan/Desktop/gitHub.nosync/LearningDataStructureAndAlgorithm'
+let g:netrw_dirhist_9='/Users/rezwan/Desktop/gitHub.nosync/LearningDataStructureAndAlgorithm/section4HowToSolveCoadingProblems'
+let g:netrw_dirhist_8='/Users/rezwan/Desktop/gitHub.nosync/LearningDataStructureAndAlgorithm'
+let g:netrw_dirhist_7='/Users/rezwan/Desktop/gitHub.nosync/LearningDataStructureAndAlgorithm/section5DataStructureAndAlgorithmIntroduction'
+let g:netrw_dirhist_6='/Users/rezwan/Desktop/gitHub.nosync/LearningDataStructureAndAlgorithm'

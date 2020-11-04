@@ -1,0 +1,99 @@
+{
+  "vscode-neovim.neovimExecutablePaths.darwin": "/usr/local/bin/nvim",
+  "vscode-neovim.neovimExecutablePaths.linux": "/usr/bin/nvim",
+  "vscode-neovim.neovimInitVimPaths.darwin": "$HOME/.config/nvim/init.vim",
+  "vscode-neovim.neovimInitVimPaths.linux": "$HOME/.config/nvim/init.vim",
+  "workbench.editor.showTabs": true,
+  "editor.suggestSelection": "first",
+  "workbench.list.automaticKeyboardNavigation": false,
+  "oneDarkPro.editorTheme": "onedarkPro",
+  "editor.cursorBlinking": "solid",
+  "editor.fontFamily": "Hack, Menlo, Monaco, 'Courier New', monospace",
+  "files.exclude": {
+    "**/.classpath": true,
+    "**/.project": true,
+    "**/.settings": true,
+    "**/.factorypath": true
+  },
+  "terminal.external.osxExec": "iTerm.app",
+  "editor.minimap.enabled": false,
+  "workbench.activityBar.visible": true,
+  "window.zoomLevel": 1,
+  "python.pythonPath": "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+  "editor.tokenColorCustomizations": {
+    "[One Dark Pro]": {
+      "textMateRules": [
+        {
+          "scope": [
+            "support.class.component.open.jsx",
+            "support.class.component.close.jsx",
+            "entity.name.function.js"
+          ],
+          "settings": {
+            "foreground": "#61afef"
+          }
+        },
+
+        {
+          "scope": [
+            "variable.other.constant.object.js",
+
+            "punctuation.section.embedded.begin.jsx",
+            "punctuation.section.embedded.end.jsx"
+          ],
+          "settings": {
+            "foreground": "#abb2bf"
+          }
+        },
+        {
+          "scope": ["punctuation.definition.tag.jsx"],
+          "settings": {
+            "foreground": "#5c6370"
+          }
+        },
+        {
+          "scope": [
+            "variable.other.readwrite.js",
+            "variable.other.property.js",
+            "variable.parameter",
+            "variable.other.object.js"
+          ],
+          "settings": {
+            "foreground": "#56b6c2"
+          }
+        },
+        {
+          "scope": ["entity.other.attribute-name.jsx"],
+          "settings": {
+            "foreground": "#e5c07b"
+          }
+        },
+        {
+          "scope": [
+            "keyword.operator.assignment.js",
+            "keyword.operator.assignment.jsx",
+            "string.unquoted.js",
+            "keyword.operator.typeof.js",
+            "meta.embedded.expression.js",
+            "constant.other.object.key.js",
+            "keyword.operator.logical.js"
+          ],
+          "settings": {
+            "foreground": "#c678dd"
+          }
+        },
+        {
+          "scope": ["variable.other.constant.object.js"],
+          "settings": {
+            "foreground": "#e06c75"
+          }
+        }
+      ]
+    }
+  },
+  "workbench.colorTheme": "Abyss",
+  "terminal.integrated.copyOnSelection": true,
+  "terminal.explorerKind": "external",
+  "terminal.integrated.fontFamily": "OverpassMono Nerd Font",
+  "workbench.sideBar.location": "left"
+}

@@ -16,6 +16,8 @@ All playground equipment will be displayed in a virtual playground space, and ea
     - md file and its accessories
 5. .dotfile:
     - Work Environment / IDE settings
+5. Database_Configuration:
+    - Database schema file.
 
 # Screens
 
